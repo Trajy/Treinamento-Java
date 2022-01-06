@@ -59,6 +59,58 @@ public class CargoTest {
 	@Test(expected = IllegalStateException.class)
 	public void test_07_cbo_maior_que_permitido() {
 		cargoTodosAtributos.setCBO(LITERAL_NUMERICO_COM_10_CHARS);
-	}	
+	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void test_08_nome_nulo() {
+		cargoTodosAtributos.setNome(NULO);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_09_nome_vazio() {
+		cargoTodosAtributos.setNome(VAZIO);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_10_nome_acima_max_chars() {
+		cargoTodosAtributos.setNome(TEXTO_COM_71_CHARS);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_11_nome_abaixo_min_chars() {
+		cargoAtriburtosObrigatorios.setNome(TEXTO_COM_1_CHAR);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_12_nome_nao_alfanumerico() {
+		cargoAtriburtosObrigatorios.setNome(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void test_13_descricao_nula() {
+		cargoAtriburtosObrigatorios.setDescricao(NULO);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_14_descricao_vazio() {
+		cargoTodosAtributos.setDescricao(VAZIO);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_15_descricao_acima_max_chars() {
+		cargoTodosAtributos.setDescricao(TEXTO_COM_71_CHARS);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_16_nome_abaixo_min_chars() {
+		cargoAtriburtosObrigatorios.setDescricao(TEXTO_COM_1_CHAR);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_17_descricao_nao_alfanumerico() {
+		cargoAtriburtosObrigatorios.setDescricao(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
+	}
+	
+	//TODO to implement toString, equals and hashCode tests	
+		
 }

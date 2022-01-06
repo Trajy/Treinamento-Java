@@ -29,20 +29,11 @@ public class Empresa{
 		setRazaoSocial(razaoSocial);
 	}
 
-	public Empresa(String cnpj, String razaoSocial, String nomeFantasia, String areaAtuacao, List<Email> emails,
-			List<Telefone> telefones, List<Endereco> enderecos, List<Funcionario> funcionarios, List<Produto> produtos,
-			List<Cargo> cargos, List<AmbienteTrabalho> ambientesTrabalho) {
+	public Empresa(String cnpj, String razaoSocial, String nomeFantasia, String areaAtuacao) {
 		setCnpj(cnpj);
 		setRazaoSocial(razaoSocial);
 		setNomeFantasia(nomeFantasia);
 		setAreaAtuacao(areaAtuacao);
-		setEmails(emails);
-		setTelefones(telefones);
-		setEnderecos(enderecos);
-		setFuncionarios(funcionarios);
-		setProdutos(produtos);
-		setCargos(cargos);
-		setAmbientesTrabalho(ambientesTrabalho);
 	}
 
 	public String getCnpj() {

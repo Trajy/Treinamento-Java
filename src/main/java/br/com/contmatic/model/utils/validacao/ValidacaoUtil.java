@@ -42,7 +42,7 @@ final class ValidacaoUtil {
 	}
 	
 	protected static boolean validarLimiteNum(Object analise, Object limite) {
-		return Float.parseFloat(analise.toString()) > Float.parseFloat(analise.toString()); 
+		return Float.parseFloat(analise.toString()) > Float.parseFloat(limite.toString());
 	}
 	
 	protected static boolean validarSomenteNumeros(Object analise) {

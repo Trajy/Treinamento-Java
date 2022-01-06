@@ -34,7 +34,8 @@ public final class ValidacaoContato{
 
     public static void validarEmail(String email) {
         validarCondicoes(email, EMAIL_INVALIDO, analise ->
-            validarArroba(analise)
+            validarArroba(analise) ||
+            validarQuantidadeDeCaracteresEntre(analise, EMAIL_MIN, EMAIL_MAX)
         );
     }
 }

@@ -48,6 +48,8 @@ public final class ValidacaoLimite {
     public static final int LISTA_ENDERECO_QTD_MAX = 5;
     
     public static final Float SALARIO_MAX = 100.000f;
+    public static final int EMAIL_MAX = 20;
+    public static final int EMAIL_MIN = 5;
     
     public static final int PRODUTO_VERSAO_TAMANHO_MAX = 5;
     public static final int PRODUTO_VERSAO_TAMANHO_MIN = 3;

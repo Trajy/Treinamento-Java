@@ -31,18 +31,14 @@ public class Funcionario {
 		this.setCpf(cpf);
 	}
 
-	public Funcionario(String cpf, String nome, LocalDate dataNascimento, String rg, Endereco endereco, String setor, Cargo cargo,
-			AmbienteTrabalho ambienteTrabalho, List<Telefone> telefones, List<Email> emails, Float salario) {
+	public Funcionario(String cpf, String nome, LocalDate dataNascimento, Endereco endereco, String setor, Cargo cargo,
+			Float salario) {
 		setCpf(cpf);
 		setNome(nome);
 		setDataNascimento(dataNascimento);
-		setRg(rg);
 		setEndereco(endereco);
 		setSetor(setor);
 		setCargo(cargo);
-		setAmbienteTrabalho(ambienteTrabalho);
-		setTelefones(telefones);
-		setEmails(emails);
 		setSalario(salario);
 	}
 

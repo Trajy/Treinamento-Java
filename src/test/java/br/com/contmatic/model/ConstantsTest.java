@@ -20,7 +20,12 @@ public final class ConstantsTest {
 	protected static final Email EMAIL_02 = new Email(EMAIL_LITERAL_02);
 	protected static final Email EMAIL_03 = new Email(EMAIL_LITERAL_03);
 	protected static final Email EMAIL_04 = new Email(EMAIL_LITERAL_04);
-	protected static final List<Email> EMAILS = new ArrayList<>(){{
+	protected static final List<Email> EMAILS = new ArrayList<>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(EMAIL_01);
 		add(EMAIL_02);
 		add(EMAIL_03);
@@ -42,7 +47,12 @@ public final class ConstantsTest {
 	protected static final Telefone TELEFONE_03 = new Telefone(DDD_01, NUMERO_TELEFONE_03);
 	protected static final Telefone TELEFONE_04 = new Telefone(DDD_01, NUMERO_TELEFONE_04);
 	protected static final Telefone TELEFONE_05 = new Telefone(DDD_01, NUMERO_TELEFONE_05);
-	protected static final List<Telefone> TELEFONES = new ArrayList<>(){{
+	protected static final List<Telefone> TELEFONES = new ArrayList<>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(TELEFONE_01);
 		add(TELEFONE_02);
 		add(TELEFONE_03);
@@ -74,7 +84,12 @@ public final class ConstantsTest {
 	protected static final Endereco ENDERECO_03 = (new Endereco(NUMERO_ENDERECO_03,CEP_03));
 	protected static final Endereco ENDERECO_04 = (new Endereco(NUMERO_ENDERECO_04, CEP_04));
 	protected static final Endereco ENDERECO_05 = new Endereco(NUMERO_ENDERECO_05, CEP_05);
-	protected static final List<Endereco> ENDERECOS = new ArrayList<>(){{
+	protected static final List<Endereco> ENDERECOS = new ArrayList<>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(ENDERECO_01);
 		add(ENDERECO_02);
 		add(ENDERECO_03);
@@ -95,7 +110,12 @@ public final class ConstantsTest {
 	protected static final Cargo CARGO_02 = new Cargo(CBO_02, NOME_CARGO_02, DESCRICAO_CARGO_02);
 	protected static final Cargo CARGO_03 = new Cargo(CBO_03);
 	protected static final Cargo CARGO_04 = new Cargo(CBO_04);
-	protected static final List<Cargo> CARGOS = new ArrayList<>(){{
+	protected static final List<Cargo> CARGOS = new ArrayList<>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(CARGO_01);
 		add(CARGO_02);
 		add(CARGO_03);
@@ -108,7 +128,12 @@ public final class ConstantsTest {
 	protected static final String TIPO_AMBIENTE_TRAB_PROPRIO = "proprio";
 	protected static final AmbienteTrabalho AMBIENTE_TRAB_01 = new AmbienteTrabalho(NOME_AMBINETE_TRAB_01, TIPO_AMBIENTE_TRAB_PROPRIO);
 	protected static final AmbienteTrabalho AMBIENTE_TRAB_02 = new AmbienteTrabalho(NOME_AMBIENTE_TRAB_02, TIPO_AMBIENTE_TRAB_PROPRIO);
-	protected static final List<AmbienteTrabalho> AMBIENTES_DE_TRABALHO = new ArrayList<>() {{
+	protected static final List<AmbienteTrabalho> AMBIENTES_DE_TRABALHO = new ArrayList<>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(AMBIENTE_TRAB_01);
 		add(AMBIENTE_TRAB_02);
 	}};
@@ -132,15 +157,20 @@ public final class ConstantsTest {
 	protected static final String SETOR_02 = "Producao";
 	protected static final Float SALARIO_01 = 2000.00f;
 	protected static final Float SALARIO_02 = 4500.95f;
-	protected static final Funcionario FUNCIONARIO_01 = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01, RG_01, ENDERECO_01, SETOR_01, CARGO_01, AMBIENTE_TRAB_01, TELEFONES, EMAILS, SALARIO_01);
-	protected static final Funcionario FUNCIONARIO_02 = new Funcionario(CPF_02, NOME_02, DATA_NASCIMENTO_02, RG_02, ENDERECO_02, SETOR_02, CARGO_02, AMBIENTE_TRAB_02, TELEFONES, EMAILS, SALARIO_02);
+	protected static final Funcionario FUNCIONARIO_01 = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01, ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
+	protected static final Funcionario FUNCIONARIO_02 = new Funcionario(CPF_02, NOME_02, DATA_NASCIMENTO_02, ENDERECO_02, SETOR_02, CARGO_02, SALARIO_02);
 	protected static final Funcionario FUNCIONARIO_03 = new Funcionario(CPF_03);
 	protected static final Funcionario FUNCIONARIO_04 = new Funcionario(CPF_04);
 	protected static final Funcionario FUNCIONARIO_05 = new Funcionario(CPF_05);
 	protected static final Funcionario FUNCIONARIO_06 = new Funcionario(CPF_06);
 	protected static final Funcionario FUNCIONARIO_07 = new Funcionario(CPF_07);
 	protected static final Funcionario FUNCIONARIO_08 = new Funcionario(CPF_08);
-	protected static final List<Funcionario> FUNCIONARIOS = new ArrayList<>(){{
+	protected static final List<Funcionario> FUNCIONARIOS = new ArrayList<>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(FUNCIONARIO_01);
 		add(FUNCIONARIO_02);
 		add(FUNCIONARIO_03);
@@ -173,7 +203,12 @@ public final class ConstantsTest {
 	protected static Produto PRODUTO_03 = new Produto(NOME_PRODUTO_03, VERSAO_03, CODIGO_03);
 	protected static Produto PRODUTO_04 = new Produto(NOME_PRODUTO_04, VERSAO_04, CODIGO_04);
 	protected static Produto PRODUTO_05 = new Produto(NOME_PRODUTO_05, VERSAO_05, CODIGO_05);
-	protected static final List<Produto> PRODUTOS = new ArrayList<>(){{
+	protected static final List<Produto> PRODUTOS = new ArrayList<>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(PRODUTO_01);
 		add(PRODUTO_02);
 		add(PRODUTO_03);
@@ -192,6 +227,9 @@ public final class ConstantsTest {
 	
 	// constants de erro
 	protected static final String NULO = null;
+	protected static final String CPF_NUMEROS_REPETIDOS = "22222222222";
+	protected static final String CPF_INVALIDO = "44632236011";
+	protected static final String CPF_COM_QUANTIDADE_DIG_DIFERENTE = "446322360121";
 	protected static final String CNPJ_INVALIDO = "58119371000178";
 	protected static final String CNPJ_NUMEROS_REPETIDOS = "11111111111111";
 	protected static final String CNPJ_COM_LETRA = "5811937a00017";
@@ -205,32 +243,67 @@ public final class ConstantsTest {
 	protected static final String NUMEROS_COM_LETRA_LITERAL = "587a00";
 	protected static final List LISTA_NULA = null;
 	protected static final List LISTA_VAZIA = new ArrayList<>();
-	protected static final List<Email> LISTA_EMAILS_ACIMA_LIMITE = new ArrayList<>() {{
+	protected static final List<Email> LISTA_EMAILS_ACIMA_LIMITE = new ArrayList<>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		addAll(EMAILS);
 		add(EMAIL_01);
 		
 	}};
-	protected static final List<Telefone> LISTA_TELEFONES_ACIMA_DO_LIMITE = new ArrayList<>() {{
+	protected static final List<Telefone> LISTA_TELEFONES_ACIMA_DO_LIMITE = new ArrayList<>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		addAll(TELEFONES);
 		add(TELEFONE_01);
 	}};
-	protected static final List<Endereco> LISTA_ENDERECOS_ACIMA_LIMITE = new ArrayList<>() {{
+	protected static final List<Endereco> LISTA_ENDERECOS_ACIMA_LIMITE = new ArrayList<>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		addAll(ENDERECOS);
 		add(ENDERECO_01);
 	}};
-	protected static final List<Cargo> LISTA_CARGOS_ACIMA_LIMITE = new ArrayList<>() {{
+	protected static final List<Cargo> LISTA_CARGOS_ACIMA_LIMITE = new ArrayList<>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		addAll(CARGOS);
 		add(CARGO_01);
 	}};
-	protected static final List<AmbienteTrabalho> LISTA_AMBIENTES_ACIMA_LIMITE = new ArrayList() {{
+	protected static final List<AmbienteTrabalho> LISTA_AMBIENTES_ACIMA_LIMITE = new ArrayList<>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		addAll(AMBIENTES_DE_TRABALHO);
 		add(AMBIENTE_TRAB_01);
 	}};
-	protected static final List<Funcionario> LISTA_FUNCINARIOS_ACIMA_LIMITE = new ArrayList<>() {{
+	protected static final List<Funcionario> LISTA_FUNCINARIOS_ACIMA_LIMITE = new ArrayList<>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		addAll(FUNCIONARIOS);
 		add(FUNCIONARIO_01);
 	}};
-	protected static final List<Produto> LISTA_PRODUTOS_ACIMA_LIMITE = new ArrayList() {{
+	protected static final List<Produto> LISTA_PRODUTOS_ACIMA_LIMITE = new ArrayList<>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
 		addAll(PRODUTOS);
 		add(PRODUTO_01);
 	}};

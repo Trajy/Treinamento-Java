@@ -42,8 +42,10 @@ final class ValidacaoComumCpfCnpj {
 
 	private static void iterador(String numRegistro, int steps, int limiteSequencia, int passosSoma,
 			int[] valoresComputados) {
-	
-		for (int index = 0, valorSequencia = INICIO_SEQUENCIA_ITERACAO; index < (numRegistro.length() - steps); index++, valorSequencia++) {
+		
+		int valorSequencia = INICIO_SEQUENCIA_ITERACAO;
+				
+		for (int index = 0; index < (numRegistro.length() - steps); index++, valorSequencia++) {
 			if (valorSequencia > limiteSequencia) {
 				valorSequencia = INICIO_SEQUENCIA_ITERACAO;
 			}

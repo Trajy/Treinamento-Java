@@ -1,18 +1,51 @@
 package br.com.contmatic.model;
 
+import static br.com.contmatic.model.ConstantsTest.AMBIENTES_DE_TRABALHO;
+import static br.com.contmatic.model.ConstantsTest.AREA_ATUACAO;
+import static br.com.contmatic.model.ConstantsTest.CARGOS;
+import static br.com.contmatic.model.ConstantsTest.CNPJ;
+import static br.com.contmatic.model.ConstantsTest.CNPJ_COM_LETRA;
+import static br.com.contmatic.model.ConstantsTest.CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE;
+import static br.com.contmatic.model.ConstantsTest.CNPJ_INVALIDO;
+import static br.com.contmatic.model.ConstantsTest.CNPJ_NUMEROS_REPETIDOS;
+import static br.com.contmatic.model.ConstantsTest.EMAILS;
+import static br.com.contmatic.model.ConstantsTest.ENDERECOS;
+import static br.com.contmatic.model.ConstantsTest.ENDERECO_01;
+import static br.com.contmatic.model.ConstantsTest.FUNCIONARIOS;
+import static br.com.contmatic.model.ConstantsTest.LISTA_AMBIENTES_ACIMA_LIMITE;
+import static br.com.contmatic.model.ConstantsTest.LISTA_CARGOS_ACIMA_LIMITE;
+import static br.com.contmatic.model.ConstantsTest.LISTA_EMAILS_ACIMA_LIMITE;
+import static br.com.contmatic.model.ConstantsTest.LISTA_ENDERECOS_ACIMA_LIMITE;
+import static br.com.contmatic.model.ConstantsTest.LISTA_FUNCINARIOS_ACIMA_LIMITE;
+import static br.com.contmatic.model.ConstantsTest.LISTA_NULA;
+import static br.com.contmatic.model.ConstantsTest.LISTA_PRODUTOS_ACIMA_LIMITE;
+import static br.com.contmatic.model.ConstantsTest.LISTA_TELEFONES_ACIMA_DO_LIMITE;
+import static br.com.contmatic.model.ConstantsTest.LISTA_VAZIA;
+import static br.com.contmatic.model.ConstantsTest.NOME_FANTASIA;
+import static br.com.contmatic.model.ConstantsTest.NULO;
+import static br.com.contmatic.model.ConstantsTest.OUTRA_RAZAO_SOCIAL;
+import static br.com.contmatic.model.ConstantsTest.OUTRO_CNPJ;
+import static br.com.contmatic.model.ConstantsTest.OUTRO_NOME_FANTASIA;
+import static br.com.contmatic.model.ConstantsTest.PRODUTOS;
+import static br.com.contmatic.model.ConstantsTest.RAZAO_SOCIAL;
+import static br.com.contmatic.model.ConstantsTest.SOMENTE_ESPACOS;
+import static br.com.contmatic.model.ConstantsTest.TELEFONES;
+import static br.com.contmatic.model.ConstantsTest.TEXTO_COM_1_CHAR;
+import static br.com.contmatic.model.ConstantsTest.TEXTO_COM_71_CHARS;
+import static br.com.contmatic.model.ConstantsTest.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
+import static br.com.contmatic.model.ConstantsTest.VAZIO;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import java.util.ArrayList;
-import java.util.List;
-import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.ConstantsTest.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmpresaTest {
@@ -26,8 +59,8 @@ public class EmpresaTest {
 	@Before
 	public void pre_test(){
 		empresaAtributosObrigatorios = new Empresa(CNPJ, RAZAO_SOCIAL);
-		empresaTodosOsAtributos = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO, EMAILS, TELEFONES, ENDERECOS, FUNCIONARIOS, PRODUTOS, CARGOS, AMBIENTES_DE_TRABALHO);
-		outraEmpresaTodosOsAtributos = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO, EMAILS, TELEFONES, ENDERECOS, FUNCIONARIOS, PRODUTOS, CARGOS, AMBIENTES_DE_TRABALHO);
+		empresaTodosOsAtributos = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
+		outraEmpresaTodosOsAtributos = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
 	}
 
 	@Test
@@ -41,13 +74,6 @@ public class EmpresaTest {
 		assertEquals(CNPJ, empresaTodosOsAtributos.getCnpj());
 		assertEquals(NOME_FANTASIA, empresaTodosOsAtributos.getNomeFantasia());
 		assertEquals(AREA_ATUACAO, empresaTodosOsAtributos.getAreaAtuacao());
-		assertEquals(EMAILS, empresaTodosOsAtributos.getEmails());
-		assertEquals(TELEFONES, empresaTodosOsAtributos.getTelefones());
-		assertEquals(ENDERECOS, empresaTodosOsAtributos.getEnderecos());
-		assertEquals(FUNCIONARIOS, empresaTodosOsAtributos.getFuncionarios());
-		assertEquals(PRODUTOS, empresaTodosOsAtributos.getProdutos());
-		assertEquals(CARGOS, empresaTodosOsAtributos.getCargos());
-		assertEquals(AMBIENTES_DE_TRABALHO, empresaTodosOsAtributos.getAmbientesTrabalho());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
