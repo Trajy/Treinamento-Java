@@ -226,6 +226,10 @@ public final class ConstantsTest {
 	protected static final String AREA_ATUACAO = "Software";
 	
 	// constants de erro
+	protected static final LocalDate DATA_FUTURO = LocalDate.of(2025, 06, 15);
+	protected static final LocalDate DATA_MENOR_IDADE = LocalDate.of(2020, 06, 15);
+	protected static final Float SALARIO_NEGATIVO = -10f;
+	protected static final Float SALARIO_ACIMA_LIMITE = 105000f;
 	protected static final String NULO = null;
 	protected static final String CPF_NUMEROS_REPETIDOS = "22222222222";
 	protected static final String CPF_INVALIDO = "44632236011";

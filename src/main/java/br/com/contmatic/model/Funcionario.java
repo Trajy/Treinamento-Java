@@ -74,7 +74,7 @@ public class Funcionario {
 	}
 
 	public void setRg(String rg) {
-		validarComumAlfanumerico(rg);
+		validarRg(rg);
 		this.rg = rg;
 	}
 

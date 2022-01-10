@@ -102,7 +102,7 @@ public class CargoTest {
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_16_nome_abaixo_min_chars() {
+	public void test_16_descricao_abaixo_min_chars() {
 		cargoAtriburtosObrigatorios.setDescricao(TEXTO_COM_1_CHAR);
 	}
 	

@@ -10,6 +10,8 @@ public final class ValidacaoLimite {
     public static final int NOME_MAX = 50;
     public static final int NOME_MIN  = 3;
     public static final int MAIORIDADE = 18;
+    public static final int RG_MAX = 10;
+    public static final int RG_MIN = 5;
     
     public static final int NOME_FANTASIA_E_RAZAO_SICIAL_MAX = 70;
     public static final int NOME_FANTASIA_E_RAZAO_SICIAL_MIN = 2;
@@ -47,7 +49,7 @@ public final class ValidacaoLimite {
     public static final int LISTA_TELEFONE_QTD_MAX = 5;
     public static final int LISTA_ENDERECO_QTD_MAX = 5;
     
-    public static final Float SALARIO_MAX = 100.000f;
+    public static final Float SALARIO_MAX = 100000f;
     public static final int EMAIL_MAX = 20;
     public static final int EMAIL_MIN = 5;
     

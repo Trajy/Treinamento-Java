@@ -8,6 +8,10 @@ public class Produto {
 	private String nome;
 	private String versao;
 	private String codigo;
+	
+	public Produto (String nome) {
+		setNome(nome);
+	}
 		
 	public Produto(String nome, String versao, String codigo) {
 		setNome(nome);

@@ -23,10 +23,17 @@ public final class ValidacaoGeral {
             validarQuantidadeDeCaracteresEntre(analise, NOME_MIN, NOME_MAX)  
         );
     }
+    
+    public static void validarRg(String numero){
+        validarCondicoes(numero, NUMERO_INVALIDO, analise -> 
+        	validarQuantidadeDeCaracteresEntre(analise, RG_MIN, RG_MAX) ||
+            validarSomenteNumeros(analise)
+        );
+    }
 
     public static void validarNumeros(String numero){
         validarCondicoes(numero, NUMERO_INVALIDO, analise -> 
-        	validarMaxCaracteres(analise, CBO_MAX) ||
+        	validarMaxCaracteres(analise, COMUM_MAX) ||
             validarSomenteNumeros(analise)
         );
     }
