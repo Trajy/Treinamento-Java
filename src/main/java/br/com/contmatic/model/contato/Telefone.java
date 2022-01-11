@@ -16,10 +16,10 @@ public class Telefone {
 		setNumero(telefone);
 	}
 	
-	public Telefone(Integer ddi ,Integer ddd, String telefone) {
+	public Telefone(Integer ddi ,Integer ddd, String numero) {
 		setDdi(ddi);
 		setDdd(ddd);
-		setNumero(telefone);
+		setNumero(numero);
 	}
 	
 	public Integer getDdi() {

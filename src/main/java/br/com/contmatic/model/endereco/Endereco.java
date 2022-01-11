@@ -21,7 +21,7 @@ public class Endereco {
         setCEP(cep);
         setRua(rua);
         setBairro(bairro);
-        setEnderecoDb(enderecoDb);
+        setCidade(enderecoDb);
     }
 
     public Integer getNumero() {
@@ -60,11 +60,11 @@ public class Endereco {
         this.bairro = bairro;
     }
     
-    public Cidade getEnderecoDb() {
+    public Cidade getCidade() {
     	return this.enderecoDb;
     }
     
-    public void setEnderecoDb(Cidade enderecoDb) {
+    public void setCidade(Cidade enderecoDb) {
     	validarNulo(enderecoDb);
     	this.enderecoDb = enderecoDb;
     }

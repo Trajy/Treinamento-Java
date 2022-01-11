@@ -75,12 +75,12 @@ public final class ConstantsTest {
 	protected static final String RUA_02 = "novaes";
 	protected static final String BAIRRO_01 = "liberdade";
 	protected static final String BAIRRO_02 = "se";
-	protected static final String CIDADE = "sao paulo";
+	protected static final String NOME_CIDADE = "sao paulo";
 	protected static final String UF = "SP";
 	protected static final String PAIS = "Brasil";
-	protected static final Cidade ENDERECO_DB = new Cidade(CIDADE, UF, PAIS);
-	protected static final Endereco ENDERECO_01 = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01,BAIRRO_01 , ENDERECO_DB);
-	protected static final Endereco ENDERECO_02 = new Endereco(NUMERO_ENDERECO_02, CEP_02, RUA_02, BAIRRO_02, ENDERECO_DB);
+	protected static final Cidade CIDADE = new Cidade(NOME_CIDADE, UF, PAIS);
+	protected static final Endereco ENDERECO_01 = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01,BAIRRO_01 , CIDADE);
+	protected static final Endereco ENDERECO_02 = new Endereco(NUMERO_ENDERECO_02, CEP_02, RUA_02, BAIRRO_02, CIDADE);
 	protected static final Endereco ENDERECO_03 = (new Endereco(NUMERO_ENDERECO_03,CEP_03));
 	protected static final Endereco ENDERECO_04 = (new Endereco(NUMERO_ENDERECO_04, CEP_04));
 	protected static final Endereco ENDERECO_05 = new Endereco(NUMERO_ENDERECO_05, CEP_05);
@@ -226,6 +226,17 @@ public final class ConstantsTest {
 	protected static final String AREA_ATUACAO = "Software";
 	
 	// constants de erro
+	protected static final String CEP_CHARS_REPETIDOS = "11111111";
+	protected static final String CEP_COM_LETRA = "123a5678";
+	protected static final String CEP_TAMANHO_ERRADO = "123901203";
+	protected static final Integer ENDERECO_NUM_ACIMA_TAMANHO_MAX = 123456789;
+	protected static final Integer DDI_ACIMA_MAX_CHARS = 1234;
+	protected static final Integer DDD_ABAIXO_MIN_CHARS = 1;
+	protected static final Integer DDD_ACIMA_MAX_CHARS = 1234;
+	protected static final String NUMERO_TELEFONE_ACIMA_MAX_CHARS = "1234567890";
+	protected static final String NUMERO_TELEFONE_ABAIXO_MIN_CHARS = "1234567";
+	protected static final String EMAIL_SEM_ARROBA = "emailcontmatic.com.br";
+	protected static final String EMAIL_COM_ARROBA_INICIO = "@contmatic.com.br";
 	protected static final LocalDate DATA_FUTURO = LocalDate.of(2025, 06, 15);
 	protected static final LocalDate DATA_MENOR_IDADE = LocalDate.of(2020, 06, 15);
 	protected static final Float SALARIO_NEGATIVO = -10f;

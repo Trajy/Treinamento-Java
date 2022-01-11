@@ -45,7 +45,7 @@ public final class ValidacaoEndereco {
 
     public static void validarCidade(String cidade) {
         validarCondicoes(cidade, CIDADE_INVALIDO, analise ->
-            validarSomenteAlfanumerico(analise) || 
+            validarSomenteLetras(analise) || 
             validarQuantidadeDeCaracteresEntre(analise, CIDADE_MIN, CIDADE_MAX)
         );
     }
