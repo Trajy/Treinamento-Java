@@ -8,6 +8,8 @@ import javax.print.attribute.standard.DateTimeAtProcessing;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -83,8 +85,17 @@ public class ProdutoTest {
 		produtoTodosAtributos.setVersao(NUMEROS_COM_LETRA_LITERAL);
 	}
 	
-	//TODO implementar o resto
+	// TODO implementar testes para os metodos equals e hashcode
 	
-	
-
+	@Test
+	public void test_xx_metodo_tostring() {
+		assertThat(
+				produtoTodosAtributos.toString(), 
+				allOf(
+					containsString(NOME_PRODUTO_01),
+					containsString(CODIGO_01),
+					containsString(VERSAO_01)
+			)
+		);
+	}
 }

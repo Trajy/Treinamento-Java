@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -111,6 +113,18 @@ public class CargoTest {
 		cargoAtriburtosObrigatorios.setDescricao(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
 	}
 	
-	//TODO to implement toString, equals and hashCode tests	
+	//TODO implementar testes para os metodos equals e hashCode	
+	
+	@Test
+	public void test_xx_metodo_tostring() {
+		assertThat(
+				cargoTodosAtributos.toString(), 
+				allOf(
+					containsString(CBO_02),
+					containsString(NOME_CARGO_02),
+					containsString(DESCRICAO_CARGO_02)
+			)
+		);
+	}
 		
 }

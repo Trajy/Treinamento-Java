@@ -34,14 +34,17 @@ import static br.com.contmatic.model.ConstantsTest.TEXTO_COM_1_CHAR;
 import static br.com.contmatic.model.ConstantsTest.TEXTO_COM_71_CHARS;
 import static br.com.contmatic.model.ConstantsTest.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
 import static br.com.contmatic.model.ConstantsTest.VAZIO;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import java.util.List;
 
+import org.hamcrest.core.AllOf;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -59,8 +62,25 @@ public class EmpresaTest {
 	@Before
 	public void pre_test(){
 		empresaAtributosObrigatorios = new Empresa(CNPJ, RAZAO_SOCIAL);
+		
 		empresaTodosOsAtributos = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
+		empresaTodosOsAtributos.setEmails(EMAILS);
+		empresaTodosOsAtributos.setTelefones(TELEFONES);
+		empresaTodosOsAtributos.setEnderecos(ENDERECOS);
+		empresaTodosOsAtributos.setFuncionarios(FUNCIONARIOS);
+		empresaTodosOsAtributos.setProdutos(PRODUTOS);
+		empresaTodosOsAtributos.setCargos(CARGOS);
+		empresaTodosOsAtributos.setAmbientesTrabalho(AMBIENTES_DE_TRABALHO);
+		
 		outraEmpresaTodosOsAtributos = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
+		outraEmpresaTodosOsAtributos.setEmails(EMAILS);
+		outraEmpresaTodosOsAtributos.setTelefones(TELEFONES);
+		outraEmpresaTodosOsAtributos.setEnderecos(ENDERECOS);
+		outraEmpresaTodosOsAtributos.setFuncionarios(FUNCIONARIOS);
+		outraEmpresaTodosOsAtributos.setProdutos(PRODUTOS);
+		outraEmpresaTodosOsAtributos.setCargos(CARGOS);
+		outraEmpresaTodosOsAtributos.setAmbientesTrabalho(AMBIENTES_DE_TRABALHO);
+		
 	}
 
 	@Test
@@ -72,6 +92,7 @@ public class EmpresaTest {
 	@Test
 	public void test_02_validar_instancia_com_construtor_completo_da_classe_empressa(){
 		assertEquals(CNPJ, empresaTodosOsAtributos.getCnpj());
+		assertEquals(RAZAO_SOCIAL, empresaTodosOsAtributos.getRazaoSocial());
 		assertEquals(NOME_FANTASIA, empresaTodosOsAtributos.getNomeFantasia());
 		assertEquals(AREA_ATUACAO, empresaTodosOsAtributos.getAreaAtuacao());
 	}
@@ -355,10 +376,24 @@ public class EmpresaTest {
 		assertTrue(empresaTodosOsAtributos.equals(empresaTodosOsAtributos));
 	}
 	
-	// pode fazer 
 	@Test
 	public void test_58_validar_metodo_tostring_de_empresa() {
-		assertThat(empresaTodosOsAtributos.toString(), equalTo(outraEmpresaTodosOsAtributos.toString()));
+		assertThat(
+				empresaTodosOsAtributos.toString(), 
+				allOf(
+					containsString(CNPJ),
+					containsString(RAZAO_SOCIAL),
+					containsString(NOME_FANTASIA),
+					containsString(AREA_ATUACAO),
+					containsString(EMAILS.toString()),
+					containsString(TELEFONES.toString()),
+					containsString(ENDERECOS.toString()),
+					containsString(FUNCIONARIOS.toString()),
+					containsString(PRODUTOS.toString()),
+					containsString(CARGOS.toString()),
+					containsString(AMBIENTES_DE_TRABALHO.toString())
+			)
+		);
 	}
 
 }

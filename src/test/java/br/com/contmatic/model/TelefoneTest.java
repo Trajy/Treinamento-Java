@@ -8,6 +8,8 @@ import javax.print.attribute.standard.DateTimeAtProcessing;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -71,11 +73,17 @@ public class TelefoneTest {
 		telefoneTodosAtributos.setNumero(NUMERO_TELEFONE_ACIMA_MAX_CHARS);
 	}
 	
-	//TODO implementar testes para equals, hashcode e toString
+	//TODO implementar testes para equals, hashcode
 	
-	
-	
-	
-	
-
+	@Test
+	public void test_xx_metodo_tostring() {
+		assertThat(
+				telefoneTodosAtributos.toString(), 
+				allOf(
+					containsString(DDI_01.toString()),
+					containsString(DDD_01.toString()),
+					containsString(NUMERO_TELEFONE_01)
+			)
+		);
+	}
 }

@@ -4,17 +4,15 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import javax.print.attribute.standard.DateTimeAtProcessing;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.endereco.Cidade;
 
 import static br.com.contmatic.model.ConstantsTest.*;
@@ -112,11 +110,17 @@ public class CidadeTest {
 		cidade.setPais(TEXTO_COM_1_CHAR);
 	}
 	
-	//TODO implentar testes para equals, hashcode e toString
+	//TODO implentar testes para equals, hashcode
 	
-	
-	
-	
-	
-	
+	@Test
+	public void test_xx_metodo_tostring() {
+		assertThat(
+				cidade.toString(), 
+				allOf(
+					containsString(NOME_CIDADE),
+					containsString(UF),
+					containsString(PAIS)
+			)
+		);
+	}
 }

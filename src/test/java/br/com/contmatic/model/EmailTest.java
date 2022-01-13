@@ -8,6 +8,8 @@ import javax.print.attribute.standard.DateTimeAtProcessing;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -59,10 +61,15 @@ public class EmailTest {
 		email.setEmail(TEXTO_COM_71_CHARS);
 	}
 	
-	//TODO implementar testes para equals, hashcode e toString
-	
-	
-	
-	
-
+	//TODO implementar testes para equals, hashcode
+	@Test
+	public void test_xx_metodo_tostring() {
+		
+		assertThat(
+				email.toString(), 
+				allOf(
+					containsString(EMAIL_01.toString())
+			)
+		);
+	}
 }

@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -133,5 +135,19 @@ public class EnderecoTest {
 		enderecoTodosOsAtributos.setCidade(null);
 	}
 	
-	//TODO implementar testes para equals, hashcode e toString.
+	//TODO implementar testes para equals, hashcode
+	
+	@Test
+	public void test_xx_metodo_tostring() {
+		assertThat(
+				enderecoTodosOsAtributos.toString(), 
+				allOf(
+					containsString(NUMERO_ENDERECO_01.toString()),
+					containsString(CEP_01),
+					containsString(RUA_01),
+					containsString(BAIRRO_01),
+					containsString(CIDADE.toString())
+			)
+		);
+	}
 }

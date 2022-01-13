@@ -8,6 +8,8 @@ import javax.print.attribute.standard.DateTimeAtProcessing;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -25,7 +27,7 @@ public class FuncionarioTest {
 	@Before
 	public void pre_test(){
 		funcionarioAtributosObrigatorios = new Funcionario(CPF_01);
-		funcinarioTodosOsAtributos = new Funcionario(CPF_02, NOME_02,DATA_NASCIMENTO_01 , ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
+		funcinarioTodosOsAtributos = new Funcionario(CPF_02, NOME_02, DATA_NASCIMENTO_01 , ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -203,9 +205,22 @@ public class FuncionarioTest {
 		funcinarioTodosOsAtributos.setSalario(SALARIO_ACIMA_LIMITE);
 	}
 	
-	//TODO implement all testes
+	//TODO implementar testes para os metodos equals e hashcode
 	
-	
-	
-	
+	@Test
+	public void test_xx_metodo_tostring() {
+		assertThat(
+				funcinarioTodosOsAtributos.toString(), 
+				allOf(
+					containsString(CPF_02),
+					containsString(NOME_02),
+					containsString(DESCRICAO_CARGO_01),
+					containsString(DATA_NASCIMENTO_01.toString()),
+					containsString(ENDERECO_01.toString()),
+					containsString(SETOR_01),
+					containsString(CARGO_01.toString()),
+					containsString(SALARIO_01.toString())
+			)
+		);
+	}	
 }
