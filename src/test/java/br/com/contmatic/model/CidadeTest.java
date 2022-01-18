@@ -22,10 +22,12 @@ public class CidadeTest {
 
 	// objetos de test
 	private Cidade cidade;
+	private Cidade outraCidade;
 	
 	@Before
 	public void pre_test() {
 		cidade = new Cidade(NOME_CIDADE, UF, PAIS);
+		outraCidade = new Cidade(NOME_CIDADE, UF, PAIS);
 	}
 	
 	@Test
@@ -110,16 +112,42 @@ public class CidadeTest {
 		cidade.setPais(TEXTO_COM_1_CHAR);
 	}
 	
-	//TODO implentar testes para equals, hashcode
+	@Test
+	public void test_17_metodo_hashcode() {
+		assertEquals(cidade.hashCode(), outraCidade.hashCode());
+	}
 	
 	@Test
-	public void test_xx_metodo_tostring() {
+	public void test_18_validar_metodo_equals() {
+		assertTrue(cidade.equals(cidade));
+		assertTrue(cidade.equals(outraCidade));
+		assertFalse(cidade.equals(ENDERECO_01));
+		assertFalse(cidade.equals(null));
+		
+		outraCidade.setNome(NOME_CIDADE_02);
+		assertFalse(cidade.equals(outraCidade));
+		outraCidade.setUf(UF_02);
+		assertFalse(cidade.equals(outraCidade));
+		outraCidade.setPais(NOME_CIDADE_02);
+		assertFalse(cidade.equals(outraCidade));
+		
+		outraCidade.setUf(UF);
+		assertFalse(cidade.equals(outraCidade));
+		outraCidade.setNome(NOME_CIDADE);
+		assertFalse(cidade.equals(outraCidade));
+		outraCidade.setUf(UF_02);
+		outraCidade.setPais(PAIS);
+		assertFalse(cidade.equals(outraCidade));	
+	}
+	
+	@Test
+	public void test_19_metodo_tostring() {
 		assertThat(
-				cidade.toString(), 
-				allOf(
-					containsString(NOME_CIDADE),
-					containsString(UF),
-					containsString(PAIS)
+			cidade.toString(), 
+			allOf(
+				containsString(NOME_CIDADE),
+				containsString(UF),
+				containsString(PAIS)
 			)
 		);
 	}

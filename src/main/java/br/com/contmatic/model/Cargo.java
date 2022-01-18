@@ -44,7 +44,7 @@ public class Cargo {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((cbo == null) ? 0 : cbo.hashCode());
+        result = prime * result + cbo.hashCode();
         return result;
     }
     @Override
@@ -56,10 +56,7 @@ public class Cargo {
         if (getClass() != obj.getClass())
             return false;
         Cargo other = (Cargo) obj;
-        if (cbo == null) {
-            if (other.cbo != null)
-                return false;
-        } else if (!cbo.equals(other.cbo))
+        if (!cbo.equals(other.cbo))
             return false;
         return true;
     }

@@ -3,6 +3,8 @@ package br.com.contmatic.model.endereco;
 import static br.com.contmatic.model.utils.validacao.ValidacaoEndereco.*;
 import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarNulo;
 
+import java.util.Objects;
+
 public class Endereco {
     
     private Integer numero;
@@ -16,12 +18,12 @@ public class Endereco {
         setCEP(cep);
     }
     
-    public Endereco(Integer numero, String cep, String rua, String bairro, Cidade enderecoDb) {
+    public Endereco(Integer numero, String cep, String rua, String bairro, Cidade cidade) {
         setNumero(numero);
         setCEP(cep);
         setRua(rua);
         setBairro(bairro);
-        setCidade(enderecoDb);
+        setCidade(cidade);
     }
 
     public Integer getNumero() {
@@ -70,35 +72,21 @@ public class Endereco {
     }
     
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((cep == null) ? 0 : cep.hashCode());
-        result = prime * result + ((numero == null) ? 0 : numero.hashCode());
-        return result;
-    }
+	public int hashCode() {
+		return Objects.hash(cep, numero);
+	}
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Endereco other = (Endereco) obj;
-        if (cep == null) {
-            if (other.cep != null)
-                return false;
-        } else if (!cep.equals(other.cep))
-            return false;
-        if (numero == null) {
-            if (other.numero != null)
-                return false;
-        } else if (!numero.equals(other.numero))
-            return false;
-        return true;
-    }
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		return Objects.equals(cep, other.cep) && Objects.equals(numero, other.numero);
+	}
 
 	@Override
 	public String toString() {

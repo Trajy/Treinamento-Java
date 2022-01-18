@@ -78,11 +78,11 @@ public class TelefoneTest {
 	@Test
 	public void test_xx_metodo_tostring() {
 		assertThat(
-				telefoneTodosAtributos.toString(), 
-				allOf(
-					containsString(DDI_01.toString()),
-					containsString(DDD_01.toString()),
-					containsString(NUMERO_TELEFONE_01)
+			telefoneTodosAtributos.toString(), 
+			allOf(
+				containsString(DDI_01.toString()),
+				containsString(DDD_01.toString()),
+				containsString(NUMERO_TELEFONE_01)
 			)
 		);
 	}

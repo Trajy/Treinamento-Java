@@ -24,9 +24,11 @@ public class AmbienteDeTrabalhoTest {
 	
 	// constantes corretas
 	private final String NOME = "Desenvolvimento";
+	private final String NOME_02 = "Quality Assurance";
 	private final String TIPO_DE_ESTABELECIMENTO = "Estabelicimento de terceiros";
 	private final Endereco ENDERECO = new Endereco(123, "12345678");
 	private final String RESPONSAVEL = "Nome hipotético";
+	private final String RESPONSAVEL_02 = "Fulano de tal";
 	private final String DESCRICAO = "Ambiente de desenvolvimento de software";
 	
 	// constantes de erro
@@ -44,7 +46,6 @@ public class AmbienteDeTrabalhoTest {
 	public void pre_test() {
 		ambienteDeTrabalhoAtributosObrigatorios = new AmbienteTrabalho(NOME, RESPONSAVEL);
 		ambienteDeTrabalhoTodosOsAtributos = new AmbienteTrabalho(NOME, TIPO_DE_ESTABELECIMENTO, ENDERECO, RESPONSAVEL, DESCRICAO);
-		outroAmbienteDeTrabalhoTodosOsAtributos = new AmbienteTrabalho(NOME, TIPO_DE_ESTABELECIMENTO, ENDERECO, RESPONSAVEL, DESCRICAO);
 	}
 	
 	@Test
@@ -178,18 +179,37 @@ public class AmbienteDeTrabalhoTest {
 		assertTrue(ambienteDeTrabalhoTodosOsAtributos.equals(ambienteDeTrabalhoTodosOsAtributos));
 	}
 	
+	@Test
+	public void test_27_validar_() {
+		ambienteDeTrabalhoAtributosObrigatorios.setNome(NOME_02);
+		assertFalse(ambienteDeTrabalhoAtributosObrigatorios.equals(ambienteDeTrabalhoTodosOsAtributos));
+	}
+	
+	@Test
+	public void test_28_validar_() {
+		ambienteDeTrabalhoAtributosObrigatorios.setResponsavel(RESPONSAVEL_02);
+		assertFalse(ambienteDeTrabalhoAtributosObrigatorios.equals(ambienteDeTrabalhoTodosOsAtributos));
+	}
+	
+	@Test
+	public void test_29_validar_() {
+		ambienteDeTrabalhoAtributosObrigatorios.setNome(NOME_02);
+		ambienteDeTrabalhoAtributosObrigatorios.setResponsavel(RESPONSAVEL_02);
+		assertFalse(ambienteDeTrabalhoAtributosObrigatorios.equals(ambienteDeTrabalhoTodosOsAtributos));
+	}
+	
 	// TODO implementar caso faltante no metodo equals
 	
 	@Test
-	public void test_27_validar_metodo_to_string_da_classe_ambiente() {
+	public void test_xx_validar_metodo_to_string_da_classe_ambiente() {
 		assertThat(
-				ambienteDeTrabalhoTodosOsAtributos.toString(), 
-				allOf(
-					containsString(NOME),
-					containsString(TIPO_DE_ESTABELECIMENTO),
-					containsString(ENDERECO.toString()),
-					containsString(RESPONSAVEL),
-					containsString(DESCRICAO)
+			ambienteDeTrabalhoTodosOsAtributos.toString(), 
+			allOf(
+				containsString(NOME),
+				containsString(TIPO_DE_ESTABELECIMENTO),
+				containsString(ENDERECO.toString()),
+				containsString(RESPONSAVEL),
+				containsString(DESCRICAO)
 			)
 		);
 	}

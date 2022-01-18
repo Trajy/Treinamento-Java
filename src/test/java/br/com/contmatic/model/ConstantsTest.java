@@ -76,8 +76,11 @@ public final class ConstantsTest {
 	protected static final String BAIRRO_01 = "liberdade";
 	protected static final String BAIRRO_02 = "se";
 	protected static final String NOME_CIDADE = "sao paulo";
+	protected static final String NOME_CIDADE_02 = "Bahia";
 	protected static final String UF = "SP";
+	protected static final String UF_02 = "SC";
 	protected static final String PAIS = "Brasil";
+	protected static final String PAIS_02 = "Chile";
 	protected static final Cidade CIDADE = new Cidade(NOME_CIDADE, UF, PAIS);
 	protected static final Endereco ENDERECO_01 = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01,BAIRRO_01 , CIDADE);
 	protected static final Endereco ENDERECO_02 = new Endereco(NUMERO_ENDERECO_02, CEP_02, RUA_02, BAIRRO_02, CIDADE);

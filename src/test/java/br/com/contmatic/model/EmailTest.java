@@ -25,10 +25,17 @@ public class EmailTest {
 	
 	// objetos de teste
 	private Email email;
+	private Email outroEmail;
 	
 	@Before
 	public void pre_test(){
 		email = new Email(EMAIL_LITERAL_01);
+		outroEmail = new Email(EMAIL_LITERAL_01);
+	}
+	
+	@Test
+	public void test_00_instancia() {
+		assertEquals(EMAIL_LITERAL_01, email.getEmail());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -61,14 +68,29 @@ public class EmailTest {
 		email.setEmail(TEXTO_COM_71_CHARS);
 	}
 	
-	//TODO implementar testes para equals, hashcode
 	@Test
-	public void test_xx_metodo_tostring() {
+	public void test_07_metodo_hashcode() {
+		assertEquals(email.hashCode(), outroEmail.hashCode());
+	}
+	
+	@Test
+	public void test_08_metodo_equals() {
+		assertTrue(email.equals(email));
+		assertTrue(email.equals(outroEmail));
+		assertFalse(email.equals(ENDERECO_01));
+		assertFalse(email.equals(null));
+		
+		outroEmail.setEmail(EMAIL_LITERAL_02);
+		assertFalse(email.equals(outroEmail));
+	}
+	
+	@Test
+	public void test_09_metodo_tostring() {
 		
 		assertThat(
-				email.toString(), 
-				allOf(
-					containsString(EMAIL_01.toString())
+			email.toString(), 
+			allOf(
+				containsString(EMAIL_01.toString())
 			)
 		);
 	}

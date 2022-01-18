@@ -58,8 +58,7 @@ public final class Cidade {
 		if (getClass() != obj.getClass())
 			return false;
 		Cidade other = (Cidade) obj;
-		return Objects.equals(nome, other.nome) && Objects.equals(uf, other.uf)
-				&& Objects.equals(pais, other.pais);
+		return Objects.equals(nome, other.nome) && Objects.equals(uf, other.uf)	&& Objects.equals(pais, other.pais);
 	}
 
 	@Override

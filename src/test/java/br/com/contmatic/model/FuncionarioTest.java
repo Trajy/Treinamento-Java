@@ -205,21 +205,29 @@ public class FuncionarioTest {
 		funcinarioTodosOsAtributos.setSalario(SALARIO_ACIMA_LIMITE);
 	}
 	
-	//TODO implementar testes para os metodos equals e hashcode
+	@Test
+	public void test_36_metodo_hashcode() {
+		assertEquals(funcinarioTodosOsAtributos.hashCode(), funcionarioAtributosObrigatorios.hashCode());
+	}
+	
+	@Test
+	public void test_37_metodo_equals() {
+		
+	}
 	
 	@Test
 	public void test_xx_metodo_tostring() {
 		assertThat(
-				funcinarioTodosOsAtributos.toString(), 
-				allOf(
-					containsString(CPF_02),
-					containsString(NOME_02),
-					containsString(DESCRICAO_CARGO_01),
-					containsString(DATA_NASCIMENTO_01.toString()),
-					containsString(ENDERECO_01.toString()),
-					containsString(SETOR_01),
-					containsString(CARGO_01.toString()),
-					containsString(SALARIO_01.toString())
+			funcinarioTodosOsAtributos.toString(), 
+			allOf(
+				containsString(CPF_02),
+				containsString(NOME_02),
+				containsString(DESCRICAO_CARGO_01),
+				containsString(DATA_NASCIMENTO_01.toString()),
+				containsString(ENDERECO_01.toString()),
+				containsString(SETOR_01),
+				containsString(CARGO_01.toString()),
+				containsString(SALARIO_01.toString())
 			)
 		);
 	}	

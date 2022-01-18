@@ -23,11 +23,13 @@ public class EnderecoTest {
 	// objetos de teste
 	private Endereco enderecoAtributosObrigatorios;
 	private Endereco enderecoTodosOsAtributos;
+	private Endereco outroEnderecoTodosOsAtributos;
 	
 	@Before
 	public void pre_test(){
 		enderecoAtributosObrigatorios = new Endereco(NUMERO_ENDERECO_01, CEP_01);
 		enderecoTodosOsAtributos = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01, BAIRRO_01, CIDADE);
+		outroEnderecoTodosOsAtributos = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01, BAIRRO_01, CIDADE);
 	}
 	
 	@Test
@@ -135,18 +137,34 @@ public class EnderecoTest {
 		enderecoTodosOsAtributos.setCidade(null);
 	}
 	
-	//TODO implementar testes para equals, hashcode
+	@Test
+	public void test_21_metodo_hashcode() {
+		assertEquals(enderecoTodosOsAtributos.hashCode(), enderecoAtributosObrigatorios.hashCode());
+	}
 	
 	@Test
-	public void test_xx_metodo_tostring() {
+	public void test_22_metodo_equals() {
+		assertTrue(enderecoTodosOsAtributos.equals(enderecoTodosOsAtributos));
+		assertTrue(enderecoAtributosObrigatorios.equals(enderecoTodosOsAtributos));
+		assertFalse(enderecoAtributosObrigatorios.equals(null));
+		assertFalse(enderecoTodosOsAtributos.equals(FUNCIONARIO_01));
+		
+		enderecoAtributosObrigatorios.setNumero(NUMERO_ENDERECO_02);
+		assertFalse(enderecoAtributosObrigatorios.equals(enderecoTodosOsAtributos));
+		enderecoAtributosObrigatorios.setCEP(CEP_02);
+		assertFalse(enderecoAtributosObrigatorios.equals(enderecoTodosOsAtributos));	
+	}
+	
+	@Test
+	public void test_23_metodo_tostring() {
 		assertThat(
-				enderecoTodosOsAtributos.toString(), 
-				allOf(
-					containsString(NUMERO_ENDERECO_01.toString()),
-					containsString(CEP_01),
-					containsString(RUA_01),
-					containsString(BAIRRO_01),
-					containsString(CIDADE.toString())
+			enderecoTodosOsAtributos.toString(), 
+			allOf(
+				containsString(NUMERO_ENDERECO_01.toString()),
+				containsString(CEP_01),
+				containsString(RUA_01),
+				containsString(BAIRRO_01),
+				containsString(CIDADE.toString())
 			)
 		);
 	}

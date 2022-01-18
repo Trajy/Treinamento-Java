@@ -90,11 +90,11 @@ public class ProdutoTest {
 	@Test
 	public void test_xx_metodo_tostring() {
 		assertThat(
-				produtoTodosAtributos.toString(), 
-				allOf(
-					containsString(NOME_PRODUTO_01),
-					containsString(CODIGO_01),
-					containsString(VERSAO_01)
+			produtoTodosAtributos.toString(), 
+			allOf(
+				containsString(NOME_PRODUTO_01),
+				containsString(CODIGO_01),
+				containsString(VERSAO_01)
 			)
 		);
 	}

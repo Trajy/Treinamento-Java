@@ -95,6 +95,13 @@ public class EmpresaTest {
 		assertEquals(RAZAO_SOCIAL, empresaTodosOsAtributos.getRazaoSocial());
 		assertEquals(NOME_FANTASIA, empresaTodosOsAtributos.getNomeFantasia());
 		assertEquals(AREA_ATUACAO, empresaTodosOsAtributos.getAreaAtuacao());
+		assertEquals(EMAILS, empresaTodosOsAtributos.getEmails());
+		assertEquals(TELEFONES, empresaTodosOsAtributos.getTelefones());
+		assertEquals(ENDERECOS, empresaTodosOsAtributos.getEnderecos());
+		assertEquals(FUNCIONARIOS, empresaTodosOsAtributos.getFuncionarios());
+		assertEquals(PRODUTOS, empresaTodosOsAtributos.getProdutos());
+		assertEquals(CARGOS, empresaTodosOsAtributos.getCargos());
+		assertEquals(AMBIENTES_DE_TRABALHO, empresaTodosOsAtributos.getAmbientesTrabalho());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -379,19 +386,19 @@ public class EmpresaTest {
 	@Test
 	public void test_58_validar_metodo_tostring_de_empresa() {
 		assertThat(
-				empresaTodosOsAtributos.toString(), 
-				allOf(
-					containsString(CNPJ),
-					containsString(RAZAO_SOCIAL),
-					containsString(NOME_FANTASIA),
-					containsString(AREA_ATUACAO),
-					containsString(EMAILS.toString()),
-					containsString(TELEFONES.toString()),
-					containsString(ENDERECOS.toString()),
-					containsString(FUNCIONARIOS.toString()),
-					containsString(PRODUTOS.toString()),
-					containsString(CARGOS.toString()),
-					containsString(AMBIENTES_DE_TRABALHO.toString())
+			empresaTodosOsAtributos.toString(), 
+			allOf(
+				containsString(CNPJ),
+				containsString(RAZAO_SOCIAL),
+				containsString(NOME_FANTASIA),
+				containsString(AREA_ATUACAO),
+				containsString(EMAILS.toString()),
+				containsString(TELEFONES.toString()),
+				containsString(ENDERECOS.toString()),
+				containsString(FUNCIONARIOS.toString()),
+				containsString(PRODUTOS.toString()),
+				containsString(CARGOS.toString()),
+				containsString(AMBIENTES_DE_TRABALHO.toString())
 			)
 		);
 	}

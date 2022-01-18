@@ -19,12 +19,14 @@ public class CargoTest {
 	
 	// objetos de teste
 	private Cargo cargoAtriburtosObrigatorios;
+	private Cargo outroCargoAtributosObrigatorios;
 	private Cargo cargoTodosAtributos;
 	
 	@Before
 	public void pre_test() {
 		cargoAtriburtosObrigatorios = new Cargo(CBO_01);
-		cargoTodosAtributos = new Cargo(CBO_02, NOME_CARGO_02, DESCRICAO_CARGO_02);
+		outroCargoAtributosObrigatorios = new Cargo(CBO_02);
+		cargoTodosAtributos = new Cargo(CBO_01, NOME_CARGO_02, DESCRICAO_CARGO_02);
 	}
 	
 	@Test
@@ -34,8 +36,9 @@ public class CargoTest {
 	
 	@Test
 	public void test_02_instancia_com_construtor_todos_os_artributos() {
-		assertEquals(CBO_02, cargoTodosAtributos.getCBO());
+		assertEquals(CBO_01, cargoTodosAtributos.getCBO());
 		assertEquals(NOME_CARGO_02, cargoTodosAtributos.getNome());
+		assertEquals(DESCRICAO_CARGO_02, cargoTodosAtributos.getDescricao());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -60,7 +63,7 @@ public class CargoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_07_cbo_maior_que_permitido() {
-		cargoTodosAtributos.setCBO(LITERAL_NUMERICO_COM_10_CHARS);
+		cargoTodosAtributos.setCBO(TEXTO_COM_71_CHARS);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -113,16 +116,28 @@ public class CargoTest {
 		cargoAtriburtosObrigatorios.setDescricao(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
 	}
 	
-	//TODO implementar testes para os metodos equals e hashCode	
+	@Test
+	public void test_18_metodo_hashcode() {
+		assertEquals(cargoAtriburtosObrigatorios.hashCode(), cargoTodosAtributos.hashCode());
+	}
 	
 	@Test
-	public void test_xx_metodo_tostring() {
+	public void test_19_validar_metodo_equals() {
+		assertTrue(cargoAtriburtosObrigatorios.equals(cargoTodosAtributos));
+		assertTrue(cargoAtriburtosObrigatorios.equals(cargoAtriburtosObrigatorios));
+		assertFalse(cargoTodosAtributos.equals(ENDERECO_01));
+		assertFalse(cargoAtriburtosObrigatorios.equals(null));
+		assertFalse(cargoTodosAtributos.equals(cargoAtriburtosObrigatorios.equals(outroCargoAtributosObrigatorios)));
+	}
+	
+	@Test
+	public void test_20_metodo_tostring() {
 		assertThat(
-				cargoTodosAtributos.toString(), 
-				allOf(
-					containsString(CBO_02),
-					containsString(NOME_CARGO_02),
-					containsString(DESCRICAO_CARGO_02)
+			cargoTodosAtributos.toString(), 
+			allOf(
+				containsString(CBO_01),
+				containsString(NOME_CARGO_02),
+				containsString(DESCRICAO_CARGO_02)
 			)
 		);
 	}
