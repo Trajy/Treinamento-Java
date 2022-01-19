@@ -1,9 +1,13 @@
-package br.com.contmatic.model;
+package br.com.contmatic.test.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.contmatic.model.AmbienteTrabalho;
+import br.com.contmatic.model.Cargo;
+import br.com.contmatic.model.Funcionario;
+import br.com.contmatic.model.Produto;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.endereco.Endereco;

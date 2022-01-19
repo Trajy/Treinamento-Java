@@ -9,8 +9,8 @@ public class Produto {
 	private String versao;
 	private String codigo;
 	
-	public Produto (String nome) {
-		setNome(nome);
+	public Produto (String codigo) {
+		setCodigo(codigo);
 	}
 		
 	public Produto(String nome, String versao, String codigo) {
@@ -50,7 +50,7 @@ public class Produto {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + codigo.hashCode();
 		return result;
 	}
 
@@ -63,10 +63,7 @@ public class Produto {
 		if (getClass() != obj.getClass())
 			return false;
 		Produto other = (Produto) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
+		if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

@@ -1,4 +1,4 @@
-package br.com.contmatic.model;
+package br.com.contmatic.test.model;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.print.attribute.standard.DateTimeAtProcessing;
 
+import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
@@ -17,8 +18,6 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.com.contmatic.model.contato.Email;
-
-import static br.com.contmatic.model.ConstantsTest.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmailTest {

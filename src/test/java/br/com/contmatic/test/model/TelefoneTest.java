@@ -1,4 +1,4 @@
-package br.com.contmatic.model;
+package br.com.contmatic.test.model;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.print.attribute.standard.DateTimeAtProcessing;
 
+import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
@@ -18,8 +19,6 @@ import org.junit.runners.MethodSorters;
 
 import br.com.contmatic.model.contato.Telefone;
 
-import static br.com.contmatic.model.ConstantsTest.*;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TelefoneTest {
 	
@@ -31,6 +30,13 @@ public class TelefoneTest {
 	public void pre_test() {
 		telefoneAtributosObrigatorios = new Telefone(DDD_01, NUMERO_TELEFONE_01);
 		telefoneTodosAtributos = new Telefone(DDI_01, DDD_01, NUMERO_TELEFONE_01);
+	}
+	
+	@Test
+	public void test_00_instancia() {
+		assertEquals(DDI_01, telefoneTodosAtributos.getDdi());
+		assertEquals(DDD_01, telefoneTodosAtributos.getDdd());
+		assertEquals(NUMERO_TELEFONE_01, telefoneTodosAtributos.getNumero());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -73,10 +79,27 @@ public class TelefoneTest {
 		telefoneTodosAtributos.setNumero(NUMERO_TELEFONE_ACIMA_MAX_CHARS);
 	}
 	
-	//TODO implementar testes para equals, hashcode
+	@Test
+	public void test_09_metodo_hashcode() {
+		assertEquals(telefoneTodosAtributos.hashCode(), telefoneAtributosObrigatorios.hashCode());
+	}
 	
 	@Test
-	public void test_xx_metodo_tostring() {
+	public void test_10_metodo_equals() {
+		assertTrue(telefoneTodosAtributos.equals(telefoneTodosAtributos));
+		assertTrue(telefoneTodosAtributos.equals(telefoneAtributosObrigatorios));
+		assertFalse(telefoneTodosAtributos.equals(EMAIL_01));
+		assertFalse(telefoneTodosAtributos.equals(null));
+		
+		telefoneAtributosObrigatorios.setDdd(DDD_02);
+		assertFalse(telefoneTodosAtributos.equals(telefoneAtributosObrigatorios));
+		
+		telefoneAtributosObrigatorios.setNumero(NUMERO_TELEFONE_02);
+		assertFalse(telefoneTodosAtributos.equals(telefoneAtributosObrigatorios));
+	}
+	
+	@Test
+	public void test_11_metodo_tostring() {
 		assertThat(
 			telefoneTodosAtributos.toString(), 
 			allOf(

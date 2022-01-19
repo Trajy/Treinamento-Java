@@ -1,4 +1,4 @@
-package br.com.contmatic.model;
+package br.com.contmatic.test.model;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.print.attribute.standard.DateTimeAtProcessing;
 
+import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
@@ -15,19 +16,22 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import static br.com.contmatic.model.ConstantsTest.*;
+
+import br.com.contmatic.model.Funcionario;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FuncionarioTest {
 	
 	// objetos de teste
 	private Funcionario funcionarioAtributosObrigatorios;
+	private Funcionario outroFuncionarioAtributosObrigatorios;
 	private Funcionario funcinarioTodosOsAtributos;
 	
 	@Before
 	public void pre_test(){
 		funcionarioAtributosObrigatorios = new Funcionario(CPF_01);
-		funcinarioTodosOsAtributos = new Funcionario(CPF_02, NOME_02, DATA_NASCIMENTO_01 , ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
+		outroFuncionarioAtributosObrigatorios = new Funcionario(CPF_02);
+		funcinarioTodosOsAtributos = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01 , ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -142,7 +146,7 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_23_lista_emails_nula() {
-		funcinarioTodosOsAtributos.setEmails(LISTA_NULA);
+		funcinarioTodosOsAtributos.setEmails(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -212,16 +216,20 @@ public class FuncionarioTest {
 	
 	@Test
 	public void test_37_metodo_equals() {
-		
+		assertTrue(funcinarioTodosOsAtributos.equals(funcinarioTodosOsAtributos));
+		assertTrue(funcinarioTodosOsAtributos.equals(funcionarioAtributosObrigatorios));
+		assertFalse(funcinarioTodosOsAtributos.equals(ENDERECO_01));
+		assertFalse(funcinarioTodosOsAtributos.equals(null));
+		assertFalse(funcionarioAtributosObrigatorios.equals(outroFuncionarioAtributosObrigatorios));
 	}
 	
 	@Test
-	public void test_xx_metodo_tostring() {
+	public void test_38_metodo_tostring() {
 		assertThat(
 			funcinarioTodosOsAtributos.toString(), 
 			allOf(
-				containsString(CPF_02),
-				containsString(NOME_02),
+				containsString(CPF_01),
+				containsString(NOME_01),
 				containsString(DESCRICAO_CARGO_01),
 				containsString(DATA_NASCIMENTO_01.toString()),
 				containsString(ENDERECO_01.toString()),

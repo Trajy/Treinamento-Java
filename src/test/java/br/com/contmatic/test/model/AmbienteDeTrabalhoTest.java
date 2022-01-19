@@ -1,4 +1,4 @@
-package br.com.contmatic.model;
+package br.com.contmatic.test.model;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -12,6 +12,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import br.com.contmatic.model.AmbienteTrabalho;
 import br.com.contmatic.model.endereco.Endereco;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

@@ -1,4 +1,4 @@
-package br.com.contmatic.model;
+package br.com.contmatic.test.model;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.print.attribute.standard.DateTimeAtProcessing;
 
+import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
@@ -15,19 +16,29 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import static br.com.contmatic.model.ConstantsTest.*;
+
+import br.com.contmatic.model.Produto;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProdutoTest {
 	
 	// objetos de teste
 	private Produto produtoAtributosObrigatorios;
+	private Produto outroProdutoAtributosObrigatorios;
 	private Produto produtoTodosAtributos;
 	
 	@Before
 	public void pre_test(){
-		produtoAtributosObrigatorios = new Produto(NOME_PRODUTO_01);
+		produtoAtributosObrigatorios = new Produto(CODIGO_01);
+		outroProdutoAtributosObrigatorios = new Produto(CODIGO_02);
 		produtoTodosAtributos = new Produto(NOME_PRODUTO_01, VERSAO_01, CODIGO_01);
+	}
+	
+	@Test
+	public void test_00_instancias() {
+		assertEquals(NOME_PRODUTO_01, produtoTodosAtributos.getNome());
+		assertEquals(VERSAO_01, produtoTodosAtributos.getVersao());
+		assertEquals(CODIGO_01, produtoTodosAtributos.getCodigo());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -85,10 +96,22 @@ public class ProdutoTest {
 		produtoTodosAtributos.setVersao(NUMEROS_COM_LETRA_LITERAL);
 	}
 	
-	// TODO implementar testes para os metodos equals e hashcode
+	@Test
+	public void test_12_metodo_hashcode() {
+		assertEquals(produtoAtributosObrigatorios.hashCode(), produtoTodosAtributos.hashCode());
+	}
 	
 	@Test
-	public void test_xx_metodo_tostring() {
+	public void test_13_metodo_equals() {
+		assertTrue(produtoTodosAtributos.equals(produtoTodosAtributos));
+		assertTrue(produtoTodosAtributos.equals(produtoAtributosObrigatorios));
+		assertFalse(produtoTodosAtributos.equals(EMAIL_01));
+		assertFalse(produtoTodosAtributos.equals(null));
+		assertFalse(produtoAtributosObrigatorios.equals(outroProdutoAtributosObrigatorios));
+	}
+	
+	@Test
+	public void test_14_metodo_tostring() {
 		assertThat(
 			produtoTodosAtributos.toString(), 
 			allOf(
