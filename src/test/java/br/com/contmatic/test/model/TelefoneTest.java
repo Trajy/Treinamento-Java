@@ -3,20 +3,16 @@ package br.com.contmatic.test.model;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import javax.print.attribute.standard.DateTimeAtProcessing;
-
-import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
-
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import static br.com.contmatic.test.model.ConstantsTest.*;
 import br.com.contmatic.model.contato.Telefone;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -88,7 +84,7 @@ public class TelefoneTest {
 	public void test_10_metodo_equals() {
 		assertTrue(telefoneTodosAtributos.equals(telefoneTodosAtributos));
 		assertTrue(telefoneTodosAtributos.equals(telefoneAtributosObrigatorios));
-		assertFalse(telefoneTodosAtributos.equals(EMAIL_01));
+		assertFalse(telefoneTodosAtributos.equals(new Object()));
 		assertFalse(telefoneTodosAtributos.equals(null));
 		
 		telefoneAtributosObrigatorios.setDdd(DDD_02);

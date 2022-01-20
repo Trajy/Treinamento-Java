@@ -3,21 +3,18 @@ package br.com.contmatic.test.model;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import javax.print.attribute.standard.DateTimeAtProcessing;
-
-import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
-
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import static br.com.contmatic.test.model.ConstantsTest.*;
 import br.com.contmatic.model.Funcionario;
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FuncionarioTest {
@@ -32,6 +29,25 @@ public class FuncionarioTest {
 		funcionarioAtributosObrigatorios = new Funcionario(CPF_01);
 		outroFuncionarioAtributosObrigatorios = new Funcionario(CPF_02);
 		funcinarioTodosOsAtributos = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01 , ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
+		funcinarioTodosOsAtributos.setRg(RG_01);
+		funcinarioTodosOsAtributos.setEmails(EMAILS);
+		funcinarioTodosOsAtributos.setTelefones(TELEFONES);
+		funcinarioTodosOsAtributos.setAmbienteTrabalho(AMBIENTE_TRAB_01);
+	}
+	
+	@Test
+	public void test_00_instancia() {
+		assertEquals(CPF_01, funcinarioTodosOsAtributos.getCpf());
+		assertEquals(NOME_01, funcinarioTodosOsAtributos.getNome());
+		assertEquals(DATA_NASCIMENTO_01, funcinarioTodosOsAtributos.getDataNascimento());
+		assertEquals(ENDERECO_01, funcinarioTodosOsAtributos.getEndereco());
+		assertEquals(SETOR_01, funcinarioTodosOsAtributos.getSetor());
+		assertEquals(CARGO_01, funcinarioTodosOsAtributos.getCargo());
+		assertEquals(SALARIO_01, funcinarioTodosOsAtributos.getSalario());
+		assertEquals(RG_01, funcinarioTodosOsAtributos.getRg());
+		assertEquals(EMAILS, funcinarioTodosOsAtributos.getEmails());
+		assertEquals(TELEFONES, funcinarioTodosOsAtributos.getTelefones());
+		assertEquals(AMBIENTE_TRAB_01, funcinarioTodosOsAtributos.getAmbienteTrabalho());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -129,7 +145,7 @@ public class FuncionarioTest {
 		funcinarioTodosOsAtributos.setEndereco(null);
 	}
 	
-	@Test(expected = IllegalStateException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void test_20_lista_telefones_nula() {
 		funcinarioTodosOsAtributos.setTelefones(LISTA_NULA);
 	}
@@ -144,9 +160,9 @@ public class FuncionarioTest {
 		funcinarioTodosOsAtributos.setTelefones(LISTA_TELEFONES_ACIMA_DO_LIMITE);
 	}
 	
-	@Test(expected = IllegalStateException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void test_23_lista_emails_nula() {
-		funcinarioTodosOsAtributos.setEmails(null);
+		funcinarioTodosOsAtributos.setEmails(LISTA_NULA);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -218,7 +234,7 @@ public class FuncionarioTest {
 	public void test_37_metodo_equals() {
 		assertTrue(funcinarioTodosOsAtributos.equals(funcinarioTodosOsAtributos));
 		assertTrue(funcinarioTodosOsAtributos.equals(funcionarioAtributosObrigatorios));
-		assertFalse(funcinarioTodosOsAtributos.equals(ENDERECO_01));
+		assertFalse(funcinarioTodosOsAtributos.equals(new Object()));
 		assertFalse(funcinarioTodosOsAtributos.equals(null));
 		assertFalse(funcionarioAtributosObrigatorios.equals(outroFuncionarioAtributosObrigatorios));
 	}

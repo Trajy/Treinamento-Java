@@ -53,7 +53,7 @@ public final class ValidacaoLimite {
     public static final int EMAIL_MAX = 40;
     public static final int EMAIL_MIN = 5;
     
-    public static final int PRODUTO_VERSAO_TAMANHO_MAX = 5;
+    public static final int PRODUTO_VERSAO_TAMANHO_MAX = 10;
     public static final int PRODUTO_VERSAO_TAMANHO_MIN = 3;
     public static final int PRODUTO_CODIGO_TAMANHO_MAX = 10;
     public static final int PROTUDO_CODIGO_TAMANHO_MIN = 5;

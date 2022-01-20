@@ -3,20 +3,16 @@ package br.com.contmatic.test.model;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import javax.print.attribute.standard.DateTimeAtProcessing;
-
-import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
-
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import static br.com.contmatic.test.model.ConstantsTest.*;
 import br.com.contmatic.model.Produto;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -81,19 +77,39 @@ public class ProdutoTest {
 		produtoTodosAtributos.setVersao(NUMEROS_COM_LETRA_LITERAL);
 	}
 	
+	@Test(expected = IllegalStateException.class)
+	public void test_08_1_versao_produto_maior_que_max_chars() {
+		produtoTodosAtributos.setVersao(TEXTO_COM_71_CHARS);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_08_2_versao_produto_menor_min_chars() {
+		produtoTodosAtributos.setVersao(TEXTO_COM_1_CHAR);
+	}
+	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_09_codigo_produto_nula() {
-		produtoAtributosObrigatorios.setVersao(NULO);
+		produtoAtributosObrigatorios.setCodigo(NULO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_10_codigo_produto_vazia() {
-		produtoTodosAtributos.setVersao(VAZIO);
+		produtoTodosAtributos.setCodigo(VAZIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_11_codigo_produto_com_letra() {
-		produtoTodosAtributos.setVersao(NUMEROS_COM_LETRA_LITERAL);
+		produtoTodosAtributos.setCodigo(NUMEROS_COM_LETRA_LITERAL);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_11_1_codigo_produto_acima_max_chars() {
+		produtoTodosAtributos.setCodigo(TEXTO_COM_71_CHARS);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_11_2_codigo_produto_abaixo_min_chars() {
+		produtoTodosAtributos.setCodigo(TEXTO_COM_1_CHAR);
 	}
 	
 	@Test
@@ -105,7 +121,7 @@ public class ProdutoTest {
 	public void test_13_metodo_equals() {
 		assertTrue(produtoTodosAtributos.equals(produtoTodosAtributos));
 		assertTrue(produtoTodosAtributos.equals(produtoAtributosObrigatorios));
-		assertFalse(produtoTodosAtributos.equals(EMAIL_01));
+		assertFalse(produtoTodosAtributos.equals(new Object()));
 		assertFalse(produtoTodosAtributos.equals(null));
 		assertFalse(produtoAtributosObrigatorios.equals(outroProdutoAtributosObrigatorios));
 	}

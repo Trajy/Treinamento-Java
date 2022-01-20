@@ -21,13 +21,11 @@ public class CargoTest {
 	
 	// objetos de teste
 	private Cargo cargoAtriburtosObrigatorios;
-	private Cargo outroCargoAtributosObrigatorios;
 	private Cargo cargoTodosAtributos;
 	
 	@Before
 	public void pre_test() {
 		cargoAtriburtosObrigatorios = new Cargo(CBO_01);
-		outroCargoAtributosObrigatorios = new Cargo(CBO_02);
 		cargoTodosAtributos = new Cargo(CBO_01, NOME_CARGO_02, DESCRICAO_CARGO_02);
 	}
 	
@@ -127,9 +125,10 @@ public class CargoTest {
 	public void test_19_validar_metodo_equals() {
 		assertTrue(cargoAtriburtosObrigatorios.equals(cargoTodosAtributos));
 		assertTrue(cargoAtriburtosObrigatorios.equals(cargoAtriburtosObrigatorios));
-		assertFalse(cargoTodosAtributos.equals(ENDERECO_01));
+		assertFalse(cargoTodosAtributos.equals(new Object()));
 		assertFalse(cargoAtriburtosObrigatorios.equals(null));
-		assertFalse(cargoTodosAtributos.equals(cargoAtriburtosObrigatorios.equals(outroCargoAtributosObrigatorios)));
+		cargoAtriburtosObrigatorios.setCBO(CBO_02);
+		assertFalse(cargoTodosAtributos.equals(cargoAtriburtosObrigatorios));
 	}
 	
 	@Test

@@ -138,6 +138,7 @@ public class Funcionario {
 
 	public void setSalario(Float salario) {
 		validarSalario(salario);
+		
 		this.salario = salario;
 	}
 

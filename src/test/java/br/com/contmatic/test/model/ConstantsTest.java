@@ -159,10 +159,10 @@ public final class ConstantsTest {
 	protected static final String RG_01 = "243847701";
 	protected static final String RG_02 = "349694643";
 	protected static final LocalDate DATA_NASCIMENTO_01 = LocalDate.of(1998, 5, 22);
-	protected static final LocalDate DATA_NASCIMENTO_02 = LocalDate.of(2005, 12, 30);
+	protected static final LocalDate DATA_NASCIMENTO_02 = LocalDate.of(2000, 12, 30);
 	protected static final String SETOR_01 = "Programacao";
 	protected static final String SETOR_02 = "Producao";
-	protected static final Float SALARIO_01 = 2000.00f;
+	protected static final Float SALARIO_01 = 20000.00f;
 	protected static final Float SALARIO_02 = 4500.95f;
 	protected static final Funcionario FUNCIONARIO_01 = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01, ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
 	protected static final Funcionario FUNCIONARIO_02 = new Funcionario(CPF_02, NOME_02, DATA_NASCIMENTO_02, ENDERECO_02, SETOR_02, CARGO_02, SALARIO_02);
@@ -246,7 +246,8 @@ public final class ConstantsTest {
 	protected static final String EMAIL_COM_ARROBA_INICIO = "@contmatic.com.br";
 	protected static final LocalDate DATA_FUTURO = LocalDate.of(2025, 06, 15);
 	protected static final LocalDate DATA_MENOR_IDADE = LocalDate.of(2020, 06, 15);
-	protected static final Float SALARIO_NEGATIVO = -10f;
+	protected static final Float SALARIO_NEGATIVO = -1000f;
+	protected static final Float SALARIO_NEGATIVO_COM_PONTO = 0.0f;
 	protected static final Float SALARIO_ACIMA_LIMITE = 105000f;
 	protected static final String NULO = null;
 	protected static final String CPF_NUMEROS_REPETIDOS = "22222222222";

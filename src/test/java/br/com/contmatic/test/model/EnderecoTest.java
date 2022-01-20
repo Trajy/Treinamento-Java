@@ -22,13 +22,11 @@ public class EnderecoTest {
 	// objetos de teste
 	private Endereco enderecoAtributosObrigatorios;
 	private Endereco enderecoTodosOsAtributos;
-	private Endereco outroEnderecoTodosOsAtributos;
 	
 	@Before
 	public void pre_test(){
 		enderecoAtributosObrigatorios = new Endereco(NUMERO_ENDERECO_01, CEP_01);
 		enderecoTodosOsAtributos = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01, BAIRRO_01, CIDADE);
-		outroEnderecoTodosOsAtributos = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01, BAIRRO_01, CIDADE);
 	}
 	
 	@Test
@@ -146,7 +144,7 @@ public class EnderecoTest {
 		assertTrue(enderecoTodosOsAtributos.equals(enderecoTodosOsAtributos));
 		assertTrue(enderecoAtributosObrigatorios.equals(enderecoTodosOsAtributos));
 		assertFalse(enderecoAtributosObrigatorios.equals(null));
-		assertFalse(enderecoTodosOsAtributos.equals(FUNCIONARIO_01));
+		assertFalse(enderecoTodosOsAtributos.equals(new Object()));
 		
 		enderecoAtributosObrigatorios.setNumero(NUMERO_ENDERECO_02);
 		assertFalse(enderecoAtributosObrigatorios.equals(enderecoTodosOsAtributos));

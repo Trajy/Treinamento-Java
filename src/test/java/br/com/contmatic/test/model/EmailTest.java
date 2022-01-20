@@ -3,21 +3,17 @@ package br.com.contmatic.test.model;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import javax.print.attribute.standard.DateTimeAtProcessing;
-
-import static br.com.contmatic.test.model.ConstantsTest.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
-
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.com.contmatic.model.contato.Email;
+import static br.com.contmatic.test.model.ConstantsTest.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmailTest {
@@ -76,7 +72,7 @@ public class EmailTest {
 	public void test_08_metodo_equals() {
 		assertTrue(email.equals(email));
 		assertTrue(email.equals(outroEmail));
-		assertFalse(email.equals(ENDERECO_01));
+		assertFalse(email.equals(new Object()));
 		assertFalse(email.equals(null));
 		
 		outroEmail.setEmail(EMAIL_LITERAL_02);

@@ -4,53 +4,16 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static br.com.contmatic.test.model.ConstantsTest.AMBIENTES_DE_TRABALHO;
-import static br.com.contmatic.test.model.ConstantsTest.AREA_ATUACAO;
-import static br.com.contmatic.test.model.ConstantsTest.CARGOS;
-import static br.com.contmatic.test.model.ConstantsTest.CNPJ;
-import static br.com.contmatic.test.model.ConstantsTest.CNPJ_COM_LETRA;
-import static br.com.contmatic.test.model.ConstantsTest.CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE;
-import static br.com.contmatic.test.model.ConstantsTest.CNPJ_INVALIDO;
-import static br.com.contmatic.test.model.ConstantsTest.CNPJ_NUMEROS_REPETIDOS;
-import static br.com.contmatic.test.model.ConstantsTest.EMAILS;
-import static br.com.contmatic.test.model.ConstantsTest.ENDERECOS;
-import static br.com.contmatic.test.model.ConstantsTest.ENDERECO_01;
-import static br.com.contmatic.test.model.ConstantsTest.FUNCIONARIOS;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_AMBIENTES_ACIMA_LIMITE;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_CARGOS_ACIMA_LIMITE;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_EMAILS_ACIMA_LIMITE;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_ENDERECOS_ACIMA_LIMITE;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_FUNCINARIOS_ACIMA_LIMITE;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_NULA;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_PRODUTOS_ACIMA_LIMITE;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_TELEFONES_ACIMA_DO_LIMITE;
-import static br.com.contmatic.test.model.ConstantsTest.LISTA_VAZIA;
-import static br.com.contmatic.test.model.ConstantsTest.NOME_FANTASIA;
-import static br.com.contmatic.test.model.ConstantsTest.NULO;
-import static br.com.contmatic.test.model.ConstantsTest.OUTRA_RAZAO_SOCIAL;
-import static br.com.contmatic.test.model.ConstantsTest.OUTRO_CNPJ;
-import static br.com.contmatic.test.model.ConstantsTest.OUTRO_NOME_FANTASIA;
-import static br.com.contmatic.test.model.ConstantsTest.PRODUTOS;
-import static br.com.contmatic.test.model.ConstantsTest.RAZAO_SOCIAL;
-import static br.com.contmatic.test.model.ConstantsTest.SOMENTE_ESPACOS;
-import static br.com.contmatic.test.model.ConstantsTest.TELEFONES;
-import static br.com.contmatic.test.model.ConstantsTest.TEXTO_COM_1_CHAR;
-import static br.com.contmatic.test.model.ConstantsTest.TEXTO_COM_71_CHARS;
-import static br.com.contmatic.test.model.ConstantsTest.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
-import static br.com.contmatic.test.model.ConstantsTest.VAZIO;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
-
-import java.util.List;
-
-import org.hamcrest.core.AllOf;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.com.contmatic.model.Empresa;
+import static br.com.contmatic.test.model.ConstantsTest.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmpresaTest {
@@ -372,12 +335,12 @@ public class EmpresaTest {
 	
 	@Test
 	public void test_55_validar_metodo_equals_de_empresa_com_objeto_de_classe_diferente() {
-		assertFalse(empresaTodosOsAtributos.equals(ENDERECO_01));
+		assertFalse(empresaTodosOsAtributos.equals(new Object()));
 	}
 	
 	@Test
 	public void test_56_validar_metodo_equals_de_empresa_com_nulo() {
-		assertFalse(empresaTodosOsAtributos.equals(NULO));
+		assertFalse(empresaTodosOsAtributos.equals(null));
 	}
 
 	@Test

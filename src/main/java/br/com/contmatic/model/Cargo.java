@@ -56,9 +56,7 @@ public class Cargo {
         if (getClass() != obj.getClass())
             return false;
         Cargo other = (Cargo) obj;
-        if (!cbo.equals(other.cbo))
-            return false;
-        return true;
+        return cbo.equals(other.cbo);
     }
     @Override
     public String toString() {

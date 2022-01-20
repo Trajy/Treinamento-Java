@@ -119,20 +119,24 @@ public class CidadeTest {
 	public void test_18_validar_metodo_equals() {
 		assertTrue(cidade.equals(cidade));
 		assertTrue(cidade.equals(outraCidade));
-		assertFalse(cidade.equals(ENDERECO_01));
+		assertFalse(cidade.equals(new Object()));
 		assertFalse(cidade.equals(null));
 		
 		outraCidade.setNome(NOME_CIDADE_02);
 		assertFalse(cidade.equals(outraCidade));
+		
 		outraCidade.setUf(UF_02);
 		assertFalse(cidade.equals(outraCidade));
+		
 		outraCidade.setPais(NOME_CIDADE_02);
 		assertFalse(cidade.equals(outraCidade));
 		
 		outraCidade.setUf(UF);
 		assertFalse(cidade.equals(outraCidade));
+		
 		outraCidade.setNome(NOME_CIDADE);
 		assertFalse(cidade.equals(outraCidade));
+		
 		outraCidade.setUf(UF_02);
 		outraCidade.setPais(PAIS);
 		assertFalse(cidade.equals(outraCidade));	

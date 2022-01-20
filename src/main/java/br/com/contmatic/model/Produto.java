@@ -63,9 +63,7 @@ public class Produto {
 		if (getClass() != obj.getClass())
 			return false;
 		Produto other = (Produto) obj;
-		if (!codigo.equals(other.codigo))
-			return false;
-		return true;
+		return codigo.equals(other.codigo);
 	}
 
 	@Override

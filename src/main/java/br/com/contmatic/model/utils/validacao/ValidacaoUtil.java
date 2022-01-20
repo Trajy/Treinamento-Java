@@ -37,8 +37,8 @@ final class ValidacaoUtil {
 		return (!analise.toString().contains("@") || analise.toString().startsWith("@"));
 	}
 	
-	protected static boolean validarNumNegativo(Object analise){
-		return Float.parseFloat(analise.toString()) < 0;
+	protected static boolean validarNumNegativo(Object analise) {
+		return Float.parseFloat(analise.toString()) < 0f;
 	}
 	
 	protected static boolean validarLimiteNum(Object analise, Object limite) {
@@ -61,21 +61,6 @@ final class ValidacaoUtil {
 		return !analise.toString().matches("([A-Za-zá-úÁ-Ú0-9., ]*)");
 	}
 	
-	protected static boolean validarDiaFuturo(Object analise) {
-		LocalDate data = (LocalDate) analise;
-		return data.getDayOfMonth() > LocalDate.now().getDayOfMonth();
-	}
-	
-	protected static boolean validarMesFuturo(Object analise) {
-		LocalDate data = (LocalDate) analise;
-		return data.getDayOfYear() > LocalDate.now().getMonthValue();
-	}
-	
-	protected static boolean validarAnoFuturo(Object analise) {
-		LocalDate data = (LocalDate) analise;
-		return data.getYear() > LocalDate.now().getYear();
-	}
-	
 	protected static boolean validarDataFuturo(Object analise) {
 		LocalDate data = (LocalDate) analise;
 		return data.isAfter(LocalDate.now());
@@ -83,8 +68,7 @@ final class ValidacaoUtil {
 	
 	protected static boolean validarMaiorIdade(Object analise) {
 		LocalDate data = (LocalDate) analise;
-		return MAIORIDADE >= (LocalDate.now().getYear() - data.getYear()) &&
-				!validarMesFuturo(data) && !validarDiaFuturo(data);
+		return MAIORIDADE > (LocalDate.now().getYear() - data.getYear());
 	}
 	
 	public static void validarNull (Object analise) {

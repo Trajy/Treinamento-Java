@@ -21,7 +21,6 @@ public class AmbienteDeTrabalhoTest {
 	// objetos de teste
 	private AmbienteTrabalho ambienteDeTrabalhoAtributosObrigatorios;
 	private AmbienteTrabalho ambienteDeTrabalhoTodosOsAtributos;
-	private AmbienteTrabalho outroAmbienteDeTrabalhoTodosOsAtributos;
 	
 	// constantes corretas
 	private final String NOME = "Desenvolvimento";
@@ -41,7 +40,6 @@ public class AmbienteDeTrabalhoTest {
 	private final String TEXTO_COM_71_CHARS = "abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVXWYZ1234567890123456789";
 	private final String TEXTO_COM_51_CHARS = "abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVXWY";
 	private final String TEXTO_COM_2_CHARS = "an";
-	private final String TEXTO_COM_CHARS_REPETIDOS = "aaaaaaaaaa";
 	
 	@Before
 	public void pre_test() {
@@ -167,12 +165,12 @@ public class AmbienteDeTrabalhoTest {
 	
 	@Test
 	public void test_24_validar_metodo_equals_de_ambiente_com_objeto_de_outra_classe() {
-		assertFalse(ambienteDeTrabalhoTodosOsAtributos.equals(ENDERECO));
+		assertFalse(ambienteDeTrabalhoTodosOsAtributos.equals(new Object()));
 	}
 	
 	@Test
 	public void test_25_validar_metodo_equals_de_ambiente_com_nulo() {
-		assertFalse(ambienteDeTrabalhoAtributosObrigatorios.equals(NULO));	
+		assertFalse(ambienteDeTrabalhoAtributosObrigatorios.equals(null));	
 	}
 	
 	@Test
@@ -199,10 +197,8 @@ public class AmbienteDeTrabalhoTest {
 		assertFalse(ambienteDeTrabalhoAtributosObrigatorios.equals(ambienteDeTrabalhoTodosOsAtributos));
 	}
 	
-	// TODO implementar caso faltante no metodo equals
-	
 	@Test
-	public void test_xx_validar_metodo_to_string_da_classe_ambiente() {
+	public void test_30_validar_metodo_to_string_da_classe_ambiente() {
 		assertThat(
 			ambienteDeTrabalhoTodosOsAtributos.toString(), 
 			allOf(

@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondicoes;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarDataFuturo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarMaiorIdade;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarNumerosComPonto;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarNumNegativo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarLimiteNum;
 import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
@@ -23,11 +22,8 @@ public final class ValidacaoFuncionario {
 	
 	public static void validarSalario(Float salario) {
 		validarCondicoes(salario, SALARIO_INVALIDO, analise ->
-			validarNumerosComPonto(analise) ||
 			validarNumNegativo(analise) ||
 			validarLimiteNum(analise, SALARIO_MAX)
 		);
-	}
-
-	
+	}	
 }
