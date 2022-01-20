@@ -19,6 +19,7 @@ public final class ValidacaoLimite {
     public static final int AREA_DE_ATUACAO_MIN = 4;
     public static final int CBO_MAX = 8;
     
+    
     public static final int DDI_TAMANHO_MAX = 3;
     public static final int DDI_TAMANHO_MIN = 1;
     public static final int DDD_TAMANHO_MAX = 3;

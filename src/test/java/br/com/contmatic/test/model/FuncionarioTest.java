@@ -8,7 +8,6 @@ import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -24,11 +23,6 @@ public class FuncionarioTest {
 	private Funcionario funcionarioAtributosObrigatorios;
 	private Funcionario outroFuncionarioAtributosObrigatorios;
 	private Funcionario funcinarioTodosOsAtributos;
-	
-	@BeforeClass
-	public void aviso_inicio_testes() {
-		System.out.println("Iniciando testes Funcionario");
-	}
 	
 	@Before
 	public void pre_test(){
