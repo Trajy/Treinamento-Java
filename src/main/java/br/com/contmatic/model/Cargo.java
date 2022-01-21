@@ -1,7 +1,7 @@
 package br.com.contmatic.model;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarNumeros;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarComumAlfanumerico;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNumeros;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarComumAlfanumerico;
 
 public class Cargo {
     

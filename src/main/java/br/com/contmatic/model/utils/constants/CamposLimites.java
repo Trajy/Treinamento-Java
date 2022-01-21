@@ -1,8 +1,8 @@
 package br.com.contmatic.model.utils.constants;
 
-public final class ValidacaoLimite {
+public final class CamposLimites {
 
-    private ValidacaoLimite() {}
+    private CamposLimites() {}
     
     public static final int COMUM_MIN = 2;
     public static final int COMUM_MAX = 70;

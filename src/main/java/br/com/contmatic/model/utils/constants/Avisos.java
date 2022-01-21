@@ -1,8 +1,8 @@
 package br.com.contmatic.model.utils.constants;
 
-public final class Warning {
+public final class Avisos {
 
-    private Warning() {}
+    private Avisos() {}
 
     public static final String LISTA_LIMITE = "Limite de elementos na lista excedido";
     public static final String LISTA_NULA = "A lista fornecida e nula";

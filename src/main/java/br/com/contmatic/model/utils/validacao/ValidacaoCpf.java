@@ -5,8 +5,8 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondic
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCaracteresRepetidos;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSomenteNumeros;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeCaracteres;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComumCpfCnpj.algoritmoComumCpfCnpj;
-import static br.com.contmatic.model.utils.constants.Warning.*;
+import static br.com.contmatic.model.utils.validacao.ValidacaoIteracaoCpfCnpj.algoritmoComumCpfCnpj;
+import static br.com.contmatic.model.utils.constants.Avisos.*;
 
 public final class ValidacaoCpf {
 	

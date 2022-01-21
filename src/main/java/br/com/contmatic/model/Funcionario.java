@@ -7,11 +7,11 @@ import java.util.Objects;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
 import static br.com.contmatic.model.utils.validacao.ValidacaoCpf.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.*;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.*;
 import static br.com.contmatic.model.utils.validacao.ValidacaoFuncionario.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarNulo;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 
 public class Funcionario {
 	

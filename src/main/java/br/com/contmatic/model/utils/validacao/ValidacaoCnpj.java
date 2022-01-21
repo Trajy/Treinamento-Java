@@ -1,11 +1,11 @@
 package br.com.contmatic.model.utils.validacao;
 
-import br.com.contmatic.model.utils.constants.Warning;
+import br.com.contmatic.model.utils.constants.Avisos;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondicoes;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCaracteresRepetidos;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSomenteNumeros;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeCaracteres;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComumCpfCnpj.algoritmoComumCpfCnpj;
+import static br.com.contmatic.model.utils.validacao.ValidacaoIteracaoCpfCnpj.algoritmoComumCpfCnpj;
 
 public final class ValidacaoCnpj {
     
@@ -21,7 +21,7 @@ public final class ValidacaoCnpj {
 
     public static void validarCnpj(String cnpj) {
 		
-		validarCondicoes(cnpj, Warning.CNPJ_INVALIDO, analise ->
+		validarCondicoes(cnpj, Avisos.CNPJ_INVALIDO, analise ->
 			validarCaracteresRepetidos(analise) ||
 			validarSomenteNumeros(analise) || 
 			validarQuantidadeCaracteres(analise, TAMANHO_CNPJ)

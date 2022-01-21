@@ -7,8 +7,8 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSoment
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCaracteresRepetidos;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeCaracteres;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSomenteLetras;
-import static br.com.contmatic.model.utils.constants.Warning.*;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
+import static br.com.contmatic.model.utils.constants.Avisos.*;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
 
 public final class ValidacaoEndereco {
 

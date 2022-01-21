@@ -2,18 +2,17 @@ package br.com.contmatic.model.utils.validacao;
 
 import java.util.stream.IntStream;
 
-final class ValidacaoComumCpfCnpj {
+final class ValidacaoIteracaoCpfCnpj {
 
 	private static final int INICIO_SEQUENCIA_ITERACAO = 2;
 
-	private ValidacaoComumCpfCnpj() {}
+	private ValidacaoIteracaoCpfCnpj() {}
 
     protected static int algoritmoComumCpfCnpj(String numRegistro, int qtdDigVerificadores, int limiteSequencia, boolean inverterCaracteres) {
 
 		int digitoVerificador = 0;
 		int pularChars = 0;
 		
-		// clocar em um metodo
 		if (inverterCaracteres) { 
 			numRegistro = inverter(numRegistro);
 			
@@ -24,7 +23,7 @@ final class ValidacaoComumCpfCnpj {
 		
 		iterador(numRegistro, qtdDigVerificadores, limiteSequencia, pularChars, valoresComputados);
 
-		digitoVerificador = (IntStream.of(valoresComputados).sum());
+		digitoVerificador = IntStream.of(valoresComputados).sum();
 
 		return digitoVerificador;
 	}
@@ -40,12 +39,12 @@ final class ValidacaoComumCpfCnpj {
 		return numRegistro;
 	}
 
-	private static void iterador(String numRegistro, int steps, int limiteSequencia, int passosSoma,
+	private static void iterador(String numRegistro, int passos, int limiteSequencia, int passosSoma,
 			int[] valoresComputados) {
 		
 		int valorSequencia = INICIO_SEQUENCIA_ITERACAO;
 				
-		for (int index = 0; index < (numRegistro.length() - steps); index++, valorSequencia++) {
+		for (int index = 0; index < (numRegistro.length() - passos); index++, valorSequencia++) {
 			if (valorSequencia > limiteSequencia) {
 				valorSequencia = INICIO_SEQUENCIA_ITERACAO;
 			}

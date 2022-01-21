@@ -5,8 +5,8 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCaract
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSomenteNumeros;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeDeCaracteresEntre;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarArroba;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
-import static br.com.contmatic.model.utils.constants.Warning.*;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
+import static br.com.contmatic.model.utils.constants.Avisos.*;
 
 public final class ValidacaoContato{
 

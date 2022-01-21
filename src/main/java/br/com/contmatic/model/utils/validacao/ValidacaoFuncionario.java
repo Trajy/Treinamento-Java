@@ -6,8 +6,8 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarDataFu
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarMaiorIdade;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarNumNegativo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarLimiteNum;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
-import static br.com.contmatic.model.utils.constants.Warning.*;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
+import static br.com.contmatic.model.utils.constants.Avisos.*;
 
 public final class ValidacaoFuncionario {
 	

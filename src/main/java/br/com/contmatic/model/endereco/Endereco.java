@@ -1,7 +1,7 @@
 package br.com.contmatic.model.endereco;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoEndereco.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarNulo;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 
 import java.util.Objects;
 

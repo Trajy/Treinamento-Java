@@ -3,8 +3,8 @@ package br.com.contmatic.model.utils.validacao;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondicoes;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeDeCaracteresEntre;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarNumerosComPonto;
-import static br.com.contmatic.model.utils.constants.Warning.*;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
+import static br.com.contmatic.model.utils.constants.Avisos.*;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
 
 public final class ValidacaoProduto {
 	

@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
-import static br.com.contmatic.model.utils.constants.Warning.*;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
+import static br.com.contmatic.model.utils.constants.Avisos.*;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
 
 final class ValidacaoUtil {
 

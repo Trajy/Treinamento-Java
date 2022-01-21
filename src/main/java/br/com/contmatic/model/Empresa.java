@@ -5,9 +5,9 @@ import java.util.Objects;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarComumAlfanumerico;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarLista;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarComumAlfanumerico;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
 import static br.com.contmatic.model.utils.validacao.ValidacaoCnpj.validarCnpj;
 
 public class Empresa{

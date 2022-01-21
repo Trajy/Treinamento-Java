@@ -1,6 +1,6 @@
 package br.com.contmatic.model;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.*;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.*;
 import static br.com.contmatic.model.utils.validacao.ValidacaoProduto.*;
 
 public class Produto {

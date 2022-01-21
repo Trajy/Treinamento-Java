@@ -10,12 +10,12 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSoment
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarListaNula;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarListaVazia;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarLimiteMaxLista;
-import static br.com.contmatic.model.utils.constants.Warning.*;
-import static br.com.contmatic.model.utils.constants.ValidacaoLimite.*;
+import static br.com.contmatic.model.utils.constants.Avisos.*;
+import static br.com.contmatic.model.utils.constants.CamposLimites.*;
 
-public final class ValidacaoGeral {
+public final class ValidacaoComum {
 
-    private ValidacaoGeral() {}
+    private ValidacaoComum() {}
 
     public static void validarNome(String nome){
         validarCondicoes(nome, NOME_INVALIDO, analise -> 

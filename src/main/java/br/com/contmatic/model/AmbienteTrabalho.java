@@ -2,9 +2,9 @@ package br.com.contmatic.model;
 
 import java.util.Objects;
 import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarComumAlfanumerico;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarNome;
-import static br.com.contmatic.model.utils.validacao.ValidacaoGeral.validarNulo;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarComumAlfanumerico;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNome;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 
 public class AmbienteTrabalho {
 
