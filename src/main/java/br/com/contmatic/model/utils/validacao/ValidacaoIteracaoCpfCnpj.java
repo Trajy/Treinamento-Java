@@ -4,52 +4,52 @@ import java.util.stream.IntStream;
 
 final class ValidacaoIteracaoCpfCnpj {
 
-	private static final int INICIO_SEQUENCIA_ITERACAO = 2;
+    private static final int INICIO_SEQUENCIA_ITERACAO = 2;
 
-	private ValidacaoIteracaoCpfCnpj() {}
+    private ValidacaoIteracaoCpfCnpj() {
+    }
 
     protected static int algoritmoComumCpfCnpj(String numRegistro, int qtdDigVerificadores, int limiteSequencia, boolean inverterCaracteres) {
 
-		int digitoVerificador = 0;
-		int pularChars = 0;
-		
-		if (inverterCaracteres) { 
-			numRegistro = inverter(numRegistro);
-			
-			pularChars = indiceInicalPosDigitos(qtdDigVerificadores);
-		}
-		
-		int[] valoresComputados = new int[numRegistro.length() - qtdDigVerificadores];
-		
-		iterador(numRegistro, qtdDigVerificadores, limiteSequencia, pularChars, valoresComputados);
+        int digitoVerificador = 0;
+        int pularChars = 0;
 
-		digitoVerificador = IntStream.of(valoresComputados).sum();
+        if (inverterCaracteres) {
+            numRegistro = inverter(numRegistro);
 
-		return digitoVerificador;
-	}
+            pularChars = indiceInicalPosDigitos(qtdDigVerificadores);
+        }
 
-	private static int indiceInicalPosDigitos(int qtdDigitos) {
-		int passosSoma;
-		passosSoma = qtdDigitos;
-		return passosSoma;
-	}
+        int[] valoresComputados = new int[numRegistro.length() - qtdDigVerificadores];
 
-	private static String inverter(String numRegistro) {
-		numRegistro = new StringBuilder(numRegistro).reverse().toString();
-		return numRegistro;
-	}
+        iterador(numRegistro, qtdDigVerificadores, limiteSequencia, pularChars, valoresComputados);
 
-	private static void iterador(String numRegistro, int passos, int limiteSequencia, int passosSoma,
-			int[] valoresComputados) {
-		
-		int valorSequencia = INICIO_SEQUENCIA_ITERACAO;
-				
-		for (int index = 0; index < (numRegistro.length() - passos); index++, valorSequencia++) {
-			if (valorSequencia > limiteSequencia) {
-				valorSequencia = INICIO_SEQUENCIA_ITERACAO;
-			}
-			valoresComputados[index] = Character.getNumericValue(numRegistro.charAt(index + passosSoma)) * valorSequencia;
-		}
-	}
-    
+        digitoVerificador = IntStream.of(valoresComputados).sum();
+
+        return digitoVerificador;
+    }
+
+    private static int indiceInicalPosDigitos(int qtdDigitos) {
+        int passosSoma;
+        passosSoma = qtdDigitos;
+        return passosSoma;
+    }
+
+    private static String inverter(String numRegistro) {
+        numRegistro = new StringBuilder(numRegistro).reverse().toString();
+        return numRegistro;
+    }
+
+    private static void iterador(String numRegistro, int passos, int limiteSequencia, int passosSoma, int[] valoresComputados) {
+
+        int valorSequencia = INICIO_SEQUENCIA_ITERACAO;
+
+        for(int index = 0 ; index < (numRegistro.length() - passos) ; index++, valorSequencia++) {
+            if (valorSequencia > limiteSequencia) {
+                valorSequencia = INICIO_SEQUENCIA_ITERACAO;
+            }
+            valoresComputados[index] = Character.getNumericValue(numRegistro.charAt(index + passosSoma)) * valorSequencia;
+        }
+    }
+
 }

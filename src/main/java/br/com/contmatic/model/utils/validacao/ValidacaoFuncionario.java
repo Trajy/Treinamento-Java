@@ -15,6 +15,7 @@ public final class ValidacaoFuncionario {
 	
 	public static void validarIdade(LocalDate data) {
 		validarCondicoes(data , DATA_INVALIDA, analise ->
+		    // TODO - limite de idade 100 anos
 			validarDataFuturo(analise) ||
 			validarMaiorIdade(analise)
 		);
@@ -22,6 +23,7 @@ public final class ValidacaoFuncionario {
 	
 	public static void validarSalario(Float salario) {
 		validarCondicoes(salario, SALARIO_INVALIDO, analise ->
+		    // TODO - salario minimo estipulado
 			validarNumNegativo(analise) ||
 			validarLimiteNum(analise, SALARIO_MAX)
 		);

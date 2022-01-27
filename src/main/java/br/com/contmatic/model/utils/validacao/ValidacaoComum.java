@@ -24,6 +24,7 @@ public final class ValidacaoComum {
         );
     }
     
+    // TODO - validar X
     public static void validarRg(String numero){
         validarCondicoes(numero, NUMERO_INVALIDO, analise -> 
         	validarQuantidadeDeCaracteresEntre(analise, RG_MIN, RG_MAX) ||
@@ -37,7 +38,8 @@ public final class ValidacaoComum {
             validarSomenteNumeros(analise)
         );
     }
-
+    
+    // TODO - sobrecarca de metodos
     public static void validarComumAlfanumerico(String dado) {
         validarCondicoes(dado, COMUM_INVALIDO, analise ->
             validarQuantidadeDeCaracteresEntre(analise, COMUM_MIN, COMUM_MAX) ||

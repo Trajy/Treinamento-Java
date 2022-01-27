@@ -12,7 +12,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import br.com.contmatic.model.Empresa;
+import br.com.contmatic.model.empresa.Empresa;
+
 import static br.com.contmatic.test.model.ConstantsTest.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -26,7 +27,7 @@ public class EmpresaTest {
 
 	@Before
 	public void pre_test(){
-		empresaAtributosObrigatorios = new Empresa(CNPJ, RAZAO_SOCIAL);
+		empresaAtributosObrigatorios = new Empresa(CNPJ);
 		
 		empresaTodosOsAtributos = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
 		empresaTodosOsAtributos.setEmails(EMAILS);
@@ -51,7 +52,6 @@ public class EmpresaTest {
 	@Test
 	public void test_01_validar_instancia_com_contrutor_obrigatorio_da_classe_empresa(){
 		assertEquals(CNPJ, empresaAtributosObrigatorios.getCnpj());
-		assertEquals(RAZAO_SOCIAL, empresaAtributosObrigatorios.getRazaoSocial());
 	}
 
 	@Test

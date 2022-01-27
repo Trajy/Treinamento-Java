@@ -12,8 +12,9 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import br.com.contmatic.model.empresa.Funcionario;
+
 import static br.com.contmatic.test.model.ConstantsTest.*;
-import br.com.contmatic.model.Funcionario;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

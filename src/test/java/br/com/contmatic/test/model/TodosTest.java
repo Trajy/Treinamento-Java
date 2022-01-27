@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	AmbienteDeTrabalhoTest.class,
+	AmbienteTrabalhoTest.class,
 	CargoTest.class,
 	CidadeTest.class,
 	EmailTest.class,

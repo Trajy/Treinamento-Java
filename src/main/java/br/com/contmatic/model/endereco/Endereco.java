@@ -6,18 +6,22 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import java.util.Objects;
 
 public class Endereco {
-    
+
     private Integer numero;
+
     private String cep;
+
     private String rua;
+
     private String bairro;
-    private Cidade enderecoDb;
+
+    private Cidade cidade;
 
     public Endereco(Integer numero, String cep) {
         setNumero(numero);
         setCEP(cep);
     }
-    
+
     public Endereco(Integer numero, String cep, String rua, String bairro, Cidade cidade) {
         setNumero(numero);
         setCEP(cep);
@@ -29,7 +33,7 @@ public class Endereco {
     public Integer getNumero() {
         return numero;
     }
-    
+
     public void setNumero(Integer numero) {
         validarNumeroEndereco(numero);
         this.numero = numero;
@@ -61,37 +65,36 @@ public class Endereco {
         validarBairro(bairro);
         this.bairro = bairro;
     }
-    
+
     public Cidade getCidade() {
-    	return this.enderecoDb;
+        return this.cidade;
     }
-    
-    public void setCidade(Cidade enderecoDb) {
-    	validarNulo(enderecoDb);
-    	this.enderecoDb = enderecoDb;
+
+    public void setCidade(Cidade cidade) {
+        validarNulo(cidade);
+        this.cidade = cidade;
     }
-    
-    @Override
-	public int hashCode() {
-		return Objects.hash(cep, numero);
-	}
 
     @Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Endereco other = (Endereco) obj;
-		return Objects.equals(cep, other.cep) && Objects.equals(numero, other.numero);
-	}
+    public int hashCode() {
+        return Objects.hash(cep, numero);
+    }
 
-	@Override
-	public String toString() {
-		return "Endereco [numero=" + numero + ", cep=" + cep + ", rua=" + rua + ", bairro=" + bairro + ", enderecoDb="
-				+ enderecoDb + "]";
-	}
- 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Endereco other = (Endereco) obj;
+        return Objects.equals(cep, other.cep) && Objects.equals(numero, other.numero);
+    }
+
+    @Override
+    public String toString() {
+        return "Endereco [numero=" + numero + ", cep=" + cep + ", rua=" + rua + ", bairro=" + bairro + ", enderecoDb=" + cidade + "]";
+    }
+
 }

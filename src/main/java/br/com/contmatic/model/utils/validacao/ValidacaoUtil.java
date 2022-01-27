@@ -9,102 +9,104 @@ import static br.com.contmatic.model.utils.constants.CamposLimites.*;
 
 final class ValidacaoUtil {
 
-	private ValidacaoUtil() {}
-	
-	protected static boolean validarQuantidadeCaracteres(Object analise, int tamanho) {
-		return analise.toString().length() != tamanho;
-	}
-	
-	protected static boolean validarMaxCaracteres(Object analise, int tamanho){
-		return analise.toString().length() > tamanho;
-	}
+    private ValidacaoUtil() {
+    }
 
-	protected static boolean validarMinCaracteres(Object analise, int tamanho){
-		return analise.toString().length() < tamanho;
-	}
+    protected static boolean validarQuantidadeCaracteres(Object analise, int tamanho) {
+        return analise.toString().length() != tamanho;
+    }
 
-	protected static boolean validarQuantidadeDeCaracteresEntre(Object analise, int min, int max) {
-		return validarMinCaracteres(analise, min) || validarMaxCaracteres(analise, max);
-	}
-	
-	protected static boolean validarCaracteresRepetidos(Object analise) {
-		 return !IntStream.range(
-				 0, analise.toString().length() - 1).anyMatch(
-						 i -> analise.toString().charAt(i) != analise.toString().charAt(i + 1));
-	}
+    protected static boolean validarMaxCaracteres(Object analise, int tamanho) {
+        return analise.toString().length() > tamanho;
+    }
 
-	protected static boolean validarArroba(Object analise){
-		return (!analise.toString().contains("@") || analise.toString().startsWith("@"));
-	}
-	
-	protected static boolean validarNumNegativo(Object analise) {
-		return Float.parseFloat(analise.toString()) < 0f;
-	}
-	
-	protected static boolean validarLimiteNum(Object analise, Object limite) {
-		return Float.parseFloat(analise.toString()) > Float.parseFloat(limite.toString());
-	}
-	
-	protected static boolean validarSomenteNumeros(Object analise) {
-		return !analise.toString().matches("^\\d+$");
-	}
-	
-	protected static boolean validarNumerosComPonto(Object analise) {
-		return !analise.toString().matches("([0-9.]*)");
-	}
+    protected static boolean validarMinCaracteres(Object analise, int tamanho) {
+        return analise.toString().length() < tamanho;
+    }
 
-	protected static boolean validarSomenteLetras(Object analise) {
-		return !analise.toString().matches("([A-Za-zá-úÁ-Ú., ]*)");
-	}
+    protected static boolean validarQuantidadeDeCaracteresEntre(Object analise, int min, int max) {
+        return validarMinCaracteres(analise, min) || validarMaxCaracteres(analise, max);
+    }
 
-	protected static boolean validarSomenteAlfanumerico(Object analise) {
-		return !analise.toString().matches("([A-Za-zá-úÁ-Ú0-9., ]*)");
-	}
-	
-	protected static boolean validarDataFuturo(Object analise) {
-		LocalDate data = (LocalDate) analise;
-		return data.isAfter(LocalDate.now());
-	}
-	
-	protected static boolean validarMaiorIdade(Object analise) {
-		LocalDate data = (LocalDate) analise;
-		return MAIORIDADE > (LocalDate.now().getYear() - data.getYear());
-	}
-	
-	public static void validarNull (Object analise) {
-		if(analise == null) {
-			throw new IllegalArgumentException(NULO);	
-		}
-	}	
-	protected static void validarVazioOuEspacos(Object analise) {
-		if (analise.toString().isEmpty() || analise.toString().isBlank()) {
-			throw new IllegalStateException(SOMENTE_ESPACOS);
-		}
-	}
-	
-	protected static void validarListaNula(List<?> lista){
-		if(lista == null) {
-			throw new IllegalArgumentException(LISTA_NULA);
-		}
-	}
+    protected static boolean validarCaracteresRepetidos(Object analise) {
+        return !IntStream.range(0, analise.toString().length() - 1).anyMatch(i -> analise.toString().charAt(i) != analise.toString().charAt(i + 1));
+    }
 
-	protected static void validarLimiteMaxLista(List<?> lista, int tamanhoMaxLista) {
-		if(lista.size() > tamanhoMaxLista) {
-			throw new IllegalStateException(LISTA_LIMITE);
-		}
-	}
+    protected static boolean validarArroba(Object analise) {
+        return (!analise.toString().contains("@") || analise.toString().startsWith("@"));
+    }
 
-	protected static void validarListaVazia(List<?> lista){
-		if(lista.isEmpty()) {
-			throw new IllegalStateException(LISTA_VAZIA);
-		}
-	}
+    protected static boolean validarNumNegativo(Object analise) {
+        return Float.parseFloat(analise.toString()) < 0f;
+    }
 
-	protected static void validarCondicoes(Object analise, String warning, Predicate<Object> condicao){
-		validarNull(analise);
-		validarVazioOuEspacos(analise);
-		if(condicao.test(analise)) {
-			throw new IllegalStateException(warning);
-		}
-	}
+    protected static boolean validarLimiteNum(Object analise, Object limite) {
+        return Float.parseFloat(analise.toString()) > Float.parseFloat(limite.toString());
+    }
+
+    protected static boolean validarSomenteNumeros(Object analise) {
+        // TODO - implementar classe de consts para regex
+        return !analise.toString().matches("^\\d+$");
+    }
+
+    protected static boolean validarNumerosComPonto(Object analise) {
+        return !analise.toString().matches("([0-9.]*)");
+    }
+
+    protected static boolean validarSomenteLetras(Object analise) {
+        return !analise.toString().matches("([A-Za-zá-úÁ-Ú., ]*)");
+    }
+
+    protected static boolean validarSomenteAlfanumerico(Object analise) {
+        return !analise.toString().matches("([A-Za-zá-úÁ-Ú0-9., ]*)");
+    }
+
+    protected static boolean validarDataFuturo(Object analise) {
+        LocalDate data = (LocalDate) analise;
+        return data.isAfter(LocalDate.now());
+    }
+
+    // TODO - validar maior de 16 anos
+    protected static boolean validarMaiorIdade(Object analise) {
+        LocalDate data = (LocalDate) analise;
+        return MAIORIDADE > (LocalDate.now().getYear() - data.getYear());
+    }
+
+    public static void validarNull(Object analise) {
+        if (analise == null) {
+            throw new IllegalArgumentException(NULO);
+        }
+    }
+
+    protected static void validarVazioOuEspacos(Object analise) {
+        if (analise.toString().isEmpty() || analise.toString().isBlank()) {
+            throw new IllegalStateException(SOMENTE_ESPACOS);
+        }
+    }
+
+    protected static void validarListaNula(List<?> lista) {
+        if (lista == null) {
+            throw new IllegalArgumentException(LISTA_NULA);
+        }
+    }
+
+    protected static void validarLimiteMaxLista(List<?> lista, int tamanhoMaxLista) {
+        if (lista.size() > tamanhoMaxLista) {
+            throw new IllegalStateException(LISTA_LIMITE);
+        }
+    }
+
+    protected static void validarListaVazia(List<?> lista) {
+        if (lista.isEmpty()) {
+            throw new IllegalStateException(LISTA_VAZIA);
+        }
+    }
+
+    protected static void validarCondicoes(Object analise, String warning, Predicate<Object> condicao) {
+        validarNull(analise);
+        validarVazioOuEspacos(analise);
+        if (condicao.test(analise)) {
+            throw new IllegalStateException(warning);
+        }
+    }
 }

@@ -12,11 +12,11 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import br.com.contmatic.model.AmbienteTrabalho;
+import br.com.contmatic.model.empresa.AmbienteTrabalho;
 import br.com.contmatic.model.endereco.Endereco;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class AmbienteDeTrabalhoTest {
+public class AmbienteTrabalhoTest {
 	
 	// objetos de teste
 	private AmbienteTrabalho ambienteDeTrabalhoAtributosObrigatorios;
