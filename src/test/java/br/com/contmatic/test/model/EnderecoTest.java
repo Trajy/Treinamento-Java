@@ -14,7 +14,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import br.com.contmatic.model.endereco.Endereco;
+import br.com.contmatic.model.empresa.Endereco;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EnderecoTest {

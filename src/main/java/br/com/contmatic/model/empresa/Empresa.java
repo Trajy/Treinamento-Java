@@ -2,15 +2,26 @@ package br.com.contmatic.model.empresa;
 
 import java.util.List;
 import java.util.Objects;
+
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
-import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.utils.constants.CamposLimites.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarComumAlfanumerico;
+
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
 import static br.com.contmatic.model.utils.validacao.ValidacaoCnpj.validarCnpj;
+import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.NOME_FANTASIA_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.AREA_ATUACAO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_EMAIL_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_TELEFONE_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_FUNCIONARIO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_CARGO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_AMBIENTE_TRABALHO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_PRODUTO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_ENDERECO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
 
-public class Empresa {
+public class Empresa extends Auditoria {
 
     private String cnpj;
 
@@ -59,7 +70,7 @@ public class Empresa {
     }
 
     public void setRazaoSocial(String razaoSocial) {
-        validarComumAlfanumerico(razaoSocial);
+        validarExpressaoRegularETamanho(razaoSocial, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.razaoSocial = razaoSocial;
     }
 
@@ -68,7 +79,7 @@ public class Empresa {
     }
 
     public void setNomeFantasia(String nomeFantasia) {
-        validarComumAlfanumerico(nomeFantasia);
+        validarExpressaoRegularETamanho(nomeFantasia, NOME_FANTASIA_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.nomeFantasia = nomeFantasia;
     }
 
@@ -77,7 +88,7 @@ public class Empresa {
     }
 
     public void setAreaAtuacao(String areaAtuacao) {
-        validarComumAlfanumerico(areaAtuacao);
+        validarExpressaoRegularETamanho(areaAtuacao, AREA_ATUACAO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.areaAtuacao = areaAtuacao;
     }
 
@@ -122,7 +133,7 @@ public class Empresa {
     }
 
     public void setProdutos(List<Produto> produtos) {
-        validarLista(produtos, LISTA_PRODUTOS_QTD_MAX);
+        validarLista(produtos, LISTA_PRODUTO_QTD_MAX);
         this.produtos = produtos;
     }
 
@@ -131,7 +142,7 @@ public class Empresa {
     }
 
     public void setCargos(List<Cargo> cargos) {
-        validarLista(cargos, LISTA_CARGOS_QTD_MAX);
+        validarLista(cargos, LISTA_CARGO_QTD_MAX);
         this.cargos = cargos;
     }
 
@@ -140,7 +151,7 @@ public class Empresa {
     }
 
     public void setAmbientesTrabalho(List<AmbienteTrabalho> ambientesTrabalho) {
-        validarLista(ambientesTrabalho, LISTA_AMBIENTE_DE_TRABALHO_QTD_MAX);
+        validarLista(ambientesTrabalho, LISTA_AMBIENTE_TRABALHO_QTD_MAX);
         this.ambientesTrabalho = ambientesTrabalho;
     }
 

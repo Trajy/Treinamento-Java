@@ -1,13 +1,12 @@
 package br.com.contmatic.model.utils.validacao;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoIteracaoCpfCnpj.algoritmoComumCpfCnpj;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCaracteresRepetidos;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondicoes;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeCaracteres;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSomenteNumeros;
 import static java.lang.Character.getNumericValue;
 
-import br.com.contmatic.model.utils.constants.Avisos;
+import static br.com.contmatic.model.utils.validacao.ValidacaoIteracaoCpfCnpj.algoritmoComumCpfCnpj;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.constantes.Avisos.CNPJ_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.VALIDAR_CHARS_REPETIDOS;
 
 public final class ValidacaoCnpj {
 
@@ -29,9 +28,7 @@ public final class ValidacaoCnpj {
     }
 
     public static void validarCnpj(String cnpj) {
-
-        validarCondicoes(cnpj, Avisos.CNPJ_INVALIDO, analise -> validarCaracteresRepetidos(analise) || validarSomenteNumeros(analise) || validarQuantidadeCaracteres(analise, TAMANHO_CNPJ));
-
+        validarExpressaoRegularETamanho(cnpj, NUMEROS, TAMANHO_CNPJ, CNPJ_INVALIDO, VALIDAR_CHARS_REPETIDOS);
         iterador(cnpj);
     }
 
@@ -57,8 +54,7 @@ public final class ValidacaoCnpj {
 
     private static void validarDigVerificadorCnpj(String cnpj, int index, int digitoVerificador) {
         if (getNumericValue(cnpj.charAt(cnpj.length() - QTD_DIG_VERIFICADORES + index)) != digitoVerificador) {
-            // TODO - colocar em uma const
-            throw new IllegalStateException("Ops, o CNPJ fornecido é inválido");
+            throw new IllegalStateException(CNPJ_INVALIDO);
         }
     }
 

@@ -1,12 +1,20 @@
 package br.com.contmatic.model.empresa;
 
 import java.util.Objects;
-import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarComumAlfanumerico;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNome;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 
-public class AmbienteTrabalho {
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
+import static br.com.contmatic.model.utils.constantes.Avisos.NOME_AMBIENTE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.TIPO_AMBIENTE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.RESPONSAVEL_AMBIENTE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.DESCRICAO_AMBIENTE_TRABALHO_INVALIDA;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NOME_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NOME_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+
+public class AmbienteTrabalho extends Auditoria {
 
     private String nome;
     
@@ -18,7 +26,7 @@ public class AmbienteTrabalho {
     
     private String descricao;
     
-    // TODO - implementar atributo empresa (melhorar o relacionamento entre as classes)
+    private String empresa;
 
     public AmbienteTrabalho(String nome, String resposavel) {
         setNome(nome);
@@ -38,7 +46,7 @@ public class AmbienteTrabalho {
     }
 
     public void setNome(String nome) {
-        validarComumAlfanumerico(nome);
+        validarExpressaoRegularETamanho(nome, LETRAS, NOME_AMBIENTE_TRABALHO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.nome = nome;
     }
 
@@ -47,7 +55,7 @@ public class AmbienteTrabalho {
     }
 
     public void setTipoEstabelecimento(String tipoEstabelecimento) {
-        validarComumAlfanumerico(tipoEstabelecimento);
+        validarExpressaoRegularETamanho(tipoEstabelecimento, LETRAS, TIPO_AMBIENTE_TRABALHO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.tipoEstabelecimento = tipoEstabelecimento;
     }
 
@@ -65,7 +73,7 @@ public class AmbienteTrabalho {
     }
 
     public void setResponsavel(String responsavel) {
-        validarNome(responsavel);
+        validarExpressaoRegularETamanho(responsavel, LETRAS, NOME_MIN, NOME_MAX, RESPONSAVEL_AMBIENTE_TRABALHO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.responsavel = responsavel;
     }
 
@@ -74,8 +82,17 @@ public class AmbienteTrabalho {
     }
 
     public void setDescricao(String descricao) {
-        validarComumAlfanumerico(descricao);
+        validarExpressaoRegularETamanho(descricao, DESCRICAO_AMBIENTE_TRABALHO_INVALIDA, NAO_VALIDAR_CHARS_REPETIDOS);
         this.descricao = descricao;
+    }
+    
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+        this.empresa = empresa;
     }
 
     @Override

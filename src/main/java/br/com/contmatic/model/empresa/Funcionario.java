@@ -6,14 +6,32 @@ import java.util.Objects;
 
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
-import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.utils.constants.CamposLimites.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoCpf.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoFuncionario.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 
-public class Funcionario {
+import static br.com.contmatic.model.utils.validacao.ValidacaoCpf.validarCpf;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNumeroEntre;
+import static br.com.contmatic.model.utils.validacao.ValidacaoFuncionario.*;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.RG;
+import static br.com.contmatic.model.utils.constantes.Avisos.NOME_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.RG_FUNCINARIO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.SETOR_FUNCIONARIO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.SALARIO_FUNCINARIO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NOME_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NOME_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.RG_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.RG_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_TELEFONE_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_EMAIL_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.SALARIO_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.SALARIO_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+
+
+public class Funcionario extends Auditoria {
 
     private String cpf;
 
@@ -30,6 +48,8 @@ public class Funcionario {
     private Cargo cargo;
 
     private AmbienteTrabalho ambienteTrabalho;
+    
+    private String empresa;
 
     private List<Telefone> telefones;
 
@@ -44,6 +64,7 @@ public class Funcionario {
     public Funcionario(String cpf, String nome, LocalDate dataNascimento, Endereco endereco, String setor, Cargo cargo, Float salario) {
         setCpf(cpf);
         setNome(nome);
+
         setDataNascimento(dataNascimento);
         setEndereco(endereco);
         setSetor(setor);
@@ -65,7 +86,7 @@ public class Funcionario {
     }
 
     public void setNome(String nome) {
-        validarNome(nome);
+        validarExpressaoRegularETamanho(nome, LETRAS, NOME_MIN, NOME_MAX, NOME_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.nome = nome;
     }
 
@@ -83,7 +104,7 @@ public class Funcionario {
     }
 
     public void setRg(String rg) {
-        validarRg(rg);
+        validarExpressaoRegularETamanho(rg, RG, RG_MIN, RG_MAX, RG_FUNCINARIO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.rg = rg;
     }
 
@@ -94,6 +115,15 @@ public class Funcionario {
     public void setEndereco(Endereco endereco) {
         validarNulo(endereco);
         this.endereco = endereco;
+    }
+    
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+        this.empresa = empresa;
     }
 
     public List<Telefone> getTelefones() {
@@ -119,7 +149,7 @@ public class Funcionario {
     }
 
     public void setSetor(String setor) {
-        validarComumAlfanumerico(setor);
+        validarExpressaoRegularETamanho(setor, SETOR_FUNCIONARIO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.setor = setor;
     }
 
@@ -146,7 +176,7 @@ public class Funcionario {
     }
 
     public void setSalario(Float salario) {
-        validarSalario(salario);
+        validarNumeroEntre(salario, SALARIO_MIN, SALARIO_MAX, SALARIO_FUNCINARIO_INVALIDO);
         this.salario = salario;
     }
 

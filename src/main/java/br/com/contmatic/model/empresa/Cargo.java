@@ -1,15 +1,24 @@
 package br.com.contmatic.model.empresa;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNumeros;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarComumAlfanumerico;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
+import static br.com.contmatic.model.utils.constantes.Avisos.CBO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.NOME_AMBIENTE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.DESCRICAO_CARGO_INVALIDA;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.CBO_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.CBO_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
 
-public class Cargo {
+public class Cargo extends Auditoria {
 
     private String cbo;
 
     private String nome;
 
     private String descricao;
+    
+    private String empresa;
 
     public Cargo(String cbo) {
         setCBO(cbo);
@@ -26,7 +35,7 @@ public class Cargo {
     }
 
     public void setCBO(String cbo) {
-        validarNumeros(cbo);
+        validarExpressaoRegularETamanho(cbo, NUMEROS, CBO_MIN, CBO_MAX, CBO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.cbo = cbo;
     }
 
@@ -35,7 +44,7 @@ public class Cargo {
     }
 
     public void setNome(String nome) {
-        validarComumAlfanumerico(nome);
+        validarExpressaoRegularETamanho(nome, NOME_AMBIENTE_TRABALHO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.nome = nome;
     }
 
@@ -44,8 +53,17 @@ public class Cargo {
     }
 
     public void setDescricao(String descricao) {
-        validarComumAlfanumerico(descricao);
+        validarExpressaoRegularETamanho(descricao, DESCRICAO_CARGO_INVALIDA, NAO_VALIDAR_CHARS_REPETIDOS);
         this.descricao = descricao;
+    }
+    
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+        this.empresa = empresa;
     }
 
     @Override

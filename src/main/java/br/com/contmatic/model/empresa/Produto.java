@@ -1,9 +1,19 @@
 package br.com.contmatic.model.empresa;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.*;
-import static br.com.contmatic.model.utils.validacao.ValidacaoProduto.*;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS_COM_PONTO;
+import static br.com.contmatic.model.utils.constantes.Avisos.NOME_PRODUTO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.CODIGO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.VERSAO_INVALIDA;
+import static br.com.contmatic.model.utils.constantes.Avisos.DESCRICAO_PRODUTO_INVALIDA;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_VERSAO_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_VERSAO_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_CODIGO_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_CODIGO_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
 
-public class Produto {
+public class Produto extends Auditoria {
 
     private String nome;
 
@@ -11,7 +21,10 @@ public class Produto {
 
     private String codigo;
 
-    // TODO - descricao (novo atributo)
+    private String descricao;
+
+    private String empresa;
+
     public Produto(String codigo) {
         setCodigo(codigo);
     }
@@ -27,7 +40,7 @@ public class Produto {
     }
 
     public void setNome(String nome) {
-        validarComumAlfanumerico(nome);
+        validarExpressaoRegularETamanho(nome, NOME_PRODUTO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.nome = nome;
     }
 
@@ -36,7 +49,7 @@ public class Produto {
     }
 
     public void setVersao(String versao) {
-        validarVersao(versao);
+        validarExpressaoRegularETamanho(versao, NUMEROS_COM_PONTO, PRODUTO_VERSAO_TAMANHO_MIN, PRODUTO_VERSAO_TAMANHO_MAX, VERSAO_INVALIDA, NAO_VALIDAR_CHARS_REPETIDOS);
         this.versao = versao;
     }
 
@@ -45,8 +58,26 @@ public class Produto {
     }
 
     public void setCodigo(String codigo) {
-        validarCodigo(codigo);
+        validarExpressaoRegularETamanho(codigo, NUMEROS_COM_PONTO, PRODUTO_CODIGO_TAMANHO_MIN, PRODUTO_CODIGO_TAMANHO_MAX, CODIGO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.codigo = codigo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        validarExpressaoRegularETamanho(descricao, DESCRICAO_PRODUTO_INVALIDA, NAO_VALIDAR_CHARS_REPETIDOS);
+        this.descricao = descricao;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+        this.empresa = empresa;
     }
 
     @Override

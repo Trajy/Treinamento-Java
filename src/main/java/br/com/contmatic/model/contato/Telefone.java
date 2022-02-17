@@ -1,9 +1,18 @@
 package br.com.contmatic.model.contato;
 
 import java.util.Objects;
-import static br.com.contmatic.model.utils.validacao.ValidacaoContato.validarDdd;
-import static br.com.contmatic.model.utils.validacao.ValidacaoContato.validarDdi;
-import static br.com.contmatic.model.utils.validacao.ValidacaoContato.validarNumeroTelefone;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
+import static br.com.contmatic.model.utils.constantes.Avisos.DDD_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.DDI_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.Avisos.TELEFONE_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.DDI_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.DDI_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.DDD_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.DDD_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.TELEFONE_MIN;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.TELEFONE_MAX;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
 
 public class Telefone {
 
@@ -29,7 +38,7 @@ public class Telefone {
     }
 
     public void setDdi(Integer ddi) {
-        validarDdi(ddi);
+        validarExpressaoRegularETamanho(ddi, NUMEROS, DDI_TAMANHO_MIN, DDI_TAMANHO_MAX, DDI_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.ddi = ddi;
     }
 
@@ -38,7 +47,7 @@ public class Telefone {
     }
 
     public void setDdd(Integer ddd) {
-        validarDdd(ddd);
+        validarExpressaoRegularETamanho(ddi, NUMEROS, DDD_TAMANHO_MIN, DDD_TAMANHO_MAX, DDD_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.ddd = ddd;
     }
 
@@ -47,7 +56,7 @@ public class Telefone {
     }
 
     public void setNumero(String numero) {
-        validarNumeroTelefone(numero);
+        validarExpressaoRegularETamanho(numero, NUMEROS, TELEFONE_MIN, TELEFONE_MAX, TELEFONE_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.numero = numero;
     }
 

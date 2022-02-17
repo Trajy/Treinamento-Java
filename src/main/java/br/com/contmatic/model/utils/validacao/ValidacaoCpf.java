@@ -1,12 +1,13 @@
 package br.com.contmatic.model.utils.validacao;
 
 import static java.lang.Character.getNumericValue;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondicoes;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCaracteresRepetidos;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarSomenteNumeros;
-import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeCaracteres;
+
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoIteracaoCpfCnpj.algoritmoComumCpfCnpj;
-import static br.com.contmatic.model.utils.constants.Avisos.*;
+import static br.com.contmatic.model.utils.constantes.Avisos.CPF_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.CamposLimites.VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
+
 
 public final class ValidacaoCpf {
 	
@@ -28,13 +29,7 @@ public final class ValidacaoCpf {
     }
 
     public static void validarCpf(String cpf) {
-		
-		validarCondicoes(cpf, CPF_INVALIDO, analise ->
-			validarCaracteresRepetidos(analise) ||
-			validarSomenteNumeros(analise) || 
-			validarQuantidadeCaracteres(analise, TAMANHO_CPF)
-		);	
-			
+        validarExpressaoRegularETamanho(cpf, NUMEROS, TAMANHO_CPF, CPF_INVALIDO, VALIDAR_CHARS_REPETIDOS);		
         itarador(cpf);
     }
 
@@ -46,10 +41,10 @@ public final class ValidacaoCpf {
         }
     }
 
-    // TODO - colocar chaves
     private static int verificarCriterio(int digitoVerificador) {
-        if (digitoVerificador == CRITERIO_PARA_O_DIG_VERIFICADOR_CPF)
+        if (digitoVerificador == CRITERIO_PARA_O_DIG_VERIFICADOR_CPF) {
             digitoVerificador = DIG_VERIFICADOR_CASO_CRITERIO_VERDADEIRO;
+        }   
         return digitoVerificador;
     }
 
