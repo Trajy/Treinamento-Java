@@ -19,7 +19,7 @@ Projeto desenvolvido para aprendizado e aplicacao dos conceitos de Arquitetura e
 <img alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="20" wight="20"/> Java
 
 #
-## Schema de validacao
+## Schema de validacao de dados
 As validacoes aplicadas sob as classes de dominio (model) estao de acordo com o seguinte schema.
 
 <p align="center">
