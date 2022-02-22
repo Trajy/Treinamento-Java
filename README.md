@@ -4,7 +4,7 @@
 Projeto desenvolvido para aprendizado e aplicacao dos conceitos de Arquitetura em Camadas e TDD (Test Driven Development).
 
 #
-## Schema de validacao
+## Schema de validacao de dados
 As validacoes aplicadas sob as classes de dominio (model) estao de acordo com o seguinte schema.
 
 <p align="center">
