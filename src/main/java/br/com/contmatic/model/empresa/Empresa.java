@@ -3,23 +3,20 @@ package br.com.contmatic.model.empresa;
 import java.util.List;
 import java.util.Objects;
 
+import br.com.contmatic.model.auditoria.Auditoria;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
+import br.com.contmatic.model.endereco.Endereco;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
 import static br.com.contmatic.model.utils.validacao.ValidacaoCnpj.validarCnpj;
-import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.NOME_FANTASIA_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.AREA_ATUACAO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_EMAIL_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_TELEFONE_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_FUNCIONARIO_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_CARGO_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_AMBIENTE_TRABALHO_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_PRODUTO_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_ENDERECO_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.*;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 public class Empresa extends Auditoria {
 
@@ -97,7 +94,7 @@ public class Empresa extends Auditoria {
     }
 
     public void setEmails(List<Email> emails) {
-        validarLista(emails, LISTA_EMAIL_QTD_MAX);
+        validarLista(emails, LISTA_EMAIL_QTD_MAX, LISTA_EMAIL_INVALIDO);
         this.emails = emails;
     }
 
@@ -106,7 +103,7 @@ public class Empresa extends Auditoria {
     }
 
     public void setTelefones(List<Telefone> telefones) {
-        validarLista(telefones, LISTA_TELEFONE_QTD_MAX);
+        validarLista(telefones, LISTA_TELEFONE_QTD_MAX, LISTA_TELEFONE_INVALIDO);
         this.telefones = telefones;
     }
 
@@ -115,7 +112,7 @@ public class Empresa extends Auditoria {
     }
 
     public void setEnderecos(List<Endereco> enderecos) {
-        validarLista(enderecos, LISTA_ENDERECO_QTD_MAX);
+        validarLista(enderecos, LISTA_ENDERECO_QTD_MAX, LISTA_ENDERECO_INVALIDO);
         this.enderecos = enderecos;
     }
 
@@ -124,7 +121,7 @@ public class Empresa extends Auditoria {
     }
 
     public void setFuncionarios(List<Funcionario> funcionarios) {
-        validarLista(funcionarios, LISTA_FUNCIONARIO_QTD_MAX);
+        validarLista(funcionarios, LISTA_FUNCIONARIO_QTD_MAX, LISTA_FUNCIONARIO_INVALIDO);
         this.funcionarios = funcionarios;
     }
 
@@ -133,7 +130,7 @@ public class Empresa extends Auditoria {
     }
 
     public void setProdutos(List<Produto> produtos) {
-        validarLista(produtos, LISTA_PRODUTO_QTD_MAX);
+        validarLista(produtos, LISTA_PRODUTO_QTD_MAX, LISTA_PRODUTOS_INVALIDO);
         this.produtos = produtos;
     }
 
@@ -142,7 +139,7 @@ public class Empresa extends Auditoria {
     }
 
     public void setCargos(List<Cargo> cargos) {
-        validarLista(cargos, LISTA_CARGO_QTD_MAX);
+        validarLista(cargos, LISTA_CARGO_QTD_MAX, LISTA_CARGOS_INVALIDO);
         this.cargos = cargos;
     }
 
@@ -151,7 +148,7 @@ public class Empresa extends Auditoria {
     }
 
     public void setAmbientesTrabalho(List<AmbienteTrabalho> ambientesTrabalho) {
-        validarLista(ambientesTrabalho, LISTA_AMBIENTE_TRABALHO_QTD_MAX);
+        validarLista(ambientesTrabalho, LISTA_AMBIENTE_TRABALHO_QTD_MAX, LISTA_AMBIENTE_DE_TRABALHO_INVALIDO);
         this.ambientesTrabalho = ambientesTrabalho;
     }
 
@@ -174,8 +171,19 @@ public class Empresa extends Auditoria {
 
     @Override
     public String toString() {
-        return "Empresa [ambientesTrabalho=" + ambientesTrabalho + ", areaAtuacao=" + areaAtuacao + ", cargos=" + cargos + ", cnpj=" + cnpj + ", emails=" + emails + ", enderecos=" + enderecos +
-            ", funcionarios=" + funcionarios + ", nomeFantasia=" + nomeFantasia + ", produtos=" + produtos + ", razaoSocial=" + razaoSocial + ", telefones=" + telefones + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("razao social: " + razaoSocial);
+        stringBuilder.append("\nnome fantasia: " + nomeFantasia);
+        stringBuilder.append("\ncnpj: " + cnpj);
+        stringBuilder.append("\narea de atuacao: " + areaAtuacao);
+        stringBuilder.append("\ne-mails: " + emails);
+        stringBuilder.append("\ntelefones: " + telefones);
+        stringBuilder.append("\nenderecos: " + enderecos);
+        stringBuilder.append("\nprodutos: " + produtos);
+        stringBuilder.append("\nfuncionarios: " + funcionarios);
+        stringBuilder.append("\ncargos': " + cargos);
+        stringBuilder.append("\nambientes de trabalho: " + ambientesTrabalho);
+        return stringBuilder.toString();
     }
 
 }

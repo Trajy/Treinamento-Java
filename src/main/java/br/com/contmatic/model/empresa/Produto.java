@@ -1,17 +1,13 @@
 package br.com.contmatic.model.empresa;
 
+
+
+import br.com.contmatic.model.auditoria.Auditoria;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.*;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS_COM_PONTO;
-import static br.com.contmatic.model.utils.constantes.Avisos.NOME_PRODUTO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.CODIGO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.VERSAO_INVALIDA;
-import static br.com.contmatic.model.utils.constantes.Avisos.DESCRICAO_PRODUTO_INVALIDA;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_VERSAO_TAMANHO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_VERSAO_TAMANHO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_CODIGO_TAMANHO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.PRODUTO_CODIGO_TAMANHO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 public class Produto extends Auditoria {
 
@@ -23,7 +19,7 @@ public class Produto extends Auditoria {
 
     private String descricao;
 
-    private String empresa;
+    private Empresa empresa;
 
     public Produto(String codigo) {
         setCodigo(codigo);
@@ -71,12 +67,12 @@ public class Produto extends Auditoria {
         this.descricao = descricao;
     }
 
-    public String getEmpresa() {
+    public Empresa getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(String empresa) {
-        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+    public void setEmpresa(Empresa empresa) {
+        validarNulo(empresa);
         this.empresa = empresa;
     }
 
@@ -102,7 +98,13 @@ public class Produto extends Auditoria {
 
     @Override
     public String toString() {
-        return "Dados do Produto.\n" + "Nome: " + nome + "\n" + "Versão: " + versao + "\n" + "Código: " + codigo + "\n";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("nome: " + nome);
+        stringBuilder.append("\nversao: " + versao);
+        stringBuilder.append("\ncodigo: " + codigo);
+        stringBuilder.append("\ndescricao: " + descricao);
+        stringBuilder.append("\nempresa: " + empresa.getRazaoSocial());
+        return stringBuilder.toString();
     }
 
 }

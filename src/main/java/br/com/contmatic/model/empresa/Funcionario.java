@@ -4,9 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import br.com.contmatic.model.auditoria.Auditoria;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
-
+import br.com.contmatic.model.endereco.Endereco;
 import static br.com.contmatic.model.utils.validacao.ValidacaoCpf.validarCpf;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
@@ -15,20 +16,14 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNumer
 import static br.com.contmatic.model.utils.validacao.ValidacaoFuncionario.*;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.RG;
-import static br.com.contmatic.model.utils.constantes.Avisos.NOME_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.RG_FUNCINARIO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.SETOR_FUNCIONARIO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.SALARIO_FUNCINARIO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NOME_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NOME_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.RG_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.RG_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_TELEFONE_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.LISTA_EMAIL_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.SALARIO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.SALARIO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.FuncionarioConstantes.*;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MIN;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 
 public class Funcionario extends Auditoria {
@@ -49,7 +44,7 @@ public class Funcionario extends Auditoria {
 
     private AmbienteTrabalho ambienteTrabalho;
     
-    private String empresa;
+    private Empresa empresa;
 
     private List<Telefone> telefones;
 
@@ -117,12 +112,12 @@ public class Funcionario extends Auditoria {
         this.endereco = endereco;
     }
     
-    public String getEmpresa() {
+    public Empresa getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(String empresa) {
-        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+    public void setEmpresa(Empresa empresa) {
+        validarNulo(empresa);
         this.empresa = empresa;
     }
 
@@ -131,7 +126,7 @@ public class Funcionario extends Auditoria {
     }
 
     public void setTelefones(List<Telefone> telefones) {
-        validarLista(telefones, LISTA_TELEFONE_QTD_MAX);
+        validarLista(telefones, LISTA_TELEFONE_QTD_MAX, LISTA_TELEFONE_INVALIDO);
         this.telefones = telefones;
     }
 
@@ -140,7 +135,7 @@ public class Funcionario extends Auditoria {
     }
 
     public void setEmails(List<Email> emails) {
-        validarLista(emails, LISTA_EMAIL_QTD_MAX);
+        validarLista(emails, LISTA_EMAIL_QTD_MAX, LISTA_EMAIL_INVALIDO);
         this.emails = emails;
     }
 
@@ -199,8 +194,20 @@ public class Funcionario extends Auditoria {
 
     @Override
     public String toString() {
-        return "Funcionario [cpf=" + cpf + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", rg=" + rg + ", endereco=" + endereco + ", setor=" + setor + ", cargo=" + cargo +
-            ", ambienteTrabalho=" + ambienteTrabalho + ", telefones=" + telefones + ", emails=" + emails + ", salario=" + salario + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("funcinario: " + nome);
+        stringBuilder.append("\ncpf: " + cpf);
+        stringBuilder.append("\nrg: " + rg);
+        stringBuilder.append("\ndata de nascimento: " + dataNascimento);
+        stringBuilder.append("\nendereco: " + endereco);
+        stringBuilder.append("\ncargo: " + cargo);
+        stringBuilder.append("\nsetor: " + setor);
+        stringBuilder.append("\nambiente de tabalho: " + ambienteTrabalho);
+        stringBuilder.append("\ntelefones: " + telefones);
+        stringBuilder.append("\nemails: " + emails);
+        stringBuilder.append("\nsalario: " + salario);
+        stringBuilder.append("\nempresa: " + empresa.getRazaoSocial());
+        return stringBuilder.toString();
     }
 
 }

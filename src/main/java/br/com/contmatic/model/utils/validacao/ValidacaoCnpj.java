@@ -4,9 +4,9 @@ import static java.lang.Character.getNumericValue;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoIteracaoCpfCnpj.algoritmoComumCpfCnpj;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
-import static br.com.contmatic.model.utils.constantes.Avisos.CNPJ_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.CNPJ_INVALIDO;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.VALIDAR_CHARS_REPETIDOS;
 
 public final class ValidacaoCnpj {
 

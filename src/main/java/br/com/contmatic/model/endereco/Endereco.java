@@ -1,25 +1,26 @@
-package br.com.contmatic.model.empresa;
+package br.com.contmatic.model.endereco;
 
+import java.util.Objects;
+
+import br.com.contmatic.model.auditoria.Auditoria;
+import br.com.contmatic.model.empresa.Empresa;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
-import static br.com.contmatic.model.utils.constantes.Avisos.CEP_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.NUMERO_ENDERECO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.RUA_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.BAIRRO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.CEP_TAMANHO;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.ENDERECO_NUMERO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.ENDERECO_NUMERO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.RUA_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.RUA_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.BAIRRO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.BAIRRO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.VALIDAR_CHARS_REPETIDOS;
-
-import java.util.Objects;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CEP_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.NUMERO_ENDERECO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.RUA_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.BAIRRO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CEP_TAMANHO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ENDERECO_NUMERO_MIN;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ENDERECO_NUMERO_MAX;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.RUA_MIN;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.RUA_MAX;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.BAIRRO_MIN;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.BAIRRO_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.VALIDAR_CHARS_REPETIDOS;
 
 public class Endereco extends Auditoria {
 
@@ -33,7 +34,7 @@ public class Endereco extends Auditoria {
 
     private Cidade cidade;
     
-    private String empresa;
+    private Empresa empresa;
 
     public Endereco(Integer numero, String cep) {
         setNumero(numero);
@@ -93,12 +94,12 @@ public class Endereco extends Auditoria {
         this.cidade = cidade;
     }
     
-    public String getEmpresa() {
+    public Empresa getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(String empresa) {
-        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+    public void setEmpresa(Empresa empresa) {
+        validarNulo(empresa);
         this.empresa = empresa;
     }
 
@@ -121,7 +122,13 @@ public class Endereco extends Auditoria {
 
     @Override
     public String toString() {
-        return "Endereco [numero=" + numero + ", cep=" + cep + ", rua=" + rua + ", bairro=" + bairro + ", enderecoDb=" + cidade + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("numero: " + numero);
+        stringBuilder.append("\ncep: " + cep);
+        stringBuilder.append("\nrua: " + rua);
+        stringBuilder.append("\nbairro: " + bairro);
+        stringBuilder.append("\n" + cidade);
+        return stringBuilder.toString();
     }
 
 }

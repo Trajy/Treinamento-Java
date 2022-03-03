@@ -1,8 +1,8 @@
-package br.com.contmatic.model.empresa;
+package br.com.contmatic.model.auditoria;
 
 import java.time.LocalDate;
 
-abstract class Auditoria {
+public abstract class Auditoria {
     
 private LocalDate dataCriacao;
     
@@ -31,7 +31,7 @@ private LocalDate dataCriacao;
     public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
-
+ 
     public String getIpCriacao() {
         return ipCriacao;
     }
@@ -62,5 +62,5 @@ private LocalDate dataCriacao;
 
     public void setIpAlteracao(String ipAlteracao) {
         this.ipAlteracao = ipAlteracao;
-    } 
+    }
 }

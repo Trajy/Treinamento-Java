@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondicoes;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarDiferencaAnualDatas;
-import static br.com.contmatic.model.utils.constantes.Avisos.DATA_FUNCIONARIO_INVALIDA;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.IDADE_MIN_TRABALHISTA;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.IDADE_MAX_TRABALHISTA;
+import static br.com.contmatic.model.utils.constantes.FuncionarioConstantes.DATA_FUNCIONARIO_INVALIDA;
+import static br.com.contmatic.model.utils.constantes.FuncionarioConstantes.IDADE_MIN_TRABALHISTA;
+import static br.com.contmatic.model.utils.constantes.FuncionarioConstantes.IDADE_MAX_TRABALHISTA;
 
 public final class ValidacaoFuncionario {
 	

@@ -39,7 +39,9 @@ public class Email {
 
     @Override
     public String toString() {
-        return "Email [email=" + enderecoEmail + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("email: " + enderecoEmail);
+        return stringBuilder.toString();
     }
 
 }

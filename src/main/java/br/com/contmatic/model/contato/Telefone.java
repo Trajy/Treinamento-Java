@@ -2,17 +2,9 @@ package br.com.contmatic.model.contato;
 
 import java.util.Objects;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.*;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
-import static br.com.contmatic.model.utils.constantes.Avisos.DDD_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.DDI_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.TELEFONE_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.DDI_TAMANHO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.DDI_TAMANHO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.DDD_TAMANHO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.DDD_TAMANHO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.TELEFONE_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.TELEFONE_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 public class Telefone {
 
@@ -79,7 +71,11 @@ public class Telefone {
 
     @Override
     public String toString() {
-        return "Telefone [ddi=" + ddi + ", ddd=" + ddd + ", numero=" + numero + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("ddi: " + ddi);
+        stringBuilder.append("\nddd: " + ddd);
+        stringBuilder.append("\nnumero: " + numero);
+        return stringBuilder.toString();
     }
 
 }

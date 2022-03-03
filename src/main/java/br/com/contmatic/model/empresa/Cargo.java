@@ -1,14 +1,12 @@
 package br.com.contmatic.model.empresa;
 
+import br.com.contmatic.model.auditoria.Auditoria;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.constantes.CargoConstantes.*;
+import static br.com.contmatic.model.utils.constantes.AmbienteTrabalhoConstantes.NOME_AMBIENTE_TRABALHO_INVALIDO;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
-import static br.com.contmatic.model.utils.constantes.Avisos.CBO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.NOME_AMBIENTE_TRABALHO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.RAZAO_SOCIAL_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.DESCRICAO_CARGO_INVALIDA;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.CBO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.CBO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 public class Cargo extends Auditoria {
 
@@ -17,8 +15,8 @@ public class Cargo extends Auditoria {
     private String nome;
 
     private String descricao;
-    
-    private String empresa;
+
+    private Empresa empresa;
 
     public Cargo(String cbo) {
         setCBO(cbo);
@@ -56,13 +54,13 @@ public class Cargo extends Auditoria {
         validarExpressaoRegularETamanho(descricao, DESCRICAO_CARGO_INVALIDA, NAO_VALIDAR_CHARS_REPETIDOS);
         this.descricao = descricao;
     }
-    
-    public String getEmpresa() {
+
+    public Empresa getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(String empresa) {
-        validarExpressaoRegularETamanho(empresa, RAZAO_SOCIAL_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+    public void setEmpresa(Empresa empresa) {
+        validarNulo(empresa);
         this.empresa = empresa;
     }
 
@@ -88,7 +86,12 @@ public class Cargo extends Auditoria {
 
     @Override
     public String toString() {
-        return "Cargo [cbo=" + cbo + ", descricao=" + descricao + ", nome=" + nome + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("cbo: " + cbo);
+        stringBuilder.append("descricao: " + descricao);
+        stringBuilder.append("nome" + nome);
+        stringBuilder.append("empresa: " + empresa.getRazaoSocial());
+        return stringBuilder.toString();
     }
 
 }

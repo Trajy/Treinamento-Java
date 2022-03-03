@@ -1,19 +1,19 @@
-package br.com.contmatic.model.empresa;
+package br.com.contmatic.model.endereco;
 
 import java.util.Objects;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
-import static br.com.contmatic.model.utils.constantes.Avisos.CIDADE_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.ESTADO_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.Avisos.PAIS_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.CIDADE_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.CIDADE_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.ESTADO_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.ESTADO_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.PAIS_MIN;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.PAIS_MAX;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CIDADE_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ESTADO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.PAIS_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CIDADE_MIN;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CIDADE_MAX;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ESTADO_MIN;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ESTADO_MAX;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.PAIS_MIN;
+import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.PAIS_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 
 public final class Cidade {
@@ -77,7 +77,11 @@ public final class Cidade {
 
     @Override
     public String toString() {
-        return "EnderecoDataBase [cidade=" + nome + ", estado=" + uf + ", pais=" + pais + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("cidade: " + nome);
+        stringBuilder.append("\nestado: " + uf);
+        stringBuilder.append("\npais: " + pais);
+        return stringBuilder.toString();
     }
 
 }

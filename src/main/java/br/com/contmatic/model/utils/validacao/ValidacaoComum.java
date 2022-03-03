@@ -2,8 +2,7 @@ package br.com.contmatic.model.utils.validacao;
 
 import java.util.List;
 
-import static br.com.contmatic.model.utils.constantes.Avisos.*;
-import static br.com.contmatic.model.utils.constantes.CamposLimites.*;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.*;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.*;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCondicoes;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarQuantidadeCaracteres;
@@ -66,10 +65,10 @@ public final class ValidacaoComum {
         );
     }
                                       
-    public static void validarLista(List<?> lista, int tamanhoMaxLista) {
+    public static void validarLista(List<?> lista, int tamanhoMaxLista, String aviso) {
         validarListaNula(lista);
-        validarListaVazia(lista);
-        validarLimiteMaxLista(lista, tamanhoMaxLista);
+        validarListaVazia(lista, aviso);
+        validarLimiteMaxLista(lista, tamanhoMaxLista, aviso);
     }
     
     public static void validarNulo(Object objeto) {

@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import static java.util.stream.IntStream.range;
 import static java.lang.Math.abs;
-
-import static br.com.contmatic.model.utils.constantes.Avisos.*;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.*;
 
 final class ValidacaoUtil {
 
@@ -25,14 +24,15 @@ final class ValidacaoUtil {
         return analise.toString().length() < tamanho;
     }
 
-    
     protected static boolean validarQuantidadeCaracteres(Object analise, int min, int max) {
         return validarMinCaracteres(analise, min) || validarMaxCaracteres(analise, max);
     }
 
     protected static boolean validarCaracteresRepetidos(Object analise, Boolean validar) {
         if(validar) {
-            return !range(0, analise.toString().length() - 1).anyMatch(i -> analise.toString().charAt(i) != analise.toString().charAt(i + 1));
+            return !range(0, analise.toString().length() - 1).anyMatch(i -> 
+                analise.toString().charAt(i) != analise.toString().charAt(i + 1)
+            );
         }
         return false;
     }
@@ -101,23 +101,23 @@ final class ValidacaoUtil {
         }
     }
 
-    protected static void validarLimiteMaxLista(List<?> lista, int tamanhoMaxLista) {
+    protected static void validarLimiteMaxLista(List<?> lista, int tamanhoMaxLista, String aviso) {
         if (lista.size() > tamanhoMaxLista) {
-            throw new IllegalStateException(LISTA_LIMITE);
+            throw new IllegalStateException(aviso);
         }
     }
 
-    protected static void validarListaVazia(List<?> lista) {
+    protected static void validarListaVazia(List<?> lista , String aviso) {
         if (lista.isEmpty()) {
-            throw new IllegalStateException(LISTA_VAZIA);
+            throw new IllegalStateException(aviso);
         }
     }
 
-    protected static void validarCondicoes(Object analise, String warning, Predicate<Object> condicao) {
+    protected static void validarCondicoes(Object analise, String aviso, Predicate<Object> condicao) {
         validarNulo(analise);
         validarVazioOuEspacos(analise);
         if (condicao.test(analise)) {
-            throw new IllegalStateException(warning);
+            throw new IllegalStateException(aviso);
         }
     }
 }
