@@ -1,6 +1,7 @@
 package br.com.contmatic.model.utils.validacao;
 
 import java.util.stream.IntStream;
+import static java.lang.Character.getNumericValue;
 
 final class ValidacaoIteracaoCpfCnpj {
 
@@ -48,7 +49,7 @@ final class ValidacaoIteracaoCpfCnpj {
             if (valorSequencia > limiteSequencia) {
                 valorSequencia = INICIO_SEQUENCIA_ITERACAO;
             }
-            valoresComputados[index] = Character.getNumericValue(numRegistro.charAt(index + passosSoma)) * valorSequencia;
+            valoresComputados[index] = getNumericValue(numRegistro.charAt(index + passosSoma)) * valorSequencia;
         }
     }
 
