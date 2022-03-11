@@ -19,12 +19,20 @@ Projeto desenvolvido para aprendizado e aplicacao dos conceitos de Arquitetura e
 <img alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="20" wight="20"/> Java
 
 #
+## Diagrama UML de classes
+
+<p align="center">
+    <img src="imgs/Cont Model UML diagram.jpeg"><br>
+    figura 1 - diagrama UML de classes.
+</p>
+
+#
 ## Schema de validacao de dados
 As validacoes aplicadas sob as classes de dominio (model) estao de acordo com o seguinte schema.
 
 <p align="center">
     <img src="imgs/regras-validacao.png"><br>
-    figura 1 - schema de validacoes.
+    figura 2 - schema de validacoes.
 </p>
 
 - Validacoes Uteis: metodos generalizados para validacoes de um unico aspecto do dado fornecido, como exemplo a validacao da quantidade de caracteres em um dado fornecido.
