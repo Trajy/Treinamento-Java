@@ -1,10 +1,20 @@
 package br.com.contmatic.model.auditoria;
 
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MIN;
+import static br.com.contmatic.model.utils.constantes.AuditoriaConstantes.IP_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.IP;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
+import static br.com.contmatic.model.utils.constantes.FuncionarioConstantes.NOME_INVALIDO;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarAgora;
+
 import java.time.LocalDate;
 
 public abstract class Auditoria {
     
-private LocalDate dataCriacao;
+    private LocalDate dataCriacao;
     
     private String ipCriacao;
     
@@ -21,6 +31,7 @@ private LocalDate dataCriacao;
     }
 
     public void setNomeUsuarioCriacao(String nomeUsuarioCriacao) {
+        validarExpressaoRegularETamanho(nomeUsuarioCriacao, LETRAS, NOME_MIN, NOME_MAX, NOME_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.nomeUsuarioCriacao = nomeUsuarioCriacao;
     }
 
@@ -29,6 +40,7 @@ private LocalDate dataCriacao;
     }
 
     public void setDataCriacao(LocalDate dataCriacao) {
+        validarAgora(dataCriacao);
         this.dataCriacao = dataCriacao;
     }
  
@@ -37,6 +49,7 @@ private LocalDate dataCriacao;
     }
 
     public void setIpCriacao(String ipCriacao) {
+        validarExpressaoRegularETamanho(ipCriacao, IP, IP_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.ipCriacao = ipCriacao;
     }
 
@@ -45,6 +58,7 @@ private LocalDate dataCriacao;
     }
 
     public void setNomeUsuarioAlteracao(String nomeUsuarioAlteracao) {
+        validarExpressaoRegularETamanho(nomeUsuarioAlteracao, LETRAS, NOME_MIN, NOME_MAX, NOME_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.nomeUsuarioAlteracao = nomeUsuarioAlteracao;
     }
 
@@ -53,6 +67,7 @@ private LocalDate dataCriacao;
     }
 
     public void setDataAlteracao(LocalDate dataAlteracao) {
+        validarAgora(dataAlteracao);
         this.dataAlteracao = dataAlteracao;
     }
 
@@ -61,6 +76,7 @@ private LocalDate dataCriacao;
     }
 
     public void setIpAlteracao(String ipAlteracao) {
+        validarExpressaoRegularETamanho(ipAlteracao, IP, IP_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.ipAlteracao = ipAlteracao;
     }
 }

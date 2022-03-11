@@ -25,5 +25,6 @@ public final class ComumConstantes {
     public static final String COMUM_INVALIDO = "Valor fornecido Invalido";
     public static final String LISTA_TELEFONE_INVALIDO = "Quantidade de telefones permitidos exedida";
     public static final String LISTA_EMAIL_INVALIDO = "Quantidade de emails permitidos excedida";
+    public static final String DATA_ATUAL_INVALIDA = "Data fornecida nao e a atual";
     
 }

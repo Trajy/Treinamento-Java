@@ -65,6 +65,11 @@ final class ValidacaoUtil {
         return data.isAfter(dataComparada);
     }
     
+    protected static boolean validarDataIgualHoje(Object analise) {
+        LocalDate data = (LocalDate) analise;
+        return !(data == LocalDate.now());
+    }
+    
     protected static boolean validarDiferencaAnualDatas(Object analise, Integer diferencaAceita) {
         LocalDate data = (LocalDate) analise;
         return abs(data.getYear() - LocalDate.now().getYear()) >= diferencaAceita ;

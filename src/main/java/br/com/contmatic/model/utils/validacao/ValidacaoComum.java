@@ -13,6 +13,7 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarExpres
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarCaracteresRepetidos;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarMinNum;
 import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarMaxNum;
+import static br.com.contmatic.model.utils.validacao.ValidacaoUtil.validarDataIgualHoje;
 
 public final class ValidacaoComum {
 
@@ -62,6 +63,12 @@ public final class ValidacaoComum {
         validarCondicoes(objeto, aviso, analise ->
             validarMinNum(analise, limiteMin) ||
             validarMaxNum(analise, limiteMax)
+        );
+    }
+    
+    public static void validarAgora(Object objeto) {
+        validarCondicoes(objeto, DATA_ATUAL_INVALIDA, analise ->
+            validarDataIgualHoje(objeto)
         );
     }
                                       
