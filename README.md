@@ -22,7 +22,7 @@ Projeto desenvolvido para aprendizado e aplicacao dos conceitos de Arquitetura e
 ## Diagrama UML de classes
 
 <p align="center">
-    <img src="imgs/Cont Model UML diagram.jpeg"><br>
+    <img src="imgs/Cont Model UML diagram.png"><br>
     figura 1 - diagrama UML de classes.
 </p>
 
