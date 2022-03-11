@@ -71,10 +71,10 @@ public class Telefone {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("ddi: " + ddi);
-        stringBuilder.append("\nddd: " + ddd);
-        stringBuilder.append("\nnumero: " + numero);
+        StringBuilder stringBuilder = new StringBuilder().
+            append("ddi: " + ddi).
+            append("\nddd: " + ddd).
+            append("\nnumero: " + numero);
         return stringBuilder.toString();
     }
 

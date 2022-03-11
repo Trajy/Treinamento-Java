@@ -77,10 +77,10 @@ public final class Cidade {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("cidade: " + nome);
-        stringBuilder.append("\nestado: " + uf);
-        stringBuilder.append("\npais: " + pais);
+        StringBuilder stringBuilder = new StringBuilder().
+            append("cidade: ").append(nome).
+            append("\nestado: ").append(uf).
+            append("\npais: ").append(pais);
         return stringBuilder.toString();
     }
 

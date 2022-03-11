@@ -122,12 +122,12 @@ public class Endereco extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("numero: " + numero);
-        stringBuilder.append("\ncep: " + cep);
-        stringBuilder.append("\nrua: " + rua);
-        stringBuilder.append("\nbairro: " + bairro);
-        stringBuilder.append("\n" + cidade);
+        StringBuilder stringBuilder = new StringBuilder().
+            append("numero: ").append(numero).
+            append("\ncep: ").append(cep).
+            append("\nrua: ").append(rua).
+            append("\nbairro: ").append(bairro).
+            append("\n").append(cidade);
         return stringBuilder.toString();
     }
 

@@ -171,18 +171,18 @@ public class Empresa extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("razao social: " + razaoSocial);
-        stringBuilder.append("\nnome fantasia: " + nomeFantasia);
-        stringBuilder.append("\ncnpj: " + cnpj);
-        stringBuilder.append("\narea de atuacao: " + areaAtuacao);
-        stringBuilder.append("\ne-mails: " + emails);
-        stringBuilder.append("\ntelefones: " + telefones);
-        stringBuilder.append("\nenderecos: " + enderecos);
-        stringBuilder.append("\nprodutos: " + produtos);
-        stringBuilder.append("\nfuncionarios: " + funcionarios);
-        stringBuilder.append("\ncargos': " + cargos);
-        stringBuilder.append("\nambientes de trabalho: " + ambientesTrabalho);
+        StringBuilder stringBuilder = new StringBuilder().
+            append("razao social: ").append(razaoSocial).
+            append("\nnome fantasia: ").append(nomeFantasia).
+            append("\ncnpj: ").append(cnpj).
+            append("\narea de atuacao: ").append(areaAtuacao).
+            append("\ne-mails: ").append(emails).
+            append("\ntelefones: ").append(telefones).
+            append("\nenderecos: ").append(enderecos).
+            append("\nprodutos: ").append(produtos).
+            append("\nfuncionarios: ").append(funcionarios).
+            append("\ncargos': ").append(cargos).
+            append("\nambientes de trabalho: ").append(ambientesTrabalho);
         return stringBuilder.toString();
     }
 

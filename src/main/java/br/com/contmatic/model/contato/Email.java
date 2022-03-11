@@ -39,8 +39,8 @@ public class Email {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("email: " + enderecoEmail);
+        StringBuilder stringBuilder = new StringBuilder().
+            append("email: " + enderecoEmail);
         return stringBuilder.toString();
     }
 

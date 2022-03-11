@@ -194,19 +194,19 @@ public class Funcionario extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("funcinario: " + nome);
-        stringBuilder.append("\ncpf: " + cpf);
-        stringBuilder.append("\nrg: " + rg);
-        stringBuilder.append("\ndata de nascimento: " + dataNascimento);
-        stringBuilder.append("\nendereco: " + endereco);
-        stringBuilder.append("\ncargo: " + cargo);
-        stringBuilder.append("\nsetor: " + setor);
-        stringBuilder.append("\nambiente de tabalho: " + ambienteTrabalho);
-        stringBuilder.append("\ntelefones: " + telefones);
-        stringBuilder.append("\nemails: " + emails);
-        stringBuilder.append("\nsalario: " + salario);
-        stringBuilder.append("\nempresa: " + empresa.getRazaoSocial());
+        StringBuilder stringBuilder = new StringBuilder().
+            append("funcinario: ").append(nome).
+            append("\ncpf: ").append(cpf).
+            append("\nrg: ").append(rg).
+            append("\ndata de nascimento: ").append(dataNascimento).
+            append("\nendereco: ").append(endereco).
+            append("\ncargo: ").append(cargo).
+            append("\nsetor: ").append(setor).
+            append("\nambiente de tabalho: ").append(ambienteTrabalho).
+            append("\ntelefones: ").append(telefones).
+            append("\nemails: ").append(emails).
+            append("\nsalario: ").append(salario).
+            append("\nempresa: ").append(empresa.getRazaoSocial());
         return stringBuilder.toString();
     }
 

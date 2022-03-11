@@ -111,13 +111,13 @@ public class AmbienteTrabalho extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("nome: " + nome);
-        stringBuilder.append("\ntipo de estabelecimento: " + tipoEstabelecimento);
-        stringBuilder.append("\nendereco: " + endereco);
-        stringBuilder.append("\nresponsavel: " + responsavel);
-        stringBuilder.append("\ndescricao: " + descricao);
-        stringBuilder.append("empresa: " + empresa.getRazaoSocial());
+        StringBuilder stringBuilder = new StringBuilder().
+            append("nome: ").append(nome).
+            append("\ntipo de estabelecimento: ").append(tipoEstabelecimento).
+            append("\nendereco: ").append(endereco).
+            append("\nresponsavel: ").append(responsavel).
+            append("\ndescricao: ").append(descricao).
+            append("empresa: ").append(empresa.getRazaoSocial());
         return stringBuilder.toString(); 
     }
     
