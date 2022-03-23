@@ -39,6 +39,18 @@ As validacoes aplicadas sob as classes de dominio (model) estao de acordo com o 
 
 - Validacoes especificadas: implementam as validacoes uteis para construir validacoes especializadas, exemplo para a validacao de cpf e necessario utilizar as seguintes validacoes genericas: validar se o dado nao e nulo, quantidade de caracteres, aplicar o algoritimo de modulo 11. deste modo a validacao especializada para cpf e construida a partir das validacoes genericas.
 
+#
+## Object Mother design pattern
+
+[Object Mother](https://martinfowler.com/bliki/ObjectMother.html) e um padrao de projeto apresentado por Martin Fowler em [martinFowlder.com](https://martinfowler.com/) para aplicacao em testes unitarios, consiste em emcapsular os dados necessarios para os testes em classes que possuem a finalidade de distribuir os dados para os testes que os necessitam. A figura 3 ilustra um exemplo.
+
+<p align="center">
+    <img src="imgs/Object Mother UML exemple.png"><br>
+    figura 3 - Object Mother design pattern exemplo.
+</p>
+
+
+
 
 
 
