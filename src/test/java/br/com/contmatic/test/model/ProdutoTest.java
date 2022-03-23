@@ -3,6 +3,7 @@ package br.com.contmatic.test.model;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static br.com.contmatic.test.model.FabricaObjetos.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
@@ -13,8 +14,6 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.com.contmatic.model.empresa.Produto;
-
-import static br.com.contmatic.test.model.ConstantsTest.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProdutoTest {
