@@ -39,7 +39,7 @@ public class Telefone {
     }
 
     public void setDdd(Integer ddd) {
-        validarExpressaoRegularETamanho(ddi, NUMEROS, DDD_TAMANHO_MIN, DDD_TAMANHO_MAX, DDD_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+        validarExpressaoRegularETamanho(ddd, NUMEROS, DDD_TAMANHO_MIN, DDD_TAMANHO_MAX, DDD_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.ddd = ddd;
     }
 
