@@ -25,7 +25,6 @@ public final class Cidade {
     private String pais;
 
     public Cidade(String nome, String uf, String pais) {
-        // TODO - refazer uf para estado
         setNome(nome);
         setUf(uf);
         setPais(pais);
