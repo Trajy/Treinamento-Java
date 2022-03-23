@@ -81,10 +81,9 @@ final class ValidacaoUtil {
         return (data.getYear() - dataComparada.getYear()) >= diferencaAceita ;
     }
     
-    protected static boolean validarDiferencaAnualDatas(Object analise, Object analiseComparada, Integer diferencaMinAceita, Integer diferencaMaxAceita) {
+    protected static boolean validarDiferencaAnualDatas(Object analise, Integer diferencaMinAceita, Integer diferencaMaxAceita) {
         LocalDate data = (LocalDate) analise;
-        LocalDate dataComparada = (LocalDate) analiseComparada;
-        Integer diferenca = data.getYear() - dataComparada.getYear();
+        Integer diferenca = abs(LocalDate.now().getYear() - data.getYear());
         return ((diferenca <= diferencaMinAceita) && (diferenca >= diferencaMaxAceita));
     }
 
