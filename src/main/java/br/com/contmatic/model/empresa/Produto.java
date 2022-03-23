@@ -98,12 +98,11 @@ public class Produto extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("nome: " + nome);
-        stringBuilder.append("\nversao: " + versao);
-        stringBuilder.append("\ncodigo: " + codigo);
-        stringBuilder.append("\ndescricao: " + descricao);
-        stringBuilder.append("\nempresa: " + empresa.getRazaoSocial());
+        StringBuilder stringBuilder = new StringBuilder().
+            append("nome: ").append(nome).
+            append("\nversao: ").append(versao).
+            append("\ncodigo: ").append(codigo).
+            append("\ndescricao: ").append(descricao);
         return stringBuilder.toString();
     }
 

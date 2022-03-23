@@ -40,7 +40,7 @@ public class Email {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder().
-            append("email: " + enderecoEmail);
+            append("email: ").append(enderecoEmail);
         return stringBuilder.toString();
     }
 
