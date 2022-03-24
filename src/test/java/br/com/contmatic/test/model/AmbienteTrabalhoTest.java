@@ -1,6 +1,9 @@
 package br.com.contmatic.test.model;
 
-import static br.com.contmatic.test.model.FabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.AllOf.allOf;
@@ -12,7 +15,6 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AmbienteTrabalhoTest {
@@ -149,13 +151,13 @@ public class AmbienteTrabalhoTest {
 	
 	@Test
 	public void test_27_validar_() {
-		AMBIENTE_TRAB_02.setNome(NOME_02);
+		AMBIENTE_TRAB_02.setNome(NOME_RESPONSAVEL_02);
 		assertFalse(AMBIENTE_TRAB_02.equals(AMBIENTE_TRAB_01));
 	}
 	
 	@Test
 	public void test_28_validar_() {
-		AMBIENTE_TRAB_02.setResponsavel(NOME_02);
+		AMBIENTE_TRAB_02.setResponsavel(NOME_RESPONSAVEL_02);
 		assertFalse(AMBIENTE_TRAB_02.equals(AMBIENTE_TRAB_01));
 	}
 	

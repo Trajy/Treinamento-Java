@@ -1,9 +1,16 @@
 package br.com.contmatic.test.model;
 
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static br.com.contmatic.test.model.FabricaObjetos.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
