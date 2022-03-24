@@ -9,144 +9,137 @@ import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import br.com.contmatic.model.endereco.Cidade;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CidadeTest {
-
-	// objetos de test
-	private Cidade cidade;
-	private Cidade outraCidade;
 	
-	@Before
-	public void pre_test() {
-		cidade = new Cidade(NOME_CIDADE, UF, PAIS);
-		outraCidade = new Cidade(NOME_CIDADE, UF, PAIS);
+	@BeforeClass
+	public void pre_teste() {
+		construirObjetos();
 	}
 	
 	@Test
 	public void test_01_instancia() {
-		assertEquals(NOME_CIDADE, cidade.getNome());
-		assertEquals(UF, cidade.getUf());
-		assertEquals(PAIS, cidade.getPais());
+		assertEquals(NOME_CIDADE, CIDADE.getNome());
+		assertEquals(UF, CIDADE.getUf());
+		assertEquals(PAIS, CIDADE.getPais());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void test_02_cidade_nome_nulo() {
-		cidade.setNome(NULO);
+	public void test_02_CIDADE_nome_nulo() {
+		CIDADE.setNome(NULO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_03_nome_cidade_vazio() {
-		cidade.setNome(VAZIO);
+	public void test_03_nome_CIDADE_vazio() {
+		CIDADE.setNome(VAZIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_04_nome_cidade_com_numero() {
-		cidade.setNome(NUMEROS_COM_LETRA_LITERAL);
+	public void test_04_nome_CIDADE_com_numero() {
+		CIDADE.setNome(NUMEROS_COM_LETRA_LITERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_05_nome_cidade_abaixo_min_chars() {
-		cidade.setNome(TEXTO_COM_1_CHAR);
+	public void test_05_nome_CIDADE_abaixo_min_chars() {
+		CIDADE.setNome(TEXTO_COM_1_CHAR);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_06_nome_cidade_acima_max_chars() {
-		cidade.setNome(TEXTO_COM_71_CHARS);
+	public void test_06_nome_CIDADE_acima_max_chars() {
+		CIDADE.setNome(TEXTO_COM_71_CHARS);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_07_uf_nulo() {
-		cidade.setUf(NULO);
+		CIDADE.setUf(NULO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_08_uf_vazio() {
-		cidade.setUf(VAZIO);
+		CIDADE.setUf(VAZIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_09_nome_cidade_com_numero() {
-		cidade.setUf(NUMEROS_COM_LETRA_LITERAL);
+	public void test_09_nome_CIDADE_com_numero() {
+		CIDADE.setUf(NUMEROS_COM_LETRA_LITERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_10_uf_abaixo_min_chars() {
-		cidade.setUf(TEXTO_COM_1_CHAR);
+		CIDADE.setUf(TEXTO_COM_1_CHAR);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_11_Uf_acima_max_chars() {
-		cidade.setUf(TEXTO_COM_71_CHARS);
+		CIDADE.setUf(TEXTO_COM_71_CHARS);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_12_pais_nulo() {
-		cidade.setPais(NULO);
+		CIDADE.setPais(NULO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_13_pais_vazio() {
-		cidade.setPais(VAZIO);
+		CIDADE.setPais(VAZIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_14_pais_com_numero() {
-		cidade.setPais(NUMEROS_COM_LETRA_LITERAL);
+		CIDADE.setPais(NUMEROS_COM_LETRA_LITERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_15_pais_abaixo_min_chars() {
-		cidade.setPais(TEXTO_COM_71_CHARS);
+		CIDADE.setPais(TEXTO_COM_71_CHARS);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_16_pais_acima_max_chars() {
-		cidade.setPais(TEXTO_COM_1_CHAR);
+		CIDADE.setPais(TEXTO_COM_1_CHAR);
 	}
 	
 	@Test
 	public void test_17_metodo_hashcode() {
-		assertEquals(cidade.hashCode(), outraCidade.hashCode());
+		assertEquals(CIDADE.hashCode(), OUTRA_CIDADE.hashCode());
 	}
 	
 	@Test
 	public void test_18_validar_metodo_equals() {
-		assertTrue(cidade.equals(cidade));
-		assertTrue(cidade.equals(outraCidade));
-		assertFalse(cidade.equals(new Object()));
-		assertFalse(cidade.equals(null));
+		assertTrue(CIDADE.equals(CIDADE));
+		assertTrue(CIDADE.equals(OUTRA_CIDADE));
+		assertFalse(CIDADE.equals(new Object()));
+		assertFalse(CIDADE.equals(null));
 		
-		outraCidade.setNome(NOME_CIDADE_02);
-		assertFalse(cidade.equals(outraCidade));
+		OUTRA_CIDADE.setNome(NOME_CIDADE_02);
+		assertFalse(CIDADE.equals(OUTRA_CIDADE));
 		
-		outraCidade.setUf(UF_02);
-		assertFalse(cidade.equals(outraCidade));
+		OUTRA_CIDADE.setUf(UF_02);
+		assertFalse(CIDADE.equals(OUTRA_CIDADE));
 		
-		outraCidade.setPais(NOME_CIDADE_02);
-		assertFalse(cidade.equals(outraCidade));
+		OUTRA_CIDADE.setPais(NOME_CIDADE_02);
+		assertFalse(CIDADE.equals(OUTRA_CIDADE));
 		
-		outraCidade.setUf(UF);
-		assertFalse(cidade.equals(outraCidade));
+		OUTRA_CIDADE.setUf(UF);
+		assertFalse(CIDADE.equals(OUTRA_CIDADE));
 		
-		outraCidade.setNome(NOME_CIDADE);
-		assertFalse(cidade.equals(outraCidade));
+		OUTRA_CIDADE.setNome(NOME_CIDADE);
+		assertFalse(CIDADE.equals(OUTRA_CIDADE));
 		
-		outraCidade.setUf(UF_02);
-		outraCidade.setPais(PAIS);
-		assertFalse(cidade.equals(outraCidade));	
+		OUTRA_CIDADE.setUf(UF_02);
+		OUTRA_CIDADE.setPais(PAIS);
+		assertFalse(CIDADE.equals(OUTRA_CIDADE));	
 	}
 	
 	@Test
 	public void test_19_metodo_tostring() {
 		assertThat(
-			cidade.toString(), 
+			CIDADE.toString(), 
 			allOf(
 				containsString(NOME_CIDADE),
 				containsString(UF),

@@ -18,7 +18,7 @@ import org.junit.runners.MethodSorters;
 public class AmbienteTrabalhoTest {
 	
 	@BeforeClass
-	public static void construirObjetos() {
+	public static void pre_teste() {
 	    construirObjetos();
 	}
 	
@@ -124,12 +124,12 @@ public class AmbienteTrabalhoTest {
 	
 	@Test
 	public void test_22_validar_metodo_hashcode_da_classe_ambiente() {
-		assertThat(AMBIENTE_TRAB_02.hashCode(), equalTo(AMBIENTE_TRAB_01.hashCode()));
+		assertThat(AMBIENTE_TRAB_03.hashCode(), equalTo(AMBIENTE_TRAB_01.hashCode()));
 	}
 
 	@Test
 	public void test_23_validar_metodo_equals_ambiente_com_ambiente() {
-		assertTrue(AMBIENTE_TRAB_02.equals(AMBIENTE_TRAB_01));
+		assertTrue(AMBIENTE_TRAB_03.equals(AMBIENTE_TRAB_01));
 	}
 	
 	@Test

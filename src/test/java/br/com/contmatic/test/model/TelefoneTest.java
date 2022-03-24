@@ -8,96 +8,89 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import br.com.contmatic.model.contato.Telefone;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TelefoneTest {
 	
-	// objetos de teste
-	private Telefone telefoneAtributosObrigatorios;
-	private Telefone telefoneTodosAtributos;
-	
-	@Before
-	public void pre_test() {
-		telefoneAtributosObrigatorios = new Telefone(DDD_01, NUMERO_TELEFONE_01);
-		telefoneTodosAtributos = new Telefone(DDI_01, DDD_01, NUMERO_TELEFONE_01);
+	@BeforeClass
+	public static void pre_teste() {
+		construirObjetos();
 	}
 	
 	@Test
 	public void test_00_instancia() {
-		assertEquals(DDI_01, telefoneTodosAtributos.getDdi());
-		assertEquals(DDD_01, telefoneTodosAtributos.getDdd());
-		assertEquals(NUMERO_TELEFONE_01, telefoneTodosAtributos.getNumero());
+		assertEquals(DDI_01, TELEFONE_TODOS_ATRIBUTOS.getDdi());
+		assertEquals(DDD_01, TELEFONE_TODOS_ATRIBUTOS.getDdd());
+		assertEquals(NUMERO_TELEFONE_01, TELEFONE_TODOS_ATRIBUTOS.getNumero());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_01_ddi_nulo() {
-		telefoneTodosAtributos.setDdi(null);
+		TELEFONE_TODOS_ATRIBUTOS.setDdi(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_02_ddi_acima_max_chars() {
-		telefoneTodosAtributos.setDdi(DDI_ACIMA_MAX_CHARS);
+		TELEFONE_TODOS_ATRIBUTOS.setDdi(DDI_ACIMA_MAX_CHARS);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_03_ddd_nulo() {
-		telefoneTodosAtributos.setDdd(null);
+		TELEFONE_TODOS_ATRIBUTOS.setDdd(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_04_ddd_abaixo_min_chars() {
-		telefoneTodosAtributos.setDdd(DDD_ABAIXO_MIN_CHARS);
+		TELEFONE_TODOS_ATRIBUTOS.setDdd(DDD_ABAIXO_MIN_CHARS);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_05_ddd_acima_max_chars() {
-		telefoneTodosAtributos.setDdd(DDD_ACIMA_MAX_CHARS);
+		TELEFONE_TODOS_ATRIBUTOS.setDdd(DDD_ACIMA_MAX_CHARS);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_06_numero_nulo() {
-		telefoneTodosAtributos.setNumero(null);
+		TELEFONE_TODOS_ATRIBUTOS.setNumero(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_07_numero_abaixo_min_chars() {
-		telefoneTodosAtributos.setNumero(NUMERO_TELEFONE_ABAIXO_MIN_CHARS);
+		TELEFONE_TODOS_ATRIBUTOS.setNumero(NUMERO_TELEFONE_ABAIXO_MIN_CHARS);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_08_numero_acima_max_chars() {
-		telefoneTodosAtributos.setNumero(NUMERO_TELEFONE_ACIMA_MAX_CHARS);
+		TELEFONE_TODOS_ATRIBUTOS.setNumero(NUMERO_TELEFONE_ACIMA_MAX_CHARS);
 	}
 	
 	@Test
 	public void test_09_metodo_hashcode() {
-		assertEquals(telefoneTodosAtributos.hashCode(), telefoneAtributosObrigatorios.hashCode());
+		assertEquals(TELEFONE_TODOS_ATRIBUTOS.hashCode(), TELEFONE_ATRIBUTOS_OBRIGATORIOS.hashCode());
 	}
 	
 	@Test
 	public void test_10_metodo_equals() {
-		assertTrue(telefoneTodosAtributos.equals(telefoneTodosAtributos));
-		assertTrue(telefoneTodosAtributos.equals(telefoneAtributosObrigatorios));
-		assertFalse(telefoneTodosAtributos.equals(new Object()));
-		assertFalse(telefoneTodosAtributos.equals(null));
+		assertTrue(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_TODOS_ATRIBUTOS));
+		assertTrue(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_ATRIBUTOS_OBRIGATORIOS));
+		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(new Object()));
+		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(null));
 		
-		telefoneAtributosObrigatorios.setDdd(DDD_02);
-		assertFalse(telefoneTodosAtributos.equals(telefoneAtributosObrigatorios));
+		TELEFONE_ATRIBUTOS_OBRIGATORIOS.setDdd(DDD_02);
+		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_ATRIBUTOS_OBRIGATORIOS));
 		
-		telefoneAtributosObrigatorios.setNumero(NUMERO_TELEFONE_02);
-		assertFalse(telefoneTodosAtributos.equals(telefoneAtributosObrigatorios));
+		TELEFONE_ATRIBUTOS_OBRIGATORIOS.setNumero(NUMERO_TELEFONE_02);
+		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_ATRIBUTOS_OBRIGATORIOS));
 	}
 	
 	@Test
 	public void test_11_metodo_tostring() {
 		assertThat(
-			telefoneTodosAtributos.toString(), 
+			TELEFONE_TODOS_ATRIBUTOS.toString(), 
 			allOf(
 				containsString(DDI_01.toString()),
 				containsString(DDD_01.toString()),

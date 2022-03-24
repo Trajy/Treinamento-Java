@@ -1,9 +1,29 @@
 package br.com.contmatic.test.model;
 
+import static br.com.contmatic.test.model.FabricaObjetos.AMBIENTE_TRAB_01;
+import static br.com.contmatic.test.model.FabricaObjetos.CARGO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.CODIGO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.CODIGO_02;
+import static br.com.contmatic.test.model.FabricaObjetos.CPF_01;
+import static br.com.contmatic.test.model.FabricaObjetos.CPF_02;
+import static br.com.contmatic.test.model.FabricaObjetos.DATA_NASCIMENTO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.DDD_01;
+import static br.com.contmatic.test.model.FabricaObjetos.DDI_01;
+import static br.com.contmatic.test.model.FabricaObjetos.EMAILS;
+import static br.com.contmatic.test.model.FabricaObjetos.ENDERECO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.NOME_01;
+import static br.com.contmatic.test.model.FabricaObjetos.NOME_PRODUTO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.NUMERO_TELEFONE_01;
+import static br.com.contmatic.test.model.FabricaObjetos.RG_01;
+import static br.com.contmatic.test.model.FabricaObjetos.SALARIO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.SETOR_01;
+import static br.com.contmatic.test.model.FabricaObjetos.TELEFONES;
+import static br.com.contmatic.test.model.FabricaObjetos.VERSAO_01;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+ 
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.empresa.AmbienteTrabalho;
@@ -42,6 +62,8 @@ final class FabricaObjetos {
     protected static Telefone TELEFONE_03;
     protected static Telefone TELEFONE_04;
     protected static Telefone TELEFONE_05;
+    protected static Telefone TELEFONE_ATRIBUTOS_OBRIGATORIOS;
+    protected static Telefone TELEFONE_TODOS_ATRIBUTOS;
     protected static List<Telefone> TELEFONES;
         
     // Endereco
@@ -66,6 +88,7 @@ final class FabricaObjetos {
     protected static String PAIS;
     protected static String PAIS_02;
     protected static Cidade CIDADE;
+    protected static Cidade OUTRA_CIDADE;
     protected static Endereco ENDERECO_01;
     protected static Endereco ENDERECO_02;
     protected static Endereco ENDERECO_03;
@@ -93,10 +116,13 @@ final class FabricaObjetos {
     protected static String NOME_AMBIENTE_TRAB_02;
     protected static String NOME_AMBIENTE_TRAB_03;
     protected static String TIPO_AMBIENTE_TRAB_PROPRIO;
+    protected static String TIPO_AMBIENTE_TRAB_TERCEIROS;
     protected static String NOME_RESPONSAVEL_AMBIENTE;
     protected static String DESC_AMBIENTE;
+    protected static String DESC_AMBIENTE_02;
     protected static AmbienteTrabalho AMBIENTE_TRAB_01;
     protected static AmbienteTrabalho AMBIENTE_TRAB_02;
+    protected static AmbienteTrabalho AMBIENTE_TRAB_03;
     protected static List<AmbienteTrabalho> AMBIENTES_DE_TRABALHO;
     
     // Funcionario
@@ -126,8 +152,11 @@ final class FabricaObjetos {
     protected static Funcionario FUNCIONARIO_06;
     protected static Funcionario FUNCIONARIO_07;
     protected static Funcionario FUNCIONARIO_08;
+    protected static Funcionario FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS;
+    protected static Funcionario OUTRO_FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS;
+    protected static Funcionario FUNCIONARIO_TODOS_ATRIBUTOS;
     protected static List<Funcionario> FUNCIONARIOS;
-    protected static Produto PRODUT0_04;
+    
     
     // Produto
     protected static String NOME_PRODUTO_01;
@@ -145,6 +174,9 @@ final class FabricaObjetos {
     protected static String CODIGO_03;
     protected static String CODIGO_04;
     protected static String CODIGO_05;
+    protected static Produto PRODUTO_ATRIBUTOS_OBRIGATORIOS;
+    protected static Produto OUTRO_PRODUTO_ATRIBUTOS_OBRIGATORIOS;
+    protected static Produto PRODUTO_TODOS_ATRIBUTOS;
     protected static Produto PRODUTO_01;
     protected static Produto PRODUTO_02;
     protected static Produto PRODUTO_03;
@@ -160,7 +192,9 @@ final class FabricaObjetos {
     protected static String NOME_FANTASIA;
     protected static String OUTRO_NOME_FANTASIA;
     protected static String AREA_ATUACAO;
-    protected static Empresa EMPRESA;
+    protected static Empresa EMPRESA_TODOS_ATRIBUTOS;
+
+    protected static Empresa EMPRESA_ATRIBUTOS_OBRIGATORIOS;
     
     // constants de erro
     protected static String CEP_CHARS_REPETIDOS;
@@ -206,7 +240,7 @@ final class FabricaObjetos {
     protected static List<Produto> LISTA_PRODUTOS_ACIMA_LIMITE;
     
     
-    protected static void construirObjetos() {
+    protected static final void construirObjetos() {
 	
     	//Email
     	EMAIL_LITERAL_01 = "henrique.araujo@contmatic.com.br";
@@ -214,7 +248,7 @@ final class FabricaObjetos {
     	EMAIL_LITERAL_03 = "erich.miyamura@contmatic.com.br";
     	EMAIL_LITERAL_04 = "contmatic@contmatic.com.br";
     	EMAIL_01 = new Email(EMAIL_LITERAL_01);
-    	EMAIL_02 = new Email(EMAIL_LITERAL_02);
+    	EMAIL_02 = new Email(EMAIL_LITERAL_01);
     	EMAIL_03 = new Email(EMAIL_LITERAL_03);
     	EMAIL_04 = new Email(EMAIL_LITERAL_04);
     	EMAILS = new ArrayList<>();
@@ -239,6 +273,8 @@ final class FabricaObjetos {
     	TELEFONE_04 = new Telefone(DDD_01, NUMERO_TELEFONE_04);
     	TELEFONE_05 = new Telefone(DDD_01, NUMERO_TELEFONE_05);
     	TELEFONES = new ArrayList<>();
+    	TELEFONE_ATRIBUTOS_OBRIGATORIOS = new Telefone(DDD_01, NUMERO_TELEFONE_01);
+        TELEFONE_TODOS_ATRIBUTOS = new Telefone(DDI_01, DDD_01, NUMERO_TELEFONE_01);
     	TELEFONES.add(TELEFONE_01);
     	TELEFONES.add(TELEFONE_02);
     	TELEFONES.add(TELEFONE_03);
@@ -267,6 +303,7 @@ final class FabricaObjetos {
     	PAIS = "Brasil";
     	PAIS_02 = "Chile";
     	CIDADE = new Cidade(NOME_CIDADE, UF, PAIS);
+    	OUTRA_CIDADE = new Cidade(NOME_CIDADE, UF, PAIS);
     	ENDERECO_01 = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01,BAIRRO_01 , CIDADE);
     	ENDERECO_02 = new Endereco(NUMERO_ENDERECO_02, CEP_02, RUA_02, BAIRRO_02, CIDADE);
     	ENDERECO_03 = (new Endereco(NUMERO_ENDERECO_03,CEP_03));
@@ -285,13 +322,13 @@ final class FabricaObjetos {
     	CBO_03 = "09876543";
     	CBO_04 = "56473829";
     	NOME_CARGO_01 = "programador";
-    	NOME_CARGO_02 = "analita de QA";
+    	NOME_CARGO_02 = "analista de QA";
     	DESCRICAO_CARGO_01 = "desenvolvimento de software";
     	DESCRICAO_CARGO_02 = "garantir a qualidade de software e metodologias de testes";
     	CARGO_01 = new Cargo(CBO_01, NOME_CARGO_01, DESCRICAO_CARGO_01);
     	CARGO_02 = new Cargo(CBO_02, NOME_CARGO_02, DESCRICAO_CARGO_02);
     	CARGO_03 = new Cargo(CBO_03);
-    	CARGO_04 = new Cargo(CBO_04);
+    	CARGO_04 = new Cargo(CBO_01);
     	CARGOS = new ArrayList<>();
     	CARGOS.add(CARGO_01);
     	CARGOS.add(CARGO_02);
@@ -303,10 +340,13 @@ final class FabricaObjetos {
     	NOME_AMBIENTE_TRAB_02 = "qualidade";
     	NOME_AMBIENTE_TRAB_03 = "devops";
     	TIPO_AMBIENTE_TRAB_PROPRIO = "proprio";
+    	TIPO_AMBIENTE_TRAB_TERCEIROS = "terceiros";
     	NOME_RESPONSAVEL_AMBIENTE = "jubileu";
     	DESC_AMBIENTE = "ambiente de trabalho";
+    	DESC_AMBIENTE_02 = "ambiente de trabalho diferente";
     	AMBIENTE_TRAB_01 = new AmbienteTrabalho(NOME_AMBINETE_TRAB_01, TIPO_AMBIENTE_TRAB_PROPRIO, ENDERECO_01, NOME_RESPONSAVEL_AMBIENTE, DESC_AMBIENTE);
     	AMBIENTE_TRAB_02 = new AmbienteTrabalho(NOME_AMBIENTE_TRAB_02, TIPO_AMBIENTE_TRAB_PROPRIO);
+    	AMBIENTE_TRAB_03 = new AmbienteTrabalho(NOME_AMBINETE_TRAB_01, TIPO_AMBIENTE_TRAB_TERCEIROS, ENDERECO_02, NOME_RESPONSAVEL_AMBIENTE, DESC_AMBIENTE_02);
     	AMBIENTES_DE_TRABALHO = new ArrayList<>();
     	AMBIENTES_DE_TRABALHO.add(AMBIENTE_TRAB_01);
     	AMBIENTES_DE_TRABALHO.add(AMBIENTE_TRAB_02);
@@ -338,6 +378,13 @@ final class FabricaObjetos {
     	FUNCIONARIO_06 = new Funcionario(CPF_06);
     	FUNCIONARIO_07 = new Funcionario(CPF_07);
     	FUNCIONARIO_08 = new Funcionario(CPF_08);
+    	FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS = new Funcionario(CPF_01);
+        OUTRO_FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS = new Funcionario(CPF_02);
+        FUNCIONARIO_TODOS_ATRIBUTOS = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01 , ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
+        FUNCIONARIO_TODOS_ATRIBUTOS.setRg(RG_01);
+        FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(EMAILS);
+        FUNCIONARIO_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
+        FUNCIONARIO_TODOS_ATRIBUTOS.setAmbienteTrabalho(AMBIENTE_TRAB_01);
     	FUNCIONARIOS = new ArrayList<>();
     	FUNCIONARIOS.add(FUNCIONARIO_01);
     	FUNCIONARIOS.add(FUNCIONARIO_02);
@@ -347,8 +394,6 @@ final class FabricaObjetos {
     	FUNCIONARIOS.add(FUNCIONARIO_06);
     	FUNCIONARIOS.add(FUNCIONARIO_07);
     	FUNCIONARIOS.add(FUNCIONARIO_08);
-    	
-    	PRODUT0_04 = null;
     	
     	// Produto
     	NOME_PRODUTO_01 = "Gestao SST";
@@ -371,11 +416,14 @@ final class FabricaObjetos {
     	PRODUTO_03 = new Produto(NOME_PRODUTO_03, VERSAO_03, CODIGO_03);
     	PRODUTO_04 = new Produto(NOME_PRODUTO_04, VERSAO_04, CODIGO_04);
     	PRODUTO_05 = new Produto(NOME_PRODUTO_05, VERSAO_05, CODIGO_05);
+    	PRODUTO_ATRIBUTOS_OBRIGATORIOS = new Produto(CODIGO_01);
+        OUTRO_PRODUTO_ATRIBUTOS_OBRIGATORIOS = new Produto(CODIGO_02);
+        PRODUTO_TODOS_ATRIBUTOS = new Produto(NOME_PRODUTO_01, VERSAO_01, CODIGO_01);
     	PRODUTOS = new ArrayList<>();
     	PRODUTOS.add(PRODUTO_01);
     	PRODUTOS.add(PRODUTO_02);
     	PRODUTOS.add(PRODUTO_03);
-    	PRODUTOS.add(PRODUT0_04);
+    	PRODUTOS.add(PRODUTO_04);
     	PRODUTOS.add(PRODUTO_05);
     	
     	// constants corretas Empresa
@@ -386,21 +434,24 @@ final class FabricaObjetos {
     	NOME_FANTASIA = "CONTMATIC ... LTDA";
     	OUTRO_NOME_FANTASIA = "Teste CONTMATIC";
     	AREA_ATUACAO = "Software";
-    	EMPRESA = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
-    	EMPRESA.setEmails(EMAILS);
-    	EMPRESA.setTelefones(TELEFONES);
-    	EMPRESA.setEnderecos(ENDERECOS);
-    	EMPRESA.setFuncionarios(FUNCIONARIOS);
-    	EMPRESA.setProdutos(PRODUTOS);
-    	EMPRESA.setCargos(CARGOS);
-    	EMPRESA.setAmbientesTrabalho(AMBIENTES_DE_TRABALHO);
+    	
+    	EMPRESA_TODOS_ATRIBUTOS = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
+        EMPRESA_TODOS_ATRIBUTOS.setEmails(EMAILS);
+        EMPRESA_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
+        EMPRESA_TODOS_ATRIBUTOS.setEnderecos(ENDERECOS);
+        EMPRESA_TODOS_ATRIBUTOS.setFuncionarios(FUNCIONARIOS);
+        EMPRESA_TODOS_ATRIBUTOS.setProdutos(PRODUTOS);
+        EMPRESA_TODOS_ATRIBUTOS.setCargos(CARGOS);
+        EMPRESA_TODOS_ATRIBUTOS.setAmbientesTrabalho(AMBIENTES_DE_TRABALHO);
+        
+        EMPRESA_ATRIBUTOS_OBRIGATORIOS = new Empresa(CNPJ);
     	
     	//setEmpresa nos demais objetos
-    	AMBIENTE_TRAB_01.setEmpresa(EMPRESA);
-    	CARGO_01.setEmpresa(EMPRESA);
-    	FUNCIONARIO_01.setEmpresa(EMPRESA);
-    	PRODUTO_01.setEmpresa(EMPRESA);
-    	ENDERECO_01.setEmpresa(EMPRESA);
+    	AMBIENTE_TRAB_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
+    	CARGO_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
+    	FUNCIONARIO_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
+    	PRODUTO_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
+    	ENDERECO_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
     	
     	// constants de erro
     	CEP_CHARS_REPETIDOS = "11111111";

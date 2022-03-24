@@ -78,7 +78,7 @@ public class EmailTest {
 		assertThat(
 			EMAIL_01.toString(), 
 			allOf(
-				containsString(EMAIL_01.toString())
+				containsString(EMAIL_LITERAL_01.toString())
 			)
 		);
 	}
