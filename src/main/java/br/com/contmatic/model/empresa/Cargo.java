@@ -88,8 +88,9 @@ public class Cargo extends Auditoria {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder().
             append("cbo: ").append(cbo).
-            append("descricao: ").append(descricao).
-            append("nome: ").append(nome);
+            append(", descricao: ").append(descricao).
+            append(", nome: ").append(nome).
+            append("\n");
         return stringBuilder.toString();
     }
 
