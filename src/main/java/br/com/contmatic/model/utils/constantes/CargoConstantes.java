@@ -1,6 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class CargoConstantes {
+public final class CargoConstantes {
+    
+    private CargoConstantes() {
+        
+    }
     
     public static final int CBO_MAX = 8;
     public static final int CBO_MIN = 4;

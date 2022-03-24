@@ -1,21 +1,31 @@
 package br.com.contmatic.test.model;
 
+import static br.com.contmatic.test.model.FabricaObjetos.CARGO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.CARGO_03;
+import static br.com.contmatic.test.model.FabricaObjetos.CARGO_04;
+import static br.com.contmatic.test.model.FabricaObjetos.CBO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.CBO_02;
+import static br.com.contmatic.test.model.FabricaObjetos.DESCRICAO_CARGO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.NOME_CARGO_01;
+import static br.com.contmatic.test.model.FabricaObjetos.NULO;
+import static br.com.contmatic.test.model.FabricaObjetos.NUMEROS_COM_LETRA_LITERAL;
+import static br.com.contmatic.test.model.FabricaObjetos.SOMENTE_ESPACOS;
+import static br.com.contmatic.test.model.FabricaObjetos.TEXTO_COM_1_CHAR;
+import static br.com.contmatic.test.model.FabricaObjetos.TEXTO_COM_71_CHARS;
+import static br.com.contmatic.test.model.FabricaObjetos.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
+import static br.com.contmatic.test.model.FabricaObjetos.VAZIO;
+import static br.com.contmatic.test.model.FabricaObjetos.construirObjetos;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static br.com.contmatic.test.model.FabricaObjetos.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.core.AllOf.allOf;
-import static org.hamcrest.core.StringContains.containsString;
 
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import br.com.contmatic.model.empresa.Cargo;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CargoTest {

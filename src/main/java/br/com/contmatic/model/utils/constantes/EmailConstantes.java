@@ -1,6 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class EmailConstantes {
+public final class EmailConstantes {
+    
+    private EmailConstantes() {
+        
+    }
     
     public static final int EMAIL_MAX = 40;
     public static final int EMAIL_MIN = 5;

@@ -1,6 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class AmbienteTrabalhoConstantes {
+public final class AmbienteTrabalhoConstantes {
+    
+    private AmbienteTrabalhoConstantes() {
+        
+    }
     
     public static final String NOME_AMBIENTE_TRABALHO_INVALIDO = "nome do ambiente de trabalho fornecido invalido";
     public static final String TIPO_AMBIENTE_TRABALHO_INVALIDO = "tipo do ambiente de trabalho fornecido invalido";

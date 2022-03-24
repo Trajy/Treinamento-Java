@@ -1,19 +1,50 @@
 package br.com.contmatic.test.model;
 
+import static br.com.contmatic.test.model.FabricaObjetos.AMBIENTES_DE_TRABALHO;
+import static br.com.contmatic.test.model.FabricaObjetos.AREA_ATUACAO;
+import static br.com.contmatic.test.model.FabricaObjetos.CARGOS;
+import static br.com.contmatic.test.model.FabricaObjetos.CNPJ;
+import static br.com.contmatic.test.model.FabricaObjetos.CNPJ_COM_LETRA;
+import static br.com.contmatic.test.model.FabricaObjetos.CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE;
+import static br.com.contmatic.test.model.FabricaObjetos.CNPJ_INVALIDO;
+import static br.com.contmatic.test.model.FabricaObjetos.CNPJ_NUMEROS_REPETIDOS;
+import static br.com.contmatic.test.model.FabricaObjetos.EMAILS;
+import static br.com.contmatic.test.model.FabricaObjetos.EMPRESA_ATRIBUTOS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.FabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
+import static br.com.contmatic.test.model.FabricaObjetos.ENDERECOS;
+import static br.com.contmatic.test.model.FabricaObjetos.FUNCIONARIOS;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_AMBIENTES_ACIMA_LIMITE;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_CARGOS_ACIMA_LIMITE;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_EMAILS_ACIMA_LIMITE;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_ENDERECOS_ACIMA_LIMITE;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_FUNCINARIOS_ACIMA_LIMITE;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_NULA;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_PRODUTOS_ACIMA_LIMITE;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_TELEFONES_ACIMA_DO_LIMITE;
+import static br.com.contmatic.test.model.FabricaObjetos.LISTA_VAZIA;
+import static br.com.contmatic.test.model.FabricaObjetos.NOME_FANTASIA;
+import static br.com.contmatic.test.model.FabricaObjetos.NULO;
+import static br.com.contmatic.test.model.FabricaObjetos.PRODUTOS;
+import static br.com.contmatic.test.model.FabricaObjetos.RAZAO_SOCIAL;
+import static br.com.contmatic.test.model.FabricaObjetos.SOMENTE_ESPACOS;
+import static br.com.contmatic.test.model.FabricaObjetos.TELEFONES;
+import static br.com.contmatic.test.model.FabricaObjetos.TEXTO_COM_1_CHAR;
+import static br.com.contmatic.test.model.FabricaObjetos.TEXTO_COM_71_CHARS;
+import static br.com.contmatic.test.model.FabricaObjetos.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
+import static br.com.contmatic.test.model.FabricaObjetos.VAZIO;
+import static br.com.contmatic.test.model.FabricaObjetos.construirObjetos;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static br.com.contmatic.test.model.FabricaObjetos.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.AllOf.allOf;
-import static org.hamcrest.core.StringContains.containsString;
+
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import br.com.contmatic.model.empresa.Empresa;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmpresaTest {

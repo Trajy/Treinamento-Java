@@ -1,6 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class TelefoneConstantes {
+public final class TelefoneConstantes {
+    
+    private TelefoneConstantes() {
+        
+    }
     
     public static final int DDI_TAMANHO_MAX = 3;
     public static final int DDI_TAMANHO_MIN = 1;

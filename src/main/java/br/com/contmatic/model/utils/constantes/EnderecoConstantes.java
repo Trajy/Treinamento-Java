@@ -1,6 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class EnderecoConstantes {
+public final class EnderecoConstantes {
+    
+    private EnderecoConstantes() {
+        
+    }
     
     public static final int ENDERECO_NUMERO_MAX = 8;
     public static final int ENDERECO_NUMERO_MIN = 1;

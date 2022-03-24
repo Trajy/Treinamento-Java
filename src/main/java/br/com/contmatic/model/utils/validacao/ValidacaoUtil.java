@@ -28,7 +28,7 @@ final class ValidacaoUtil {
         return validarMinCaracteres(analise, min) || validarMaxCaracteres(analise, max);
     }
 
-    protected static boolean validarCaracteresRepetidos(Object analise, Boolean validar) {
+    protected static boolean validarCaracteresRepetidos(Object analise, boolean validar) {
         if(validar) {
             return !range(0, analise.toString().length() - 1).anyMatch(i -> 
                 analise.toString().charAt(i) != analise.toString().charAt(i + 1)
@@ -67,7 +67,7 @@ final class ValidacaoUtil {
     
     protected static boolean validarDataIgualHoje(Object analise) {
         LocalDate data = (LocalDate) analise;
-        return !(data == LocalDate.now());
+        return (data != LocalDate.now());
     }
     
     protected static boolean validarDiferencaAnualDatas(Object analise, Integer diferencaAceita) {

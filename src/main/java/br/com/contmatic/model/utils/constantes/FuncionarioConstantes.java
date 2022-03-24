@@ -1,7 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class FuncionarioConstantes {
+public final class FuncionarioConstantes {
     
+    private FuncionarioConstantes() {
+        
+    }
     
     public static final int IDADE_MIN_TRABALHISTA = 16;
     public static final int IDADE_MAX_TRABALHISTA = 100;
@@ -18,5 +21,4 @@ public class FuncionarioConstantes {
     public static final String SALARIO_FUNCINARIO_INVALIDO = "Salario do funcinario fornecido invalido";
     public static final String SETOR_FUNCIONARIO_INVALIDO = "setor fornecido ao funcinario invalido";
     
-
 }

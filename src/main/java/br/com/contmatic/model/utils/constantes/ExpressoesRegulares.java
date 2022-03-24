@@ -1,8 +1,9 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class ExpressoesRegulares {
+public final class ExpressoesRegulares {
     
     private ExpressoesRegulares() {
+    
     }
     
     public static final String NUMEROS = "^\\d+$";

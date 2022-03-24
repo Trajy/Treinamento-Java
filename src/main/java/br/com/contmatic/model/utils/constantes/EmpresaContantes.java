@@ -1,6 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class EmpresaContantes {
+public final class EmpresaContantes {
+    
+    private EmpresaContantes() {
+        
+    }
     
     public static final int NOME_FANTASIA_E_RAZAO_SICIAL_MAX = 70;
     public static final int NOME_FANTASIA_E_RAZAO_SICIAL_MIN = 2;

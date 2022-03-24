@@ -3,6 +3,7 @@ package br.com.contmatic.model.utils.constantes;
 public final class ComumConstantes {
 
     private ComumConstantes() {
+    
     }
        
     public static final int NOME_MAX = 50;

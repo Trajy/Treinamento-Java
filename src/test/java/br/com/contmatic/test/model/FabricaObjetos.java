@@ -1,29 +1,9 @@
 package br.com.contmatic.test.model;
 
-import static br.com.contmatic.test.model.FabricaObjetos.AMBIENTE_TRAB_01;
-import static br.com.contmatic.test.model.FabricaObjetos.CARGO_01;
-import static br.com.contmatic.test.model.FabricaObjetos.CODIGO_01;
-import static br.com.contmatic.test.model.FabricaObjetos.CODIGO_02;
-import static br.com.contmatic.test.model.FabricaObjetos.CPF_01;
-import static br.com.contmatic.test.model.FabricaObjetos.CPF_02;
-import static br.com.contmatic.test.model.FabricaObjetos.DATA_NASCIMENTO_01;
-import static br.com.contmatic.test.model.FabricaObjetos.DDD_01;
-import static br.com.contmatic.test.model.FabricaObjetos.DDI_01;
-import static br.com.contmatic.test.model.FabricaObjetos.EMAILS;
-import static br.com.contmatic.test.model.FabricaObjetos.ENDERECO_01;
-import static br.com.contmatic.test.model.FabricaObjetos.NOME_01;
-import static br.com.contmatic.test.model.FabricaObjetos.NOME_PRODUTO_01;
-import static br.com.contmatic.test.model.FabricaObjetos.NUMERO_TELEFONE_01;
-import static br.com.contmatic.test.model.FabricaObjetos.RG_01;
-import static br.com.contmatic.test.model.FabricaObjetos.SALARIO_01;
-import static br.com.contmatic.test.model.FabricaObjetos.SETOR_01;
-import static br.com.contmatic.test.model.FabricaObjetos.TELEFONES;
-import static br.com.contmatic.test.model.FabricaObjetos.VERSAO_01;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
- 
+
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.empresa.AmbienteTrabalho;

@@ -1,6 +1,10 @@
 package br.com.contmatic.model.utils.constantes;
 
-public class ProdutoConstantes {
+public final class ProdutoConstantes {
+    
+    private ProdutoConstantes() {
+        
+    }
     
     public static final int PRODUTO_VERSAO_TAMANHO_MAX = 10;
     public static final int PRODUTO_VERSAO_TAMANHO_MIN = 3;
