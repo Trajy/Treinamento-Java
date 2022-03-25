@@ -42,12 +42,20 @@ As validacoes aplicadas sob as classes de dominio (model) estao de acordo com o 
 #
 ## Object Mother design pattern
 
-[Object Mother](https://martinfowler.com/bliki/ObjectMother.html) e um padrao de projeto apresentado por Martin Fowler em [martinFowlder.com](https://martinfowler.com/) para aplicacao em testes unitarios, consiste em emcapsular os dados necessarios para os testes em classes que possuem a finalidade de distribuir os dados para os testes que os necessitam. A figura 3 ilustra um exemplo.
+[Object Mother](https://martinfowler.com/bliki/ObjectMother.html) e um padrao de projeto apresentado por Martin Fowler em [martinFowlder.com](https://martinfowler.com/) para aplicacao em testes unitarios, consiste em emcapsular os dados necessarios para os testes em classes que possuem a finalidade de distribuir os dados para os testes que os necessitam..
 
 <p align="center">
-    <img src="imgs/Object Mother UML exemple.png"><br>
-    figura 3 - Object Mother design pattern exemplo.
+    <img src="imgs/Contmatic Object Mother Relation Model Testes UML class.png"><br>
+    figura 3 - Relacionamentos entre as classes Object Mother do projeto.
 </p>
+
+<p align="center">
+    <img src="imgs/Contmatic Object Mother e classes de Testes Model Testes UML class.png"><br>
+    figura 4 - Relacionamentos entre as classes Object Mother e Classes de teste do projeto.
+</p>
+
+
+
 
 
 
