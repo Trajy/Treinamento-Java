@@ -10,8 +10,6 @@ public final class ComumErroFabricaObjetos {
         
     }
     
-    
-    
     public static LocalDate DATA_FUTURO;
     public static LocalDate DATA_MENOR_IDADE;
     public static String NULO;
@@ -33,7 +31,6 @@ public final class ComumErroFabricaObjetos {
         DATA_MENOR_IDADE = LocalDate.of(2020, 06, 15);
         
         NULO = null;
-        
         
         VAZIO = "";
         SOMENTE_ESPACOS = "      ";
