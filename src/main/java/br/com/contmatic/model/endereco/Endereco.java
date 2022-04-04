@@ -3,7 +3,6 @@ package br.com.contmatic.model.endereco;
 import java.util.Objects;
 
 import br.com.contmatic.model.auditoria.Auditoria;
-import br.com.contmatic.model.empresa.Empresa;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
@@ -33,8 +32,6 @@ public class Endereco extends Auditoria {
     private String bairro;
 
     private Cidade cidade;
-    
-    private Empresa empresa;
 
     public Endereco(Integer numero, String cep) {
         setNumero(numero);
@@ -92,15 +89,6 @@ public class Endereco extends Auditoria {
     public void setCidade(Cidade cidade) {
         validarNulo(cidade);
         this.cidade = cidade;
-    }
-    
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        validarNulo(empresa);
-        this.empresa = empresa;
     }
 
     @Override
