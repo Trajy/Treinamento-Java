@@ -248,5 +248,10 @@ public class FuncionarioTest {
 				containsString(SALARIO_01.toString())
 			)
 		);
-	}	
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+    public void test_31_validar_empresa_nulo() {
+       FUNCIONARIO_01.setEmpresa(null);
+    }
 }

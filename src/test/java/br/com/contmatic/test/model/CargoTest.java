@@ -2,6 +2,7 @@ package br.com.contmatic.test.model;
 
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.AMBIENTE_TRAB_01;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.AllOf.allOf;
@@ -131,5 +132,10 @@ public class CargoTest {
 			)
 		);
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+    public void test_31_validar_empresa_nulo() {
+        CARGO_01.setEmpresa(null);
+    }
 		
 }

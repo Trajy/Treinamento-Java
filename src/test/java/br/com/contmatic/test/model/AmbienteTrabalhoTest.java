@@ -180,4 +180,9 @@ public class AmbienteTrabalhoTest {
 			)
 		);
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void test_31_validar_empresa_nulo() {
+	    AMBIENTE_TRAB_01.setEmpresa(null);
+	}
 }
