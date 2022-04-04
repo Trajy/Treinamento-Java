@@ -205,7 +205,8 @@ public class Funcionario extends Auditoria {
             append("\nambiente de tabalho: ").append(ambienteTrabalho).
             append("\ntelefones: ").append(telefones).
             append("\nemails: ").append(emails).
-            append("\nsalario: ").append(salario);
+            append("\nsalario: ").append(salario).
+            append("\nauditoria:").append(super.toString());
         return stringBuilder.toString();
     }
 

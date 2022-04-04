@@ -116,7 +116,8 @@ public class AmbienteTrabalho extends Auditoria {
             append("\ntipo de estabelecimento: ").append(tipoEstabelecimento).
             append("\nendereco: ").append(endereco).
             append("\nresponsavel: ").append(responsavel).
-            append("\ndescricao: ").append(descricao);
+            append("\ndescricao: ").append(descricao).
+            append("\nauditoria:").append(super.toString());
         return stringBuilder.toString(); 
     }
     

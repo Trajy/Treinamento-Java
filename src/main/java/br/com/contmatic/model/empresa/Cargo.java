@@ -90,6 +90,7 @@ public class Cargo extends Auditoria {
             append("cbo: ").append(cbo).
             append(", descricao: ").append(descricao).
             append(", nome: ").append(nome).
+            append("\nauditoria:").append(super.toString()).
             append("\n");
         return stringBuilder.toString();
     }

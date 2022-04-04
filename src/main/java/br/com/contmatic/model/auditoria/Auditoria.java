@@ -14,6 +14,8 @@ import java.time.LocalDate;
 
 public abstract class Auditoria {
     
+    private String nomeUsuarioCriacao;
+    
     private LocalDate dataCriacao;
     
     private String ipCriacao;
@@ -23,8 +25,6 @@ public abstract class Auditoria {
     private LocalDate dataAlteracao;
     
     private String ipAlteracao;
-    
-    private String nomeUsuarioCriacao;
     
     public String getNomeUsuarioCriacao() {
         return nomeUsuarioCriacao;
@@ -78,5 +78,17 @@ public abstract class Auditoria {
     public void setIpAlteracao(String ipAlteracao) {
         validarExpressaoRegularETamanho(ipAlteracao, IP, IP_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.ipAlteracao = ipAlteracao;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder().
+                append("\nCriado por: ").append(nomeUsuarioCriacao).
+                append("\nData de Criaca: ").append(dataCriacao).
+                append("\nip de Criacao: ").append(ipCriacao).
+                append("\nAlterado por: ").append(nomeUsuarioAlteracao).
+                append("\nData de Alteracao: ").append(dataAlteracao).
+                append("\nip de Alteracao: ").append(ipAlteracao);
+        return stringBuilder.toString();
     }
 }

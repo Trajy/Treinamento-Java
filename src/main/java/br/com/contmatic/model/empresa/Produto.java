@@ -102,7 +102,8 @@ public class Produto extends Auditoria {
             append("nome: ").append(nome).
             append("\nversao: ").append(versao).
             append("\ncodigo: ").append(codigo).
-            append("\ndescricao: ").append(descricao);
+            append("\ndescricao: ").append(descricao).
+            append("\nauditoria:").append(super.toString());
         return stringBuilder.toString();
     }
 
