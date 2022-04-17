@@ -53,38 +53,16 @@ final class ValidacaoUtil {
     protected static boolean validarExpressaoRegular(Object analise, String expressaoRegular) {
         return !analise.toString().matches(expressaoRegular);
     }
-
-    protected static boolean validarDataDepois(Object analise) {
-        LocalDate data = (LocalDate) analise;
-        return data.isAfter(LocalDate.now());
-    }
-    
-    protected static boolean validarDataDepois(Object analise, Object analiseComparada) {
-        LocalDate data = (LocalDate) analise;
-        LocalDate dataComparada = (LocalDate) analiseComparada;
-        return data.isAfter(dataComparada);
-    }
     
     protected static boolean validarDataIgualHoje(Object analise) {
         LocalDate data = (LocalDate) analise;
-        return (data != LocalDate.now());
-    }
-    
-    protected static boolean validarDiferencaAnualDatas(Object analise, Integer diferencaAceita) {
-        LocalDate data = (LocalDate) analise;
-        return abs(data.getYear() - LocalDate.now().getYear()) >= diferencaAceita ;
-    }
-    
-    protected static boolean validarDiferencaAnualDatas(Object analise, Object analiseComparada, Integer diferencaAceita) {
-        LocalDate data = (LocalDate) analise;
-        LocalDate dataComparada = (LocalDate) analiseComparada;
-        return (data.getYear() - dataComparada.getYear()) >= diferencaAceita ;
+        return !data.equals(LocalDate.now());
     }
     
     protected static boolean validarDiferencaAnualDatas(Object analise, Integer diferencaMinAceita, Integer diferencaMaxAceita) {
         LocalDate data = (LocalDate) analise;
         Integer diferenca = abs(LocalDate.now().getYear() - data.getYear());
-        return ((diferenca <= diferencaMinAceita) && (diferenca >= diferencaMaxAceita));
+        return !((diferenca >= diferencaMinAceita) && (diferenca <= diferencaMaxAceita));
     }
 
     public static void validarNulo(Object analise) {

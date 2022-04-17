@@ -17,6 +17,7 @@ public final class EmpresaFabricaObjetos {
     }
     
     public static String CNPJ;
+    public static String CNPJ_02;
     public static String OUTRO_CNPJ;
     public static String RAZAO_SOCIAL;
     public static String OUTRA_RAZAO_SOCIAL;
@@ -34,13 +35,14 @@ public final class EmpresaFabricaObjetos {
     static void construirEmpresa() {
         
         CNPJ = "11222333000181";
+        CNPJ_02 = "34757271000108";
         OUTRO_CNPJ = "61830755000108";
         RAZAO_SOCIAL = "SOFTMATIC ... LTDA";
         OUTRA_RAZAO_SOCIAL = "Teste SOFTMATIC";
         NOME_FANTASIA = "CONTMATIC ... LTDA";
         OUTRO_NOME_FANTASIA = "Teste CONTMATIC";
         AREA_ATUACAO = "Software";     
-        EMPRESA_TODOS_ATRIBUTOS = new Empresa(CNPJ, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
+        EMPRESA_TODOS_ATRIBUTOS = new Empresa(CNPJ_02, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
         EMPRESA_TODOS_ATRIBUTOS.setEmails(EMAILS);
         EMPRESA_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
         EMPRESA_TODOS_ATRIBUTOS.setEnderecos(ENDERECOS);
@@ -48,7 +50,7 @@ public final class EmpresaFabricaObjetos {
         EMPRESA_TODOS_ATRIBUTOS.setProdutos(PRODUTOS);
         EMPRESA_TODOS_ATRIBUTOS.setCargos(CARGOS);
         EMPRESA_TODOS_ATRIBUTOS.setAmbientesTrabalho(AMBIENTES_DE_TRABALHO);    
-        EMPRESA_ATRIBUTOS_OBRIGATORIOS = new Empresa(CNPJ);
+        EMPRESA_ATRIBUTOS_OBRIGATORIOS = new Empresa(CNPJ_02);
         
         CNPJ_INVALIDO = "58119371000178";
         CNPJ_NUMEROS_REPETIDOS = "11111111111111";

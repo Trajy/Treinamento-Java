@@ -3,14 +3,12 @@ package br.com.contmatic.model.endereco;
 import java.util.Objects;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
 import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CIDADE_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ESTADO_INVALIDO;
 import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.PAIS_INVALIDO;
 import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CIDADE_MIN;
 import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.CIDADE_MAX;
-import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ESTADO_MIN;
-import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.ESTADO_MAX;
 import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.PAIS_MIN;
 import static br.com.contmatic.model.utils.constantes.EnderecoConstantes.PAIS_MAX;
 import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
@@ -20,11 +18,11 @@ public final class Cidade {
 
     private String nome;
     
-    private String uf;
+    private UnidadeFederativa uf;
     
     private String pais;
 
-    public Cidade(String nome, String uf, String pais) {
+    public Cidade(String nome, UnidadeFederativa uf, String pais) {
         setNome(nome);
         setUf(uf);
         setPais(pais);
@@ -39,12 +37,12 @@ public final class Cidade {
         this.nome = nome;
     }
 
-    public String getUf() {
+    public UnidadeFederativa getUf() {
         return uf;
     }
 
-    public void setUf(String uf) {
-        validarExpressaoRegularETamanho(uf, LETRAS, ESTADO_MIN, ESTADO_MAX, ESTADO_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
+    public void setUf(UnidadeFederativa uf) {
+        validarNulo(uf);
         this.uf = uf;
     }
 

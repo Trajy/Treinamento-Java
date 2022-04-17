@@ -33,12 +33,12 @@ public class EmpresaTest {
 
 	@Test
 	public void test_01_validar_instancia_com_contrutor_obrigatorio_da_classe_empresa(){
-		assertEquals(CNPJ, EMPRESA_ATRIBUTOS_OBRIGATORIOS.getCnpj());
+		assertEquals(CNPJ_02, EMPRESA_ATRIBUTOS_OBRIGATORIOS.getCnpj());
 	}
 
 	@Test
 	public void test_02_validar_instancia_com_construtor_completo_da_classe_empressa(){
-		assertEquals(CNPJ, EMPRESA_TODOS_ATRIBUTOS.getCnpj());
+		assertEquals(CNPJ_02, EMPRESA_TODOS_ATRIBUTOS.getCnpj());
 		assertEquals(RAZAO_SOCIAL, EMPRESA_TODOS_ATRIBUTOS.getRazaoSocial());
 		assertEquals(NOME_FANTASIA, EMPRESA_TODOS_ATRIBUTOS.getNomeFantasia());
 		assertEquals(AREA_ATUACAO, EMPRESA_TODOS_ATRIBUTOS.getAreaAtuacao());
@@ -311,7 +311,7 @@ public class EmpresaTest {
 		assertThat(
 			EMPRESA_TODOS_ATRIBUTOS.toString(), 
 			allOf(
-				containsString(CNPJ),
+				containsString(CNPJ_02),
 				containsString(RAZAO_SOCIAL),
 				containsString(NOME_FANTASIA),
 				containsString(AREA_ATUACAO),

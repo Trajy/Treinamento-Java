@@ -35,14 +35,6 @@ public final class ValidacaoComum {
         );
     }
     
-    public static void validarExpressaoRegularETamanho(Object objeto, Integer min, Integer max, String aviso, Boolean validarRepetidos){
-        validarCondicoes(objeto, aviso, analise -> 
-            validarExpressaoRegular(analise, ALFANUMERICO) ||
-            validarQuantidadeCaracteres(analise, min, max) ||
-            validarCaracteresRepetidos(analise ,validarRepetidos)
-        );
-    }
-    
     public static void validarExpressaoRegularETamanho(Object objeto, String expressaoRegular, Integer min, Integer max, String aviso, Boolean validarRepetidos){
         validarCondicoes(objeto, aviso, analise -> 
             validarExpressaoRegular(analise, expressaoRegular) ||

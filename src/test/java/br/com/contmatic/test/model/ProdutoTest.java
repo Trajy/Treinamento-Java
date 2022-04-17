@@ -1,8 +1,8 @@
 package br.com.contmatic.test.model;
 
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.AMBIENTE_TRAB_01;
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -29,6 +29,8 @@ public class ProdutoTest {
 		assertEquals(NOME_PRODUTO_01, PRODUTO_TODOS_ATRIBUTOS.getNome());
 		assertEquals(VERSAO_01, PRODUTO_TODOS_ATRIBUTOS.getVersao());
 		assertEquals(CODIGO_01, PRODUTO_TODOS_ATRIBUTOS.getCodigo());
+		assertEquals(EMPRESA_TODOS_ATRIBUTOS, PRODUTO_TODOS_ATRIBUTOS.getEmpresa());
+		assertEquals(DESCRICAO_01, PRODUTO_TODOS_ATRIBUTOS.getDescricao());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)

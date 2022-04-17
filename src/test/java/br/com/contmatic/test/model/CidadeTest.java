@@ -3,6 +3,8 @@ package br.com.contmatic.test.model;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.UnidadeFederativaFabricaObjetos.UF_01;
+import static br.com.contmatic.test.model.fabricaobjetos.UnidadeFederativaFabricaObjetos.UF_02;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +29,7 @@ public class CidadeTest {
 	@Test
 	public void test_01_instancia() {
 		assertEquals(NOME_CIDADE, CIDADE.getNome());
-		assertEquals(UF, CIDADE.getUf());
+		assertEquals(UF_01, CIDADE.getUf());
 		assertEquals(PAIS, CIDADE.getPais());
 	}
 	
@@ -58,27 +60,7 @@ public class CidadeTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_07_uf_nulo() {
-		CIDADE.setUf(NULO);
-	}
-	
-	@Test(expected = IllegalStateException.class)
-	public void test_08_uf_vazio() {
-		CIDADE.setUf(VAZIO);
-	}
-	
-	@Test(expected = IllegalStateException.class)
-	public void test_09_nome_CIDADE_com_numero() {
-		CIDADE.setUf(NUMEROS_COM_LETRA_LITERAL);
-	}
-	
-	@Test(expected = IllegalStateException.class)
-	public void test_10_uf_abaixo_min_chars() {
-		CIDADE.setUf(TEXTO_COM_1_CHAR);
-	}
-	
-	@Test(expected = IllegalStateException.class)
-	public void test_11_Uf_acima_max_chars() {
-		CIDADE.setUf(TEXTO_COM_71_CHARS);
+		CIDADE.setUf(null);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -127,7 +109,7 @@ public class CidadeTest {
 		OUTRA_CIDADE.setPais(NOME_CIDADE_02);
 		assertFalse(CIDADE.equals(OUTRA_CIDADE));
 		
-		OUTRA_CIDADE.setUf(UF);
+		OUTRA_CIDADE.setUf(UF_01);
 		assertFalse(CIDADE.equals(OUTRA_CIDADE));
 		
 		OUTRA_CIDADE.setNome(NOME_CIDADE);
@@ -144,7 +126,7 @@ public class CidadeTest {
 			CIDADE.toString(), 
 			allOf(
 				containsString(NOME_CIDADE),
-				containsString(UF),
+				containsString(UF_01.toString()),
 				containsString(PAIS)
 			)
 		);

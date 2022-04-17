@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.contmatic.model.endereco.Cidade;
 import br.com.contmatic.model.endereco.Endereco;
+import static br.com.contmatic.test.model.fabricaobjetos.UnidadeFederativaFabricaObjetos.UF_01;
 
 public final class EnderecoFabricaObjetos {
     
@@ -28,8 +29,6 @@ public final class EnderecoFabricaObjetos {
     public static String BAIRRO_02;
     public static String NOME_CIDADE;
     public static String NOME_CIDADE_02;
-    public static String UF;
-    public static String UF_02;
     public static String PAIS;
     public static String PAIS_02;
     public static Cidade CIDADE;
@@ -66,12 +65,10 @@ public final class EnderecoFabricaObjetos {
         BAIRRO_02 = "se";
         NOME_CIDADE = "sao paulo";
         NOME_CIDADE_02 = "Bahia";
-        UF = "SP";
-        UF_02 = "SC";
         PAIS = "Brasil";
         PAIS_02 = "Chile";
-        CIDADE = new Cidade(NOME_CIDADE, UF, PAIS);
-        OUTRA_CIDADE = new Cidade(NOME_CIDADE, UF, PAIS);
+        CIDADE = new Cidade(NOME_CIDADE, UF_01, PAIS);
+        OUTRA_CIDADE = new Cidade(NOME_CIDADE, UF_01, PAIS);
         ENDERECO_01 = new Endereco(NUMERO_ENDERECO_01, CEP_01, RUA_01,BAIRRO_01 , CIDADE);
         ENDERECO_02 = new Endereco(NUMERO_ENDERECO_02, CEP_02, RUA_02, BAIRRO_02, CIDADE);
         ENDERECO_03 = (new Endereco(NUMERO_ENDERECO_03,CEP_03));

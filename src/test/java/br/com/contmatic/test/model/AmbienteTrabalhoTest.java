@@ -1,6 +1,7 @@
 package br.com.contmatic.test.model;
 
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
@@ -31,6 +32,7 @@ public class AmbienteTrabalhoTest {
 		assertEquals(ENDERECO_01, AMBIENTE_TRAB_01.getEndereco());
 		assertEquals(NOME_RESPONSAVEL_AMBIENTE, AMBIENTE_TRAB_01.getResponsavel());
 		assertEquals(DESC_AMBIENTE, AMBIENTE_TRAB_01.getDescricao());
+		assertEquals(EMPRESA_TODOS_ATRIBUTOS, AMBIENTE_TRAB_01.getEmpresa());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)

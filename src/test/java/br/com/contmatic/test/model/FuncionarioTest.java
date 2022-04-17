@@ -8,6 +8,7 @@ import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -42,6 +43,7 @@ public class FuncionarioTest {
 		assertEquals(EMAILS, FUNCIONARIO_TODOS_ATRIBUTOS.getEmails());
 		assertEquals(TELEFONES, FUNCIONARIO_TODOS_ATRIBUTOS.getTelefones());
 		assertEquals(AMBIENTE_TRAB_01, FUNCIONARIO_TODOS_ATRIBUTOS.getAmbienteTrabalho());
+		assertEquals(EMPRESA_TODOS_ATRIBUTOS, FUNCIONARIO_TODOS_ATRIBUTOS.getEmpresa());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -254,4 +256,5 @@ public class FuncionarioTest {
     public void test_31_validar_empresa_nulo() {
        FUNCIONARIO_01.setEmpresa(null);
     }
+	
 }

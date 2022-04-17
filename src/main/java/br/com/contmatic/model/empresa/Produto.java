@@ -25,10 +25,11 @@ public class Produto extends Auditoria {
         setCodigo(codigo);
     }
 
-    public Produto(String nome, String versao, String codigo) {
+    public Produto(String nome, String versao, String codigo, String descricao) {
         setNome(nome);
         setVersao(versao);
         setCodigo(codigo);
+        setDescricao(descricao);
     }
 
     public String getNome() {
@@ -100,10 +101,10 @@ public class Produto extends Auditoria {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder().
             append("nome: ").append(nome).
-            append("\nversao: ").append(versao).
-            append("\ncodigo: ").append(codigo).
-            append("\ndescricao: ").append(descricao).
-            append("\nauditoria:").append(super.toString());
+            append("versao: ").append(versao).
+            append("codigo: ").append(codigo).
+            append("descricao: ").append(descricao).
+            append("auditoria:").append(super.toString());
         return stringBuilder.toString();
     }
 
