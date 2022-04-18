@@ -12,6 +12,7 @@ public class UnidadeFederativaFabricaObjetos {
     public static String SIGLA_UF_02;
     public static UnidadeFederativa UF_01;
     public static UnidadeFederativa UF_02;
+    public static UnidadeFederativa UF_ATRIBUTOS_OBRIGATORIOS;
     
     static void construirUnidadeFederativa() {
        CODIGO_01 = 11;
@@ -22,6 +23,7 @@ public class UnidadeFederativaFabricaObjetos {
        SIGLA_UF_02 = "MT";
        UF_01 = new UnidadeFederativa(CODIGO_01, NOME_UF_01, SIGLA_UF_01);
        UF_02 = new UnidadeFederativa(CODIGO_02, NOME_UF_02, SIGLA_UF_02);
+       UF_ATRIBUTOS_OBRIGATORIOS = new UnidadeFederativa(CODIGO_01);
     }
 
 }

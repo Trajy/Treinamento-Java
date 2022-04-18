@@ -3,8 +3,7 @@ package br.com.contmatic.test.model;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.UnidadeFederativaFabricaObjetos.UF_01;
-import static br.com.contmatic.test.model.fabricaobjetos.UnidadeFederativaFabricaObjetos.UF_02;
+import static br.com.contmatic.test.model.fabricaobjetos.UnidadeFederativaFabricaObjetos.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -131,4 +130,17 @@ public class CidadeTest {
 			)
 		);
 	}
+	
+	@Test
+	public void test_20_metodos_get_unidade_federativa() {
+	    assertEquals(CODIGO_01, CIDADE.getUf().getCodigo());
+	    assertEquals(NOME_UF_01, CIDADE.getUf().getNome());
+	    assertEquals(SIGLA_UF_01, CIDADE.getUf().getSigla());
+	}
+	
+    @Test
+    public void test_21_metodo_equals_unidade_federativa() {
+        assertFalse(CIDADE.getUf().equals(null));
+        assertFalse(CIDADE.getUf().equals(new Object()));
+    }
 }

@@ -15,10 +15,6 @@ public class UnidadeFederativa {
     
     private String sigla;
     
-    public Integer getCodigo() {
-        return codigo;
-    }
-    
     public UnidadeFederativa(Integer codigo){
         setCodigo(codigo);
     }
@@ -27,6 +23,10 @@ public class UnidadeFederativa {
         setCodigo(codigo);
         setNome(nome);
         setSigla(sigla);
+    }
+    
+    public Integer getCodigo() {
+        return codigo;
     }
     
     public void setCodigo(Integer codigo) {

@@ -27,6 +27,11 @@ public class AuditoriaTest {
         assertEquals(HOJE, EMPRESA_TODOS_ATRIBUTOS.getDataCriacao());
         assertEquals(HOJE, EMPRESA_TODOS_ATRIBUTOS.getDataAlteracao());
     }
+    
+    @Test(expected = IllegalStateException.class)
+    public void test_02_data_invalida() {
+        EMPRESA_TODOS_ATRIBUTOS.setDataCriacao(DATA_CRIACAO);
+    }
    
     
     
