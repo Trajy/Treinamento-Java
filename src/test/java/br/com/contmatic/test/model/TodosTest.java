@@ -15,7 +15,6 @@ import org.junit.runners.Suite;
 	ProdutoTest.class,
 	TelefoneTest.class,
 	EmpresaTest.class,
-	AuditoriaTest.class
 })
 
 public class TodosTest {

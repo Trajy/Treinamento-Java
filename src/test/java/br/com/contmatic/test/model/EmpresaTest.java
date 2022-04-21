@@ -10,6 +10,8 @@ import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjet
 import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
+import static br.com.contmatic.test.model.fabricaobjetos.AuditoriaFabricaObjetos.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.AllOf.allOf;
@@ -325,6 +327,21 @@ public class EmpresaTest {
 			)
 		);
 	}
+	
+	@Test
+    public void test_59_auditoria_classe_empresa() {
+        assertEquals(NOME_USUARIO_CRIACAO, EMPRESA_TODOS_ATRIBUTOS.getNomeUsuarioCriacao());
+        assertEquals(NOME_USUARIO_ALTERACAO, EMPRESA_TODOS_ATRIBUTOS.getNomeUsuarioAlteracao());
+        assertEquals(IP_CRIACAO, EMPRESA_TODOS_ATRIBUTOS.getIpCriacao());
+        assertEquals(IP_ALTERACAO, EMPRESA_TODOS_ATRIBUTOS.getIpAlteracao());
+        assertEquals(HOJE, EMPRESA_TODOS_ATRIBUTOS.getDataCriacao());
+        assertEquals(HOJE, EMPRESA_TODOS_ATRIBUTOS.getDataAlteracao());
+    }
+    
+    @Test(expected = IllegalStateException.class)
+    public void test_60_data_invalida() {
+        EMPRESA_TODOS_ATRIBUTOS.setDataCriacao(DATA_CRIACAO);
+    }
 
 }
 
