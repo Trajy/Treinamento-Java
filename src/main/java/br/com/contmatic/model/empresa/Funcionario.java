@@ -51,7 +51,9 @@ public class Funcionario extends Auditoria {
     private List<Email> emails;
 
     private Float salario;
-
+    
+    private Boolean ativo = true;
+    
     public Funcionario(String cpf) {
         this.setCpf(cpf);
     }
@@ -59,7 +61,6 @@ public class Funcionario extends Auditoria {
     public Funcionario(String cpf, String nome, LocalDate dataNascimento, Endereco endereco, String setor, Cargo cargo, Float salario) {
         setCpf(cpf);
         setNome(nome);
-
         setDataNascimento(dataNascimento);
         setEndereco(endereco);
         setSetor(setor);
@@ -169,10 +170,18 @@ public class Funcionario extends Auditoria {
     public Float getSalario() {
         return salario;
     }
-
+    
     public void setSalario(Float salario) {
         validarNumeroEntre(salario, SALARIO_MIN, SALARIO_MAX, SALARIO_FUNCINARIO_INVALIDO);
         this.salario = salario;
+    }
+    
+    public Boolean isAtivo() {
+        return ativo;
+    }
+    
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 
     @Override

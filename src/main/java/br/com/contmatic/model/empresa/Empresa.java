@@ -41,6 +41,8 @@ public class Empresa extends Auditoria {
     private List<Cargo> cargos;
 
     private List<AmbienteTrabalho> ambientesTrabalho;
+    
+    private Boolean ativa = true;
 
     public Empresa(String cnpj) {
         setCnpj(cnpj);
@@ -150,6 +152,15 @@ public class Empresa extends Auditoria {
     public void setAmbientesTrabalho(List<AmbienteTrabalho> ambientesTrabalho) {
         validarLista(ambientesTrabalho, LISTA_AMBIENTE_TRABALHO_QTD_MAX, LISTA_AMBIENTE_DE_TRABALHO_INVALIDO);
         this.ambientesTrabalho = ambientesTrabalho;
+    }
+    
+    // TODO - cobrir nos testes
+    public Boolean isAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(Boolean ativa) {
+        this.ativa = ativa;
     }
 
     @Override
