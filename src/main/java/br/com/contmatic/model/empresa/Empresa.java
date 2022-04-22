@@ -10,6 +10,7 @@ import br.com.contmatic.model.endereco.Endereco;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoCnpj.validarCnpj;
 import static br.com.contmatic.model.utils.constantes.EmpresaContantes.*;
 import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_QTD_MAX;
@@ -154,12 +155,12 @@ public class Empresa extends Auditoria {
         this.ambientesTrabalho = ambientesTrabalho;
     }
     
-    // TODO - cobrir nos testes
     public Boolean isAtiva() {
         return ativa;
     }
 
     public void setAtiva(Boolean ativa) {
+        validarNulo(ativa);
         this.ativa = ativa;
     }
 

@@ -182,6 +182,7 @@ public class Funcionario extends Auditoria {
     }
     
     public void setAtivo(Boolean ativo) {
+        validarNulo(ativo);
         this.ativo = ativo;
     }
 

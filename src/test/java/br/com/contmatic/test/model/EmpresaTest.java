@@ -342,6 +342,17 @@ public class EmpresaTest {
     public void test_60_data_invalida() {
         EMPRESA_TODOS_ATRIBUTOS.setDataCriacao(DATA_CRIACAO);
     }
+    
+    @Test()
+    public void test_61_validar_metodo_setativa() {
+        EMPRESA_TODOS_ATRIBUTOS.setAtiva(false);
+        assertFalse(EMPRESA_TODOS_ATRIBUTOS.isAtiva());
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void test_62_validar_nulo_metodo_setativa() {
+        EMPRESA_ATRIBUTOS_OBRIGATORIOS.setAtiva(null);
+    }
 
 }
 

@@ -257,4 +257,15 @@ public class FuncionarioTest {
        FUNCIONARIO_01.setEmpresa(null);
     }
 	
+	 @Test()
+	    public void test_32_validar_metodo_setativo() {
+	        FUNCIONARIO_TODOS_ATRIBUTOS.setAtivo(false);
+	        assertFalse(FUNCIONARIO_TODOS_ATRIBUTOS.isAtivo());
+	    }
+	    
+	    @Test(expected = IllegalArgumentException.class)
+	    public void test_33_validar_nulo_metodo_setativo() {
+	        FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.setAtivo(null);
+	    }
+	
 }
