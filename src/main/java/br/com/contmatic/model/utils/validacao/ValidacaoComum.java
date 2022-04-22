@@ -1,6 +1,5 @@
 package br.com.contmatic.model.utils.validacao;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -57,12 +56,6 @@ public final class ValidacaoComum {
         validarCondicoes(objeto, aviso, analise ->
             validarMinNum(analise, limiteMin) ||
             validarMaxNum(analise, limiteMax)
-        );
-    }
-    
-    public static void validarAgora(LocalDate objeto) {
-        validarCondicoes(objeto, DATA_ATUAL_INVALIDA, analise ->
-            validarDataIgualHoje(objeto)
         );
     }
     
