@@ -1,5 +1,7 @@
 package br.com.contmatic.model.utils.constantes;
 
+import java.math.BigDecimal;
+
 public final class FuncionarioConstantes {
     
     private FuncionarioConstantes() {
@@ -11,8 +13,8 @@ public final class FuncionarioConstantes {
     public static final int LIMITE_IDADE_CONTRATACAO = 100;
     public static final int RG_MAX = 10;
     public static final int RG_MIN = 5;
-    public static final Float SALARIO_MIN = 800f;
-    public static final Float SALARIO_MAX = 100000f;
+    public static final BigDecimal SALARIO_MIN = new BigDecimal("800");
+    public static final BigDecimal SALARIO_MAX = new BigDecimal("100000");
     
     public static final String NOME_INVALIDO = "Nome do funcionario invalido";
     public static final String DATA_FUNCIONARIO_INVALIDA = "Data invalida de nascimento do funcinario invalida";

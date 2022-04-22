@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Predicate;
 import static java.util.stream.IntStream.range;
+
+import java.math.BigDecimal;
+
 import static java.lang.Math.abs;
 import static br.com.contmatic.model.utils.constantes.ComumConstantes.*;
 
@@ -43,11 +46,13 @@ final class ValidacaoUtil {
     }
     
     protected static boolean validarMinNum(Object analise, Object limite) {
-        return Float.parseFloat(analise.toString()) < Float.parseFloat(limite.toString());
+        return (new BigDecimal(analise.toString()).
+                compareTo(new BigDecimal(limite.toString()))) < 0;
     }
 
     protected static boolean validarMaxNum(Object analise, Object limite) {
-        return Float.parseFloat(analise.toString()) > Float.parseFloat(limite.toString());
+        return (new BigDecimal(analise.toString()).
+                compareTo(new BigDecimal(limite.toString()))) > 0;
     }
     
     

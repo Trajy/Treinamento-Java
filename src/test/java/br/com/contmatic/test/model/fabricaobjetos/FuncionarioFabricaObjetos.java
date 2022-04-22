@@ -1,5 +1,6 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +34,8 @@ public final class FuncionarioFabricaObjetos {
     public static LocalDate DATA_NASCIMENTO_02;
     public static String  SETOR_01;
     public static String SETOR_02;
-    public static Float SALARIO_01;
-    public static Float SALARIO_02;
+    public static BigDecimal SALARIO_01;
+    public static BigDecimal SALARIO_02;
     public static Funcionario FUNCIONARIO_01;
     public static Funcionario FUNCIONARIO_02;
     public static Funcionario FUNCIONARIO_03;
@@ -49,9 +50,9 @@ public final class FuncionarioFabricaObjetos {
     public static List<Funcionario> FUNCIONARIOS;
     public static List<Funcionario> LISTA_FUNCINARIOS_ACIMA_LIMITE;
     
-    public static Float SALARIO_NEGATIVO;
-    public static Float SALARIO_NEGATIVO_COM_PONTO;
-    public static Float SALARIO_ACIMA_LIMITE;
+    public static BigDecimal SALARIO_NEGATIVO;
+    public static BigDecimal SALARIO_NEGATIVO_COM_PONTO;
+    public static BigDecimal SALARIO_ACIMA_LIMITE;
     public static String CPF_INVALIDO;
     public static String CPF_COM_QUANTIDADE_DIG_DIFERENTE;
     public static String CPF_NUMEROS_REPETIDOS;
@@ -73,8 +74,8 @@ public final class FuncionarioFabricaObjetos {
         DATA_NASCIMENTO_02 = LocalDate.of(2000, 12, 30);
         SETOR_01 = "Programacao";
         SETOR_02 = "Producao";
-        SALARIO_01 = 20000.00f;
-        SALARIO_02 = 4500.95f;
+        SALARIO_01 = new BigDecimal("20000.0");
+        SALARIO_02 = new BigDecimal("4500.95");
         FUNCIONARIO_01 = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01, ENDERECO_01, SETOR_01, CARGO_01, SALARIO_01);
         FUNCIONARIO_02 = new Funcionario(CPF_02, NOME_02, DATA_NASCIMENTO_02, ENDERECO_02, SETOR_02, CARGO_02, SALARIO_02);
         FUNCIONARIO_03 = new Funcionario(CPF_03);
@@ -103,9 +104,9 @@ public final class FuncionarioFabricaObjetos {
         LISTA_FUNCINARIOS_ACIMA_LIMITE.addAll(FUNCIONARIOS);
         LISTA_FUNCINARIOS_ACIMA_LIMITE.add(FUNCIONARIO_01);
         
-        SALARIO_NEGATIVO = -1000f;
-        SALARIO_NEGATIVO_COM_PONTO = 0.0f;
-        SALARIO_ACIMA_LIMITE = 105000f;  
+        SALARIO_NEGATIVO = new BigDecimal("-1000.0");
+        SALARIO_NEGATIVO_COM_PONTO = BigDecimal.ZERO;
+        SALARIO_ACIMA_LIMITE = new BigDecimal("105000");  
         CPF_INVALIDO = "44632236011";
         CPF_COM_QUANTIDADE_DIG_DIFERENTE = "446322360121";
         CPF_NUMEROS_REPETIDOS = "22222222222";

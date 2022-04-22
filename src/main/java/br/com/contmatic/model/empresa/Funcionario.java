@@ -1,5 +1,6 @@
 package br.com.contmatic.model.empresa;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +51,7 @@ public class Funcionario extends Auditoria {
 
     private List<Email> emails;
 
-    private Float salario;
+    private BigDecimal salario;
     
     private Boolean ativo = true;
     
@@ -58,7 +59,7 @@ public class Funcionario extends Auditoria {
         this.setCpf(cpf);
     }
 
-    public Funcionario(String cpf, String nome, LocalDate dataNascimento, Endereco endereco, String setor, Cargo cargo, Float salario) {
+    public Funcionario(String cpf, String nome, LocalDate dataNascimento, Endereco endereco, String setor, Cargo cargo, BigDecimal salario) {
         setCpf(cpf);
         setNome(nome);
         setDataNascimento(dataNascimento);
@@ -167,11 +168,11 @@ public class Funcionario extends Auditoria {
         this.ambienteTrabalho = ambienteTrabalho;
     }
 
-    public Float getSalario() {
+    public BigDecimal getSalario() {
         return salario;
     }
     
-    public void setSalario(Float salario) {
+    public void setSalario(BigDecimal salario) {
         validarNumeroEntre(salario, SALARIO_MIN, SALARIO_MAX, SALARIO_FUNCINARIO_INVALIDO);
         this.salario = salario;
     }
