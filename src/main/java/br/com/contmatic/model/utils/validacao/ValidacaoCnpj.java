@@ -22,8 +22,6 @@ public final class ValidacaoCnpj {
 
     private static final int DIG_VERIFICADOR_CASO_CRITERIO_VERDADEIRO = 0;
 
-    private static final boolean INVERTER_CHARS = true;
-
     private ValidacaoCnpj() {
     }
 
@@ -35,7 +33,7 @@ public final class ValidacaoCnpj {
     private static void iterador(String cnpj) {
         for(int index = 0 ; index < QTD_DIG_VERIFICADORES ; index++) {
 
-            int digitoVerificador = algoritmoComumCpfCnpj(cnpj, QTD_DIG_VERIFICADORES - index, LIMITE_DA_SEQUENCIA, INVERTER_CHARS) % DIVISOR_E_MINUENDO;
+            int digitoVerificador = algoritmoComumCpfCnpj(cnpj, QTD_DIG_VERIFICADORES - index, LIMITE_DA_SEQUENCIA) % DIVISOR_E_MINUENDO;
 
             digitoVerificador = verificarCriterio(digitoVerificador);
 

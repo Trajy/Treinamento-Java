@@ -35,7 +35,7 @@ public final class ValidacaoCpf {
 
     private static void itarador(String cpf) {
         for(int index = 0 ; index < STEPS ; index++) {
-            int digitoVerificador = (algoritmoComumCpfCnpj(cpf, STEPS - index, LIMITE_DA_SEQUENCIA, true) * MULTIPLICADOR) % DIVISOR_E_MINUENDO;
+            int digitoVerificador = (algoritmoComumCpfCnpj(cpf, STEPS - index, LIMITE_DA_SEQUENCIA) * MULTIPLICADOR) % DIVISOR_E_MINUENDO;
             digitoVerificador = verificarCriterio(digitoVerificador);
             validarDigVerificadorCpf(cpf, index, digitoVerificador);
         }
