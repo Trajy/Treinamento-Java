@@ -14,7 +14,7 @@ public final class ValidacaoFuncionario {
 	
 	public static void validarIdade(LocalDate data) {
 		validarCondicoes(data , DATA_FUNCIONARIO_INVALIDA, analise ->
-		    validarDiferencaAnualDatas(analise, IDADE_MIN_TRABALHISTA, IDADE_MAX_TRABALHISTA)
+		    validarDiferencaAnualDatas(data, IDADE_MIN_TRABALHISTA, IDADE_MAX_TRABALHISTA)
 		);
 	}
 	

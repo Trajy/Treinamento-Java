@@ -1,6 +1,7 @@
 package br.com.contmatic.model.utils.validacao;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Predicate;
 import static java.util.stream.IntStream.range;
@@ -54,13 +55,22 @@ final class ValidacaoUtil {
         return !analise.toString().matches(expressaoRegular);
     }
     
-    protected static boolean validarDataIgualHoje(Object analise) {
-        LocalDate data = (LocalDate) analise;
-        return !data.equals(LocalDate.now());
+    protected static boolean validarDataIgualHoje(LocalDate analise) {
+        return !analise.equals(LocalDate.now());
     }
     
-    protected static boolean validarDiferencaAnualDatas(Object analise, Integer diferencaMinAceita, Integer diferencaMaxAceita) {
-        LocalDate data = (LocalDate) analise;
+    protected static boolean validarDataIgualHoje(LocalDateTime analise) {
+        return !analise.toLocalDate().equals(LocalDate.now());
+    }
+    
+    protected static boolean validarDiferencaAnualDatas(LocalDate analise, Integer diferencaMinAceita, Integer diferencaMaxAceita) {
+        LocalDate data = analise;
+        Integer diferenca = abs(LocalDate.now().getYear() - data.getYear());
+        return !((diferenca >= diferencaMinAceita) && (diferenca <= diferencaMaxAceita));
+    }
+    
+    protected static boolean validarDiferencaAnualDatas(LocalDateTime analise, Integer diferencaMinAceita, Integer diferencaMaxAceita) {
+        LocalDate data = analise.toLocalDate();
         Integer diferenca = abs(LocalDate.now().getYear() - data.getYear());
         return !((diferenca >= diferencaMinAceita) && (diferenca <= diferencaMaxAceita));
     }

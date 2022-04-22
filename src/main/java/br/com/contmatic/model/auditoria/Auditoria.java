@@ -10,19 +10,19 @@ import static br.com.contmatic.model.utils.constantes.FuncionarioConstantes.NOME
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarAgora;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class Auditoria {
     
     private String nomeUsuarioCriacao;
     
-    private LocalDate dataCriacao;
+    private LocalDateTime dataCriacao;
     
     private String ipCriacao;
     
     private String nomeUsuarioAlteracao;
     
-    private LocalDate dataAlteracao;
+    private LocalDateTime dataAlteracao;
     
     private String ipAlteracao;
     
@@ -35,11 +35,11 @@ public abstract class Auditoria {
         this.nomeUsuarioCriacao = nomeUsuarioCriacao;
     }
 
-    public LocalDate getDataCriacao() {
+    public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(LocalDate dataCriacao) {
+    public void setDataCriacao(LocalDateTime dataCriacao) {
         validarAgora(dataCriacao);
         this.dataCriacao = dataCriacao;
     }
@@ -62,11 +62,11 @@ public abstract class Auditoria {
         this.nomeUsuarioAlteracao = nomeUsuarioAlteracao;
     }
 
-    public LocalDate getDataAlteracao() {
+    public LocalDateTime getDataAlteracao() {
         return dataAlteracao;
     }
 
-    public void setDataAlteracao(LocalDate dataAlteracao) {
+    public void setDataAlteracao(LocalDateTime dataAlteracao) {
         validarAgora(dataAlteracao);
         this.dataAlteracao = dataAlteracao;
     }

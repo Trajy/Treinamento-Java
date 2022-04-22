@@ -1,5 +1,7 @@
 package br.com.contmatic.model.utils.validacao;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static br.com.contmatic.model.utils.constantes.ComumConstantes.*;
@@ -58,7 +60,13 @@ public final class ValidacaoComum {
         );
     }
     
-    public static void validarAgora(Object objeto) {
+    public static void validarAgora(LocalDate objeto) {
+        validarCondicoes(objeto, DATA_ATUAL_INVALIDA, analise ->
+            validarDataIgualHoje(objeto)
+        );
+    }
+    
+    public static void validarAgora(LocalDateTime objeto) {
         validarCondicoes(objeto, DATA_ATUAL_INVALIDA, analise ->
             validarDataIgualHoje(objeto)
         );
