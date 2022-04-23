@@ -30,8 +30,11 @@ public final class FuncionarioFabricaObjetos {
     public static String NOME_02;
     public static String RG_01;
     public static String RG_02;
+    public static LocalDate DATA_ATUAL;
     public static LocalDate DATA_NASCIMENTO_01;
     public static LocalDate DATA_NASCIMENTO_02;
+    public static LocalDate DATA_ACIMA_MAX;
+    public static LocalDate DATA_ABAIXO_MIN;
     public static String  SETOR_01;
     public static String SETOR_02;
     public static BigDecimal SALARIO_01;
@@ -70,8 +73,11 @@ public final class FuncionarioFabricaObjetos {
         NOME_02 = "Ana";
         RG_01 = "243847701";
         RG_02 = "349694643";
-        DATA_NASCIMENTO_01 = LocalDate.of(1998, 5, 22);
-        DATA_NASCIMENTO_02 = LocalDate.of(2000, 12, 30);
+        DATA_ATUAL = LocalDate.now();
+        DATA_NASCIMENTO_01 = LocalDate.of(DATA_ATUAL.getYear() - 24, 5, 22);
+        DATA_NASCIMENTO_02 = LocalDate.of(DATA_ATUAL.getYear() - 22, 12, 30);
+        DATA_ACIMA_MAX = LocalDate.of(DATA_ATUAL.getYear() - 101, 9, 20);
+        DATA_ABAIXO_MIN = LocalDate.of(DATA_ATUAL.getYear() - 15, 11, 15);
         SETOR_01 = "Programacao";
         SETOR_02 = "Producao";
         SALARIO_01 = new BigDecimal("20000.0");

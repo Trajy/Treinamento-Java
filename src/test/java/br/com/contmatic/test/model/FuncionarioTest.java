@@ -257,15 +257,24 @@ public class FuncionarioTest {
        FUNCIONARIO_01.setEmpresa(null);
     }
 	
-	 @Test()
-	    public void test_32_validar_metodo_setativo() {
-	        FUNCIONARIO_TODOS_ATRIBUTOS.setAtivo(false);
-	        assertFalse(FUNCIONARIO_TODOS_ATRIBUTOS.isAtivo());
-	    }
-	    
-	    @Test(expected = IllegalArgumentException.class)
-	    public void test_33_validar_nulo_metodo_setativo() {
-	        FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.setAtivo(null);
-	    }
-	
+	@Test()
+    public void test_32_validar_metodo_setativo() {
+        FUNCIONARIO_TODOS_ATRIBUTOS.setAtivo(false);
+        assertFalse(FUNCIONARIO_TODOS_ATRIBUTOS.isAtivo());
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void test_33_validar_nulo_metodo_setativo() {
+        FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.setAtivo(null);
+    }
+    
+    @Test(expected = IllegalStateException.class)
+    public void test_34_validar_data_nascimento_acima_limite() {
+        FUNCIONARIO_TODOS_ATRIBUTOS.setDataNascimento(DATA_ACIMA_MAX);
+    }
+    
+    @Test(expected = IllegalStateException.class)
+    public void test_35_validar_data_nascimento_abaixo_limite() {
+        FUNCIONARIO_TODOS_ATRIBUTOS.setDataNascimento(DATA_ABAIXO_MIN);
+    }	
 }
