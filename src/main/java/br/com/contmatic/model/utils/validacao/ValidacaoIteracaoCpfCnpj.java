@@ -13,7 +13,7 @@ final class ValidacaoIteracaoCpfCnpj {
     protected static int algoritmoComumCpfCnpj(String numRegistro, int qtdDigVerificadores, int limiteSequencia) {
 
         int digitoVerificador = 0;
-        int pularChars = indiceInicalPosDigitos(qtdDigVerificadores);;
+        int pularChars = indiceInicalPosDigitos(qtdDigVerificadores);
         numRegistro = inverter(numRegistro);
 
         int[] valoresComputados = new int[numRegistro.length() - qtdDigVerificadores];
