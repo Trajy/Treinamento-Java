@@ -1,5 +1,6 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,7 @@ public final class ProdutoFabricaObjetos {
     public static String DESCRICAO_03;
     public static String DESCRICAO_04;
     public static String DESCRICAO_05;
+    public static BigDecimal PRECO_01;
     public static Produto PRODUTO_ATRIBUTOS_OBRIGATORIOS;
     public static Produto OUTRO_PRODUTO_ATRIBUTOS_OBRIGATORIOS;
     public static Produto PRODUTO_TODOS_ATRIBUTOS;
@@ -41,6 +43,9 @@ public final class ProdutoFabricaObjetos {
     public static Produto PRODUTO_05;
     public static List<Produto> PRODUTOS;
     public static List<Produto> LISTA_PRODUTOS_ACIMA_LIMITE;
+    
+    public static BigDecimal PRECO_ABAIXO_MIN;
+    public static BigDecimal PRECO_ACIMA_MAX;
     
     static void construirProduto() {
         NOME_PRODUTO_01 = "Gestao SST";
@@ -63,14 +68,15 @@ public final class ProdutoFabricaObjetos {
         DESCRICAO_03 = "migracao de dados entre gestao emp. e simplifique";
         DESCRICAO_04 = "produto para testes";
         DESCRICAO_05 = "teste de software";
-        PRODUTO_01 = new Produto(NOME_PRODUTO_01, VERSAO_01, CODIGO_01, DESCRICAO_01);
-        PRODUTO_02 = new Produto(NOME_PRODUTO_02, VERSAO_02, CODIGO_02, DESCRICAO_02);
-        PRODUTO_03 = new Produto(NOME_PRODUTO_03, VERSAO_03, CODIGO_03, DESCRICAO_03);
-        PRODUTO_04 = new Produto(NOME_PRODUTO_04, VERSAO_04, CODIGO_04, DESCRICAO_04);
-        PRODUTO_05 = new Produto(NOME_PRODUTO_05, VERSAO_05, CODIGO_05, DESCRICAO_05);
+        PRECO_01 = new BigDecimal("500000");
+        PRODUTO_01 = new Produto(NOME_PRODUTO_01, VERSAO_01, CODIGO_01, DESCRICAO_01, PRECO_01);
+        PRODUTO_02 = new Produto(NOME_PRODUTO_02, VERSAO_02, CODIGO_02, DESCRICAO_02, PRECO_01);
+        PRODUTO_03 = new Produto(NOME_PRODUTO_03, VERSAO_03, CODIGO_03, DESCRICAO_03, PRECO_01);
+        PRODUTO_04 = new Produto(NOME_PRODUTO_04, VERSAO_04, CODIGO_04, DESCRICAO_04, PRECO_01);
+        PRODUTO_05 = new Produto(NOME_PRODUTO_05, VERSAO_05, CODIGO_05, DESCRICAO_05, PRECO_01);
         PRODUTO_ATRIBUTOS_OBRIGATORIOS = new Produto(CODIGO_01);
         OUTRO_PRODUTO_ATRIBUTOS_OBRIGATORIOS = new Produto(CODIGO_02);
-        PRODUTO_TODOS_ATRIBUTOS = new Produto(NOME_PRODUTO_01, VERSAO_01, CODIGO_01, DESCRICAO_01);
+        PRODUTO_TODOS_ATRIBUTOS = new Produto(NOME_PRODUTO_01, VERSAO_01, CODIGO_01, DESCRICAO_01, PRECO_01);
         PRODUTOS = new ArrayList<>();
         PRODUTOS.add(PRODUTO_01);
         PRODUTOS.add(PRODUTO_02);
@@ -79,6 +85,9 @@ public final class ProdutoFabricaObjetos {
         PRODUTOS.add(PRODUTO_05);
         LISTA_PRODUTOS_ACIMA_LIMITE = new ArrayList<>();
         LISTA_PRODUTOS_ACIMA_LIMITE.addAll(PRODUTOS);
-        LISTA_PRODUTOS_ACIMA_LIMITE.add(PRODUTO_01);          
+        LISTA_PRODUTOS_ACIMA_LIMITE.add(PRODUTO_01);
+        
+        PRECO_ABAIXO_MIN = BigDecimal.ZERO;
+        PRECO_ACIMA_MAX = new BigDecimal("1000001");
     }
 }

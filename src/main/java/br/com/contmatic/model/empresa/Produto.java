@@ -4,6 +4,10 @@ package br.com.contmatic.model.empresa;
 
 import br.com.contmatic.model.auditoria.Auditoria;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNumeroEntre;
+
+import java.math.BigDecimal;
+
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.*;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS_COM_PONTO;
@@ -18,6 +22,8 @@ public class Produto extends Auditoria {
     private String codigo;
 
     private String descricao;
+    
+    private BigDecimal preco;
 
     private Empresa empresa;
 
@@ -25,11 +31,12 @@ public class Produto extends Auditoria {
         setCodigo(codigo);
     }
 
-    public Produto(String nome, String versao, String codigo, String descricao) {
+    public Produto(String nome, String versao, String codigo, String descricao, BigDecimal preco) {
         setNome(nome);
         setVersao(versao);
         setCodigo(codigo);
         setDescricao(descricao);
+        setPreco(preco);
     }
 
     public String getNome() {
@@ -66,6 +73,15 @@ public class Produto extends Auditoria {
     public void setDescricao(String descricao) {
         validarExpressaoRegularETamanho(descricao, DESCRICAO_PRODUTO_INVALIDA, NAO_VALIDAR_CHARS_REPETIDOS);
         this.descricao = descricao;
+    }
+    
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        validarNumeroEntre(preco, PRECO_MIN_PRODUTO, PRECO_MAX_PRODUTO, PRECO_PRODUTO_INVALIDO);
+        this.preco = preco;
     }
 
     public Empresa getEmpresa() {

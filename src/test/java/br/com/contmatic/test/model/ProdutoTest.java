@@ -31,6 +31,7 @@ public class ProdutoTest {
 		assertEquals(CODIGO_01, PRODUTO_TODOS_ATRIBUTOS.getCodigo());
 		assertEquals(EMPRESA_TODOS_ATRIBUTOS, PRODUTO_TODOS_ATRIBUTOS.getEmpresa());
 		assertEquals(DESCRICAO_01, PRODUTO_TODOS_ATRIBUTOS.getDescricao());
+		assertEquals(PRECO_01, PRODUTO_TODOS_ATRIBUTOS.getPreco());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -138,4 +139,14 @@ public class ProdutoTest {
     public void test_31_validar_empresa_nulo() {
         PRODUTO_01.setEmpresa(null);
     }
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_32_validar_preco_abaixo_limite() {
+	    PRODUTO_01.setPreco(PRECO_ABAIXO_MIN);
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void test_33_validar_preco_acima_limite() {
+	    PRODUTO_01.setPreco(PRECO_ABAIXO_MIN);
+	}
 }
