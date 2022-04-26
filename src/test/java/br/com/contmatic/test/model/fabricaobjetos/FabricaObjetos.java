@@ -7,10 +7,10 @@ import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.con
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_01;
 import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.construirEmail;
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.construirEmpresa;
+import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.setDemaisDadosEmpresa;
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.construirEndereco;
 import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.construirFuncionario;
-import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.FUNCIONARIO_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.construirProduto;
 import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.PRODUTO_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.construirTelefone;
@@ -25,6 +25,7 @@ public final class FabricaObjetos {
     
     public static final void construirObjetos() {
         construirComumErro();
+        construirEmpresa();
         construirEmail();
         construirTelefone();
         construirUnidadeFederativa();
@@ -33,18 +34,16 @@ public final class FabricaObjetos {
         construirCargo();
         construirAmbienteTrabalho();
         construirFuncionario();
-        construirEmpresa();
-        construirEmpresa();
         construirAuditoria();
         relacionarAuditoria();
-        relacionarEmpresa();
+        setDemaisDadosEmpresa();
+        relacionarEmpresaDemaisClasses();
     }
     
-    private static final void relacionarEmpresa() {
+    private static final void relacionarEmpresaDemaisClasses() {
         PRODUTO_TODOS_ATRIBUTOS.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
         CARGO_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
-        AMBIENTE_TRAB_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);   
+        AMBIENTE_TRAB_01.setEmpresa(EMPRESA_TODOS_ATRIBUTOS);   
     }
     
     private static final void relacionarAuditoria() {

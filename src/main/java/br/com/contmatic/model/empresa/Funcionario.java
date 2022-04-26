@@ -55,18 +55,19 @@ public class Funcionario extends Auditoria {
     
     private Boolean ativo = true;
     
-    public Funcionario(String cpf) {
+    public Funcionario(String cpf, Empresa empresa) {
         this.setCpf(cpf);
+        this.setEmpresa(empresa);
     }
-
-    public Funcionario(String cpf, String nome, LocalDate dataNascimento, Endereco endereco, String setor, Cargo cargo, BigDecimal salario) {
+    
+    public Funcionario(String cpf, String nome, LocalDate dataNascimento, Endereco endereco, Cargo cargo, BigDecimal salario, Empresa empresa) {
         setCpf(cpf);
         setNome(nome);
         setDataNascimento(dataNascimento);
         setEndereco(endereco);
-        setSetor(setor);
         setCargo(cargo);
         setSalario(salario);
+        setEmpresa(empresa);
     }
 
     public String getCpf() {

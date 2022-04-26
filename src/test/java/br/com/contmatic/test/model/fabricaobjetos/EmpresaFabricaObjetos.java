@@ -26,6 +26,7 @@ public final class EmpresaFabricaObjetos {
     public static String AREA_ATUACAO;
     public static Empresa EMPRESA_TODOS_ATRIBUTOS;
     public static Empresa EMPRESA_ATRIBUTOS_OBRIGATORIOS;
+    public static Empresa EMPRESA_ATRIBUTOS_OBRIGATORIOS_02;
     
     public static String CNPJ_INVALIDO;
     public static String CNPJ_NUMEROS_REPETIDOS;
@@ -42,20 +43,24 @@ public final class EmpresaFabricaObjetos {
         NOME_FANTASIA = "CONTMATIC ... LTDA";
         OUTRO_NOME_FANTASIA = "Teste CONTMATIC";
         AREA_ATUACAO = "Software";     
-        EMPRESA_TODOS_ATRIBUTOS = new Empresa(CNPJ_02, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);
+        EMPRESA_TODOS_ATRIBUTOS = new Empresa(CNPJ_02, RAZAO_SOCIAL, NOME_FANTASIA, AREA_ATUACAO);   
+        EMPRESA_ATRIBUTOS_OBRIGATORIOS = new Empresa(CNPJ_02);
+        EMPRESA_ATRIBUTOS_OBRIGATORIOS_02 = new Empresa(CNPJ);
+        
+        CNPJ_INVALIDO = "58119371000178";
+        CNPJ_NUMEROS_REPETIDOS = "11111111111111";
+        CNPJ_COM_LETRA = "5811937a00017";
+        CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE = "123456789012345";
+    }
+    
+    static void setDemaisDadosEmpresa() {
         EMPRESA_TODOS_ATRIBUTOS.setEmails(EMAILS);
         EMPRESA_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
         EMPRESA_TODOS_ATRIBUTOS.setEnderecos(ENDERECOS);
         EMPRESA_TODOS_ATRIBUTOS.setFuncionarios(FUNCIONARIOS);
         EMPRESA_TODOS_ATRIBUTOS.setProdutos(PRODUTOS);
         EMPRESA_TODOS_ATRIBUTOS.setCargos(CARGOS);
-        EMPRESA_TODOS_ATRIBUTOS.setAmbientesTrabalho(AMBIENTES_DE_TRABALHO);    
-        EMPRESA_ATRIBUTOS_OBRIGATORIOS = new Empresa(CNPJ_02);
-        
-        CNPJ_INVALIDO = "58119371000178";
-        CNPJ_NUMEROS_REPETIDOS = "11111111111111";
-        CNPJ_COM_LETRA = "5811937a00017";
-        CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE = "123456789012345";
+        EMPRESA_TODOS_ATRIBUTOS.setAmbientesTrabalho(AMBIENTES_DE_TRABALHO); 
     }
 
 }
