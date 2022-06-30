@@ -7,6 +7,8 @@ import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.ALFANU
 import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.*;
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class UnidadeFederativa {
     
     private Integer codigo;
@@ -67,11 +69,7 @@ public class UnidadeFederativa {
     
     @Override
     public String toString() {
-        return new StringBuilder().
-            append("\ncodigo: ").append(codigo).
-            append("\nuf: ").append(sigla).
-            append("\nnome: ").append(nome).
-            toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

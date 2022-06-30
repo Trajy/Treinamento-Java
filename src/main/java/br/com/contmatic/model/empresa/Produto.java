@@ -8,6 +8,8 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNumer
 
 import java.math.BigDecimal;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.*;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS_COM_PONTO;
@@ -115,13 +117,7 @@ public class Produto extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("nome: ").append(nome).
-            append("versao: ").append(versao).
-            append("codigo: ").append(codigo).
-            append("descricao: ").append(descricao).
-            append("auditoria:").append(super.toString());
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

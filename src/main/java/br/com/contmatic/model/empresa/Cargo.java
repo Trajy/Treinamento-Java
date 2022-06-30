@@ -2,6 +2,9 @@ package br.com.contmatic.model.empresa;
 
 import br.com.contmatic.model.auditoria.Auditoria;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.CargoConstantes.*;
 import static br.com.contmatic.model.utils.constantes.AmbienteTrabalhoConstantes.NOME_AMBIENTE_TRABALHO_INVALIDO;
@@ -86,13 +89,7 @@ public class Cargo extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("cbo: ").append(cbo).
-            append(", descricao: ").append(descricao).
-            append(", nome: ").append(nome).
-            append("\nauditoria:").append(super.toString()).
-            append("\n");
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

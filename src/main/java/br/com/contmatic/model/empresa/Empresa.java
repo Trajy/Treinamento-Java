@@ -3,6 +3,8 @@ package br.com.contmatic.model.empresa;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import br.com.contmatic.model.auditoria.Auditoria;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
@@ -183,21 +185,7 @@ public class Empresa extends Auditoria {
 
     @Override
     public String toString() {
-        
-        StringBuilder stringBuilder = new StringBuilder().
-            append("razao social: ").append(razaoSocial).
-            append(", nome fantasia: ").append(nomeFantasia).
-            append(", cnpj: ").append(cnpj).
-            append(", area de atuacao: ").append(areaAtuacao).
-            append(", e-mails: ").append(emails).
-            append(", telefones: ").append(telefones).
-            append(", enderecos: ").append(enderecos).
-            append(", produtos: ").append(produtos).
-            append(", funcionarios: ").append(funcionarios).
-            append(", cargos': ").append(cargos).
-            append(", ambientes de trabalho: ").append(ambientesTrabalho).
-            append("\n");
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

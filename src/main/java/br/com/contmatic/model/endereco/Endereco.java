@@ -2,6 +2,8 @@ package br.com.contmatic.model.endereco;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import br.com.contmatic.model.auditoria.Auditoria;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
@@ -110,13 +112,7 @@ public class Endereco extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("numero: ").append(numero).
-            append("\ncep: ").append(cep).
-            append("\nrua: ").append(rua).
-            append("\nbairro: ").append(bairro).
-            append("\n").append(cidade);
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

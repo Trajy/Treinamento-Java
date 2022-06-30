@@ -1,6 +1,9 @@
 package br.com.contmatic.model.contato;
 
 import java.util.Objects;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.*;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
@@ -71,11 +74,7 @@ public class Telefone {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("ddi: " + ddi).
-            append("\nddd: " + ddd).
-            append("\nnumero: " + numero);
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

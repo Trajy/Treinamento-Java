@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import br.com.contmatic.model.auditoria.Auditoria;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
@@ -206,20 +208,7 @@ public class Funcionario extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("funcinario: ").append(nome).
-            append("\ncpf: ").append(cpf).
-            append("\nrg: ").append(rg).
-            append("\ndata de nascimento: ").append(dataNascimento).
-            append("\nendereco: ").append(endereco).
-            append("\ncargo: ").append(cargo).
-            append("\nsetor: ").append(setor).
-            append("\nambiente de tabalho: ").append(ambienteTrabalho).
-            append("\ntelefones: ").append(telefones).
-            append("\nemails: ").append(emails).
-            append("\nsalario: ").append(salario).
-            append("\nauditoria:").append(super.toString());
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

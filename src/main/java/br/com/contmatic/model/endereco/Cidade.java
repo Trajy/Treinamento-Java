@@ -2,6 +2,8 @@ package br.com.contmatic.model.endereco;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
@@ -74,11 +76,7 @@ public final class Cidade {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("cidade: ").append(nome).
-            append("\nestado: ").append(uf).
-            append("\npais: ").append(pais);
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

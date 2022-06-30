@@ -2,6 +2,8 @@ package br.com.contmatic.model.empresa;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import br.com.contmatic.model.auditoria.Auditoria;
 import br.com.contmatic.model.endereco.Endereco;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
@@ -111,14 +113,7 @@ public class AmbienteTrabalho extends Auditoria {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("nome: ").append(nome).
-            append("\ntipo de estabelecimento: ").append(tipoEstabelecimento).
-            append("\nendereco: ").append(endereco).
-            append("\nresponsavel: ").append(responsavel).
-            append("\ndescricao: ").append(descricao).
-            append("\nauditoria:").append(super.toString());
-        return stringBuilder.toString(); 
+        return ToStringBuilder.reflectionToString(this); 
     }
     
 }

@@ -1,6 +1,9 @@
 package br.com.contmatic.model.contato;
 
 import java.util.Objects;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import static br.com.contmatic.model.utils.validacao.ValidacaoContato.validarEmail;
 
 public class Email {
@@ -39,9 +42,7 @@ public class Email {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-            append("email: ").append(enderecoEmail);
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

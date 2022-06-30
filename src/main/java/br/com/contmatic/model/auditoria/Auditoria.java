@@ -12,6 +12,8 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarAgora
 
 import java.time.LocalDateTime;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public abstract class Auditoria {
     
     private String nomeUsuarioCriacao;
@@ -82,13 +84,6 @@ public abstract class Auditoria {
     
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder().
-                append("\nCriado por: ").append(nomeUsuarioCriacao).
-                append("\nData de Criaca: ").append(dataCriacao).
-                append("\nip de Criacao: ").append(ipCriacao).
-                append("\nAlterado por: ").append(nomeUsuarioAlteracao).
-                append("\nData de Alteracao: ").append(dataAlteracao).
-                append("\nip de Alteracao: ").append(ipAlteracao);
-        return stringBuilder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 }
