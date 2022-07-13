@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.*;
@@ -58,7 +59,7 @@ public class Telefone {
 
     @Override
     public int hashCode() {
-        return Objects.hash(ddd, numero);
+        return reflectionHashCode(this, "ddi");
     }
 
     @Override

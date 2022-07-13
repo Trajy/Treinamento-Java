@@ -1,20 +1,29 @@
 package br.com.contmatic.model.empresa;
 
-
-
-import br.com.contmatic.model.auditoria.Auditoria;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS_COM_PONTO;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.CODIGO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.DESCRICAO_PRODUTO_INVALIDA;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.NOME_PRODUTO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.PRECO_MAX_PRODUTO;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.PRECO_MIN_PRODUTO;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.PRECO_PRODUTO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.PRODUTO_CODIGO_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.PRODUTO_CODIGO_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.PRODUTO_VERSAO_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.PRODUTO_VERSAO_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.VERSAO_INVALIDA;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNumeroEntre;
-
-import java.math.BigDecimal;
-
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
-import static br.com.contmatic.model.utils.constantes.ProdutoConstantes.*;
-import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS_COM_PONTO;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import java.math.BigDecimal;
+
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import br.com.contmatic.model.auditoria.Auditoria;
 
 public class Produto extends Auditoria {
 
@@ -98,10 +107,9 @@ public class Produto extends Auditoria {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + codigo.hashCode();
-        return result;
+        return new HashCodeBuilder()
+                .append(this.getCodigo())
+                .hashCode();
     }
 
     @Override

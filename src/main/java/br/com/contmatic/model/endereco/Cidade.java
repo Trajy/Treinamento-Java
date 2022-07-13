@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
@@ -60,7 +61,7 @@ public final class Cidade {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, uf, pais);
+        return reflectionHashCode(this);
     }
 
     @Override

@@ -1,26 +1,39 @@
 package br.com.contmatic.model.empresa;
 
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.AREA_ATUACAO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_AMBIENTE_DE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_AMBIENTE_TRABALHO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_CARGOS_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_CARGO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_ENDERECO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_ENDERECO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_FUNCIONARIO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_FUNCIONARIO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_PRODUTOS_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.LISTA_PRODUTO_QTD_MAX;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.NOME_FANTASIA_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.EmpresaContantes.RAZAO_SOCIAL_INVALIDO;
+import static br.com.contmatic.model.utils.validacao.ValidacaoCnpj.validarCnpj;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
+import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
+import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
 import java.util.List;
 import java.util.Objects;
 
-import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
-import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
 import br.com.contmatic.model.contato.Email;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.endereco.Endereco;
-
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarLista;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
-import static br.com.contmatic.model.utils.validacao.ValidacaoCnpj.validarCnpj;
-import static br.com.contmatic.model.utils.constantes.EmpresaContantes.*;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_QTD_MAX;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_TELEFONE_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.LISTA_EMAIL_INVALIDO;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 public class Empresa extends Auditoria {
 
@@ -169,7 +182,9 @@ public class Empresa extends Auditoria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(cnpj);
+        return new HashCodeBuilder()
+                .append(this.getCnpj())
+                .hashCode();
     }
 
     @Override

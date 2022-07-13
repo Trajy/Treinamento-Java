@@ -1,19 +1,23 @@
 package br.com.contmatic.model.empresa;
 
-import java.util.Objects;
-
+import static br.com.contmatic.model.utils.constantes.AmbienteTrabalhoConstantes.NOME_AMBIENTE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.AmbienteTrabalhoConstantes.RESPONSAVEL_AMBIENTE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.AmbienteTrabalhoConstantes.TIPO_AMBIENTE_TRABALHO_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MAX;
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MIN;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
+import java.util.Objects;
+
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import br.com.contmatic.model.auditoria.Auditoria;
 import br.com.contmatic.model.endereco.Endereco;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
-import static br.com.contmatic.model.utils.constantes.AmbienteTrabalhoConstantes.*;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MIN;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.NOME_MAX;
-import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.LETRAS;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
 
 public class AmbienteTrabalho extends Auditoria {
 
@@ -97,7 +101,10 @@ public class AmbienteTrabalho extends Auditoria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, responsavel);
+        return new HashCodeBuilder()
+            .append(this.getNome())
+            .append(this.getResponsavel())
+            .hashCode();
     }
 
     @Override

@@ -5,6 +5,7 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.CargoConstantes.*;
@@ -70,10 +71,7 @@ public class Cargo extends Auditoria {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + cbo.hashCode();
-        return result;
+        return new HashCodeBuilder().append(this.getCBO()).hashCode();
     }
 
     @Override

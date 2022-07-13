@@ -1,14 +1,21 @@
 package br.com.contmatic.model.endereco;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
-import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
 import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.ALFANUMERICO;
-import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.*;
-import java.util.Objects;
-
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
+import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.CODIGO_UF_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.NOME_UF_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.SIGLA_UF_INVALIDA;
+import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.TAMANHO_MAX_CODIGO;
+import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.TAMANHO_MIN_CODIGO;
+import static br.com.contmatic.model.utils.constantes.UnidadeFederativaConstantes.TAMANHO_SIGLA;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
+import java.util.Objects;
+
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class UnidadeFederativa {
     
@@ -53,7 +60,7 @@ public class UnidadeFederativa {
     
     @Override
     public int hashCode() {
-        return Objects.hash(codigo);
+        return new HashCodeBuilder().append(this.getCodigo()).hashCode();
     }
     
     @Override
