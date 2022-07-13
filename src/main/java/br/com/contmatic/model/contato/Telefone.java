@@ -2,6 +2,10 @@ package br.com.contmatic.model.contato;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
+import br.com.contmatic.model.endereco.Endereco;
+
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
@@ -64,14 +68,20 @@ public class Telefone {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof Telefone)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Telefone other = (Telefone) obj;
-        return Objects.equals(ddd, other.ddd) && Objects.equals(numero, other.numero);
+        }
+        Telefone o = (Telefone) obj;
+        return new EqualsBuilder()
+                .append(this.getDdd(), o.getDdd())
+                .append(this.getNumero(), o.getNumero())
+                .isEquals();
     }
 
     @Override

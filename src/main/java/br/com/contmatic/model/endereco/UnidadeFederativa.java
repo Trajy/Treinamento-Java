@@ -15,6 +15,7 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class UnidadeFederativa {
@@ -65,14 +66,19 @@ public class UnidadeFederativa {
     
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof UnidadeFederativa)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        UnidadeFederativa other = (UnidadeFederativa) obj;
-        return Objects.equals(codigo, other.codigo);
+        }
+        UnidadeFederativa o = (UnidadeFederativa) obj;
+        return new EqualsBuilder()
+                .append(this.getCodigo(), o.getCodigo())
+                .isEquals();
     }
     
     @Override

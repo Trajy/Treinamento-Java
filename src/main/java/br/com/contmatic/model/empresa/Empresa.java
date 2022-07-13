@@ -28,6 +28,7 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
@@ -189,14 +190,19 @@ public class Empresa extends Auditoria {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof Empresa)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Empresa other = (Empresa) obj;
-        return Objects.equals(cnpj, other.cnpj);
+        }
+        Empresa o = (Empresa) obj;
+        return new EqualsBuilder()
+                .append(this.getCnpj(), o.getCnpj())
+                .isEquals();
     }
 
     @Override

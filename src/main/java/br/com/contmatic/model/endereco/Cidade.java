@@ -2,6 +2,8 @@ package br.com.contmatic.model.endereco;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
@@ -66,14 +68,21 @@ public final class Cidade {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof Cidade)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Cidade other = (Cidade) obj;
-        return Objects.equals(nome, other.nome) && Objects.equals(uf, other.uf) && Objects.equals(pais, other.pais);
+        }
+        Cidade o = (Cidade) obj;
+        return new EqualsBuilder()
+                .append(this.getNome(), o.getNome())
+                .append(this.getUf(), o.getUf())
+                .append(this.getPais(), o.getPais())
+                .isEquals();
     }
 
     @Override

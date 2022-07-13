@@ -31,6 +31,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
@@ -208,14 +209,19 @@ public class Funcionario extends Auditoria {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof Funcionario)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Funcionario other = (Funcionario) obj;
-        return Objects.equals(cpf, other.cpf);
+        }
+        Funcionario o = (Funcionario) obj;
+        return new EqualsBuilder()
+                .append(this.getCpf(), o.getCpf())
+                .isEquals();
     }
 
     @Override

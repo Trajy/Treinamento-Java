@@ -22,6 +22,7 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
@@ -106,14 +107,20 @@ public class Endereco extends Auditoria {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof Endereco)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Endereco other = (Endereco) obj;
-        return Objects.equals(cep, other.cep) && Objects.equals(numero, other.numero);
+        }
+        Endereco o = (Endereco) obj;
+        return new EqualsBuilder()
+                .append(this.getCEP(), o.getCEP())
+                .append(this.getNumero(), o.getNumero())
+                .isEquals();
     }
 
     @Override

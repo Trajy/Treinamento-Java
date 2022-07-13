@@ -14,6 +14,7 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
@@ -109,14 +110,20 @@ public class AmbienteTrabalho extends Auditoria {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof AmbienteTrabalho)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        AmbienteTrabalho other = (AmbienteTrabalho) obj;
-        return Objects.equals(nome, other.nome) && Objects.equals(responsavel, other.responsavel);
+        }
+        AmbienteTrabalho o = (AmbienteTrabalho) obj;
+        return new EqualsBuilder()
+                .append(this.getNome(), o.getNome())
+                .append(this.getResponsavel(), o.getResponsavel())
+                .isEquals();
     }
 
     @Override

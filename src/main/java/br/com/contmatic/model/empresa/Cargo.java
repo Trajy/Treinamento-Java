@@ -1,10 +1,14 @@
 package br.com.contmatic.model.empresa;
 
 import br.com.contmatic.model.auditoria.Auditoria;
+import br.com.contmatic.model.endereco.Endereco;
+
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
@@ -76,14 +80,19 @@ public class Cargo extends Auditoria {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof Cargo)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Cargo other = (Cargo) obj;
-        return cbo.equals(other.cbo);
+        }
+        Cargo o = (Cargo) obj;
+        return new EqualsBuilder()
+                .append(this.getCBO(), o.getCBO())
+                .isEquals();
     }
 
     @Override

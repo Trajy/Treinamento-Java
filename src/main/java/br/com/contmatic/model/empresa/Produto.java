@@ -21,9 +21,11 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 import java.math.BigDecimal;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
+import br.com.contmatic.model.endereco.Endereco;
 
 public class Produto extends Auditoria {
 
@@ -114,14 +116,19 @@ public class Produto extends Auditoria {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
             return true;
-        if (obj == null)
+        }
+        if(!(obj instanceof Produto)) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Produto other = (Produto) obj;
-        return codigo.equals(other.codigo);
+        }
+        Produto o = (Produto) obj;
+        return new EqualsBuilder()
+                .append(this.getCodigo(), o.getCodigo())
+                .isEquals();
     }
 
     @Override
