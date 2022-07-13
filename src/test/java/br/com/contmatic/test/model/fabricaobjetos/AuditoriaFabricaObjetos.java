@@ -19,8 +19,9 @@ public class AuditoriaFabricaObjetos {
         IP_CRIACAO = "192.168.255.255";
         IP_ALTERACAO = "253.199.56.2";
         HOJE = LocalDateTime.now();
-        DATA_CRIACAO = LocalDateTime.of(HOJE.getYear(), HOJE.getMonth(), HOJE.getDayOfMonth() - 2, HOJE.getHour(), HOJE.getMinute());
-        DATA_ALTERACAO = LocalDateTime.of(HOJE.getYear(), HOJE.getMonth(), HOJE.getDayOfMonth() - 1, HOJE.getHour(), HOJE.getMinute());
+        
+        DATA_CRIACAO = LocalDateTime.of(HOJE.getYear(), HOJE.getMonth(), HOJE.minusDays(2).getDayOfMonth(), HOJE.getHour(), HOJE.getMinute());
+        DATA_ALTERACAO = LocalDateTime.of(HOJE.getYear(), HOJE.getMonth(), HOJE.minusDays(1).getDayOfMonth(), HOJE.getHour(), HOJE.getMinute());
         
     }
 

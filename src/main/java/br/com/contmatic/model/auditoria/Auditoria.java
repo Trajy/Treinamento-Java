@@ -13,6 +13,7 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarAgora
 import java.time.LocalDateTime;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public abstract class Auditoria {
     
@@ -80,10 +81,5 @@ public abstract class Auditoria {
     public void setIpAlteracao(String ipAlteracao) {
         validarExpressaoRegularETamanho(ipAlteracao, IP, IP_INVALIDO, NAO_VALIDAR_CHARS_REPETIDOS);
         this.ipAlteracao = ipAlteracao;
-    }
-    
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
     }
 }
