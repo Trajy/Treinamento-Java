@@ -2,8 +2,8 @@ package br.com.contmatic.model.endereco;
 
 import java.util.Objects;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
+import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 import br.com.contmatic.model.auditoria.Auditoria;
 import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
@@ -113,7 +113,7 @@ public class Endereco extends Auditoria {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        return reflectionToString(this, SHORT_PREFIX_STYLE);
     }
 
 }
