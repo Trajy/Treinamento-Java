@@ -11,19 +11,26 @@ import br.com.six2six.fixturefactory.Rule;
 
 public final class EmailFabricaObjetos {
     
-    public static Integer TAMANHO_MAX_EMAIL;
-    public static Integer TAMANHO_COMUM_EMAIL;
-    public static Integer QTD_MAX_EMAILS;
-    public static Integer ACIMA_LIMITE_EMAILS;
-    public static String DOMINIO_CONTMATIC;
-    public static String EMAIL_SEM_ARROBA;
-    public static String EMAIL_COM_ARROBA_INICIO;
+    public static final Integer TAMANHO_MAX_EMAIL;
+    public static final Integer TAMANHO_COMUM_EMAIL;
+    public static final Integer QTD_MAX_EMAILS;
+    public static final Integer ACIMA_LIMITE_EMAILS;
+    public static final String DOMINIO_CONTMATIC;
+    public static final String EMAIL_SEM_ARROBA;
+    public static final String EMAIL_COM_ARROBA_INICIO;
+    public static final Integer QTD_EMAILS_IGUAIS;
+    public static final Integer INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01;
+    public static final Integer INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02;
+    public static Email EMAIL_TODOS_ARGS;
+    public static List<Email> EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
     
     private EmailFabricaObjetos() {
         
     }
     
     static {
+        fabricarEmails();
+        
         TAMANHO_MAX_EMAIL = 40;
         TAMANHO_COMUM_EMAIL = 25;
         QTD_MAX_EMAILS = 4;
@@ -31,9 +38,19 @@ public final class EmailFabricaObjetos {
         DOMINIO_CONTMATIC = "contmatic.com.br";
         EMAIL_SEM_ARROBA = new StringBuilder(firstName()).append(DOMINIO_CONTMATIC).toString();
         EMAIL_COM_ARROBA_INICIO = new StringBuilder("@").append(DOMINIO_CONTMATIC).toString();
+        QTD_EMAILS_IGUAIS = 2;
+        INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01 = 0;
+        INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02 = 1;
+        EMAIL_TODOS_ARGS = Fixture.from(Email.class).gimme("todosArgs");
+        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = getEmailsIguais(QTD_EMAILS_IGUAIS);
+        
     }
     
-    public static void construirEmails() {
+    private static List<Email> getEmailsIguais(Integer quantidade){
+        return Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
+    }
+    
+    private static void fabricarEmails() {
         Fixture.of(Email.class).addTemplate("obrigatoriosArgs", new Rule() {{
             add("enderecoEmail", email(TAMANHO_MAX_EMAIL, "contmatic.com.br"));
         }});
@@ -41,12 +58,6 @@ public final class EmailFabricaObjetos {
         Fixture.of(Email.class).addTemplate("todosArgs", new Rule() {{
             add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, "contmatic.com.br"));
         }});
-    }
-    
-    public static List<Email> getEmailsIguais(Integer quantidade){
-        List<Email> lista = Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
-        lista.forEach(x -> x.setEmail(lista.get(0).getEmail()));
-        return lista;
     }
 
 }
