@@ -21,8 +21,8 @@ public final class EmailFabricaObjetos {
     public static final Integer QTD_EMAILS_IGUAIS;
     public static final Integer INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01;
     public static final Integer INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02;
-    public static Email EMAIL_TODOS_ARGS;
-    public static List<Email> EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
+    public static final Email EMAIL_TODOS_ARGS;
+    public static final List<Email> EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
     
     private EmailFabricaObjetos() {
         
@@ -43,8 +43,7 @@ public final class EmailFabricaObjetos {
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01 = 0;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02 = 1;
         EMAIL_TODOS_ARGS = Fixture.from(Email.class).gimme("todosArgs");
-        
-        definirEmailsIguais(QTD_EMAILS_IGUAIS);
+        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = Fixture.from(Email.class).gimme(QTD_EMAILS_IGUAIS, "obrigatoriosArgs");
         
     }
     
@@ -57,9 +56,4 @@ public final class EmailFabricaObjetos {
             add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
         }});
     }
-    
-    private static void definirEmailsIguais(Integer quantidade){
-        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
-    }
-
 }
