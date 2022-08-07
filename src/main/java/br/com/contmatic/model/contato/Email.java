@@ -1,23 +1,18 @@
 package br.com.contmatic.model.contato;
 
-import java.util.Objects;
-
-import org.apache.commons.lang3.builder.EqualsBuilder;
-
-import br.com.contmatic.model.endereco.Endereco;
-
+import static br.com.contmatic.model.utils.validacao.ValidacaoContato.validarEmail;
 import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoContato.validarEmail;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class Email {
 
     private String enderecoEmail;
 
-    public Email(String email) {
-        setEmail(email);
+    public Email(String enderecoEmail) {
+        setEmail(enderecoEmail);
     }
 
     public String getEmail() {
