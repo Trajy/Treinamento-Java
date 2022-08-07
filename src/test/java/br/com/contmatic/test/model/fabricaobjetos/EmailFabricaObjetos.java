@@ -2,6 +2,8 @@ package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.six2six.bfgex.RandomGen.email;
 import static br.com.six2six.bfgex.RandomGen.firstName;
+import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
+import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 
 import java.util.List;
 
@@ -11,8 +13,6 @@ import br.com.six2six.fixturefactory.Rule;
 
 public final class EmailFabricaObjetos {
     
-    public static String TODOS_ARGS;
-    public static String OBRIGATORIOS_ARGS;
     public static Integer TAMANHO_MAX_EMAIL;
     public static Integer TAMANHO_COMUM_EMAIL;
     public static Integer QTD_MAX_EMAILS;
@@ -31,16 +31,10 @@ public final class EmailFabricaObjetos {
     }
     
     static {
-        atribuirFixtureFactoryTemplates();
         atribuirDados();
         atribuirValidacoes();         
         fabricarEmails();
         atribuirEmails();
-    }
-    
-    private static void atribuirFixtureFactoryTemplates() {
-        TODOS_ARGS = "todosArgs";
-        OBRIGATORIOS_ARGS = "obrigatoriosArgs"; 
     }
     
     private static void atribuirDados() {
@@ -57,11 +51,11 @@ public final class EmailFabricaObjetos {
     }
     
     private static void fabricarEmails() {
-        Fixture.of(Email.class).addTemplate("obrigatoriosArgs", new Rule() {{
+        Fixture.of(Email.class).addTemplate(OBRIGATORIOS_ARGS.name(), new Rule() {{
             add("enderecoEmail", email(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
         }});
         
-        Fixture.of(Email.class).addTemplate("todosArgs", new Rule() {{
+        Fixture.of(Email.class).addTemplate(TODOS_ARGS.name(), new Rule() {{
             add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
         }});
     }
@@ -70,8 +64,8 @@ public final class EmailFabricaObjetos {
         QTD_EMAILS_IGUAIS = 2;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01 = 0;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02 = 1;
-        EMAIL_TODOS_ARGS = Fixture.from(Email.class).gimme(TODOS_ARGS);
-        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = Fixture.from(Email.class).gimme(QTD_EMAILS_IGUAIS, OBRIGATORIOS_ARGS);
+        EMAIL_TODOS_ARGS = Fixture.from(Email.class).gimme(TODOS_ARGS.name());
+        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = Fixture.from(Email.class).gimme(QTD_EMAILS_IGUAIS, OBRIGATORIOS_ARGS.name());
     }
     
     
