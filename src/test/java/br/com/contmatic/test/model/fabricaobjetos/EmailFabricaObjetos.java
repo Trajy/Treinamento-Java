@@ -46,10 +46,6 @@ public final class EmailFabricaObjetos {
         
     }
     
-    private static List<Email> getEmailsIguais(Integer quantidade){
-        return Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
-    }
-    
     private static void fabricarEmails() {
         Fixture.of(Email.class).addTemplate("obrigatoriosArgs", new Rule() {{
             add("enderecoEmail", email(TAMANHO_MAX_EMAIL, "contmatic.com.br"));
@@ -58,6 +54,10 @@ public final class EmailFabricaObjetos {
         Fixture.of(Email.class).addTemplate("todosArgs", new Rule() {{
             add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, "contmatic.com.br"));
         }});
+    }
+    
+    private static List<Email> getEmailsIguais(Integer quantidade){
+        return Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
     }
 
 }
