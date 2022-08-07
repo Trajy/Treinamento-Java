@@ -54,12 +54,12 @@ public class CargoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_07_cbo_maior_que_permitido() {
-		CARGO_01.setCBO(TEXTO_COM_71_CHARS);
+		CARGO_01.setCBO(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_08_nome_nulo() {
-		CARGO_01.setNome(NULO);
+		CARGO_01.setNome(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -69,7 +69,7 @@ public class CargoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_10_nome_acima_max_chars() {
-		CARGO_01.setNome(TEXTO_COM_71_CHARS);
+		CARGO_01.setNome(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -84,7 +84,7 @@ public class CargoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_13_descricao_nula() {
-		CARGO_03.setDescricao(NULO);
+		CARGO_03.setDescricao(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -94,7 +94,7 @@ public class CargoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_15_descricao_acima_max_chars() {
-		CARGO_01.setDescricao(TEXTO_COM_71_CHARS);
+		CARGO_01.setDescricao(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)

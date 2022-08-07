@@ -1,9 +1,11 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_02;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
 import br.com.contmatic.model.empresa.AmbienteTrabalho;
 
 public final class AmbienteTrabalhoFabricaObjetos {

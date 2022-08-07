@@ -9,7 +9,8 @@ import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.E
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_ATRIBUTOS_OBRIGATORIOS_02;
 import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.ACIMA_LIMITE_EMAILS;
+import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.getEmailsIguais;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.*;
 import br.com.contmatic.model.empresa.Funcionario;
@@ -99,7 +100,7 @@ public final class FuncionarioFabricaObjetos {
         FUNCIONARIO_TODOS_ATRIBUTOS = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01 , ENDERECO_01, CARGO_01, SALARIO_01, EMPRESA_TODOS_ATRIBUTOS);
         FUNCIONARIO_TODOS_ATRIBUTOS.setSetor(SETOR_01);
         FUNCIONARIO_TODOS_ATRIBUTOS.setRg(RG_01);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(EMAILS);
+        FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(getEmailsIguais(ACIMA_LIMITE_EMAILS));
         FUNCIONARIO_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
         FUNCIONARIO_TODOS_ATRIBUTOS.setAmbienteTrabalho(AMBIENTE_TRAB_01);
         FUNCIONARIOS = new ArrayList<>();

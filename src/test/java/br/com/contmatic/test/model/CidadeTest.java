@@ -34,7 +34,7 @@ public class CidadeTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_02_CIDADE_nome_nulo() {
-		CIDADE.setNome(NULO);
+		CIDADE.setNome(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -54,7 +54,7 @@ public class CidadeTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_06_nome_CIDADE_acima_max_chars() {
-		CIDADE.setNome(TEXTO_COM_71_CHARS);
+		CIDADE.setNome(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -64,7 +64,7 @@ public class CidadeTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_12_pais_nulo() {
-		CIDADE.setPais(NULO);
+		CIDADE.setPais(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -79,7 +79,7 @@ public class CidadeTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_15_pais_abaixo_min_chars() {
-		CIDADE.setPais(TEXTO_COM_71_CHARS);
+		CIDADE.setPais(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)

@@ -36,7 +36,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_01_nome_produto_nulo() {
-		PRODUTO_TODOS_ATRIBUTOS.setNome(NULO);
+		PRODUTO_TODOS_ATRIBUTOS.setNome(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -46,7 +46,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_03_nome_produto_acima_max_chars() {
-		PRODUTO_TODOS_ATRIBUTOS.setNome(TEXTO_COM_71_CHARS);
+		PRODUTO_TODOS_ATRIBUTOS.setNome(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -61,7 +61,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_06_versao_produto_nula() {
-		PRODUTO_ATRIBUTOS_OBRIGATORIOS.setVersao(NULO);
+		PRODUTO_ATRIBUTOS_OBRIGATORIOS.setVersao(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -76,7 +76,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_08_1_versao_produto_maior_que_max_chars() {
-		PRODUTO_TODOS_ATRIBUTOS.setVersao(TEXTO_COM_71_CHARS);
+		PRODUTO_TODOS_ATRIBUTOS.setVersao(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -86,7 +86,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_09_codigo_produto_nula() {
-		PRODUTO_ATRIBUTOS_OBRIGATORIOS.setCodigo(NULO);
+		PRODUTO_ATRIBUTOS_OBRIGATORIOS.setCodigo(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -101,7 +101,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_11_1_codigo_produto_acima_max_chars() {
-		PRODUTO_TODOS_ATRIBUTOS.setCodigo(TEXTO_COM_71_CHARS);
+		PRODUTO_TODOS_ATRIBUTOS.setCodigo(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)

@@ -37,7 +37,7 @@ public class AmbienteTrabalhoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_03_validar_nome_nulo() {
-		AMBIENTE_TRAB_01.setNome(NULO);
+		AMBIENTE_TRAB_01.setNome(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -56,12 +56,12 @@ public class AmbienteTrabalhoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_07_validar_nome_com_maximo_de_chars_nome() {
-		AMBIENTE_TRAB_01.setNome(TEXTO_COM_71_CHARS);
+		AMBIENTE_TRAB_01.setNome(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_08_validar_tipo_de_estabelecimento_nulo() {
-		AMBIENTE_TRAB_01.setTipoEstabelecimento(NULO);
+		AMBIENTE_TRAB_01.setTipoEstabelecimento(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -80,7 +80,7 @@ public class AmbienteTrabalhoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_12_validar_tipo_de_estabelecimento_com_maximo_de_chars_nome() {
-		AMBIENTE_TRAB_01.setTipoEstabelecimento(TEXTO_COM_71_CHARS);
+		AMBIENTE_TRAB_01.setTipoEstabelecimento(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -90,7 +90,7 @@ public class AmbienteTrabalhoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_14_validar_responsavel_nulo() {
-		AMBIENTE_TRAB_01.setResponsavel(NULO);
+		AMBIENTE_TRAB_01.setResponsavel(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -118,7 +118,7 @@ public class AmbienteTrabalhoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_20_validar_responsavel_tamanho_maximo() {
-		AMBIENTE_TRAB_01.setResponsavel(TEXTO_COM_71_CHARS);
+		AMBIENTE_TRAB_01.setResponsavel(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)

@@ -1,12 +1,9 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
-import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.construirComumErro;
 import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.construirAmbienteTrabalho;
 import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.AMBIENTE_TRAB_01;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.construirCargo;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_01;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.construirEmail;
-import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.construirEmpresa;
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.setDemaisDadosEmpresa;
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.construirEndereco;
@@ -24,9 +21,6 @@ public final class FabricaObjetos {
     }
     
     public static final void construirObjetos() {
-        construirComumErro();
-        construirEmpresa();
-        construirEmail();
         construirTelefone();
         construirUnidadeFederativa();
         construirEndereco();

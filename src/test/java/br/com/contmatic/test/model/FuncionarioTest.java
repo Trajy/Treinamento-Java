@@ -40,7 +40,8 @@ public class FuncionarioTest {
 		assertEquals(CARGO_01, FUNCIONARIO_TODOS_ATRIBUTOS.getCargo());
 		assertEquals(SALARIO_01, FUNCIONARIO_TODOS_ATRIBUTOS.getSalario());
 		assertEquals(RG_01, FUNCIONARIO_TODOS_ATRIBUTOS.getRg());
-		assertEquals(EMAILS, FUNCIONARIO_TODOS_ATRIBUTOS.getEmails());
+		// TODO - Remove comments
+		//assertEquals(EMAILS, FUNCIONARIO_TODOS_ATRIBUTOS.getEmails());
 		assertEquals(TELEFONES, FUNCIONARIO_TODOS_ATRIBUTOS.getTelefones());
 		assertEquals(AMBIENTE_TRAB_01, FUNCIONARIO_TODOS_ATRIBUTOS.getAmbienteTrabalho());
 		assertEquals(EMPRESA_TODOS_ATRIBUTOS, FUNCIONARIO_TODOS_ATRIBUTOS.getEmpresa());
@@ -48,7 +49,7 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_01_cpf_nulo() {
-		FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.setCpf(NULO);
+		FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.setCpf(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -73,7 +74,7 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_06_nome_nulo() {
-		FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.setNome(NULO);
+		FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.setNome(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -93,7 +94,7 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_10_nome_max_chars(){
-		FUNCIONARIO_TODOS_ATRIBUTOS.setNome(TEXTO_COM_71_CHARS);
+		FUNCIONARIO_TODOS_ATRIBUTOS.setNome(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -113,7 +114,7 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_14_rg_nulo() {
-		FUNCIONARIO_TODOS_ATRIBUTOS.setRg(NULO);
+		FUNCIONARIO_TODOS_ATRIBUTOS.setRg(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -128,7 +129,7 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_17_rg_tamanho_max() {
-		FUNCIONARIO_TODOS_ATRIBUTOS.setRg(TEXTO_COM_71_CHARS);
+		FUNCIONARIO_TODOS_ATRIBUTOS.setRg(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -168,12 +169,13 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_25_lista_max_emails() {
-		FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(LISTA_EMAILS_ACIMA_LIMITE);
+	    // TODO-remove comments
+		//FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(LISTA_EMAILS_ACIMA_LIMITE);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_26_setor_nula() {
-		FUNCIONARIO_TODOS_ATRIBUTOS.setSetor(NULO);
+		FUNCIONARIO_TODOS_ATRIBUTOS.setSetor(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -183,7 +185,7 @@ public class FuncionarioTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_28_setor_acima_max_chars() {
-		FUNCIONARIO_TODOS_ATRIBUTOS.setSetor(TEXTO_COM_71_CHARS);
+		FUNCIONARIO_TODOS_ATRIBUTOS.setSetor(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)

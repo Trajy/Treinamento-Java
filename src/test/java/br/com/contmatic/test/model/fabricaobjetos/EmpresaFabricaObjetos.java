@@ -2,7 +2,8 @@ package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.ACIMA_LIMITE_EMAILS;
+import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.getEmailsIguais;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.*;
@@ -33,8 +34,7 @@ public final class EmpresaFabricaObjetos {
     public static String CNPJ_COM_LETRA;
     public static String CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE;
     
-    static void construirEmpresa() {
-        
+    static {
         CNPJ = "11222333000181";
         CNPJ_02 = "34757271000108";
         OUTRO_CNPJ = "61830755000108";
@@ -54,7 +54,7 @@ public final class EmpresaFabricaObjetos {
     }
     
     static void setDemaisDadosEmpresa() {
-        EMPRESA_TODOS_ATRIBUTOS.setEmails(EMAILS);
+        EMPRESA_TODOS_ATRIBUTOS.setEmails(getEmailsIguais(ACIMA_LIMITE_EMAILS));
         EMPRESA_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
         EMPRESA_TODOS_ATRIBUTOS.setEnderecos(ENDERECOS);
         EMPRESA_TODOS_ATRIBUTOS.setFuncionarios(FUNCIONARIOS);

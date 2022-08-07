@@ -33,29 +33,9 @@ public class EmpresaTest {
 		construirObjetos();
 	}
 
-	@Test
-	public void test_01_validar_instancia_com_contrutor_obrigatorio_da_classe_empresa(){
-		assertEquals(CNPJ_02, EMPRESA_ATRIBUTOS_OBRIGATORIOS.getCnpj());
-	}
-
-	@Test
-	public void test_02_validar_instancia_com_construtor_completo_da_classe_empressa(){
-		assertEquals(CNPJ_02, EMPRESA_TODOS_ATRIBUTOS.getCnpj());
-		assertEquals(RAZAO_SOCIAL, EMPRESA_TODOS_ATRIBUTOS.getRazaoSocial());
-		assertEquals(NOME_FANTASIA, EMPRESA_TODOS_ATRIBUTOS.getNomeFantasia());
-		assertEquals(AREA_ATUACAO, EMPRESA_TODOS_ATRIBUTOS.getAreaAtuacao());
-		assertEquals(EMAILS, EMPRESA_TODOS_ATRIBUTOS.getEmails());
-		assertEquals(TELEFONES, EMPRESA_TODOS_ATRIBUTOS.getTelefones());
-		assertEquals(ENDERECOS, EMPRESA_TODOS_ATRIBUTOS.getEnderecos());
-		assertEquals(FUNCIONARIOS, EMPRESA_TODOS_ATRIBUTOS.getFuncionarios());
-		assertEquals(PRODUTOS, EMPRESA_TODOS_ATRIBUTOS.getProdutos());
-		assertEquals(CARGOS, EMPRESA_TODOS_ATRIBUTOS.getCargos());
-		assertEquals(AMBIENTES_DE_TRABALHO, EMPRESA_TODOS_ATRIBUTOS.getAmbientesTrabalho());
-	}
-
 	@Test(expected = IllegalArgumentException.class)
 	public void test_03_validar_cnpj_nulo(){
-		EMPRESA_TODOS_ATRIBUTOS.setCnpj(NULO);
+		EMPRESA_TODOS_ATRIBUTOS.setCnpj(null);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -90,12 +70,12 @@ public class EmpresaTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void test_11_validar_razao_social_nulo(){
-		EMPRESA_TODOS_ATRIBUTOS.setRazaoSocial(NULO);
+		EMPRESA_TODOS_ATRIBUTOS.setRazaoSocial(null);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_12_validar_razao_social_maior_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setRazaoSocial(TEXTO_COM_71_CHARS);
+		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setRazaoSocial(MAX_CHARS_GERAL);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -120,12 +100,12 @@ public class EmpresaTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void test_18_validar_nome_fantasia_nulo(){
-		EMPRESA_TODOS_ATRIBUTOS.setNomeFantasia(NULO);
+		EMPRESA_TODOS_ATRIBUTOS.setNomeFantasia(null);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_19_validar_nome_fantasia_maior_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setNomeFantasia(TEXTO_COM_71_CHARS);
+		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setNomeFantasia(MAX_CHARS_GERAL);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -150,12 +130,12 @@ public class EmpresaTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void test_25_validar_area_atuacao_nulo(){
-		EMPRESA_TODOS_ATRIBUTOS.setAreaAtuacao(NULO);
+		EMPRESA_TODOS_ATRIBUTOS.setAreaAtuacao(null);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_26_validar_area_atuacao_maior_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setAreaAtuacao(TEXTO_COM_71_CHARS);
+		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setAreaAtuacao(MAX_CHARS_GERAL);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -190,7 +170,7 @@ public class EmpresaTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_34_validar_emails_limite_maximo_de_elementos() {
-		EMPRESA_TODOS_ATRIBUTOS.setEmails(LISTA_EMAILS_ACIMA_LIMITE);
+		EMPRESA_TODOS_ATRIBUTOS.setEmails(getEmailsIguais(ACIMA_LIMITE_EMAILS));
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -317,7 +297,7 @@ public class EmpresaTest {
 				containsString(RAZAO_SOCIAL),
 				containsString(NOME_FANTASIA),
 				containsString(AREA_ATUACAO),
-				containsString(EMAILS.toString()),
+				containsString(EMPRESA_TODOS_ATRIBUTOS.getEmails().toString()),
 				containsString(TELEFONES.toString()),
 				containsString(ENDERECOS.toString())
 				// TODO - Solve recursive errors

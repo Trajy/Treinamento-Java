@@ -1,17 +1,31 @@
 package br.com.contmatic.test.model;
 
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.MAX_CHARS_GERAL;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.TEXTO_COM_1_CHAR;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.VAZIO;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.BAIRRO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.CEP_01;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.CEP_02;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.CEP_CHARS_REPETIDOS;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.CEP_COM_LETRA;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.CEP_TAMANHO_ERRADO;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.CIDADE;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_ATRIBUTOS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_NUM_ACIMA_TAMANHO_MAX;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_TODOS_ATRIBUTOS;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.NUMERO_ENDERECO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.NUMERO_ENDERECO_02;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.RUA_01;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.construirObjetos;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.core.AllOf.allOf;
-import static org.hamcrest.core.StringContains.containsString;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -19,8 +33,8 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.JVM)
 public class EnderecoTest {
 	
-	@Before
-	public void pre_test(){
+	@BeforeClass
+	public static void pre_test(){
 		construirObjetos();
 	}
 	
@@ -51,7 +65,7 @@ public class EnderecoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_05_cep_nulo() {
-		ENDERECO_TODOS_ATRIBUTOS.setCEP(NULO);
+		ENDERECO_TODOS_ATRIBUTOS.setCEP(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -76,7 +90,7 @@ public class EnderecoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_10_rua_nula() {
-		ENDERECO_TODOS_ATRIBUTOS.setRua(NULO);
+		ENDERECO_TODOS_ATRIBUTOS.setRua(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -96,12 +110,12 @@ public class EnderecoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_14_rua_acima_max_chars() {
-		ENDERECO_TODOS_ATRIBUTOS.setRua(TEXTO_COM_71_CHARS);
+		ENDERECO_TODOS_ATRIBUTOS.setRua(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_15_bairro_nulo() {
-		ENDERECO_TODOS_ATRIBUTOS.setBairro(NULO);
+		ENDERECO_TODOS_ATRIBUTOS.setBairro(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -121,7 +135,7 @@ public class EnderecoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_19_bairro_acima_max_chars() {
-		ENDERECO_TODOS_ATRIBUTOS.setBairro(TEXTO_COM_71_CHARS);
+		ENDERECO_TODOS_ATRIBUTOS.setBairro(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
