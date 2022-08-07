@@ -43,7 +43,8 @@ public final class EmailFabricaObjetos {
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01 = 0;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02 = 1;
         EMAIL_TODOS_ARGS = Fixture.from(Email.class).gimme("todosArgs");
-        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = getEmailsIguais(QTD_EMAILS_IGUAIS);
+        
+        definirEmailsIguais(QTD_EMAILS_IGUAIS);
         
     }
     
@@ -57,8 +58,8 @@ public final class EmailFabricaObjetos {
         }});
     }
     
-    private static List<Email> getEmailsIguais(Integer quantidade){
-        return Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
+    private static void definirEmailsIguais(Integer quantidade){
+        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
     }
 
 }
