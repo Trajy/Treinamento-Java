@@ -1,50 +1,48 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
-import java.util.ArrayList;
+import static br.com.six2six.bfgex.RandomGen.email;
+import static br.com.six2six.bfgex.RandomGen.firstName;
+
 import java.util.List;
 
 import br.com.contmatic.model.contato.Email;
+import br.com.six2six.fixturefactory.Fixture;
+import br.com.six2six.fixturefactory.Rule;
 
 public final class EmailFabricaObjetos {
     
-    private EmailFabricaObjetos() {
-        
-    }
-    
-    public static String EMAIL_LITERAL_01;
-    public static String EMAIL_LITERAL_02;
-    public static String EMAIL_LITERAL_03;
-    public static String EMAIL_LITERAL_04;
-    public static Email EMAIL_01;
-    public static Email EMAIL_02;
-    public static Email EMAIL_03;
-    public static Email EMAIL_04;
-    public static List<Email> EMAILS;
-    public static List<Email> LISTA_EMAILS_ACIMA_LIMITE;
-    
+    public static Integer TAMANHO_MAX_EMAIL;
+    public static Integer TAMANHO_COMUM_EMAIL;
+    public static Integer QTD_MAX_EMAILS;
+    public static Integer ACIMA_LIMITE_EMAILS;
+    public static String DOMINIO_CONTMATIC;
     public static String EMAIL_SEM_ARROBA;
     public static String EMAIL_COM_ARROBA_INICIO;
     
-    static void construirEmail() {
-        EMAIL_LITERAL_01 = "henrique.araujo@contmatic.com.br";
-        EMAIL_LITERAL_02 = "jessica.silva@contmatic.com.br";
-        EMAIL_LITERAL_03 = "erich.miyamura@contmatic.com.br";
-        EMAIL_LITERAL_04 = "contmatic@contmatic.com.br";
-        EMAIL_01 = new Email(EMAIL_LITERAL_01);
-        EMAIL_02 = new Email(EMAIL_LITERAL_01);
-        EMAIL_03 = new Email(EMAIL_LITERAL_03);
-        EMAIL_04 = new Email(EMAIL_LITERAL_04);
-        EMAILS = new ArrayList<>();
-        EMAILS.add(EMAIL_01);
-        EMAILS.add(EMAIL_02);
-        EMAILS.add(EMAIL_03);
-        EMAILS.add(EMAIL_04);
-        LISTA_EMAILS_ACIMA_LIMITE = new ArrayList<>();
-        LISTA_EMAILS_ACIMA_LIMITE.addAll(EMAILS);
-        LISTA_EMAILS_ACIMA_LIMITE.add(EMAIL_01);
+    static {
+        TAMANHO_MAX_EMAIL = 40;
+        TAMANHO_COMUM_EMAIL = 25;
+        QTD_MAX_EMAILS = 4;
+        ACIMA_LIMITE_EMAILS = QTD_MAX_EMAILS + 1;
+        DOMINIO_CONTMATIC = "contmatic.com.br";
+        EMAIL_SEM_ARROBA = new StringBuilder(firstName()).append(DOMINIO_CONTMATIC).toString();
+        EMAIL_COM_ARROBA_INICIO = new StringBuilder("@").append(DOMINIO_CONTMATIC).toString();
+    }
+    
+    public static void construirEmails() {
+        Fixture.of(Email.class).addTemplate("obrigatoriosArgs", new Rule() {{
+            add("enderecoEmail", email(TAMANHO_MAX_EMAIL, "contmatic.com.br"));
+        }});
         
-        EMAIL_SEM_ARROBA = "emailcontmatic.com.br";
-        EMAIL_COM_ARROBA_INICIO = "@contmatic.com.br";
+        Fixture.of(Email.class).addTemplate("todosArgs", new Rule() {{
+            add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, "contmatic.com.br"));
+        }});
+    }
+    
+    public static List<Email> getEmailsIguais(Integer quantidade){
+        List<Email> lista = Fixture.from(Email.class).gimme(quantidade, "obrigatoriosArgs");
+        lista.forEach(x -> x.setEmail(lista.get(0).getEmail()));
+        return lista;
     }
 
 }
