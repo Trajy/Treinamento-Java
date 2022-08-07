@@ -29,15 +29,16 @@ public final class EmailFabricaObjetos {
     }
     
     static {
-        fabricarEmails();
-        
+        DOMINIO_CONTMATIC = "contmatic.com.br";
+        EMAIL_SEM_ARROBA = new StringBuilder(firstName()).append(DOMINIO_CONTMATIC).toString();
+        EMAIL_COM_ARROBA_INICIO = new StringBuilder("@").append(DOMINIO_CONTMATIC).toString();
         TAMANHO_MAX_EMAIL = 40;
         TAMANHO_COMUM_EMAIL = 25;
         QTD_MAX_EMAILS = 4;
         ACIMA_LIMITE_EMAILS = QTD_MAX_EMAILS + 1;
-        DOMINIO_CONTMATIC = "contmatic.com.br";
-        EMAIL_SEM_ARROBA = new StringBuilder(firstName()).append(DOMINIO_CONTMATIC).toString();
-        EMAIL_COM_ARROBA_INICIO = new StringBuilder("@").append(DOMINIO_CONTMATIC).toString();
+        
+        fabricarEmails();
+       
         QTD_EMAILS_IGUAIS = 2;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01 = 0;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02 = 1;
@@ -48,11 +49,11 @@ public final class EmailFabricaObjetos {
     
     private static void fabricarEmails() {
         Fixture.of(Email.class).addTemplate("obrigatoriosArgs", new Rule() {{
-            add("enderecoEmail", email(TAMANHO_MAX_EMAIL, "contmatic.com.br"));
+            add("enderecoEmail", email(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
         }});
         
         Fixture.of(Email.class).addTemplate("todosArgs", new Rule() {{
-            add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, "contmatic.com.br"));
+            add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
         }});
     }
     
