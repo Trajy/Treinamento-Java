@@ -24,42 +24,42 @@ import org.junit.runners.MethodSorters;
 public class EmailTest {
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void test_01_EMAIL_TODOS_ARGS_01_nulo() {
+	public void teste_email_nulo() {
 		EMAIL_TODOS_ARGS.setEmail(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_02_EMAIL_TODOS_ARGS_01_vazio() {
+	public void teste_email_vazio() {
 		EMAIL_TODOS_ARGS.setEmail(VAZIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_03_EMAIL_TODOS_ARGS_01_sem_arroba() {
+	public void teste_email_sem_arroba() {
 		EMAIL_TODOS_ARGS.setEmail(EMAIL_SEM_ARROBA);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_04_EMAIL_TODOS_ARGS_01_inicia_com_arroba() {
+	public void teste_email_inicia_com_arroba() {
 		EMAIL_TODOS_ARGS.setEmail(EMAIL_COM_ARROBA_INICIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_05_EMAIL_TODOS_ARGS_01_abaixo_min_chars() {
+	public void teste_email_abaixo_min_chars() {
 		EMAIL_TODOS_ARGS.setEmail(MIN_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
-	public void test_06_EMAIL_TODOS_ARGS_01_acima_max_chars() {
+	public void teste_email_acima_max_chars() {
 		EMAIL_TODOS_ARGS.setEmail(MAX_CHARS_GERAL);
 	}
 	
 	@Test
-	public void test_07_metodo_hashcode() {    
+	public void teste_metodo_hashcode() {    
 		assertEquals(EMAILS_IGUAIS_ARGS_OBRIGATORIOS.get(INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01), EMAILS_IGUAIS_ARGS_OBRIGATORIOS.get(INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02));
 	}
 	
 	@Test
-	public void test_08_metodo_equals() {
+	public void teste_metodo_equals() {
 	    assertTrue(EMAILS_IGUAIS_ARGS_OBRIGATORIOS.get(INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01).equals(EMAILS_IGUAIS_ARGS_OBRIGATORIOS.get(INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01)));
 		assertTrue(EMAILS_IGUAIS_ARGS_OBRIGATORIOS.get(INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01).equals(EMAILS_IGUAIS_ARGS_OBRIGATORIOS.get(INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02)));
 		assertFalse(EMAIL_TODOS_ARGS.equals(new Object()));
@@ -68,7 +68,7 @@ public class EmailTest {
 	}
 	
 	@Test
-	public void test_09_metodo_tostring() {
+	public void teste_metodo_tostring() {
 		assertThat(
 			EMAIL_TODOS_ARGS.toString(), 
 			allOf(
