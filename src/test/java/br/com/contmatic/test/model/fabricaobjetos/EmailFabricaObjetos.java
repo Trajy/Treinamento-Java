@@ -19,6 +19,10 @@ public final class EmailFabricaObjetos {
     public static String EMAIL_SEM_ARROBA;
     public static String EMAIL_COM_ARROBA_INICIO;
     
+    private EmailFabricaObjetos() {
+        
+    }
+    
     static {
         TAMANHO_MAX_EMAIL = 40;
         TAMANHO_COMUM_EMAIL = 25;
