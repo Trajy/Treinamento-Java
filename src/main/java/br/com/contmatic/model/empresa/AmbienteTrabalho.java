@@ -12,8 +12,6 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarNulo;
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
-import java.util.Objects;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -34,9 +32,9 @@ public class AmbienteTrabalho extends Auditoria {
     
     private Empresa empresa;
 
-    public AmbienteTrabalho(String nome, String resposavel) {
+    public AmbienteTrabalho(String nome, String responsavel) {
         setNome(nome);
-        setResponsavel(resposavel);
+        setResponsavel(responsavel);
     }
 
     public AmbienteTrabalho(String nome, String tipoEstabelecimento, Endereco endereco, String responsavel, String descricao) {
