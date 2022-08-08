@@ -59,7 +59,7 @@ public final class TelefoneFabricaObjetos {
         
     }
     
-    public static void atribuirDados() {
+    private static void atribuirDados() {
         DDI_01 = 55;
         DDI_02 = 99;
         DDD_01 = 11;
@@ -77,12 +77,12 @@ public final class TelefoneFabricaObjetos {
         NUMERO_TELEFONE_ABAIXO_MIN_CHARS = "1234567";
     }
     
-    public static void atribuirValidacoes() {
+    private static void atribuirValidacoes() {
         DDI_DDD_EXPRESSAO_REGULAR = "[0-9]{2,3}";
         NUMERO_TELEFONE_EXPRESSAO_REGULAR = "[0-9]{8,9}";
     }
     
-    public static void fabricarTelefones() {
+    private static void fabricarTelefones() {
         Fixture.of(Telefone.class).addTemplate(TODOS_ARGS.name(), new Rule() {{
             add("ddi", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
             add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
@@ -95,7 +95,7 @@ public final class TelefoneFabricaObjetos {
         }});
     }
     
-    public static void atribuirTelefones() {
+    private static void atribuirTelefones() {
         final int QTD_INSTANCIAS_IGUAIS = 2;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01 = 0;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02 = 1;
