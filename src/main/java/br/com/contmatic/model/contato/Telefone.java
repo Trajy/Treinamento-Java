@@ -1,19 +1,22 @@
 package br.com.contmatic.model.contato;
 
-import java.util.Objects;
-
-import org.apache.commons.lang3.builder.EqualsBuilder;
-
-import br.com.contmatic.model.endereco.Endereco;
-
+import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.DDD_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.DDD_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.DDD_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.DDI_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.DDI_TAMANHO_MAX;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.DDI_TAMANHO_MIN;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.TELEFONE_INVALIDO;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.TELEFONE_MAX;
+import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.TELEFONE_MIN;
+import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
+import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
-import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
 
-import static br.com.contmatic.model.utils.validacao.ValidacaoComum.validarExpressaoRegularETamanho;
-import static br.com.contmatic.model.utils.constantes.TelefoneConstantes.*;
-import static br.com.contmatic.model.utils.constantes.ExpressoesRegulares.NUMEROS;
-import static br.com.contmatic.model.utils.constantes.ComumConstantes.NAO_VALIDAR_CHARS_REPETIDOS;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class Telefone {
 
@@ -23,9 +26,9 @@ public class Telefone {
 
     private String numero;
 
-    public Telefone(Integer ddd, String telefone) {
+    public Telefone(Integer ddd, String numero) {
         setDdd(ddd);
-        setNumero(telefone);
+        setNumero(numero);
     }
 
     public Telefone(Integer ddi, Integer ddd, String numero) {

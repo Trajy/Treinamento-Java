@@ -22,13 +22,6 @@ public class TelefoneTest {
 		construirObjetos();
 	}
 	
-	@Test
-	public void test_00_instancia() {
-		assertEquals(DDI_01, TELEFONE_TODOS_ATRIBUTOS.getDdi());
-		assertEquals(DDD_01, TELEFONE_TODOS_ATRIBUTOS.getDdd());
-		assertEquals(NUMERO_TELEFONE_01, TELEFONE_TODOS_ATRIBUTOS.getNumero());
-	}
-	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_01_ddi_nulo() {
 		TELEFONE_TODOS_ATRIBUTOS.setDdi(null);
@@ -76,16 +69,11 @@ public class TelefoneTest {
 	
 	@Test
 	public void test_10_metodo_equals() {
-		assertTrue(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_TODOS_ATRIBUTOS));
-		assertTrue(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_ATRIBUTOS_OBRIGATORIOS));
+		assertTrue(TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01).equals(TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01)));
+		assertTrue(TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01).equals(TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02)));
 		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(new Object()));
-		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(null));
-		
-		TELEFONE_ATRIBUTOS_OBRIGATORIOS.setDdd(DDD_02);
-		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_ATRIBUTOS_OBRIGATORIOS));
-		
-		TELEFONE_ATRIBUTOS_OBRIGATORIOS.setNumero(NUMERO_TELEFONE_02);
-		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONE_ATRIBUTOS_OBRIGATORIOS));
+		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(null));	
+		assertFalse(TELEFONE_TODOS_ATRIBUTOS.equals(TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01)));
 	}
 	
 	@Test
@@ -93,9 +81,9 @@ public class TelefoneTest {
 		assertThat(
 			TELEFONE_TODOS_ATRIBUTOS.toString(), 
 			allOf(
-				containsString(DDI_01.toString()),
-				containsString(DDD_01.toString()),
-				containsString(NUMERO_TELEFONE_01)
+				containsString(TELEFONE_TODOS_ATRIBUTOS.getDdi().toString()),
+				containsString(TELEFONE_TODOS_ATRIBUTOS.getDdd().toString()),
+				containsString(TELEFONE_TODOS_ATRIBUTOS.getNumero())
 			)
 		);
 	}
