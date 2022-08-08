@@ -170,7 +170,7 @@ public class EmpresaTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_34_validar_emails_limite_maximo_de_elementos() {
-		EMPRESA_TODOS_ATRIBUTOS.setEmails(getEmailsIguais(ACIMA_LIMITE_EMAILS));
+		EMPRESA_TODOS_ATRIBUTOS.setEmails(EMAILS_IGUAIS_ARGS_OBRIGATORIOS);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)

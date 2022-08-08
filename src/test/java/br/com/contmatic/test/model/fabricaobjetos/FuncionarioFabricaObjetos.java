@@ -1,18 +1,20 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
+import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.AMBIENTE_TRAB_01;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_02;
+import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_ATRIBUTOS_OBRIGATORIOS_02;
+import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_02;
+import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.TELEFONES;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
-import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_ATRIBUTOS_OBRIGATORIOS_02;
-import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.ACIMA_LIMITE_EMAILS;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.getEmailsIguais;
-import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.*;
 import br.com.contmatic.model.empresa.Funcionario;
 
 public final class FuncionarioFabricaObjetos {
@@ -100,7 +102,7 @@ public final class FuncionarioFabricaObjetos {
         FUNCIONARIO_TODOS_ATRIBUTOS = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01 , ENDERECO_01, CARGO_01, SALARIO_01, EMPRESA_TODOS_ATRIBUTOS);
         FUNCIONARIO_TODOS_ATRIBUTOS.setSetor(SETOR_01);
         FUNCIONARIO_TODOS_ATRIBUTOS.setRg(RG_01);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(getEmailsIguais(ACIMA_LIMITE_EMAILS));
+        FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(EMAILS_IGUAIS_ARGS_OBRIGATORIOS);
         FUNCIONARIO_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
         FUNCIONARIO_TODOS_ATRIBUTOS.setAmbienteTrabalho(AMBIENTE_TRAB_01);
         FUNCIONARIOS = new ArrayList<>();

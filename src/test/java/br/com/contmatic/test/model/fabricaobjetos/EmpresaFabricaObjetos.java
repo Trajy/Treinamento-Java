@@ -1,13 +1,12 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
-import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.ACIMA_LIMITE_EMAILS;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.getEmailsIguais;
-import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.AMBIENTES_DE_TRABALHO;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGOS;
+import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECOS;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.FUNCIONARIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.PRODUTOS;
+import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.TELEFONES;
 
 import br.com.contmatic.model.empresa.Empresa;
 
@@ -54,7 +53,7 @@ public final class EmpresaFabricaObjetos {
     }
     
     static void setDemaisDadosEmpresa() {
-        EMPRESA_TODOS_ATRIBUTOS.setEmails(getEmailsIguais(ACIMA_LIMITE_EMAILS));
+        EMPRESA_TODOS_ATRIBUTOS.setEmails(EMAILS_IGUAIS_ARGS_OBRIGATORIOS);
         EMPRESA_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
         EMPRESA_TODOS_ATRIBUTOS.setEnderecos(ENDERECOS);
         EMPRESA_TODOS_ATRIBUTOS.setFuncionarios(FUNCIONARIOS);
