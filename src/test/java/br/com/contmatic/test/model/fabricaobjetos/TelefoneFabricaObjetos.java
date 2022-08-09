@@ -1,12 +1,12 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarDddOuDdi;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarTelefone;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterNumerosAleatorios;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
+import static java.lang.Integer.parseInt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,16 +67,7 @@ public final class TelefoneFabricaObjetos {
         
         Class<Telefone> classe = Telefone.class;
         
-        fabricarObjeto(classe, TODOS_ARGS, new Rule() {{
-            add("ddi", gerarDddOuDdi());
-            add("ddd", gerarDddOuDdi());
-            add("numero", gerarTelefone());
-        }});
-        
-        fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
-            add("ddd", gerarDddOuDdi());
-            add("numero", gerarTelefone());
-        }});
+        fabricarTelefones(classe);
         
         final int QTD_INSTANCIAS_IGUAIS = 2;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01 = 0;
@@ -103,5 +94,31 @@ public final class TelefoneFabricaObjetos {
     
     static void construirTelefone() {
         
+    }
+    
+    public static void fabricarTelefones(Class classe) {
+        fabricarObjeto(classe, TODOS_ARGS, new Rule() {{
+            add("ddi", gerarDddOuDdi());
+            add("ddd", gerarDddOuDdi());
+            add("numero", gerarTelefone());
+        }});
+        
+        fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
+            add("ddd", gerarDddOuDdi());
+            add("numero", gerarTelefone());
+        }});
+    }
+    
+    public static Integer gerarDddOuDdi() {
+        final int TAMANHO_MIN_DDD = 2;
+        final int TAMANHO_MAX_DDD = 3;
+        return parseInt(obterNumerosAleatorios(TAMANHO_MIN_DDD, TAMANHO_MAX_DDD));
+        
+    }
+    
+    public static String gerarTelefone() {
+        final int TAMANHO_MIN_TELEFONE = 8;
+        final int TAMANHO_MAX_TELEFONE = 9;
+        return obterNumerosAleatorios(TAMANHO_MIN_TELEFONE, TAMANHO_MAX_TELEFONE);
     }
 }

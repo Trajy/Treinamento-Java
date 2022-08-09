@@ -3,9 +3,9 @@ package br.com.contmatic.test.model.fabricaobjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarEmail;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
+import static br.com.six2six.bfgex.RandomGen.email;
 import static br.com.six2six.bfgex.RandomGen.firstName;
 
 import java.util.List;
@@ -40,18 +40,26 @@ public final class EmailFabricaObjetos {
         QTD_MAX_EMAILS = 4;
         ACIMA_LIMITE_EMAILS = QTD_MAX_EMAILS + 1;
         
-        fabricarObjeto(Email.class, OBRIGATORIOS_ARGS, new Rule() {{
-            add("enderecoEmail", gerarEmail(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
-        }});
-        
-        fabricarObjeto(Email.class, TODOS_ARGS, new Rule() {{
-            add("enderecoEmail", gerarEmail(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
-        }});
+        fabricarEmails();
         
         final int QTD_EMAILS_IGUAIS = 2;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01 = 0;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02 = 1;
         EMAIL_TODOS_ARGS = obterObjeto(Email.class, TODOS_ARGS);
         EMAILS_IGUAIS_ARGS_OBRIGATORIOS = obterVariosObjetos(Email.class, OBRIGATORIOS_ARGS, QTD_EMAILS_IGUAIS);
+    }
+    
+    public static void fabricarEmails() {
+        fabricarObjeto(Email.class, OBRIGATORIOS_ARGS, new Rule() {{
+            add("enderecoEmail", gerarEmail(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
+        }});
+        
+        fabricarObjeto(Email.class, TODOS_ARGS, new Rule() {{
+            add("enderecoEmail", gerarEmail(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
+        }}); 
+    }
+    
+    public static String gerarEmail(Integer tamanho, String dominio) {
+        return email(tamanho, dominio);
     }
 }
