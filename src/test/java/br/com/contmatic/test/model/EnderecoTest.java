@@ -17,7 +17,7 @@ import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.NUMERO_ENDERECO_01;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.NUMERO_ENDERECO_02;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.RUA_01;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.construirObjetos;
+import static br.com.contmatic.test.model.fabricaobjetos.CriacaoObjetos.construirObjetos;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;

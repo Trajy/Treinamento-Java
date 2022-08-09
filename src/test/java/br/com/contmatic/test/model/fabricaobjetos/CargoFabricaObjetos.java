@@ -49,4 +49,6 @@ public final class CargoFabricaObjetos {
         LISTA_CARGOS_ACIMA_LIMITE.add(CARGO_01);
         
     }
+    
+    
 }

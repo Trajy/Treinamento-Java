@@ -1,6 +1,6 @@
 package br.com.contmatic.test.model;
 
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.CriacaoObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.ProdutoFabricaObjetos.*;

@@ -1,5 +1,8 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
 import static br.com.six2six.bfgex.RegexGen.of;
@@ -83,13 +86,13 @@ public final class TelefoneFabricaObjetos {
     }
     
     private static void fabricarTelefones() {
-        Fixture.of(Telefone.class).addTemplate(TODOS_ARGS.name(), new Rule() {{
+        fabricarObjeto(Telefone.class, TODOS_ARGS, new Rule() {{
             add("ddi", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
             add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
             add("numero", of(NUMERO_TELEFONE_EXPRESSAO_REGULAR));
         }});
         
-        Fixture.of(Telefone.class).addTemplate(OBRIGATORIOS_ARGS.name(), new Rule() {{
+        fabricarObjeto(Telefone.class, OBRIGATORIOS_ARGS, ew Rule() {{
             add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
             add("numero", of(NUMERO_TELEFONE_EXPRESSAO_REGULAR));
         }});
@@ -99,7 +102,7 @@ public final class TelefoneFabricaObjetos {
         final int QTD_INSTANCIAS_IGUAIS = 2;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01 = 0;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02 = 1;
-        TELEFONE_TODOS_ATRIBUTOS = Fixture.from(Telefone.class).gimme(TODOS_ARGS.name());
+        TELEFONE_TODOS_ATRIBUTOS = obterObjeto(Telefone.class, TODOS_ARGS);
         TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS = Fixture.from(Telefone.class).gimme(QTD_INSTANCIAS_IGUAIS, OBRIGATORIOS_ARGS.name());
         
         TELEFONE_01 = new Telefone(DDI_01 ,DDD_01, NUMERO_TELEFONE_01);

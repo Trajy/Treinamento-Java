@@ -11,7 +11,7 @@ import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.TEXTO_COM_CHAR_NUMERICO;
 import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.VAZIO;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_01;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.construirObjetos;
+import static br.com.contmatic.test.model.fabricaobjetos.CriacaoObjetos.construirObjetos;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.AllOf.allOf;
