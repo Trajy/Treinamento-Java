@@ -20,48 +20,37 @@ public final class TelefoneFabricaObjetos {
         
     }
     
-    public static String DDI_DDD_EXPRESSAO_REGULAR;
-    public static String NUMERO_TELEFONE_EXPRESSAO_REGULAR;
-    public static Integer DDI_01;
-    public static Integer DDI_02;
-    public static Integer DDD_01;
-    public static Integer DDD_02;
-    public static String NUMERO_TELEFONE_01;
-    public static String NUMERO_TELEFONE_02;
-    public static String NUMERO_TELEFONE_03;
-    public static String NUMERO_TELEFONE_04;
-    public static String NUMERO_TELEFONE_05;
-    public static Telefone TELEFONE_01;
-    public static Telefone TELEFONE_02;
-    public static Telefone TELEFONE_03;
-    public static Telefone TELEFONE_04;
-    public static Telefone TELEFONE_05;
-    public static Telefone TELEFONE_ATRIBUTOS_OBRIGATORIOS;
-    public static Integer INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01;
-    public static Integer INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02;
-    public static Telefone TELEFONE_TODOS_ATRIBUTOS;
-    public static List<Telefone> TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS;
-    public static List<Telefone> TELEFONES;
-    public static List<Telefone> LISTA_TELEFONES_ACIMA_DO_LIMITE;
+    public static final String DDI_DDD_EXPRESSAO_REGULAR;
+    public static final String NUMERO_TELEFONE_EXPRESSAO_REGULAR;
+    public static final Integer DDI_01;
+    public static final Integer DDI_02;
+    public static final Integer DDD_01;
+    public static final Integer DDD_02;
+    public static final String NUMERO_TELEFONE_01;
+    public static final String NUMERO_TELEFONE_02;
+    public static final String NUMERO_TELEFONE_03;
+    public static final String NUMERO_TELEFONE_04;
+    public static final String NUMERO_TELEFONE_05;
+    public static final Telefone TELEFONE_01;
+    public static final Telefone TELEFONE_02;
+    public static final Telefone TELEFONE_03;
+    public static final Telefone TELEFONE_04;
+    public static final Telefone TELEFONE_05;
+    public static final Telefone TELEFONE_ATRIBUTOS_OBRIGATORIOS;
+    public static final Integer INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01;
+    public static final Integer INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02;
+    public static final Telefone TELEFONE_TODOS_ATRIBUTOS;
+    public static final List<Telefone> TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS;
+    public static final List<Telefone> TELEFONES;
+    public static final List<Telefone> LISTA_TELEFONES_ACIMA_DO_LIMITE;
     
-    public static Integer DDI_ACIMA_MAX_CHARS;
-    public static Integer DDD_ABAIXO_MIN_CHARS;
-    public static Integer DDD_ACIMA_MAX_CHARS;
-    public static String NUMERO_TELEFONE_ACIMA_MAX_CHARS;
-    public static String NUMERO_TELEFONE_ABAIXO_MIN_CHARS;
+    public static final Integer DDI_ACIMA_MAX_CHARS;
+    public static final Integer DDD_ABAIXO_MIN_CHARS;
+    public static final Integer DDD_ACIMA_MAX_CHARS;
+    public static final String NUMERO_TELEFONE_ACIMA_MAX_CHARS;
+    public static final String NUMERO_TELEFONE_ABAIXO_MIN_CHARS;
     
     static {
-        atribuirDados();
-        atribuirValidacoes();
-        fabricarTelefones();
-        atribuirTelefones();
-    }
-    
-    static void construirTelefone() {
-        
-    }
-    
-    private static void atribuirDados() {
         DDI_01 = 55;
         DDI_02 = 99;
         DDD_01 = 11;
@@ -77,14 +66,10 @@ public final class TelefoneFabricaObjetos {
         DDD_ACIMA_MAX_CHARS = 1234;
         NUMERO_TELEFONE_ACIMA_MAX_CHARS = "1234567890";
         NUMERO_TELEFONE_ABAIXO_MIN_CHARS = "1234567";
-    }
-    
-    private static void atribuirValidacoes() {
+        
         DDI_DDD_EXPRESSAO_REGULAR = "[0-9]{2,3}";
         NUMERO_TELEFONE_EXPRESSAO_REGULAR = "[0-9]{8,9}";
-    }
-    
-    private static void fabricarTelefones() {
+        
         fabricarObjeto(Telefone.class, TODOS_ARGS, new Rule() {{
             add("ddi", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
             add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
@@ -95,9 +80,7 @@ public final class TelefoneFabricaObjetos {
             add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
             add("numero", of(NUMERO_TELEFONE_EXPRESSAO_REGULAR));
         }});
-    }
-    
-    private static void atribuirTelefones() {
+        
         final int QTD_INSTANCIAS_IGUAIS = 2;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01 = 0;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02 = 1;
@@ -118,6 +101,10 @@ public final class TelefoneFabricaObjetos {
         TELEFONES.add(TELEFONE_05);
         LISTA_TELEFONES_ACIMA_DO_LIMITE = new ArrayList<>();
         LISTA_TELEFONES_ACIMA_DO_LIMITE.addAll(TELEFONES);
-        LISTA_TELEFONES_ACIMA_DO_LIMITE.add(TELEFONE_01);  
+        LISTA_TELEFONES_ACIMA_DO_LIMITE.add(TELEFONE_01);
+    }
+    
+    static void construirTelefone() {
+        
     }
 }
