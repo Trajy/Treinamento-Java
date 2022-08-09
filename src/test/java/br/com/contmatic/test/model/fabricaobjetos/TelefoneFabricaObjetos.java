@@ -1,7 +1,7 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterNumerosAleatorios;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarNumerosAleatorios;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
@@ -112,13 +112,13 @@ public final class TelefoneFabricaObjetos {
     public static Integer gerarDddOuDdi() {
         final int TAMANHO_MIN_DDD = 2;
         final int TAMANHO_MAX_DDD = 3;
-        return parseInt(obterNumerosAleatorios(TAMANHO_MIN_DDD, TAMANHO_MAX_DDD));
+        return parseInt(gerarNumerosAleatorios(TAMANHO_MIN_DDD, TAMANHO_MAX_DDD));
         
     }
     
     public static String gerarTelefone() {
         final int TAMANHO_MIN_TELEFONE = 8;
         final int TAMANHO_MAX_TELEFONE = 9;
-        return obterNumerosAleatorios(TAMANHO_MIN_TELEFONE, TAMANHO_MAX_TELEFONE);
+        return gerarNumerosAleatorios(TAMANHO_MIN_TELEFONE, TAMANHO_MAX_TELEFONE);
     }
 }
