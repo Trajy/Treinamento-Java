@@ -1,12 +1,12 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarDDDOuDDI;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarTelefone;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
-import static br.com.six2six.bfgex.RegexGen.of;
-import static java.lang.Integer.parseInt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,6 @@ public final class TelefoneFabricaObjetos {
         
     }
     
-    public static final String DDI_DDD_EXPRESSAO_REGULAR;
-    public static final String NUMERO_TELEFONE_EXPRESSAO_REGULAR;
     public static final Integer DDI_01;
     public static final Integer DDI_02;
     public static final Integer DDD_01;
@@ -67,25 +65,24 @@ public final class TelefoneFabricaObjetos {
         NUMERO_TELEFONE_ACIMA_MAX_CHARS = "1234567890";
         NUMERO_TELEFONE_ABAIXO_MIN_CHARS = "1234567";
         
-        DDI_DDD_EXPRESSAO_REGULAR = "[0-9]{2,3}";
-        NUMERO_TELEFONE_EXPRESSAO_REGULAR = "[0-9]{8,9}";
+        Class<Telefone> classe = Telefone.class;
         
-        fabricarObjeto(Telefone.class, TODOS_ARGS, new Rule() {{
-            add("ddi", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
-            add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
-            add("numero", of(NUMERO_TELEFONE_EXPRESSAO_REGULAR));
+        fabricarObjeto(classe, TODOS_ARGS, new Rule() {{
+            add("ddi", gerarDDDOuDDI());
+            add("ddd", gerarTelefone());
+            add("numero", gerarTelefone());
         }});
         
-        fabricarObjeto(Telefone.class, OBRIGATORIOS_ARGS, new Rule() {{
-            add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
-            add("numero", of(NUMERO_TELEFONE_EXPRESSAO_REGULAR));
+        fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
+            add("ddd", gerarDDDOuDDI());
+            add("numero", gerarTelefone());
         }});
         
         final int QTD_INSTANCIAS_IGUAIS = 2;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01 = 0;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02 = 1;
-        TELEFONE_TODOS_ATRIBUTOS = obterObjeto(Telefone.class, TODOS_ARGS);
-        TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS = obterVariosObjetos(Telefone.class, TODOS_ARGS, QTD_INSTANCIAS_IGUAIS);
+        TELEFONE_TODOS_ATRIBUTOS = obterObjeto(classe, TODOS_ARGS);
+        TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS = obterVariosObjetos(classe, TODOS_ARGS, QTD_INSTANCIAS_IGUAIS);
         
         TELEFONE_01 = new Telefone(DDI_01 ,DDD_01, NUMERO_TELEFONE_01);
         TELEFONE_02 = new Telefone(DDI_02, DDD_02, NUMERO_TELEFONE_02);

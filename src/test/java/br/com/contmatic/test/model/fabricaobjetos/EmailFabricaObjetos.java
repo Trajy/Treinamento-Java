@@ -3,9 +3,9 @@ package br.com.contmatic.test.model.fabricaobjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarEmail;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
-import static br.com.six2six.bfgex.RandomGen.email;
 import static br.com.six2six.bfgex.RandomGen.firstName;
 
 import java.util.List;
@@ -41,11 +41,11 @@ public final class EmailFabricaObjetos {
         ACIMA_LIMITE_EMAILS = QTD_MAX_EMAILS + 1;
         
         fabricarObjeto(Email.class, OBRIGATORIOS_ARGS, new Rule() {{
-            add("enderecoEmail", email(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
+            add("enderecoEmail", gerarEmail(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
         }});
         
         fabricarObjeto(Email.class, TODOS_ARGS, new Rule() {{
-            add("enderecoEmail", email(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
+            add("enderecoEmail", gerarEmail(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
         }});
         
         final int QTD_EMAILS_IGUAIS = 2;
