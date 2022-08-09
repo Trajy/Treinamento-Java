@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.contmatic.model.contato.Telefone;
-import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;
 
 public final class TelefoneFabricaObjetos {
@@ -92,7 +91,7 @@ public final class TelefoneFabricaObjetos {
             add("numero", of(NUMERO_TELEFONE_EXPRESSAO_REGULAR));
         }});
         
-        fabricarObjeto(Telefone.class, OBRIGATORIOS_ARGS, ew Rule() {{
+        fabricarObjeto(Telefone.class, OBRIGATORIOS_ARGS, new Rule() {{
             add("ddd", parseInt(of(DDI_DDD_EXPRESSAO_REGULAR)));
             add("numero", of(NUMERO_TELEFONE_EXPRESSAO_REGULAR));
         }});
@@ -103,7 +102,7 @@ public final class TelefoneFabricaObjetos {
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_01 = 0;
         INDICE_TELEFONE_ATRIBUTOS_OBRIGATORIOS_02 = 1;
         TELEFONE_TODOS_ATRIBUTOS = obterObjeto(Telefone.class, TODOS_ARGS);
-        TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS = Fixture.from(Telefone.class).gimme(QTD_INSTANCIAS_IGUAIS, OBRIGATORIOS_ARGS.name());
+        TELEFONES_IGUAIS_ATRIBUTOS_OBRIGATORIOS = obterVariosObjetos(Telefone.class, TODOS_ARGS, QTD_INSTANCIAS_IGUAIS);
         
         TELEFONE_01 = new Telefone(DDI_01 ,DDD_01, NUMERO_TELEFONE_01);
         TELEFONE_02 = new Telefone(DDI_02, DDD_02, NUMERO_TELEFONE_02);
