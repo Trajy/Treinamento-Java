@@ -3,10 +3,11 @@ package br.com.contmatic.test.model.fabricaobjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarLetrasAleatorias;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarNumerosAleatorios;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,24 +21,26 @@ public final class CargoFabricaObjetos<T> {
         
     }
     
-    public static String CBO_01;
-    public static String CBO_02;
-    public static String CBO_03;
-    public static String CBO_04;
-    public static String NOME_CARGO_01;
-    public static String NOME_CARGO_02;
-    public static String DESCRICAO_CARGO_01;
-    public static String DESCRICAO_CARGO_02;
-    public static Cargo CARGO_01;
-    public static Cargo CARGO_02;
-    public static Cargo CARGO_03;
-    public static Cargo CARGO_04;
-    public static List<Cargo> CARGOS;
-    public static List<Cargo> LISTA_CARGOS_ACIMA_LIMITE;
+    public static final String CBO_01;
+    public static final String CBO_02;
+    public static final String CBO_03;
+    public static final String CBO_04;
+    public static final String NOME_CARGO_01;
+    public static final String NOME_CARGO_02;
+    public static final String DESCRICAO_CARGO_01;
+    public static final String DESCRICAO_CARGO_02;
+    public static final Cargo CARGO_01;
+    public static final Cargo CARGO_02;
+    public static final Cargo CARGO_03;
+    public static final Cargo CARGO_04;
+    public static final List<Cargo> CARGOS;
+    public static final List<Cargo> LISTA_CARGOS_ACIMA_LIMITE;
+    public static final Integer INDICE_01;
+    public static final Integer INDICE_02;
+    public static final Cargo CARGO_TODOS_ATRIBUDOS;
+    public static final List<Cargo> CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS;
     
-    
-    
-    static void construirCargo() { 
+    static {
         CBO_01 = "85748394";
         CBO_02 = "83758292";
         CBO_03 = "09876543";
@@ -47,20 +50,14 @@ public final class CargoFabricaObjetos<T> {
         DESCRICAO_CARGO_01 = "desenvolvimento de software";
         DESCRICAO_CARGO_02 = "garantir a qualidade de software e metodologias de testes";
         
-        String REGEX_GERAR_CBO = "[0-9]{2,3}";
-        
         Class<Cargo> classe = Cargo.class;
-        /*
-        fabricarObjeto(classe, TODOS_ARGS, new Rule() {{
-            add("cbo", );
-            add("nome", );
-            add("descricao", );
-            add("empresa", );
-        }});
+        fabricarCargos(classe);
         
-        fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
-            add("cbo", );
-        }});*/
+        final int QUANTIDADE_CARGOS_IGUAIS = 2;
+        INDICE_01 = 0;
+        INDICE_02 = 1;
+        CARGO_TODOS_ATRIBUDOS = obterObjeto(classe, TODOS_ARGS);
+        CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS = obterVariosObjetos(classe, OBRIGATORIOS_ARGS, QUANTIDADE_CARGOS_IGUAIS);
         
         CARGO_01 = new Cargo(CBO_01, NOME_CARGO_01, DESCRICAO_CARGO_01);
         CARGO_02 = new Cargo(CBO_02, NOME_CARGO_02, DESCRICAO_CARGO_02);
@@ -73,9 +70,35 @@ public final class CargoFabricaObjetos<T> {
         CARGOS.add(CARGO_04);
         LISTA_CARGOS_ACIMA_LIMITE = new ArrayList<>();
         LISTA_CARGOS_ACIMA_LIMITE.addAll(CARGOS);
-        LISTA_CARGOS_ACIMA_LIMITE.add(CARGO_01);
-        
+        LISTA_CARGOS_ACIMA_LIMITE.add(CARGO_01);   
     }
     
+    static void construirCargo() { 
+    
+    }
+    
+    public static void fabricarCargos(Class classe) {   
+        fabricarObjeto(classe, TODOS_ARGS, new Rule() {{
+            add("cbo", gerarCbo());
+            add("nome", gerarCharsAleatorios());
+            add("descricao", gerarCharsAleatorios());
+            add("empresa", new Empresa("11222333000181"));
+        }});
+        fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
+            add("cbo", gerarCbo());
+        }});     
+    }
+    
+    public static String gerarCbo() {
+        final int TAMANHO_MIN_CBO = 4;
+        final int TAMANHO_MAX_CBO = 8;
+        return gerarNumerosAleatorios(TAMANHO_MIN_CBO, TAMANHO_MAX_CBO);
+    }
+    
+    public static String gerarCharsAleatorios() {
+        final int COMUM_MIN = 2;
+        final int COMUM_MAX = 70;
+        return gerarLetrasAleatorias(COMUM_MIN, COMUM_MAX);
+    }
     
 }

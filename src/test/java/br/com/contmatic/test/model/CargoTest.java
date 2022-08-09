@@ -1,9 +1,22 @@
 package br.com.contmatic.test.model;
 
-import static br.com.contmatic.test.model.fabricaobjetos.CriacaoObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
-import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_04;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_TODOS_ATRIBUDOS;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.INDICE_01;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.INDICE_02;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CBO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CBO_02;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.DESCRICAO_CARGO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.NOME_CARGO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.MAX_CHARS_GERAL;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.NUMEROS_COM_LETRA_LITERAL;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.SOMENTE_ESPACOS;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.TEXTO_COM_1_CHAR;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.VAZIO;
+import static br.com.contmatic.test.model.fabricaobjetos.CriacaoObjetos.construirObjetos;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
@@ -24,67 +37,59 @@ public class CargoTest {
 		construirObjetos();
 	}
 	
-	@Test
-	public void test_02_instancia_com_construtor_todos_os_artributos() {
-		assertEquals(CBO_01, CARGO_01.getCBO());
-		assertEquals(NOME_CARGO_01, CARGO_01.getNome());
-		assertEquals(DESCRICAO_CARGO_01, CARGO_01.getDescricao());
-		assertEquals(EMPRESA_TODOS_ATRIBUTOS, CARGO_01.getEmpresa());
-	}
-	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_03_cbo_nulo() {
-		CARGO_03.setCBO(null);
+		CARGO_TODOS_ATRIBUDOS.setCBO(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_04_cbo_vazio() {
-		CARGO_01.setCBO(VAZIO);
+		CARGO_TODOS_ATRIBUDOS.setCBO(VAZIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_05_cbo_somente_espacos() {
-		CARGO_03.setCBO(SOMENTE_ESPACOS);
+		CARGO_TODOS_ATRIBUDOS.setCBO(SOMENTE_ESPACOS);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_06_cbo_com_letras() {
-		CARGO_01.setCBO(NUMEROS_COM_LETRA_LITERAL);
+		CARGO_TODOS_ATRIBUDOS.setCBO(NUMEROS_COM_LETRA_LITERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_07_cbo_maior_que_permitido() {
-		CARGO_01.setCBO(MAX_CHARS_GERAL);
+		CARGO_TODOS_ATRIBUDOS.setCBO(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_08_nome_nulo() {
-		CARGO_01.setNome(null);
+		CARGO_TODOS_ATRIBUDOS.setNome(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_09_nome_vazio() {
-		CARGO_01.setNome(VAZIO);
+		CARGO_TODOS_ATRIBUDOS.setNome(VAZIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_10_nome_acima_max_chars() {
-		CARGO_01.setNome(MAX_CHARS_GERAL);
+		CARGO_TODOS_ATRIBUDOS.setNome(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_11_nome_abaixo_min_chars() {
-		CARGO_03.setNome(TEXTO_COM_1_CHAR);
+		CARGO_TODOS_ATRIBUDOS.setNome(TEXTO_COM_1_CHAR);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_12_nome_nao_alfanumerico() {
-		CARGO_03.setNome(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
+		CARGO_TODOS_ATRIBUDOS.setNome(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_13_descricao_nula() {
-		CARGO_03.setDescricao(null);
+		CARGO_TODOS_ATRIBUDOS.setDescricao(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -94,49 +99,51 @@ public class CargoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_15_descricao_acima_max_chars() {
-		CARGO_01.setDescricao(MAX_CHARS_GERAL);
+		CARGO_TODOS_ATRIBUDOS.setDescricao(MAX_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_16_descricao_abaixo_min_chars() {
-		CARGO_03.setDescricao(TEXTO_COM_1_CHAR);
+		CARGO_TODOS_ATRIBUDOS.setDescricao(TEXTO_COM_1_CHAR);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_17_descricao_nao_alfanumerico() {
-		CARGO_03.setDescricao(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
+		CARGO_TODOS_ATRIBUDOS.setDescricao(TEXTO_COM_CHAR_NAO_ALFANUMERICO);
 	}
 	
 	@Test
 	public void test_18_metodo_hashcode() {
-		assertEquals(CARGO_04.hashCode(), CARGO_01.hashCode());
+	    assertEquals(
+		    CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).hashCode(),
+		    CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_02).hashCode()
+	   );
 	}
 	
 	@Test
 	public void test_19_validar_metodo_equals() {
-		assertTrue(CARGO_04.equals(CARGO_01));
-		assertTrue(CARGO_04.equals(CARGO_04));
+		assertTrue(CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).equals(CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01)));
+		assertTrue(CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).equals(CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_02)));
 		assertFalse(CARGO_01.equals(new Object()));
 		assertFalse(CARGO_04.equals(null));
-		CARGO_04.setCBO(CBO_02);
-		assertFalse(CARGO_01.equals(CARGO_04));
+		assertFalse(CARGO_TODOS_ATRIBUDOS.equals(CARGOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01)));
 	}
 	
 	@Test
 	public void test_20_metodo_tostring() {
 		assertThat(
-			CARGO_01.toString(), 
+			CARGO_TODOS_ATRIBUDOS.toString(), 
 			allOf(
-				containsString(CBO_01),
-				containsString(NOME_CARGO_01),
-				containsString(DESCRICAO_CARGO_01)
+				containsString(CARGO_TODOS_ATRIBUDOS.getCBO()),
+				containsString(CARGO_TODOS_ATRIBUDOS.getNome()),
+				containsString(CARGO_TODOS_ATRIBUDOS.getDescricao())
 			)
 		);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
     public void test_31_validar_empresa_nulo() {
-        CARGO_01.setEmpresa(null);
+        CARGO_TODOS_ATRIBUDOS.setEmpresa(null);
     }
 		
 }
