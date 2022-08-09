@@ -2,15 +2,13 @@ package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_01;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_02;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarLetrasAleatorias;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarNomeAleatorio;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
-import static br.com.six2six.bfgex.RandomGen.pickRange;
-import static br.com.six2six.bfgex.RandomGen.word;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.lang.math.NumberRange;
 
 import br.com.contmatic.model.empresa.AmbienteTrabalho;
 import br.com.contmatic.model.empresa.Empresa;
@@ -74,33 +72,21 @@ public final class AmbienteTrabalhoFabricaObjetos {
     
     private static void fabricarAmbientesTrabalho() {
         Fixture.of(AmbienteTrabalho.class).addTemplate(TODOS_ARGS.name(), new Rule() {{ 
-            add("nome", obterPalavraAleatoria());
-            add("tipoEstabelecimento", obterPalavraAleatoria());
+            add("nome", gerarCharsAleatorios());
+            add("tipoEstabelecimento", gerarCharsAleatorios());
             add("endereco", ENDERECO_01);
-            add("responsavel", obterPalavraAleatoria());
-            add("descricao", obterPalavraAleatoria());
+            add("responsavel", gerarNomeAleatorio());
+            add("descricao", gerarCharsAleatorios());
             add("empresa", new Empresa("11222333000181")); 
         }});
         
         Fixture.of(AmbienteTrabalho.class).addTemplate(OBRIGATORIOS_ARGS.name(), new Rule() {{ 
-            add("nome", obterPalavraAleatoria());
-            add("responsavel", obterPalavraAleatoria());
+            add("nome", gerarCharsAleatorios());
+            add("responsavel", gerarNomeAleatorio());
         }});
     }
     
-    private static String obterPalavraAleatoria() {
-        final int TAMANHO_MINIMO = 2;
-        final int TAMANHO_MAXIMO = 50;
-        String palavraAleatoria = "";
-        do {
-            palavraAleatoria =  word(
-                pickRange(
-                    new NumberRange(TAMANHO_MINIMO, TAMANHO_MAXIMO)
-                ).intValue()
-            ).replaceAll("[^A-Za-zá-úÁ-Ú., ]", "");
-        } while (palavraAleatoria.length() < TAMANHO_MINIMO);
-        return palavraAleatoria; 
-    }
+    
     
     private static void atribuirAmbientesTrabalho() {
         final int QTD_AMBIENTES_TRAB_IGUAIS = 2;
@@ -117,5 +103,11 @@ public final class AmbienteTrabalhoFabricaObjetos {
         AMBIENTES_DE_TRABALHO = new ArrayList<>();
         AMBIENTES_DE_TRABALHO.add(AMBIENTE_TRAB_01);
         AMBIENTES_DE_TRABALHO.add(AMBIENTE_TRAB_02);
+    }
+    
+    public static String gerarCharsAleatorios() {
+        final int COMUM_MIN = 2;
+        final int COMUM_MAX = 70;
+        return gerarLetrasAleatorias(COMUM_MIN, COMUM_MAX);
     }
 }
