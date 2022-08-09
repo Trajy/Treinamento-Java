@@ -9,7 +9,7 @@ public final class TelefoneConstantes {
     public static final int DDI_TAMANHO_MAX = 3;
     public static final int DDI_TAMANHO_MIN = 1;
     public static final int DDD_TAMANHO_MAX = 3;
-    public static final int DDD_TAMANHO_MIN = 2;
+    public static final int DDD_TAMANHO_MIN = 1;
     public static final int TELEFONE_MAX = 9;
     public static final int TELEFONE_MIN = 8;
     
