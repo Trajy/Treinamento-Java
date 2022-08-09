@@ -90,14 +90,14 @@ public final class AmbienteTrabalhoFabricaObjetos {
     
     private static String obterPalavraAleatoria() {
         final int TAMANHO_MINIMO = 2;
-        final int TAMANHO_MAXIMO = 70;
+        final int TAMANHO_MAXIMO = 50;
         String palavraAleatoria = "";
         do {
             palavraAleatoria =  word(
                 pickRange(
                     new NumberRange(TAMANHO_MINIMO, TAMANHO_MAXIMO)
                 ).intValue()
-            ).replaceAll("\\d", "");
+            ).replaceAll("[^A-Za-zá-úÁ-Ú., ]", "");
         } while (palavraAleatoria.length() < TAMANHO_MINIMO);
         return palavraAleatoria; 
     }
