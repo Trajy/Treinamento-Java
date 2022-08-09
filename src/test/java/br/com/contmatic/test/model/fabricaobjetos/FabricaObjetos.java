@@ -29,7 +29,7 @@ public final class FabricaObjetos {
         return email(tamanho, dominio);
     }
     
-    public static Integer gerarDDDOuDDI() {
+    public static Integer gerarDddOuDdi() {
         final String DDI_DDD_EXPRESSAO_REGULAR = "[0-9]{2,3}";
         return parseInt(of(DDI_DDD_EXPRESSAO_REGULAR));
         

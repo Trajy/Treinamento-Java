@@ -1,7 +1,7 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarDDDOuDDI;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarDddOuDdi;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarTelefone;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
@@ -68,13 +68,13 @@ public final class TelefoneFabricaObjetos {
         Class<Telefone> classe = Telefone.class;
         
         fabricarObjeto(classe, TODOS_ARGS, new Rule() {{
-            add("ddi", gerarDDDOuDDI());
-            add("ddd", gerarTelefone());
+            add("ddi", gerarDddOuDdi());
+            add("ddd", gerarDddOuDdi());
             add("numero", gerarTelefone());
         }});
         
         fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
-            add("ddd", gerarDDDOuDDI());
+            add("ddd", gerarDddOuDdi());
             add("numero", gerarTelefone());
         }});
         
