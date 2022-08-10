@@ -37,6 +37,12 @@ public final class FabricaObjetos {
              .toString());
     }
     
+    public static String gerarLetrasAleatorias() {
+        final int COMUM_MIN = 2;
+        final int COMUM_MAX = 70;
+        return gerarLetrasAleatorias(COMUM_MIN, COMUM_MAX);
+    }
+    
     public static String gerarLetrasAleatorias(Integer tamanhoMinimo, Integer tamanhoMaximo) {
         String palavraAleatoria = "";
         do {
@@ -51,6 +57,10 @@ public final class FabricaObjetos {
     
     public static String gerarNomeAleatorio() {
         return firstName();
+    }
+    
+    public static String gerarAPartirRegex(String regex) {
+        return of(regex);
     }
     
 }

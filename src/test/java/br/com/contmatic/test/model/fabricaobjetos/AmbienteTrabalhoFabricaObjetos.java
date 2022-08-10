@@ -72,16 +72,16 @@ public final class AmbienteTrabalhoFabricaObjetos {
     
     private static void fabricarAmbientesTrabalho() {
         Fixture.of(AmbienteTrabalho.class).addTemplate(TODOS_ARGS.name(), new Rule() {{ 
-            add("nome", gerarCharsAleatorios());
-            add("tipoEstabelecimento", gerarCharsAleatorios());
+            add("nome", gerarLetrasAleatorias());
+            add("tipoEstabelecimento", gerarLetrasAleatorias());
             add("endereco", ENDERECO_01);
             add("responsavel", gerarNomeAleatorio());
-            add("descricao", gerarCharsAleatorios());
+            add("descricao", gerarLetrasAleatorias());
             add("empresa", new Empresa("11222333000181")); 
         }});
         
         Fixture.of(AmbienteTrabalho.class).addTemplate(OBRIGATORIOS_ARGS.name(), new Rule() {{ 
-            add("nome", gerarCharsAleatorios());
+            add("nome", gerarLetrasAleatorias());
             add("responsavel", gerarNomeAleatorio());
         }});
     }
@@ -105,9 +105,5 @@ public final class AmbienteTrabalhoFabricaObjetos {
         AMBIENTES_DE_TRABALHO.add(AMBIENTE_TRAB_02);
     }
     
-    public static String gerarCharsAleatorios() {
-        final int COMUM_MIN = 2;
-        final int COMUM_MAX = 70;
-        return gerarLetrasAleatorias(COMUM_MIN, COMUM_MAX);
-    }
+    
 }
