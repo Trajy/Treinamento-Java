@@ -24,15 +24,6 @@ public class ProdutoTest {
 		construirObjetos();
 	}
 	
-	@Test
-	public void test_00_instancias() {
-		assertEquals(NOME_PRODUTO_01, PRODUTO_TODOS_ATRIBUTOS.getNome());
-		assertEquals(VERSAO_01, PRODUTO_TODOS_ATRIBUTOS.getVersao());
-		assertEquals(CODIGO_01, PRODUTO_TODOS_ATRIBUTOS.getCodigo());
-		assertEquals(EMPRESA_TODOS_ATRIBUTOS, PRODUTO_TODOS_ATRIBUTOS.getEmpresa());
-		assertEquals(DESCRICAO_01, PRODUTO_TODOS_ATRIBUTOS.getDescricao());
-		assertEquals(PRECO_01, PRODUTO_TODOS_ATRIBUTOS.getPreco());
-	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_01_nome_produto_nulo() {
@@ -61,7 +52,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_06_versao_produto_nula() {
-		PRODUTO_ATRIBUTOS_OBRIGATORIOS.setVersao(null);
+		PRODUTO_TODOS_ATRIBUTOS.setVersao(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -86,7 +77,7 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test_09_codigo_produto_nula() {
-		PRODUTO_ATRIBUTOS_OBRIGATORIOS.setCodigo(null);
+		PRODUTO_TODOS_ATRIBUTOS.setCodigo(null);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -111,16 +102,16 @@ public class ProdutoTest {
 	
 	@Test
 	public void test_12_metodo_hashcode() {
-		assertEquals(PRODUTO_ATRIBUTOS_OBRIGATORIOS.hashCode(), PRODUTO_TODOS_ATRIBUTOS.hashCode());
+		assertEquals(PRODUTOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).hashCode(), PRODUTOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).hashCode());
 	}
 	
 	@Test
 	public void test_13_metodo_equals() {
-		assertTrue(PRODUTO_TODOS_ATRIBUTOS.equals(PRODUTO_TODOS_ATRIBUTOS));
-		assertTrue(PRODUTO_TODOS_ATRIBUTOS.equals(PRODUTO_ATRIBUTOS_OBRIGATORIOS));
+		assertTrue(PRODUTOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).equals(PRODUTOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01)));
+		assertTrue(PRODUTOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).equals(PRODUTOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_02)));
 		assertFalse(PRODUTO_TODOS_ATRIBUTOS.equals(new Object()));
 		assertFalse(PRODUTO_TODOS_ATRIBUTOS.equals(null));
-		assertFalse(PRODUTO_ATRIBUTOS_OBRIGATORIOS.equals(OUTRO_PRODUTO_ATRIBUTOS_OBRIGATORIOS));
+		assertFalse(PRODUTO_TODOS_ATRIBUTOS.equals(PRODUTOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01)));
 	}
 	
 	@Test
@@ -128,9 +119,9 @@ public class ProdutoTest {
 		assertThat(
 			PRODUTO_TODOS_ATRIBUTOS.toString(), 
 			allOf(
-				containsString(NOME_PRODUTO_01),
-				containsString(CODIGO_01),
-				containsString(VERSAO_01)
+				containsString(PRODUTO_TODOS_ATRIBUTOS.getNome()),
+				containsString(PRODUTO_TODOS_ATRIBUTOS.getCodigo()),
+				containsString(PRODUTO_TODOS_ATRIBUTOS.getVersao())
 			)
 		);
 	}
@@ -142,11 +133,11 @@ public class ProdutoTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_32_validar_preco_abaixo_limite() {
-	    PRODUTO_01.setPreco(PRECO_ABAIXO_MIN);
+	    PRODUTO_TODOS_ATRIBUTOS.setPreco(PRECO_ABAIXO_MIN);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void test_33_validar_preco_acima_limite() {
-	    PRODUTO_01.setPreco(PRECO_ABAIXO_MIN);
+	    PRODUTO_TODOS_ATRIBUTOS.setPreco(PRECO_ABAIXO_MIN);
 	}
 }
