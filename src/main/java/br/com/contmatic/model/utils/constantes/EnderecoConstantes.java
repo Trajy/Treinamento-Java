@@ -14,7 +14,7 @@ public final class EnderecoConstantes {
     public static final int BAIRRO_MAX = 25;
     public static final int BAIRRO_MIN = 2;
     public static final int CIDADE_MAX = 25;
-    public static final int CIDADE_MIN = 3;
+    public static final int CIDADE_MIN = 2;
     public static final int ESTADO_MAX = 15;
     public static final int ESTADO_MIN = 2;
     public static final int PAIS_MAX = 25;
