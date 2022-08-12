@@ -61,7 +61,7 @@ public class Endereco extends Auditoria {
         this.numero = numero;
     }
 
-    public String getCEP() {
+    public String getCep() {
         return cep;
     }
 
@@ -100,7 +100,7 @@ public class Endereco extends Auditoria {
     @Override
     public int hashCode() {
         return new HashCodeBuilder()
-                .append(this.getCEP())
+                .append(this.getCep())
                 .append(this.getNumero())
                 .hashCode();
     }
@@ -118,7 +118,7 @@ public class Endereco extends Auditoria {
         }
         Endereco o = (Endereco) obj;
         return new EqualsBuilder()
-                .append(this.getCEP(), o.getCEP())
+                .append(this.getCep(), o.getCep())
                 .append(this.getNumero(), o.getNumero())
                 .isEquals();
     }
