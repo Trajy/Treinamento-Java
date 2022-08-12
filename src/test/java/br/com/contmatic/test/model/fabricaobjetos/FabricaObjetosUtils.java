@@ -12,9 +12,13 @@ import org.apache.commons.lang.math.NumberRange;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;
 
-public final class FabricaObjetos {
+public final class FabricaObjetosUtils {
     
-    private FabricaObjetos() { }
+    private FabricaObjetosUtils() { }
+    
+    public static final Integer INDICE_01 = 0;
+    
+    public static final Integer INDICE_02 = 1;
     
     public static <T> void fabricarObjeto(Class<T> classe, ObjetoFixtureTemplate template, Rule rule) {
         Fixture.of(classe).addTemplate(template.name(), rule);
@@ -26,6 +30,13 @@ public final class FabricaObjetos {
     
     public static <T> List<T> obterVariosObjetos(Class<T> classe, ObjetoFixtureTemplate template, Integer quantidade) {
         return Fixture.from(classe).gimme(quantidade, template.name());
+    }
+    
+    public static String gerarNumerosAleatorios(Integer tamanho) {
+        return of(new StringBuilder("[0-9]{")
+            .append(tamanho)
+            .append("}")
+            .toString());
     }
     
     public static String gerarNumerosAleatorios(Integer tamanhoMinimo, Integer tamanhoMaximo) {

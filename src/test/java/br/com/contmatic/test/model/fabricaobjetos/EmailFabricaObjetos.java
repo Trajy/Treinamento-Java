@@ -1,8 +1,8 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.fabricarObjeto;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterObjeto;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.obterVariosObjetos;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.fabricarObjeto;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.obterObjeto;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.obterVariosObjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
 import static br.com.six2six.bfgex.RandomGen.email;

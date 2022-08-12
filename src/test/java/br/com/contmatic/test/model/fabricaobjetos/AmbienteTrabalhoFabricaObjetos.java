@@ -2,8 +2,8 @@ package br.com.contmatic.test.model.fabricaobjetos;
 
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_01;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_02;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarLetrasAleatorias;
-import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetos.gerarNomeAleatorio;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarLetrasAleatorias;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarNomeAleatorio;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
 
