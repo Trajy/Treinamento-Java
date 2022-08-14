@@ -37,35 +37,35 @@ public class EmpresaTest {
 	public void test_03_validar_cnpj_nulo(){
 		EMPRESA_TODOS_ATRIBUTOS.setCnpj(null);
 	}
-
+	
 	@Test(expected = IllegalStateException.class)
 	public void test_04_validar_cnpj_invalido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setCnpj(CNPJ_INVALIDO);
+	    EMPRESA_TODOS_ATRIBUTOS.setCnpj(CNPJ_INVALIDO);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_05_validar_cnpj_com_numeros_repetidos(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setCnpj(CNPJ_NUMEROS_REPETIDOS);
+	    EMPRESA_TODOS_ATRIBUTOS.setCnpj(CNPJ_NUMEROS_REPETIDOS);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_06_validar_cnpj_com_apenas_espacos(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setCnpj(SOMENTE_ESPACOS);
+	    EMPRESA_TODOS_ATRIBUTOS.setCnpj(SOMENTE_ESPACOS);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_07_validar_cnpj_com_tamanho_diferente_do_padrao(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setCnpj(CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE);
+	    EMPRESA_TODOS_ATRIBUTOS.setCnpj(CNPJ_COM_QUATIDADE_DIGITOS_DIFERENTE);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_08_validar_cnpj_sem_nenhum_char(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setCnpj(VAZIO);
+	    EMPRESA_TODOS_ATRIBUTOS.setCnpj(VAZIO);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_09_validar_cnpj_com_letra(){
-		EMPRESA_TODOS_ATRIBUTOS.setCnpj(CNPJ_COM_LETRA);
+	    EMPRESA_TODOS_ATRIBUTOS.setCnpj(CNPJ_COM_LETRA);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -75,7 +75,7 @@ public class EmpresaTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void test_12_validar_razao_social_maior_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setRazaoSocial(MAX_CHARS_GERAL);
+	    EMPRESA_TODOS_ATRIBUTOS.setRazaoSocial(MAX_CHARS_GERAL);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -85,12 +85,12 @@ public class EmpresaTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void test_14_validar_razao_social_com_apenas_espacos(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setRazaoSocial(SOMENTE_ESPACOS);
+	    EMPRESA_TODOS_ATRIBUTOS.setRazaoSocial(SOMENTE_ESPACOS);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_15_validar_razao_social_sem_nenhum_char(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setRazaoSocial(VAZIO);
+	    EMPRESA_TODOS_ATRIBUTOS.setRazaoSocial(VAZIO);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -105,22 +105,22 @@ public class EmpresaTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void test_19_validar_nome_fantasia_maior_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setNomeFantasia(MAX_CHARS_GERAL);
+	    EMPRESA_TODOS_ATRIBUTOS.setNomeFantasia(MAX_CHARS_GERAL);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_20_validar_nome_fantasia_menor_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setNomeFantasia(TEXTO_COM_1_CHAR);
+	    EMPRESA_TODOS_ATRIBUTOS.setNomeFantasia(TEXTO_COM_1_CHAR);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_21_validar_nome_fantasia_com_apenas_espacos(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setNomeFantasia(SOMENTE_ESPACOS);
+	    EMPRESA_TODOS_ATRIBUTOS.setNomeFantasia(SOMENTE_ESPACOS);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_22_validar_nome_fantasia_sem_nenhum_char(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setNomeFantasia(VAZIO);
+	    EMPRESA_TODOS_ATRIBUTOS.setNomeFantasia(VAZIO);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -135,22 +135,22 @@ public class EmpresaTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void test_26_validar_area_atuacao_maior_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setAreaAtuacao(MAX_CHARS_GERAL);
+	    EMPRESA_TODOS_ATRIBUTOS.setAreaAtuacao(MAX_CHARS_GERAL);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_27_validar_area_atuacao_menor_que_permitido(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setAreaAtuacao(TEXTO_COM_1_CHAR);
+	    EMPRESA_TODOS_ATRIBUTOS.setAreaAtuacao(TEXTO_COM_1_CHAR);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_28_validar_area_atuacao_com_apenas_espacos(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setAreaAtuacao(SOMENTE_ESPACOS);
+	    EMPRESA_TODOS_ATRIBUTOS.setAreaAtuacao(SOMENTE_ESPACOS);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void test_29_validar_area_atuacao_sem_nenhum_char(){
-		EMPRESA_ATRIBUTOS_OBRIGATORIOS.setAreaAtuacao(VAZIO);
+	    EMPRESA_TODOS_ATRIBUTOS.setAreaAtuacao(VAZIO);
 	}
 
 	@Test(expected = IllegalStateException.class)
