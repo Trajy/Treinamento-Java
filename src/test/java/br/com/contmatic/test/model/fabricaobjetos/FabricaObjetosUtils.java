@@ -54,6 +54,14 @@ public final class FabricaObjetosUtils {
         return gerarLetrasAleatorias(COMUM_MIN, COMUM_MAX);
     }
     
+    public static String gerarLetrasAleatorias(Integer tamanho) {
+        String palavraAleatoria = "";
+        do {
+            palavraAleatoria =  word(tamanho).replaceAll("[^A-Za-zá-úÁ-Ú., ]", "");
+        } while (palavraAleatoria.length() < tamanho);
+        return palavraAleatoria;
+    }
+    
     public static String gerarLetrasAleatorias(Integer tamanhoMinimo, Integer tamanhoMaximo) {
         String palavraAleatoria = "";
         do {
@@ -66,6 +74,12 @@ public final class FabricaObjetosUtils {
         return palavraAleatoria; 
     }
     
+    public static String gerarLetrasComTamanhoPadraoEndereco() {
+        final int TAMANHO_MIN_PADRAO_ENDERECO = 2;
+        final int TAMANHO_MAX_PADRAO_ENDEROCO = 25;
+        return gerarLetrasAleatorias(TAMANHO_MIN_PADRAO_ENDERECO, TAMANHO_MAX_PADRAO_ENDEROCO);
+    }
+    
     public static String gerarNomeAleatorio() {
         return firstName();
     }
@@ -73,5 +87,4 @@ public final class FabricaObjetosUtils {
     public static String gerarAPartirRegex(String regex) {
         return of(regex);
     }
-    
 }

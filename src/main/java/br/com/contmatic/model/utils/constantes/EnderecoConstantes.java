@@ -18,7 +18,7 @@ public final class EnderecoConstantes {
     public static final int ESTADO_MAX = 15;
     public static final int ESTADO_MIN = 2;
     public static final int PAIS_MAX = 25;
-    public static final int PAIS_MIN = 3;
+    public static final int PAIS_MIN = 2;
     
     public static final String NUMERO_ENDERECO_INVALIDO = "numero do endereco fornecido invalido"; 
     public static final String CEP_INVALIDO = "CEP fornecido e invalido";

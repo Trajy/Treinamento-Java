@@ -10,8 +10,10 @@ import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.obt
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.obterVariosObjetos;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarAPartirRegex;
 import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarLetrasAleatorias;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarLetrasComTamanhoPadraoEndereco;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
 import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
+import static br.com.contmatic.test.model.fabricaobjetos.CidadeFabricaObjetos.CIDADE_TODOS_ARTRIBUTOS;
 import br.com.contmatic.model.endereco.Cidade;
 import br.com.contmatic.model.endereco.Endereco;
 import br.com.six2six.fixturefactory.Rule;
@@ -125,7 +127,7 @@ public final class EnderecoFabricaObjetos {
             add("cep", gerarCep());
             add("rua", gerarRua());
             add("bairro", gerarLetrasComTamanhoPadraoEndereco());
-            add("cidade", CIDADE);
+            add("cidade", CIDADE_TODOS_ARTRIBUTOS);
         }});
         
         fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
@@ -148,11 +150,5 @@ public final class EnderecoFabricaObjetos {
         final int RUA_TAMANHO_MIN = 2;
         final int RUA_TAMANHO_MAX = 60;
         return gerarLetrasAleatorias(RUA_TAMANHO_MIN, RUA_TAMANHO_MAX);
-    }
-    
-    private static String gerarLetrasComTamanhoPadraoEndereco() {
-        final int TAMANHO_MIN_PADRAO_ENDERECO = 2;
-        final int TAMANHO_MAX_PADRAO_ENDEROCO = 25;
-        return gerarLetrasAleatorias(TAMANHO_MIN_PADRAO_ENDERECO, TAMANHO_MAX_PADRAO_ENDEROCO);
     }
 }
