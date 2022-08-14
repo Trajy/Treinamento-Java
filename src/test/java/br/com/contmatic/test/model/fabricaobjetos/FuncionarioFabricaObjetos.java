@@ -1,71 +1,82 @@
 package br.com.contmatic.test.model.fabricaobjetos;
 
-import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.AMBIENTE_TRAB_01;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_01;
 import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_02;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.CARGO_TODOS_ATRIBUDOS;
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_ATRIBUTOS_OBRIGATORIOS_02;
 import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.EMPRESA_TODOS_ATRIBUTOS;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_01;
 import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_02;
-import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.TELEFONES;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_TODOS_ATRIBUTOS;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.fabricarObjeto;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarAPartirRegex;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarNomeAleatorio;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.gerarValorNumerico;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.obterObjeto;
+import static br.com.contmatic.test.model.fabricaobjetos.FabricaObjetosUtils.obterVariosObjetos;
+import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.OBRIGATORIOS_ARGS;
+import static br.com.contmatic.test.model.fabricaobjetos.ObjetoFixtureTemplate.TODOS_ARGS;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.contmatic.model.empresa.Empresa;
 import br.com.contmatic.model.empresa.Funcionario;
+import br.com.six2six.fixturefactory.Rule;
+import br.com.six2six.fixturefactory.function.impl.CpfFunction;
 
 public final class FuncionarioFabricaObjetos {
-    
+
     private FuncionarioFabricaObjetos() {
-        
+
     }
-    
-    public static String CPF_01;
-    public static String CPF_02;
-    public static String CPF_03;
-    public static String CPF_04;
-    public static String CPF_05;
-    public static String CPF_06;
-    public static String CPF_07;
-    public static String CPF_08;
-    public static String NOME_01;
-    public static String NOME_02;
-    public static String RG_01;
-    public static String RG_02;
-    public static LocalDate DATA_ATUAL;
-    public static LocalDate DATA_NASCIMENTO_01;
-    public static LocalDate DATA_NASCIMENTO_02;
-    public static LocalDate DATA_ACIMA_MAX;
-    public static LocalDate DATA_ABAIXO_MIN;
-    public static String  SETOR_01;
-    public static String SETOR_02;
-    public static BigDecimal SALARIO_01;
-    public static BigDecimal SALARIO_02;
-    public static Funcionario FUNCIONARIO_01;
-    public static Funcionario FUNCIONARIO_02;
-    public static Funcionario FUNCIONARIO_03;
-    public static Funcionario FUNCIONARIO_04;
-    public static Funcionario FUNCIONARIO_05;
-    public static Funcionario FUNCIONARIO_06;
-    public static Funcionario FUNCIONARIO_07;
-    public static Funcionario FUNCIONARIO_08;
-    public static Funcionario FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS;
-    public static Funcionario OUTRO_FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS;
-    public static Funcionario FUNCIONARIO_TODOS_ATRIBUTOS;
-    public static List<Funcionario> FUNCIONARIOS;
-    public static List<Funcionario> LISTA_FUNCINARIOS_ACIMA_LIMITE;
-    
-    public static BigDecimal SALARIO_NEGATIVO;
-    public static BigDecimal SALARIO_NEGATIVO_COM_PONTO;
-    public static BigDecimal SALARIO_ACIMA_LIMITE;
-    public static String CPF_INVALIDO;
-    public static String CPF_COM_QUANTIDADE_DIG_DIFERENTE;
-    public static String CPF_NUMEROS_REPETIDOS;
-       
-    static void construirFuncionario() {           
+
+    public static final String CPF_01;
+    public static final String CPF_02;
+    public static final String CPF_03;
+    public static final String CPF_04;
+    public static final String CPF_05;
+    public static final String CPF_06;
+    public static final String CPF_07;
+    public static final String CPF_08;
+    public static final String NOME_01;
+    public static final String NOME_02;
+    public static final String RG_01;
+    public static final String RG_02;
+    public static final LocalDate DATA_ATUAL;
+    public static final LocalDate DATA_NASCIMENTO_01;
+    public static final LocalDate DATA_NASCIMENTO_02;
+    public static final LocalDate DATA_ACIMA_MAX;
+    public static final LocalDate DATA_ABAIXO_MIN;
+    public static final String SETOR_01;
+    public static final String SETOR_02;
+    public static final BigDecimal SALARIO_01;
+    public static final BigDecimal SALARIO_02;
+    public static final Funcionario FUNCIONARIO_01;
+    public static final Funcionario FUNCIONARIO_02;
+    public static final Funcionario FUNCIONARIO_03;
+    public static final Funcionario FUNCIONARIO_04;
+    public static final Funcionario FUNCIONARIO_05;
+    public static final Funcionario FUNCIONARIO_06;
+    public static final Funcionario FUNCIONARIO_07;
+    public static final Funcionario FUNCIONARIO_08;
+    public static final Funcionario FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS;
+    public static final Funcionario OUTRO_FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS;
+    public static final Funcionario FUNCIONARIO_TODOS_ATRIBUTOS;
+    public static final List<Funcionario> FUNCIONARIOS;
+    public static final List<Funcionario> LISTA_FUNCINARIOS_ACIMA_LIMITE;
+
+    public static final BigDecimal SALARIO_NEGATIVO;
+    public static final BigDecimal SALARIO_NEGATIVO_COM_PONTO;
+    public static final BigDecimal SALARIO_ACIMA_LIMITE;
+    public static final String CPF_INVALIDO;
+    public static final String CPF_COM_QUANTIDADE_DIG_DIFERENTE;
+    public static final String CPF_NUMEROS_REPETIDOS;
+    public static final List<Funcionario> FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS;
+
+    static {
         CPF_01 = "44632236012";
         CPF_02 = "38275183006";
         CPF_03 = "16916182091";
@@ -99,12 +110,6 @@ public final class FuncionarioFabricaObjetos {
         FUNCIONARIO_08 = new Funcionario(CPF_08, EMPRESA_TODOS_ATRIBUTOS);
         FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS = new Funcionario(CPF_01, EMPRESA_TODOS_ATRIBUTOS);
         OUTRO_FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS = new Funcionario(CPF_02, EMPRESA_TODOS_ATRIBUTOS);
-        FUNCIONARIO_TODOS_ATRIBUTOS = new Funcionario(CPF_01, NOME_01, DATA_NASCIMENTO_01 , ENDERECO_01, CARGO_01, SALARIO_01, EMPRESA_TODOS_ATRIBUTOS);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setSetor(SETOR_01);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setRg(RG_01);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setEmails(EMAILS_IGUAIS_ARGS_OBRIGATORIOS);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setTelefones(TELEFONES);
-        FUNCIONARIO_TODOS_ATRIBUTOS.setAmbienteTrabalho(AMBIENTE_TRAB_01);
         FUNCIONARIOS = new ArrayList<>();
         FUNCIONARIOS.add(FUNCIONARIO_01);
         FUNCIONARIOS.add(FUNCIONARIO_02);
@@ -117,13 +122,62 @@ public final class FuncionarioFabricaObjetos {
         LISTA_FUNCINARIOS_ACIMA_LIMITE = new ArrayList<>();
         LISTA_FUNCINARIOS_ACIMA_LIMITE.addAll(FUNCIONARIOS);
         LISTA_FUNCINARIOS_ACIMA_LIMITE.add(FUNCIONARIO_01);
-        
+
         SALARIO_NEGATIVO = new BigDecimal("-1000.0");
         SALARIO_NEGATIVO_COM_PONTO = BigDecimal.ZERO;
-        SALARIO_ACIMA_LIMITE = new BigDecimal("105000");  
+        SALARIO_ACIMA_LIMITE = new BigDecimal("105000");
         CPF_INVALIDO = "44632236011";
         CPF_COM_QUANTIDADE_DIG_DIFERENTE = "446322360121";
         CPF_NUMEROS_REPETIDOS = "22222222222";
+
+        Class<Funcionario> classe = Funcionario.class;
         
+        fabricarFuncionarios(classe);
+
+        final int QTD_FUNCIONARIOS_IGUAIS = 2;
+        FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS = obterVariosObjetos(classe, OBRIGATORIOS_ARGS, QTD_FUNCIONARIOS_IGUAIS);
+        FUNCIONARIO_TODOS_ATRIBUTOS = obterObjeto(classe, TODOS_ARGS);
     }
+
+    static void construirFuncionario() {
+
+    }
+    
+    private static void fabricarFuncionarios(Class classe) {
+        fabricarObjeto(classe, TODOS_ARGS, new Rule() {{
+            add("cpf", gerarCpf());
+            add("nome", gerarNomeAleatorio());
+            add("dataNascimento", gerarDataNascimento());
+            add("endereco", ENDERECO_TODOS_ATRIBUTOS);
+            add("cargo", CARGO_TODOS_ATRIBUDOS);
+            add("salario", gerarSalario());
+            add("empresa", new Empresa("11222333000181"));  
+        }});
+        fabricarObjeto(classe, OBRIGATORIOS_ARGS, new Rule() {{
+            add("cpf", gerarCpf());
+            add("empresa", new Empresa("11222333000181"));
+        }});
+    }
+
+    private static String gerarCpf() {
+        String cpfTest = new CpfFunction().generateValue();
+        return new CpfFunction().generateValue();
+    }
+    
+    private static BigDecimal gerarSalario() {
+        final int SALARIO_MIN = 800;
+        final int SALARIO_MAX = 100000;
+        return new BigDecimal(gerarValorNumerico(SALARIO_MIN, SALARIO_MAX));
+    }
+    
+    private static String gerarRg() {
+        final String RG_EXPRESSAO_REGULAR = "[0-9xX]{8,10}";
+        return gerarAPartirRegex(RG_EXPRESSAO_REGULAR);
+    }
+    
+    private static LocalDate gerarDataNascimento() {
+        return LocalDate.of(LocalDate.now().getYear() - 22, 12, 30);
+    }
+    
+    
 }

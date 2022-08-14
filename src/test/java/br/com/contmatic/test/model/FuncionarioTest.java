@@ -1,21 +1,37 @@
 package br.com.contmatic.test.model;
 
-import static br.com.contmatic.test.model.fabricaobjetos.CriacaoObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EmailFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.AmbienteTrabalhoFabricaObjetos.*;
-import static br.com.contmatic.test.model.fabricaobjetos.EmpresaFabricaObjetos.*;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.INDICE_01;
+import static br.com.contmatic.test.model.fabricaobjetos.CargoFabricaObjetos.INDICE_02;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.DATA_FUTURO;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.DATA_MENOR_IDADE;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.LISTA_NULA;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.LISTA_VAZIA;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.MAX_CHARS_GERAL;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.NUMEROS_COM_LETRA_LITERAL;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.TEXTO_COM_1_CHAR;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.TEXTO_COM_CHAR_NAO_ALFANUMERICO;
+import static br.com.contmatic.test.model.fabricaobjetos.ComumErroFabricaObjetos.VAZIO;
+import static br.com.contmatic.test.model.fabricaobjetos.CriacaoObjetos.construirObjetos;
+import static br.com.contmatic.test.model.fabricaobjetos.EnderecoFabricaObjetos.ENDERECO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.CPF_COM_QUANTIDADE_DIG_DIFERENTE;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.CPF_INVALIDO;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.CPF_NUMEROS_REPETIDOS;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.DATA_ABAIXO_MIN;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.DATA_ACIMA_MAX;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.FUNCIONARIO_01;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.FUNCIONARIO_TODOS_ATRIBUTOS;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.SALARIO_ACIMA_LIMITE;
+import static br.com.contmatic.test.model.fabricaobjetos.FuncionarioFabricaObjetos.SALARIO_NEGATIVO;
+import static br.com.contmatic.test.model.fabricaobjetos.TelefoneFabricaObjetos.LISTA_TELEFONES_ACIMA_DO_LIMITE;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.core.AllOf.allOf;
-import static org.hamcrest.core.StringContains.containsString;
+
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -28,23 +44,6 @@ public class FuncionarioTest {
 	@BeforeClass
 	public static void pre_test(){
 		construirObjetos();
-	}
-	
-	@Test
-	public void test_00_instancia() {
-		assertEquals(CPF_01, FUNCIONARIO_TODOS_ATRIBUTOS.getCpf());
-		assertEquals(NOME_01, FUNCIONARIO_TODOS_ATRIBUTOS.getNome());
-		assertEquals(DATA_NASCIMENTO_01, FUNCIONARIO_TODOS_ATRIBUTOS.getDataNascimento());
-		assertEquals(ENDERECO_01, FUNCIONARIO_TODOS_ATRIBUTOS.getEndereco());
-		assertEquals(SETOR_01, FUNCIONARIO_TODOS_ATRIBUTOS.getSetor());
-		assertEquals(CARGO_01, FUNCIONARIO_TODOS_ATRIBUTOS.getCargo());
-		assertEquals(SALARIO_01, FUNCIONARIO_TODOS_ATRIBUTOS.getSalario());
-		assertEquals(RG_01, FUNCIONARIO_TODOS_ATRIBUTOS.getRg());
-		// TODO - Remove comments
-		//assertEquals(EMAILS, FUNCIONARIO_TODOS_ATRIBUTOS.getEmails());
-		assertEquals(TELEFONES, FUNCIONARIO_TODOS_ATRIBUTOS.getTelefones());
-		assertEquals(AMBIENTE_TRAB_01, FUNCIONARIO_TODOS_ATRIBUTOS.getAmbienteTrabalho());
-		assertEquals(EMPRESA_TODOS_ATRIBUTOS, FUNCIONARIO_TODOS_ATRIBUTOS.getEmpresa());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -225,16 +224,16 @@ public class FuncionarioTest {
 	
 	@Test
 	public void test_36_metodo_hashcode() {
-		assertEquals(FUNCIONARIO_TODOS_ATRIBUTOS.hashCode(), FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.hashCode());
+		assertEquals(FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).hashCode(), FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_02).hashCode());
 	}
 	
 	@Test
 	public void test_37_metodo_equals() {
 		assertTrue(FUNCIONARIO_TODOS_ATRIBUTOS.equals(FUNCIONARIO_TODOS_ATRIBUTOS));
-		assertTrue(FUNCIONARIO_TODOS_ATRIBUTOS.equals(FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS));
+		assertTrue(FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01).equals(FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_02)));
 		assertFalse(FUNCIONARIO_TODOS_ATRIBUTOS.equals(new Object()));
 		assertFalse(FUNCIONARIO_TODOS_ATRIBUTOS.equals(null));
-		assertFalse(FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS.equals(OUTRO_FUNCIONARIO_ATRIBUTOS_OBRIGATORIOS));
+		assertFalse(FUNCIONARIO_TODOS_ATRIBUTOS.equals(FUNCIONARIOS_IGUAIS_ATRIBUTOS_OBRIGATORIOS.get(INDICE_01)));
 	}
 	
 	@Test
@@ -242,14 +241,13 @@ public class FuncionarioTest {
 		assertThat(
 			FUNCIONARIO_TODOS_ATRIBUTOS.toString(), 
 			allOf(
-				containsString(CPF_01),
-				containsString(NOME_01),
-				containsString(DESCRICAO_CARGO_01),
-				containsString(DATA_NASCIMENTO_01.toString()),
+				containsString(FUNCIONARIO_TODOS_ATRIBUTOS.getCpf()),
+				containsString(FUNCIONARIO_TODOS_ATRIBUTOS.getNome()),
+				containsString(FUNCIONARIO_TODOS_ATRIBUTOS.getCargo().toString()),
+				containsString(FUNCIONARIO_TODOS_ATRIBUTOS.getDataNascimento().toString()),
 				containsString(ENDERECO_01.toString()),
-				containsString(SETOR_01),
-				containsString(CARGO_01.toString()),
-				containsString(SALARIO_01.toString())
+				containsString(FUNCIONARIO_TODOS_ATRIBUTOS.getSetor()),
+				containsString(FUNCIONARIO_TODOS_ATRIBUTOS.getSalario().toString())
 			)
 		);
 	}

@@ -32,6 +32,10 @@ public final class FabricaObjetosUtils {
         return Fixture.from(classe).gimme(quantidade, template.name());
     }
     
+    public static String gerarValorNumerico(Number min, Number max) {
+        return  pickRange(new NumberRange(min, max)).toString();
+    }
+    
     public static String gerarNumerosAleatorios(Integer tamanho) {
         return of(new StringBuilder("[0-9]{")
             .append(tamanho)
