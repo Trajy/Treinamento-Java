@@ -4,24 +4,30 @@ import static br.com.contmatic.model.utils.validacao.ValidacaoContato.validarEma
 import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+import static br.com.contmatic.model.utils.constantes.EmailConstantes.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 
-public class Email {
-
-    private String enderecoEmail;
-
-    public Email(String enderecoEmail) {
-        setEmail(enderecoEmail);
+public class CorreioEletronico {
+    
+    @NotBlank(message = "O email deve ser preenchido")
+    @Length(min = EMAIL_MIN, max = EMAIL_MAX, message = "O email deve conter entre {min} e {max} caracteres")
+    @Email(message = "email invalido")
+    private String endereco;
+    
+    public CorreioEletronico(String endereco) {
+        setEndereco(endereco);
     }
 
-    public String getEmail() {
-        return this.enderecoEmail;
+    public String getEndereco() {
+        return this.endereco;
     }
 
-    public void setEmail(String email) {
-        validarEmail(email);
-        this.enderecoEmail = email;
+    public void setEndereco(String email) {
+        this.endereco = email;
     }
 
     @Override
@@ -37,12 +43,12 @@ public class Email {
         if (obj == this) {
             return true;
         }
-        if(!(obj instanceof Email)) {
+        if(!(obj instanceof CorreioEletronico)) {
             return false;
         }
-        Email o = (Email) obj;
+        CorreioEletronico o = (CorreioEletronico) obj;
         return new EqualsBuilder()
-                .append(this.getEmail(), o.getEmail())
+                .append(this.getEndereco(), o.getEndereco())
                 .isEquals();
     }
 

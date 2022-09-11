@@ -10,7 +10,7 @@ import static br.com.six2six.bfgex.RandomGen.firstName;
 
 import java.util.List;
 
-import br.com.contmatic.model.contato.Email;
+import br.com.contmatic.model.contato.CorreioEletronico;
 import br.com.six2six.fixturefactory.Rule;
 
 public final class EmailFabricaObjetos {
@@ -24,8 +24,8 @@ public final class EmailFabricaObjetos {
     public static final String EMAIL_COM_ARROBA_INICIO;
     public static final Integer INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01;
     public static final Integer INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02;
-    public static final Email EMAIL_TODOS_ARGS;
-    public static final List<Email> EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
+    public static final CorreioEletronico EMAIL_TODOS_ARGS;
+    public static final List<CorreioEletronico> EMAILS_IGUAIS_ARGS_OBRIGATORIOS;
     
     private EmailFabricaObjetos() {
         
@@ -45,17 +45,17 @@ public final class EmailFabricaObjetos {
         final int QTD_EMAILS_IGUAIS = 2;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_01 = 0;
         INDICE_EMAIL_TODOS_ARGS_COM_ARGS_OBRIGATORIOS_02 = 1;
-        EMAIL_TODOS_ARGS = obterObjeto(Email.class, TODOS_ARGS);
-        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = obterVariosObjetos(Email.class, OBRIGATORIOS_ARGS, QTD_EMAILS_IGUAIS);
+        EMAIL_TODOS_ARGS = obterObjeto(CorreioEletronico.class, TODOS_ARGS);
+        EMAILS_IGUAIS_ARGS_OBRIGATORIOS = obterVariosObjetos(CorreioEletronico.class, OBRIGATORIOS_ARGS, QTD_EMAILS_IGUAIS);
     }
     
     public static void fabricarEmails() {
-        fabricarObjeto(Email.class, OBRIGATORIOS_ARGS, new Rule() {{
-            add("enderecoEmail", gerarEmail(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
+        fabricarObjeto(CorreioEletronico.class, OBRIGATORIOS_ARGS, new Rule() {{
+            add("endereco", gerarEmail(TAMANHO_MAX_EMAIL, DOMINIO_CONTMATIC));
         }});
         
-        fabricarObjeto(Email.class, TODOS_ARGS, new Rule() {{
-            add("enderecoEmail", gerarEmail(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
+        fabricarObjeto(CorreioEletronico.class, TODOS_ARGS, new Rule() {{
+            add("endereco", gerarEmail(TAMANHO_COMUM_EMAIL, DOMINIO_CONTMATIC));
         }}); 
     }
     

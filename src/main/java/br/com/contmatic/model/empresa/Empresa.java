@@ -32,7 +32,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
-import br.com.contmatic.model.contato.Email;
+import br.com.contmatic.model.contato.CorreioEletronico;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.endereco.Endereco;
 
@@ -46,7 +46,7 @@ public class Empresa extends Auditoria {
 
     private String areaAtuacao;
 
-    private List<Email> emails;
+    private List<CorreioEletronico> emails;
 
     private List<Telefone> telefones;
 
@@ -109,11 +109,11 @@ public class Empresa extends Auditoria {
         this.areaAtuacao = areaAtuacao;
     }
 
-    public List<Email> getEmails() {
+    public List<CorreioEletronico> getEmails() {
         return emails;
     }
 
-    public void setEmails(List<Email> emails) {
+    public void setEmails(List<CorreioEletronico> emails) {
         validarLista(emails, LISTA_EMAIL_QTD_MAX, LISTA_EMAIL_INVALIDO);
         this.emails = emails;
     }

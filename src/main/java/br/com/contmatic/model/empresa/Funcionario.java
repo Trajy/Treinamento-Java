@@ -35,7 +35,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.com.contmatic.model.auditoria.Auditoria;
-import br.com.contmatic.model.contato.Email;
+import br.com.contmatic.model.contato.CorreioEletronico;
 import br.com.contmatic.model.contato.Telefone;
 import br.com.contmatic.model.endereco.Endereco;
 
@@ -62,7 +62,7 @@ public class Funcionario extends Auditoria {
 
     private List<Telefone> telefones;
 
-    private List<Email> emails;
+    private List<CorreioEletronico> emails;
 
     private BigDecimal salario;
     
@@ -146,11 +146,11 @@ public class Funcionario extends Auditoria {
         this.telefones = telefones;
     }
 
-    public List<Email> getEmails() {
+    public List<CorreioEletronico> getEmails() {
         return this.emails;
     }
 
-    public void setEmails(List<Email> emails) {
+    public void setEmails(List<CorreioEletronico> emails) {
         validarLista(emails, LISTA_EMAIL_QTD_MAX, LISTA_EMAIL_INVALIDO);
         this.emails = emails;
     }
