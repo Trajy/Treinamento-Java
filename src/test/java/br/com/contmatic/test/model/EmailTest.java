@@ -15,42 +15,64 @@ import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static br.com.contmatic.test.util.ValidacaoTesteUtils.validarAnnotation;
 
+import java.util.Set;
+
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import br.com.contmatic.test.util.ValidacaoTesteUtils;
+
 @FixMethodOrder(MethodSorters.JVM)
 public class EmailTest {
-	
-	@Test(expected = IllegalArgumentException.class)
+    
+    private Validator validador;
+    
+    @Before
+    public void gerarValidador() {
+        final ValidatorFactory fabricaValidador = Validation.buildDefaultValidatorFactory();
+        validador = fabricaValidador.getValidator();
+    }
+    
+    @Test
 	public void teste_email_nulo() {
-		EMAIL_TODOS_ARGS.setEmail(null);
+		validarAnnotation(EMAIL_TODOS_ARGS, NotBlank.class, () -> EMAIL_TODOS_ARGS.setEndereco(null));
 	}
 	
-	@Test(expected = IllegalStateException.class)
+	@Test
 	public void teste_email_vazio() {
-		EMAIL_TODOS_ARGS.setEmail(VAZIO);
+		validarAnnotation(EMAIL_TODOS_ARGS, NotBlank.class, () -> EMAIL_TODOS_ARGS.setEndereco(VAZIO));
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void teste_email_sem_arroba() {
-		EMAIL_TODOS_ARGS.setEmail(EMAIL_SEM_ARROBA);
+		EMAIL_TODOS_ARGS.setEndereco(EMAIL_SEM_ARROBA);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void teste_email_inicia_com_arroba() {
-		EMAIL_TODOS_ARGS.setEmail(EMAIL_COM_ARROBA_INICIO);
+		EMAIL_TODOS_ARGS.setEndereco(EMAIL_COM_ARROBA_INICIO);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void teste_email_abaixo_min_chars() {
-		EMAIL_TODOS_ARGS.setEmail(MIN_CHARS_GERAL);
+		EMAIL_TODOS_ARGS.setEndereco(MIN_CHARS_GERAL);
 	}
 	
 	@Test(expected = IllegalStateException.class)
 	public void teste_email_acima_max_chars() {
-		EMAIL_TODOS_ARGS.setEmail(MAX_CHARS_GERAL);
+		EMAIL_TODOS_ARGS.setEndereco(MAX_CHARS_GERAL);
 	}
 	
 	@Test
@@ -72,7 +94,7 @@ public class EmailTest {
 		assertThat(
 			EMAIL_TODOS_ARGS.toString(), 
 			allOf(
-				containsString(EMAIL_TODOS_ARGS.getEmail())
+				containsString(EMAIL_TODOS_ARGS.getEndereco())
 			)
 		);
 	}
