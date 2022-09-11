@@ -31,14 +31,10 @@ public class ValidacaoTesteUtils {
     
     private static <T> T copiarObjeto(T objeto, Class<T> classe) {
         Gson mapper = new Gson();
-        System.out.println(objeto + "To aqui");
-        System.out.println(mapper.toJson(objeto) + "sou a copia");
         return mapper.fromJson(mapper.toJson(objeto), classe);
     }
     
     private static <T> void encontrarAtributoAlterado(T objetoTeste, T copiaObjetoTeste, Class annotationClass) {
-        System.out.println(of(objetoTeste.getClass().getDeclaredFields()).toList() + "original");
-        System.out.println(of(copiaObjetoTeste.getClass().getDeclaredFields()).toList() + "copiado papai");
         List<Field> atributosComValorDiferente = of(objetoTeste.getClass().getDeclaredFields())
                 .filter((atributo) -> of(copiaObjetoTeste.getClass().getDeclaredFields()).toList().contains(atributo))
                 .filter(atributo -> {
@@ -54,10 +50,8 @@ public class ValidacaoTesteUtils {
                         throw new AssertionError("erro ao obter valor dos objetos\n" + e.getMessage());
                     }
                 }).toList();
-        System.out.println(atributosComValorDiferente + "olha nois");
         validarAlteracaoUnicoAtributo(atributosComValorDiferente);
         verificarViolacao(objetoTeste, annotationClass, first(atributosComValorDiferente).getName());
-        System.out.println(first(atributosComValorDiferente).getName() + "aki ooo");
         retornarValorInicial(objetoTeste, copiaObjetoTeste, first(atributosComValorDiferente));
     }
     
@@ -76,8 +70,6 @@ public class ValidacaoTesteUtils {
                 .toList(),
                 (violacao) -> violacao.getConstraintDescriptor().getAnnotation().annotationType().equals(annotationClass)    
         );
-        System.out.println(violacaoAtributoAlterado);
-        System.out.println(annotationClass);
         if(nonNull(violacaoAtributoAlterado)) {
             return;
         }
